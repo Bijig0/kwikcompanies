@@ -2,9 +2,11 @@
 import AkpagerLayout from "@layouts/AkpagerLayout";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Radio, RadioGroup } from "react-radio-group";
+import RadioButtons from "./RadioButtons";
+import Select from "./Select";
 import FormValues from "./form";
 import { BusinessHistory } from "./individual";
+
 const Page = () => {
   const {
     register,
@@ -52,10 +54,23 @@ const Page = () => {
                   <p>
                     Questions or you would just like to say hello, contact us.
                   </p>
-                  <div className="form-group">
-                    <div className="flex flex-wrap mt-30">
-                      <label htmlFor="name">Business History</label>
-                      {/* <Select /> */}
+                  <label
+                    className="font-bold text-black text-md"
+                    htmlFor="name"
+                  >
+                    Business History
+                  </label>
+                  <Select />
+                  <label
+                    className="font-semibold text-black text-md"
+                    htmlFor="name"
+                  >
+                    Have you had an ABN in the past?
+                  </label>
+                  <RadioButtons />
+                  <div className="col-md-12">
+                    <div className="form-group">
+                      <label htmlFor="message">Why do you need an ABN?</label>
                       <select className="px-3 py-[18px] border-solid border-black">
                         <option className="">
                           This is my first time doing business in Australia
@@ -64,64 +79,23 @@ const Page = () => {
                       <div className="help-block with-errors" />
                     </div>
                   </div>
-                  <div className="form-group">
-                    <label htmlFor="name">
-                      Have you had an ABN in the past?
-                    </label>
-                    <RadioGroup name="fruit">
-                      <Radio value="apple" />
-                      Apple
-                      <Radio value="orange" />
-                      Orange
-                      <Radio value="watermelon" />
-                      Watermelon
-                    </RadioGroup>
-                    <div className="help-block with-errors" />
-                    <div className="col-md-12">
-                      <div className="form-group">
-                        <label htmlFor="message">
-                          Where will your activites be carried out?
-                        </label>
-                        <RadioGroup name="fruit">
-                          <Radio value="apple" />
-                          Apple
-                          <Radio value="orange" />
-                          Orange
-                          <Radio value="watermelon" />
-                          Watermelon
-                        </RadioGroup>
-                        <div className="help-block with-errors" />
-                      </div>
+                  <div className="col-md-12">
+                    <div className="form-group">
+                      <label htmlFor="message">Full Name</label>
+                      <select className="px-3 py-[18px] border-solid border-black">
+                        <option className="">
+                          This is my first time doing business in Australia
+                        </option>
+                      </select>
+                      <div className="help-block with-errors" />
                     </div>
-                    <div className="col-md-12">
-                      <div className="form-group">
-                        <label htmlFor="message">Why do you need an ABN?</label>
-                        <select className="px-3 py-[18px] border-solid border-black">
-                          <option className="">
-                            This is my first time doing business in Australia
-                          </option>
-                        </select>
-                        <div className="help-block with-errors" />
-                      </div>
-                    </div>
-                    <div className="col-md-12">
-                      <div className="form-group">
-                        <label htmlFor="message">Full Name</label>
-                        <select className="px-3 py-[18px] border-solid border-black">
-                          <option className="">
-                            This is my first time doing business in Australia
-                          </option>
-                        </select>
-                        <div className="help-block with-errors" />
-                      </div>
-                    </div>
-                    <div className="col-md-12">
-                      <div className="form-group mb-0">
-                        <button type="submit" className="theme-btn">
-                          Send Us Message <i className="far fa-arrow-right" />
-                        </button>
-                        <div id="msgSubmit" className="hidden" />
-                      </div>
+                  </div>
+                  <div className="col-md-12">
+                    <div className="form-group mb-0">
+                      <button type="submit" className="theme-btn">
+                        Send Us Message <i className="far fa-arrow-right" />
+                      </button>
+                      <div id="msgSubmit" className="hidden" />
                     </div>
                   </div>
                 </form>

@@ -1,6 +1,16 @@
 "use client";
 import AkpagerLayout from "@layouts/AkpagerLayout";
+import { useForm } from "react-hook-form";
+import FormValues from "./form";
 const Page = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormValues>();
+  const onSubmit = (data: FormValues) => {
+    console.log(data);
+  };
   return (
     <AkpagerLayout>
       {/* Contact Page Start */}
@@ -38,6 +48,16 @@ const Page = () => {
                   <div className="row mt-30">
                     <div className="col-md-6">
                       <div className="form-group">
+                        <label htmlFor="name">Business History</label>
+                        <select>
+                          <option>
+                            This is my first time doing business in Australia
+                          </option>
+                          <option>Business History</option>
+                        </select>
+                        <div className="help-block with-errors" />
+                      </div>
+                      {/* <div className="form-group">
                         <label htmlFor="name">Full Name</label>
                         <input
                           type="text"
@@ -50,9 +70,9 @@ const Page = () => {
                           data-error="Please enter your Name"
                         />
                         <div className="help-block with-errors" />
-                      </div>
+                      </div> */}
                     </div>
-                    <div className="col-md-6">
+                    {/* <div className="col-md-6">
                       <div className="form-group">
                         <label htmlFor="email">Email</label>
                         <input
@@ -83,7 +103,7 @@ const Page = () => {
                         />
                         <div className="help-block with-errors" />
                       </div>
-                    </div>
+                    </div> */}
                     <div className="col-md-12">
                       <div className="form-group">
                         <label htmlFor="message">Message</label>

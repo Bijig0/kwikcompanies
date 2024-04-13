@@ -6,7 +6,17 @@ import { Fragment, useEffect } from "react";
 import niceSelect from "react-nice-select";
 import Footer from "./Footer";
 import Header from "./Header";
-const AkpagerLayout = ({ children, header, footer, bodyClass, onePage }) => {
+
+type Props = {
+  children: React.ReactNode;
+  header?: React.ReactNode;
+  footer?: React.ReactNode;
+  bodyClass?: string;
+  onePage?: boolean;
+};
+
+const AkpagerLayout = (props: Props) => {
+  const { children, header, footer, bodyClass, onePage } = props;
   useEffect(() => {
     akpagerUtility.animation();
     akpagerUtility.fixedHeader();

@@ -4,7 +4,14 @@ import { createElement } from "react";
 const Tag = ({ tagName, children, ...props }) =>
   createElement(tagName, props, children);
 
-const PageBanner = ({ pageTitle, pageName, titleTag = "h1" }) => {
+type Props = {
+  pageTitle?: string;
+  pageName?: string;
+  titleTag?: string;
+};
+
+const PageBanner = (props: Props) => {
+  const { pageTitle, pageName, titleTag } = props;
   return (
     <section
       className="page-banner-area overlay py-250 rpy-120 rel z-1 bgs-cover text-center"

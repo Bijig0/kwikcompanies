@@ -1,8 +1,4 @@
 import Link from "next/link";
-import { createElement } from "react";
-
-const Tag = ({ tagName, children, ...props }) =>
-  createElement(tagName, props, children);
 
 type Props = {
   pageTitle?: string;
@@ -19,15 +15,14 @@ const PageBanner = (props: Props) => {
     >
       <div className="container">
         <div className="banner-inner pt-70 rpt-60 text-white">
-          <Tag
-            tagName={titleTag}
+          <div
             className="page-title"
             data-aos="fade-up"
             data-aos-duration={1500}
             data-aos-offset={50}
           >
             {pageTitle ? pageTitle : pageName}
-          </Tag>
+          </div>
           <nav aria-label="breadcrumb">
             <ol
               className="breadcrumb justify-content-center"

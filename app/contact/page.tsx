@@ -1,3 +1,4 @@
+"use client";
 import PageBanner from "@components/PageBanner";
 import AkpagerLayout from "@layouts/AkpagerLayout";
 const Page = () => {

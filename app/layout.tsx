@@ -1,4 +1,4 @@
-import Preloader from "@/components/Preloader";
+import Preloader from "@components/Preloader";
 import "@css/aos.css";
 import "@css/bootstrap.min.css";
 import "@css/flaticon.min.css";

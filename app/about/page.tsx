@@ -1,11 +1,11 @@
 "use client";
-import Counter from "@/components/Counter";
-import PageBanner from "@/components/PageBanner";
-import AkpagerLayout from "@/layouts/AkpagerLayout";
-import { sliderProps } from "@/utility/sliderProps";
+import Counter from "@components/Counter";
+import PageBanner from "@components/PageBanner";
+import AkpagerLayout from "@layouts/AkpagerLayout";
+import { sliderProps } from "@utils/sliderProps";
 import Link from "next/link";
 import Slider from "react-slick";
-const page = () => {
+const Page = () => {
   return (
     <AkpagerLayout>
       <PageBanner pageName={"About Company"} />
@@ -825,4 +825,4 @@ const page = () => {
     </AkpagerLayout>
   );
 };
-export default page;
+export default Page;

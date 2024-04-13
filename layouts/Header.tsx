@@ -1,5 +1,5 @@
 "use client";
-import useClickOutside from "@/utility/useClickOutside";
+import useClickOutside from "@utils/useClickOutside";
 import Link from "next/link";
 import { Fragment, useState } from "react";
 import { Accordion } from "react-bootstrap";

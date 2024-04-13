@@ -1,11 +1,11 @@
 "use client";
-import Counter from "@/components/Counter";
-import TestimonialSlider2 from "@/components/TestimonialSlider2";
-import AkpagerLayout from "@/layouts/AkpagerLayout";
+import Counter from "@components/Counter";
+import TestimonialSlider2 from "@components/TestimonialSlider2";
+import AkpagerLayout from "@layouts/AkpagerLayout";
 import Link from "next/link";
 import { Nav, Tab } from "react-bootstrap";
 
-const page = () => {
+const Page = () => {
   return (
     <AkpagerLayout footer={2} header={2} bodyClass={"home-two"}>
       {/* Hero area start */}
@@ -1115,4 +1115,4 @@ const page = () => {
     </AkpagerLayout>
   );
 };
-export default page;
+export default Page;

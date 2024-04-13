@@ -1,10 +1,10 @@
 "use client";
-import Counter from "@/components/Counter";
-import TestimonialSlider2 from "@/components/TestimonialSlider2";
-import AkpagerLayout from "@/layouts/AkpagerLayout";
+import Counter from "@components/Counter";
+import TestimonialSlider2 from "@components/TestimonialSlider2";
+import AkpagerLayout from "@layouts/AkpagerLayout";
 import Link from "next/link";
 import { Nav, Tab } from "react-bootstrap";
-const page = () => {
+const Page = () => {
   return (
     <AkpagerLayout footer={2} header={2} bodyClass={"home-two"} onePage>
       {/* Hero area start */}
@@ -74,7 +74,7 @@ const page = () => {
                       className="form-control"
                       defaultValue=""
                       placeholder="Your Name"
-                      required=""
+                      required={false}
                     />
                   </div>
                   <div className="form-group">
@@ -85,7 +85,7 @@ const page = () => {
                       className="form-control"
                       defaultValue=""
                       placeholder="Email Address"
-                      required=""
+                      required={false}
                     />
                   </div>
                   <div className="form-group">
@@ -96,7 +96,7 @@ const page = () => {
                       className="form-control"
                       defaultValue=""
                       placeholder="Phone Number"
-                      required=""
+                      required={false}
                     />
                   </div>
                   <div className="form-group input-radio">
@@ -105,7 +105,7 @@ const page = () => {
                       id="terms"
                       name="terms"
                       defaultValue="terms"
-                      required=""
+                      required={false}
                     />
                     <label htmlFor="terms">
                       I’ve Read and agreed to{" "}
@@ -1124,4 +1124,4 @@ const page = () => {
     </AkpagerLayout>
   );
 };
-export default page;
+export default Page;

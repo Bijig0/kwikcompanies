@@ -16,7 +16,8 @@
       "@components/*": ["components/*"],
       "@layouts/*": ["layouts/*"],
       "@public/*": ["public/*"],
-      "@utils/*": ["utility/*"]
+      "@utils/*": ["utility/*"],
+      "@css/*": ["public/assets/css/*"]
     },
     "plugins": [
       {

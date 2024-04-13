@@ -1,9 +1,9 @@
-import Counter from "@/components/Counter";
-import AkpagerLayout from "@/layouts/AkpagerLayout";
+import Counter from "@components/Counter";
+import AkpagerLayout from "@layouts/AkpagerLayout";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 const TestimonialSlider = dynamic(
-  () => import("@/components/TestimonialSlider"),
+  () => import("@components/TestimonialSlider"),
   {
     ssr: false,
   }

@@ -57,7 +57,11 @@ const DefaultFooter = () => {
               >
                 <h5>Subscribe Our Newsletter</h5>
                 <form className="newsletter-form mt-15" action="#">
-                  <input type="email" placeholder="Email Address" required="" />
+                  <input
+                    type="email"
+                    placeholder="Email Address"
+                    required={false}
+                  />
                   <button type="submit">
                     Sign Up <i className="far fa-arrow-right" />
                   </button>

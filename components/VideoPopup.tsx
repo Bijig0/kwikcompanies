@@ -1,5 +1,5 @@
 "use client";
-import useClickOutside from "@/utility/useClickOutside";
+import useClickOutside from "@utils/useClickOutside";
 import { Fragment, useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 

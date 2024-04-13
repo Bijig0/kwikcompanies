@@ -1,4 +1,4 @@
-import AkpagerLayout from "@/layouts/AkpagerLayout";
+import AkpagerLayout from "@layouts/AkpagerLayout";
 const e404 = () => {
   return (
     <AkpagerLayout header={10}>

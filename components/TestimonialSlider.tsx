@@ -1,5 +1,5 @@
 "use client";
-import { sliderProps } from "@/utility/sliderProps";
+import { sliderProps } from "@utils/sliderProps";
 import { Fragment } from "react";
 import Slider from "react-slick";
 const TestimonialSlider = () => {

@@ -24,6 +24,7 @@ const AkpagerLayout = (props: Props) => {
 
   useEffect(() => {
     niceSelect();
+    // @ts-expect-error
     document.querySelector("body").classList = bodyClass;
   }, []);
 

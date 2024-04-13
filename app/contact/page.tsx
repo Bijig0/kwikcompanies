@@ -68,28 +68,23 @@ const Page = () => {
                     Have you had an ABN in the past?
                   </label>
                   <RadioButtons />
-                  <div className="col-md-12">
-                    <div className="form-group">
-                      <label htmlFor="message">Why do you need an ABN?</label>
-                      <select className="px-3 py-[18px] border-solid border-black">
-                        <option className="">
-                          This is my first time doing business in Australia
-                        </option>
-                      </select>
-                      <div className="help-block with-errors" />
-                    </div>
-                  </div>
-                  <div className="col-md-12">
-                    <div className="form-group">
-                      <label htmlFor="message">Full Name</label>
-                      <select className="px-3 py-[18px] border-solid border-black">
-                        <option className="">
-                          This is my first time doing business in Australia
-                        </option>
-                      </select>
-                      <div className="help-block with-errors" />
-                    </div>
-                  </div>
+                  <label
+                    className="font-semibold text-black text-md"
+                    htmlFor="message"
+                  >
+                    Why do you need an ABN?
+                  </label>
+                  <select className="px-3 py-[18px] border-solid border-black">
+                    <option className="">
+                      This is my first time doing business in Australia
+                    </option>
+                  </select>
+                  <label htmlFor="message">Full Name</label>
+                  <select className="px-3 py-[18px] border-solid border-black">
+                    <option className="">
+                      This is my first time doing business in Australia
+                    </option>
+                  </select>
                   <div className="col-md-12">
                     <div className="form-group mb-0">
                       <button type="submit" className="theme-btn">

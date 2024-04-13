@@ -5,9 +5,9 @@ const businessHistory = [
   "I have been in Business in Australia before",
 ] as const;
 
-type BusinessHistory = (typeof businessHistory)[number];
+export type BusinessHistory = (typeof businessHistory)[number];
 
-type HaveYouHadAnAbnInThePast =
+export type HaveYouHadAnAbnInThePast =
   | {
       Answer: false;
     }
@@ -27,11 +27,11 @@ const needAbnReason = [
   "Labourer, Apprentice or Trade Assistant",
 ];
 
-type NeedAbnReason = (typeof needAbnReason)[number];
+export type NeedAbnReason = (typeof needAbnReason)[number];
 
 const title = ["Mr", "Mrs", "Miss", "Ms", "Dr", "Other"] as const;
 
-type Title = (typeof title)[number];
+export type Title = (typeof title)[number];
 
 type CustomDate = {
   year: number;

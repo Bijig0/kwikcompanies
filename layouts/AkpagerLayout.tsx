@@ -3,7 +3,6 @@ import VideoPopup from "@components/VideoPopup";
 import { akpagerUtility } from "@utils/index";
 // import { akpagerUtility } from "@utility/index";
 import { Fragment, useEffect } from "react";
-import niceSelect from "react-nice-select";
 import Footer from "./Footer";
 import Header from "./Header";
 
@@ -23,7 +22,6 @@ const AkpagerLayout = (props: Props) => {
   });
 
   useEffect(() => {
-    niceSelect();
     // @ts-expect-error
     document.querySelector("body").classList = bodyClass;
   }, []);

@@ -20,6 +20,7 @@
     "react-hook-form": "^7.51.3",
     "react-nice-select": "^1.0.6",
     "react-player": "^2.14.1",
+    "react-select": "^5.8.0",
     "react-slick": "^0.30.2",
     "react-visibility-sensor": "^5.1.1",
     "validator": "^13.11.0"

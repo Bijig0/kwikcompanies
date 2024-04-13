@@ -1,7 +1,10 @@
 "use client";
 import AkpagerLayout from "@layouts/AkpagerLayout";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import FormValues from "./form";
+import { BusinessHistory } from "./individual";
+
 const Page = () => {
   const {
     register,
@@ -11,6 +14,10 @@ const Page = () => {
   const onSubmit = (data: FormValues) => {
     console.log(data);
   };
+
+  const [selBusinessHistory, setSelBusinessHistory] =
+    useState<BusinessHistory>();
+
   return (
     <AkpagerLayout>
       {/* Contact Page Start */}
@@ -47,8 +54,9 @@ const Page = () => {
                   </p>
                   <div className="flex flex-wrap mt-30">
                     <label htmlFor="name">Business History</label>
-                    <select>
-                      <option className="bg-white">
+                    {/* <Select /> */}
+                    <select className="px-3 py-[18px] border-solid border-black">
+                      <option className="">
                         This is my first time doing business in Australia
                       </option>
                     </select>

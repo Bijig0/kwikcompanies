@@ -48,10 +48,9 @@ const Page = () => {
                   <div className="flex flex-wrap mt-30">
                     <label htmlFor="name">Business History</label>
                     <select>
-                      <option>
+                      <option className="bg-white">
                         This is my first time doing business in Australia
                       </option>
-                      <option>Business History</option>
                     </select>
                     <div className="help-block with-errors" />
                   </div>

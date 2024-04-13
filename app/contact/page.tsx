@@ -1,5 +1,5 @@
-import PageBanner from "@/components/PageBanner";
-import AkpagerLayout from "@/layouts/AkpagerLayout";
+import AkpagerLayout from "@layouts/AkpagerLayout";
+import PageBanner from "@components/PageBanner";
 const Page = () => {
   return (
     <AkpagerLayout>

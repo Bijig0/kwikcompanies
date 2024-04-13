@@ -1,6 +1,7 @@
 "use client";
-import VideoPopup from "@/components/VideoPopup";
-import { akpagerUtility } from "@/utility";
+import VideoPopup from "@components/VideoPopup";
+import { akpagerUtility } from "@utils/index";
+// import { akpagerUtility } from "@utility/index";
 import { Fragment, useEffect } from "react";
 import niceSelect from "react-nice-select";
 import Footer from "./Footer";

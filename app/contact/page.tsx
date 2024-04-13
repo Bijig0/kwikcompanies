@@ -45,33 +45,29 @@ const Page = () => {
                   <p>
                     Questions or you would just like to say hello, contact us.
                   </p>
-                  <div className="row mt-30">
-                    <div className="col-md-6">
-                      <div className="form-group">
-                        <label htmlFor="name">Business History</label>
-                        <select>
-                          <option>
-                            This is my first time doing business in Australia
-                          </option>
-                          <option>Business History</option>
-                        </select>
-                        <div className="help-block with-errors" />
-                      </div>
-                      {/* <div className="form-group">
-                        <label htmlFor="name">Full Name</label>
-                        <input
-                          type="text"
-                          id="name"
-                          name="name"
-                          className="form-control"
-                          defaultValue=""
-                          placeholder="Somaia D. Silva"
-                          required={false}
-                          data-error="Please enter your Name"
-                        />
-                        <div className="help-block with-errors" />
-                      </div> */}
-                    </div>
+                  <div className="flex flex-wrap mt-30">
+                    <label htmlFor="name">Business History</label>
+                    <select>
+                      <option>
+                        This is my first time doing business in Australia
+                      </option>
+                      <option>Business History</option>
+                    </select>
+                    <div className="help-block with-errors" />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="name">Full Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      className="form-control"
+                      defaultValue=""
+                      placeholder="Somaia D. Silva"
+                      required={false}
+                      data-error="Please enter your Name"
+                    />
+                    <div className="help-block with-errors" />
                     {/* <div className="col-md-6">
                       <div className="form-group">
                         <label htmlFor="email">Email</label>

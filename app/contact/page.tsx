@@ -1,6 +1,6 @@
 import PageBanner from "@/components/PageBanner";
 import AkpagerLayout from "@/layouts/AkpagerLayout";
-const page = () => {
+const Page = () => {
   return (
     <AkpagerLayout>
       <PageBanner pageName={"Contact Us"} />
@@ -78,7 +78,6 @@ const page = () => {
             <div className="col-lg-7">
               <div
                 className="contact-form br-10 bgc-lighter rmt-60"
-                name="contact-form"
                 data-aos="fade-left"
                 data-aos-duration={1500}
                 data-aos-offset={50}
@@ -115,7 +114,7 @@ const page = () => {
                           className="form-control"
                           defaultValue=""
                           placeholder="Somaia D. Silva"
-                          required=""
+                          required={false}
                           data-error="Please enter your Name"
                         />
                         <div className="help-block with-errors" />
@@ -131,7 +130,7 @@ const page = () => {
                           className="form-control"
                           defaultValue=""
                           placeholder="support@gmail.com"
-                          required=""
+                          required={false}
                           data-error="Please enter your Email"
                         />
                         <div className="help-block with-errors" />
@@ -147,7 +146,7 @@ const page = () => {
                           className="form-control"
                           defaultValue=""
                           placeholder="I like to discussed"
-                          required=""
+                          required={false}
                           data-error="Please enter your Subject"
                         />
                         <div className="help-block with-errors" />
@@ -162,7 +161,7 @@ const page = () => {
                           className="form-control"
                           rows={4}
                           placeholder="Write Message"
-                          required=""
+                          required={false}
                           data-error="Please enter your Message"
                           defaultValue={""}
                         />
@@ -191,7 +190,7 @@ const page = () => {
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d96777.16150026117!2d-74.00840582560909!3d40.71171357405996!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1706508986625!5m2!1sen!2sbd"
             style={{ border: 0, width: "100%" }}
-            allowFullScreen=""
+            allowFullScreen={false}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           />
@@ -201,4 +200,4 @@ const page = () => {
     </AkpagerLayout>
   );
 };
-export default page;
+export default Page;

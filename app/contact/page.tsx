@@ -1,81 +1,12 @@
 "use client";
-import PageBanner from "@components/PageBanner";
 import AkpagerLayout from "@layouts/AkpagerLayout";
 const Page = () => {
   return (
     <AkpagerLayout>
-      <PageBanner pageName={"Contact Us"} />
       {/* Contact Page Start */}
       <section className="contact-page py-130 rpy-100">
         <div className="container">
           <div className="row gap-100 align-items-center">
-            <div className="col-lg-5">
-              <div className="contact-info-part">
-                <div
-                  className="section-title mb-50"
-                  data-aos="fade-up"
-                  data-aos-duration={1500}
-                  data-aos-offset={50}
-                >
-                  <h2>Feel Free to Contact Us, Get In Touch</h2>
-                  <p>
-                    We're here to assist you in any way we can. Whether you have
-                    questions, feedback, or just want to say hello
-                  </p>
-                </div>
-                <div
-                  className="contact-info-item style-two"
-                  data-aos="fade-up"
-                  data-aos-delay={50}
-                  data-aos-duration={1500}
-                  data-aos-offset={50}
-                >
-                  <div className="icon">
-                    <i className="fal fa-map-marker-alt" />
-                  </div>
-                  <div className="content">
-                    <span className="title">Location</span>
-                    <span className="text">
-                      55 Main Street, 2nd block Melbourne, Australia
-                    </span>
-                  </div>
-                </div>
-                <div
-                  className="contact-info-item style-two"
-                  data-aos="fade-up"
-                  data-aos-delay={100}
-                  data-aos-duration={1500}
-                  data-aos-offset={50}
-                >
-                  <div className="icon">
-                    <i className="far fa-envelope-open-text" />
-                  </div>
-                  <div className="content">
-                    <span className="title">Email Address</span>
-                    <span className="text">
-                      <a href="mailto:support@gmail.com">support@gmail.com</a>
-                    </span>
-                  </div>
-                </div>
-                <div
-                  className="contact-info-item style-two"
-                  data-aos="fade-up"
-                  data-aos-delay={150}
-                  data-aos-duration={1500}
-                  data-aos-offset={50}
-                >
-                  <div className="icon">
-                    <i className="fal fa-phone-volume" />
-                  </div>
-                  <div className="content">
-                    <span className="title">Make A Call</span>
-                    <span className="text">
-                      <a href="calto:+000(123)456889">+000 (123) 456 889</a>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
             <div className="col-lg-7">
               <div
                 className="contact-form br-10 bgc-lighter rmt-60"

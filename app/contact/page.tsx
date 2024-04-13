@@ -2,9 +2,9 @@
 import AkpagerLayout from "@layouts/AkpagerLayout";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { Radio, RadioGroup } from "react-radio-group";
 import FormValues from "./form";
 import { BusinessHistory } from "./individual";
-
 const Page = () => {
   const {
     register,
@@ -52,74 +52,66 @@ const Page = () => {
                   <p>
                     Questions or you would just like to say hello, contact us.
                   </p>
-                  <div className="flex flex-wrap mt-30">
-                    <label htmlFor="name">Business History</label>
-                    {/* <Select /> */}
-                    <select className="px-3 py-[18px] border-solid border-black">
-                      <option className="">
-                        This is my first time doing business in Australia
-                      </option>
-                    </select>
-                    <div className="help-block with-errors" />
+                  <div className="form-group">
+                    <div className="flex flex-wrap mt-30">
+                      <label htmlFor="name">Business History</label>
+                      {/* <Select /> */}
+                      <select className="px-3 py-[18px] border-solid border-black">
+                        <option className="">
+                          This is my first time doing business in Australia
+                        </option>
+                      </select>
+                      <div className="help-block with-errors" />
+                    </div>
                   </div>
                   <div className="form-group">
-                    <label htmlFor="name">Full Name</label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      className="form-control"
-                      defaultValue=""
-                      placeholder="Somaia D. Silva"
-                      required={false}
-                      data-error="Please enter your Name"
-                    />
+                    <label htmlFor="name">
+                      Have you had an ABN in the past?
+                    </label>
+                    <RadioGroup name="fruit">
+                      <Radio value="apple" />
+                      Apple
+                      <Radio value="orange" />
+                      Orange
+                      <Radio value="watermelon" />
+                      Watermelon
+                    </RadioGroup>
                     <div className="help-block with-errors" />
-                    {/* <div className="col-md-6">
+                    <div className="col-md-12">
                       <div className="form-group">
-                        <label htmlFor="email">Email</label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          className="form-control"
-                          defaultValue=""
-                          placeholder="support@gmail.com"
-                          required={false}
-                          data-error="Please enter your Email"
-                        />
+                        <label htmlFor="message">
+                          Where will your activites be carried out?
+                        </label>
+                        <RadioGroup name="fruit">
+                          <Radio value="apple" />
+                          Apple
+                          <Radio value="orange" />
+                          Orange
+                          <Radio value="watermelon" />
+                          Watermelon
+                        </RadioGroup>
                         <div className="help-block with-errors" />
                       </div>
                     </div>
                     <div className="col-md-12">
                       <div className="form-group">
-                        <label htmlFor="subject">Subject</label>
-                        <input
-                          type="text"
-                          id="subject"
-                          name="subject"
-                          className="form-control"
-                          defaultValue=""
-                          placeholder="I like to discussed"
-                          required={false}
-                          data-error="Please enter your Subject"
-                        />
+                        <label htmlFor="message">Why do you need an ABN?</label>
+                        <select className="px-3 py-[18px] border-solid border-black">
+                          <option className="">
+                            This is my first time doing business in Australia
+                          </option>
+                        </select>
                         <div className="help-block with-errors" />
                       </div>
-                    </div> */}
+                    </div>
                     <div className="col-md-12">
                       <div className="form-group">
-                        <label htmlFor="message">Message</label>
-                        <textarea
-                          name="message"
-                          id="message"
-                          className="form-control"
-                          rows={4}
-                          placeholder="Write Message"
-                          required={false}
-                          data-error="Please enter your Message"
-                          defaultValue={""}
-                        />
+                        <label htmlFor="message">Full Name</label>
+                        <select className="px-3 py-[18px] border-solid border-black">
+                          <option className="">
+                            This is my first time doing business in Australia
+                          </option>
+                        </select>
                         <div className="help-block with-errors" />
                       </div>
                     </div>

@@ -22,7 +22,7 @@ const ABNEntitlement = () => {
       <label className="font-semibold text-black text-md" htmlFor="message">
         Why do you need an ABN?
       </label>
-      <Select options={needAbnReasons} />
+      <Select name="needAbnReason" options={needAbnReasons} />
     </div>
   );
 };

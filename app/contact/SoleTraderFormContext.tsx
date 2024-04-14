@@ -10,6 +10,7 @@ type TSoleTraderFormContext = {
   register: UseFormReturnType["register"];
   handleSubmit: UseFormReturnType["handleSubmit"];
   formState: UseFormReturnType["formState"];
+  getValues: UseFormReturnType["getValues"];
 };
 
 const SoleTraderFormContext = createContext<TSoleTraderFormContext>(
@@ -21,7 +22,8 @@ type Props = {
 };
 
 const SoleTraderFormProvider = (props: Props) => {
-  const { register, handleSubmit, formState } = useForm<FormValues>();
+  const { register, handleSubmit, formState, getValues } =
+    useForm<FormValues>();
 
   return (
     <SoleTraderFormContext.Provider
@@ -29,6 +31,7 @@ const SoleTraderFormProvider = (props: Props) => {
         register,
         handleSubmit,
         formState,
+        getValues,
       }}
     >
       {props.children}

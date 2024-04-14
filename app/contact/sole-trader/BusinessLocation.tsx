@@ -23,7 +23,7 @@ const BusinessLocation = () => {
     debounce: 300,
   });
 
-  console.log({ data });
+  // console.log({ data });
 
   const handleInput = (e) => {
     // Update the keyword of the input element

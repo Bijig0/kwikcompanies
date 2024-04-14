@@ -3,7 +3,8 @@ import { useSoleTraderFormContext } from "../SoleTraderFormContext";
 import { businessHistories } from "../form";
 
 const BusinessDetails = () => {
-  const { register, handleSubmit, formState } = useSoleTraderFormContext();
+  const { register, handleSubmit, formState, getValues } =
+    useSoleTraderFormContext();
 
   const haveYouHadAnAbnInThePast = [
     "No, I have never had an ABN as a sole trader.",
@@ -12,6 +13,7 @@ const BusinessDetails = () => {
 
   return (
     <div>
+      <div onClick={() => console.log(getValues())}>CHECK VALUES</div>
       <h5>Your business details</h5>
       <p>Step 1 of 8</p>
       <div className="my-2"></div>
@@ -20,7 +22,7 @@ const BusinessDetails = () => {
           <label className="font-bold text-black text-md" htmlFor="name">
             Business History
           </label>
-          <Select options={businessHistories} />
+          <Select name="businessHistory" options={businessHistories} />
         </div>
         <div>
           <label className="font-semibold text-black text-md" htmlFor="name">
@@ -30,6 +32,7 @@ const BusinessDetails = () => {
             {haveYouHadAnAbnInThePast.map((option) => (
               <label className="inline-flex items-center">
                 <input
+                  {...register("hasPreviousAbn")}
                   type="radio"
                   className="form-radio"
                   name={option}

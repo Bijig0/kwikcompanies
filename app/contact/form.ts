@@ -41,8 +41,18 @@ export const addressForServiceDocuments = ["Home", "Other"] as const;
 
 type AddressForServiceDocuments = (typeof addressForServiceDocuments)[number];
 
+type HasPreviousAbn =
+  | {
+      Answer: false;
+    }
+  | {
+      Answer: true;
+      prevAbn: string;
+    };
+
 type FormValues = {
   businessHistory: BusinessHistory;
+  hasPreviousAbn: HasPreviousAbn;
   phone_number: string;
   message: string;
   activitiesLocation: ActivitiesLocation;

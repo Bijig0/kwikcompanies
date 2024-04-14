@@ -10,7 +10,7 @@ const SoleTraderDetails = () => {
       <div className="flex gap-3 items-center ">
         <div>
           <label htmlFor="message">Title</label>
-          <Select options={titles} />
+          <Select name="title" options={titles} />
         </div>
         <div>
           <label htmlFor="message">First Name</label>

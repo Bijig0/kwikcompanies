@@ -27,7 +27,8 @@
     "react-slick": "^0.30.2",
     "react-visibility-sensor": "^5.1.1",
     "use-places-autocomplete": "^4.0.1",
-    "validator": "^13.11.0"
+    "validator": "^13.11.0",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@types/aos": "^3.0.7",

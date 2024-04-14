@@ -20,11 +20,6 @@ import GSTRegistration from "./sole-trader/GSTRegistration";
 import SoleTraderDetails from "./sole-trader/SoleTraderDetails";
 
 const Page = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormValues>();
 
   const onSubmit = (data: FormValues) => {
     console.log(data);

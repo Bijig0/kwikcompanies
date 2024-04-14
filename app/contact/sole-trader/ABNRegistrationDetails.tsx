@@ -8,30 +8,32 @@ const ABNRegistrationDetails = () => {
         <label>ABN Active Date</label>
         <DatePicker />
       </div>
-      <label htmlFor="message">Main Business Activity</label>
-      <div></div>
-      {/* ABN Active Date */}
-      <input
-        type="text"
-        id="name"
-        name="name"
-        className="form-control"
-        defaultValue=""
-        placeholder="Somaia D. Silva"
-        required={false}
-        data-error="Please enter your Name"
-      />
-      <label htmlFor="message">Business Category</label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        className="form-control"
-        defaultValue=""
-        placeholder="Somaia D. Silva"
-        required={false}
-        data-error="Please enter your Name"
-      />
+      <div>
+        <label htmlFor="message">Main Business Activity</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          className="form-control"
+          defaultValue=""
+          placeholder="Somaia D. Silva"
+          required={false}
+          data-error="Please enter your Name"
+        />
+      </div>
+      <div>
+        <label htmlFor="message">Business Category</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          className="form-control"
+          defaultValue=""
+          placeholder="Somaia D. Silva"
+          required={false}
+          data-error="Please enter your Name"
+        />
+      </div>
     </FormPartLayout>
   );
 };

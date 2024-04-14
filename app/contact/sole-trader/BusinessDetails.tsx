@@ -15,30 +15,28 @@ const BusinessDetails = () => {
 
   return (
     <FormPartLayout header="Your business details" step={1}>
-      <div className="flex flex-col gap-3">
-        <div>
-          <label className="font-bold text-black text-md" htmlFor="name">
-            Business History
-          </label>
-          <Select name="businessHistory" options={businessHistories} />
-        </div>
-        <div>
-          <label className="font-semibold text-black text-md" htmlFor="name">
-            Have you had an ABN in the past?
-          </label>
-          <div className="flex flex-col">
-            {haveYouHadAnAbnInThePast.map((option) => (
-              <label className="inline-flex items-center">
-                <input
-                  {...register("hasPreviousAbn")}
-                  type="radio"
-                  className="form-radio"
-                  value={option}
-                />
-                <span className="ml-2">{option}</span>
-              </label>
-            ))}
-          </div>
+      <div>
+        <label className="font-bold text-black text-md" htmlFor="name">
+          Business History
+        </label>
+        <Select name="businessHistory" options={businessHistories} />
+      </div>
+      <div>
+        <label className="font-semibold text-black text-md" htmlFor="name">
+          Have you had an ABN in the past?
+        </label>
+        <div className="flex flex-col">
+          {haveYouHadAnAbnInThePast.map((option) => (
+            <label className="inline-flex items-center">
+              <input
+                {...register("hasPreviousAbn")}
+                type="radio"
+                className="form-radio"
+                value={option}
+              />
+              <span className="ml-2">{option}</span>
+            </label>
+          ))}
         </div>
       </div>
     </FormPartLayout>

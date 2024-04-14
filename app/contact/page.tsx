@@ -49,7 +49,7 @@ const Page = () => {
                   action="assets/php/form-process.php"
                   method="post"
                 >
-                  <SoleTraderFormProvider>
+                  <SoleTraderFormProvider totalSteps={7}>
                     <BusinessDetails />
                     <Divider />
                     <ABNEntitlement />
@@ -72,14 +72,14 @@ const Page = () => {
 
                   {/* We can use the "status" to decide whether we should display the dropdown or not */}
                   {/* {status === "OK" && <ul>{renderSuggestions()}</ul>} */}
-                  <div className="col-md-12">
+                  {/* <div className="col-md-12">
                     <div className="form-group mb-0">
                       <button type="submit" className="theme-btn">
                         Send Us Message <i className="far fa-arrow-right" />
                       </button>
                       <div id="msgSubmit" className="hidden" />
                     </div>
-                  </div>
+                  </div> */}
                 </form>
               </div>
             </div>

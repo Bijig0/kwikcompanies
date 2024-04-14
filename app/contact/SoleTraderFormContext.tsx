@@ -11,6 +11,7 @@ type TSoleTraderFormContext = {
   handleSubmit: UseFormReturnType["handleSubmit"];
   formState: UseFormReturnType["formState"];
   getValues: UseFormReturnType["getValues"];
+  totalSteps: number;
 };
 
 const SoleTraderFormContext = createContext<TSoleTraderFormContext>(
@@ -19,9 +20,11 @@ const SoleTraderFormContext = createContext<TSoleTraderFormContext>(
 
 type Props = {
   children: ReactNode;
+  totalSteps: number;
 };
 
 const SoleTraderFormProvider = (props: Props) => {
+  const { totalSteps } = props;
   const { register, handleSubmit, formState, getValues } =
     useForm<FormValues>();
 
@@ -32,6 +35,7 @@ const SoleTraderFormProvider = (props: Props) => {
         handleSubmit,
         formState,
         getValues,
+        totalSteps,
       }}
     >
       {props.children}

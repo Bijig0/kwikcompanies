@@ -1,4 +1,5 @@
 import React from "react";
+import { useSoleTraderFormContext } from "./SoleTraderFormContext";
 
 type Props = {
   header: string;
@@ -7,13 +8,16 @@ type Props = {
 };
 
 const FormPartLayout = (props: Props) => {
+  const { totalSteps } = useSoleTraderFormContext();
   const { header, step, children } = props;
   return (
     <div>
       <h5>{header}</h5>
-      <p>Step {step} of 8</p>
+      <p>
+        Step {step} of {totalSteps}
+      </p>
       <div className="my-2"></div>
-      {children}
+      <div className="flex flex-col gap-3">{children}</div>
     </div>
   );
 };

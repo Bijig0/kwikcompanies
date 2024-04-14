@@ -1,7 +1,9 @@
 import Select from "../Select";
+import { useSoleTraderFormContext } from "../SoleTraderFormContext";
 import { needAbnReasons } from "../form";
 
 const ABNEntitlement = () => {
+  const { register } = useSoleTraderFormContext();
   return (
     <div>
       <h5>ABN Entitlement</h5>
@@ -15,9 +17,9 @@ const ABNEntitlement = () => {
           {["Australia", "Overseas"].map((option) => (
             <label className="inline-flex items-center">
               <input
+                {...register("activitiesLocation")}
                 type="radio"
                 className="form-radio"
-                name={option}
                 value={option}
               />
               <span className="ml-2">{option}</span>

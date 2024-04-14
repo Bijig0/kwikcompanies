@@ -35,7 +35,6 @@ const BusinessDetails = () => {
                   {...register("hasPreviousAbn")}
                   type="radio"
                   className="form-radio"
-                  name={option}
                   value={option}
                 />
                 <span className="ml-2">{option}</span>

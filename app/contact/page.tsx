@@ -14,6 +14,9 @@ import TextInput from "./TextInput";
 import FormValues, { businessHistories, needAbnReasons, titles } from "./form";
 import { BusinessHistory } from "./individual";
 
+import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from "./DatePicker";
+
 const GOOGLE_MAPS_API_KEY = "AIzaSyD2uwgS-JBNlmWY84ryeDwy6T_-hFn0oFg";
 
 const GOOGLE_MAPS_URL = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&libraries=places&callback=initMap`;
@@ -241,8 +244,11 @@ const Page = () => {
                       </label>
                     ))}
                   </div>
-                  {/* ABN Active Date */}
+                  <label>ABN Active Date</label>
+                  <DatePicker />
                   <label htmlFor="message">Main Business Activity</label>
+                  <div></div>
+                  {/* ABN Active Date */}
                   <input
                     type="text"
                     id="name"

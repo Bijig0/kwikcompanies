@@ -11,6 +11,8 @@ type TSoleTraderFormContext = {
   handleSubmit: UseFormReturnType["handleSubmit"];
   formState: UseFormReturnType["formState"];
   getValues: UseFormReturnType["getValues"];
+  watch: UseFormReturnType["watch"];
+  setValue: UseFormReturnType["setValue"];
   totalSteps: number;
 };
 
@@ -25,7 +27,7 @@ type Props = {
 
 const SoleTraderFormProvider = (props: Props) => {
   const { totalSteps } = props;
-  const { register, handleSubmit, formState, getValues } =
+  const { register, handleSubmit, formState, getValues, watch, setValue } =
     useForm<FormValues>();
 
   return (
@@ -35,6 +37,8 @@ const SoleTraderFormProvider = (props: Props) => {
         handleSubmit,
         formState,
         getValues,
+        watch,
+        setValue,
         totalSteps,
       }}
     >

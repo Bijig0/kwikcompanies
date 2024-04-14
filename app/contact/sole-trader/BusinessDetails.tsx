@@ -1,7 +1,10 @@
 import Select from "../Select";
+import { useSoleTraderFormContext } from "../SoleTraderFormContext";
 import { businessHistories } from "../form";
 
 const BusinessDetails = () => {
+  const { register, handleSubmit, formState } = useSoleTraderFormContext();
+
   const haveYouHadAnAbnInThePast = [
     "No, I have never had an ABN as a sole trader.",
     "Yes, I have had an ABN as a sole trader before.",

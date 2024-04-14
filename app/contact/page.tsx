@@ -8,7 +8,7 @@ import { BusinessHistory } from "./individual";
 
 import "react-datepicker/dist/react-datepicker.css";
 import Divider from "./Divider";
-import SoleTraderFormContext from "./SoleTraderFormContext";
+import SoleTraderFormProvider from "./SoleTraderFormContext";
 import ABNEntitlement from "./sole-trader/ABNEntitlement";
 import ABNRegistrationDetails from "./sole-trader/ABNRegistrationDetails";
 import BusinessDetails from "./sole-trader/BusinessDetails";
@@ -49,7 +49,7 @@ const Page = () => {
                   action="assets/php/form-process.php"
                   method="post"
                 >
-                  <SoleTraderFormContext>
+                  <SoleTraderFormProvider>
                     <BusinessDetails />
                     <Divider />
                     <ABNEntitlement />
@@ -68,7 +68,7 @@ const Page = () => {
                     <Divider />
 
                     <GSTRegistration />
-                  </SoleTraderFormContext>
+                  </SoleTraderFormProvider>
 
                   {/* We can use the "status" to decide whether we should display the dropdown or not */}
                   {/* {status === "OK" && <ul>{renderSuggestions()}</ul>} */}

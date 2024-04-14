@@ -1,5 +1,6 @@
 "use client";
-import { ReactNode, createContext, useContext, useState } from "react";
+import { useBoolean } from "@utils/useBoolean";
+import { ReactNode, createContext, useContext } from "react";
 import { useForm } from "react-hook-form";
 import FormValues from "./form";
 
@@ -13,7 +14,8 @@ type TSoleTraderFormContext = {
   getValues: UseFormReturnType["getValues"];
   watch: UseFormReturnType["watch"];
   setValue: UseFormReturnType["setValue"];
-  toggleFormState: () => void;
+  enableForm: () => void;
+  disableForm: () => void;
   formDisabled: boolean;
   totalSteps: number;
 };
@@ -32,8 +34,12 @@ const SoleTraderFormProvider = (props: Props) => {
   const { register, handleSubmit, formState, getValues, watch, setValue } =
     useForm<FormValues>();
 
-  const [formDisabled, setFormDisabled] = useState(false);
-  const toggleFormState = () => setFormDisabled(true);
+  const {
+    value: formDisabled,
+    setTrue: disableForm,
+    setFalse: enableForm,
+    toggle: toggleFormState,
+  } = useBoolean(false);
 
   return (
     <SoleTraderFormContext.Provider
@@ -44,7 +50,8 @@ const SoleTraderFormProvider = (props: Props) => {
         getValues,
         watch,
         setValue,
-        toggleFormState,
+        disableForm,
+        enableForm,
         formDisabled,
         totalSteps,
       }}

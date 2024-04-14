@@ -1,7 +1,11 @@
+import { Tooltip } from "react-bootstrap";
 import FormPartLayout from "../FormPartLayout";
 import Select from "../Select";
 import { useSoleTraderFormContext } from "../SoleTraderFormContext";
+import TextInput from "../TextInput";
 import { businessHistories } from "../form";
+
+import "react-tooltip/dist/react-tooltip.css";
 
 const BusinessDetails = () => {
   const { register, handleSubmit, formState, getValues, watch, setValue } =
@@ -40,23 +44,19 @@ const BusinessDetails = () => {
               <span className="ml-2">{text[option]}</span>
             </label>
           ))}
-          {watch("hasPreviousAbn.Answer") && (
-            <div>
-              <label htmlFor="message">Previous ABN</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                className="form-control"
-                defaultValue=""
-                placeholder="Somaia D. Silva"
-                required={false}
-                data-error="Please enter your Name"
-              />
-            </div>
-          )}
         </div>
       </div>
+      {watch("hasPreviousAbn.Answer") && (
+        <div>
+          <label htmlFor="message">Previous ABN</label>
+          <TextInput required pattern="[0-9]{13}" maxlength={13} value="Val" />
+          <div className="my-2"></div>
+          <p>
+            If you can't remember your ABN, <a>click here</a>
+          </p>
+        </div>
+      )}
+      <Tooltip id="my-tooltip" />
     </FormPartLayout>
   );
 };

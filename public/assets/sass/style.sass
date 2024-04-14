@@ -117,3 +117,10 @@
 @import "sections/footer"
 
 // import any additional sass below...
+.tooltip {
+  @apply invisible absolute;
+}
+
+.has-tooltip:hover .tooltip {
+  @apply visible z-50
+}

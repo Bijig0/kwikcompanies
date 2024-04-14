@@ -15,7 +15,7 @@ export type HaveYouHadAnAbnInThePast =
     };
 
 export const activitiesLocations = ["Australia", "Overseas"] as const;
-type ActivitiesLocation = (typeof activitiesLocations)[number];
+export type ActivitiesLocation = (typeof activitiesLocations)[number];
 
 export const needAbnReasons = [
   "Starting or running a business",

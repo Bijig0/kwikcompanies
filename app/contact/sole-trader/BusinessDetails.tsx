@@ -11,26 +11,32 @@ const BusinessDetails = () => {
     <div>
       <h5>Your business details</h5>
       <p>Step 1 of 8</p>
-      <label className="font-bold text-black text-md" htmlFor="name">
-        Business History
-      </label>
-      <Select options={businessHistories} />
       <div className="my-2"></div>
-      <label className="font-semibold text-black text-md" htmlFor="name">
-        Have you had an ABN in the past?
-      </label>
-      <div className="flex flex-col">
-        {haveYouHadAnAbnInThePast.map((option) => (
-          <label className="inline-flex items-center">
-            <input
-              type="radio"
-              className="form-radio"
-              name={option}
-              value={option}
-            />
-            <span className="ml-2">{option}</span>
+      <div className="flex flex-col gap-2">
+        <div>
+          <label className="font-bold text-black text-md" htmlFor="name">
+            Business History
           </label>
-        ))}
+          <Select options={businessHistories} />
+        </div>
+        <div>
+          <label className="font-semibold text-black text-md" htmlFor="name">
+            Have you had an ABN in the past?
+          </label>
+          <div className="flex flex-col">
+            {haveYouHadAnAbnInThePast.map((option) => (
+              <label className="inline-flex items-center">
+                <input
+                  type="radio"
+                  className="form-radio"
+                  name={option}
+                  value={option}
+                />
+                <span className="ml-2">{option}</span>
+              </label>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

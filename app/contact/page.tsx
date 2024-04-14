@@ -50,7 +50,7 @@ const Page = () => {
               >
                 <form
                   id="contactForm"
-                  className="contactForm flex flex-col gap-4"
+                  className="contactForm flex flex-col"
                   name="contactForm"
                   action="assets/php/form-process.php"
                   method="post"
@@ -58,10 +58,20 @@ const Page = () => {
                   <BusinessDetails />
                   <Divider />
                   <ABNEntitlement />
+                  <Divider />
+
                   <SoleTraderDetails />
+                  <Divider />
+
                   <BusinessLocation />
+                  <Divider />
+
                   <ABNRegistrationDetails />
+                  <Divider />
+
                   <BusinessNameApplication />
+                  <Divider />
+
                   <GSTRegistration />
 
                   {/* We can use the "status" to decide whether we should display the dropdown or not */}

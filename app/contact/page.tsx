@@ -187,7 +187,7 @@ const Page = () => {
                         type="text"
                         id="name"
                         name="name"
-                        className="font-normal rounded-md bg-white border py-[1rem] px-6 border-gray-300 w-full font-medium py-5 px-4 rounded-lg w-full py-1 px-3 text-base font-normal leading-normal text-gray-800 bg-white border border-gray-300 appearance-none rounded transition-colors transition-shadow"
+                        className="rounded-md text-gray-800 bg-white py-3 border-gray-300 w-full font-medium px-4 rounded-lg w-full text-base font-normal leading-normal bg-white border border-gray-300 appearance-none rounded transition-colors transition-shadow"
                         defaultValue=""
                         placeholder="Somaia D. Silva"
                         required={false}
@@ -308,20 +308,6 @@ const Page = () => {
           </div>
         </div>
       </section>
-      {/* Contact Page End */}
-      {/* Location Map Area Start */}
-      <div className="contact-page-map">
-        <div className="our-location">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d96777.16150026117!2d-74.00840582560909!3d40.71171357405996!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1706508986625!5m2!1sen!2sbd"
-            style={{ border: 0, width: "100%" }}
-            allowFullScreen={false}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-        </div>
-      </div>
-      {/* Location Map Area End */}
     </AkpagerLayout>
   );
 };

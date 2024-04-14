@@ -6,6 +6,9 @@ const ABNEntitlement = () => {
     <div>
       <h5>ABN Entitlement</h5>
       <p>Step 2 of 8</p>
+      <label className="font-semibold text-black text-md" htmlFor="message">
+        Where will your activites be carried out?
+      </label>
       <div className="flex flex-col">
         {["Australia", "Overseas"].map((option) => (
           <label className="inline-flex items-center">

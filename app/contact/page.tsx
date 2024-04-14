@@ -11,6 +11,7 @@ import usePlacesAutocomplete, {
 } from "use-places-autocomplete";
 import RadioButtons from "./RadioButtons";
 import Select from "./Select";
+import TextInput from "./TextInput";
 import FormValues, { needAbnReasons, titles } from "./form";
 import { BusinessHistory } from "./individual";
 
@@ -183,53 +184,19 @@ const Page = () => {
                     </div>
                     <div>
                       <label htmlFor="message">First Name</label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        className="rounded-md text-gray-800 bg-white py-3 border-gray-300 w-full font-medium px-4 rounded-lg w-full text-base font-normal leading-normal bg-white border border-gray-300 appearance-none rounded transition-colors transition-shadow"
-                        defaultValue=""
-                        placeholder="Somaia D. Silva"
-                        required={false}
-                        data-error="Please enter your Name"
-                      />
+                      <TextInput value="Val" />
                     </div>
                     <div>
                       <label htmlFor="message">Last Name</label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        className="form-control"
-                        defaultValue=""
-                        placeholder="Somaia D. Silva"
-                        required={false}
-                        data-error="Please enter your Name"
-                      />
+                      <TextInput value="Val" />
                     </div>
                   </div>
                   <label htmlFor="message">Email</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    className="form-control"
-                    defaultValue=""
-                    placeholder="Somaia D. Silva"
-                    required={false}
-                    data-error="Please enter your Name"
-                  />
+                  <TextInput value="Val" />
+
                   <label htmlFor="message">Phone Number</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    className="form-control"
-                    defaultValue=""
-                    placeholder="Somaia D. Silva"
-                    required={false}
-                    data-error="Please enter your Name"
-                  />
+                  <TextInput value="Val" />
+
                   {/* Date Picker */}
                   <label htmlFor="message">Tax File Number</label>
                   <input

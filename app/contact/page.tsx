@@ -9,7 +9,6 @@ import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
 } from "use-places-autocomplete";
-import RadioButtons from "./RadioButtons";
 import Select from "./Select";
 import TextInput from "./TextInput";
 import FormValues, { businessHistories, needAbnReasons, titles } from "./form";
@@ -166,11 +165,7 @@ const Page = () => {
                   >
                     Why do you need an ABN?
                   </label>
-                  <select className="px-3 py-[18px] border-solid border-black">
-                    {needAbnReasons.map((reason) => (
-                      <option className="">{reason}</option>
-                    ))}
-                  </select>
+                  <Select options={needAbnReasons} />
                   <h5>Solo Trader Details</h5>
                   <p>Step 3 of 8</p>
                   <div className="flex gap-3 items-center ">
@@ -217,10 +212,35 @@ const Page = () => {
                   <label htmlFor="message">
                     Is your business located at your home address?
                   </label>
-                  <RadioButtons />
+                  <div className="flex flex-col">
+                    {["Yes", "No"].map((option) => (
+                      <label className="inline-flex items-center">
+                        <input
+                          type="radio"
+                          className="form-radio"
+                          name={option}
+                          value={option}
+                        />
+                        <span className="ml-2">{option}</span>
+                      </label>
+                    ))}
+                  </div>
                   <label htmlFor="message">
                     What is your address for service of documents?
                   </label>
+                  <div className="flex flex-col">
+                    {["Home", "Other"].map((option) => (
+                      <label className="inline-flex items-center">
+                        <input
+                          type="radio"
+                          className="form-radio"
+                          name={option}
+                          value={option}
+                        />
+                        <span className="ml-2">{option}</span>
+                      </label>
+                    ))}
+                  </div>
                   {/* ABN Active Date */}
                   <label htmlFor="message">Main Business Activity</label>
                   <input

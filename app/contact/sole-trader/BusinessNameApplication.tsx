@@ -1,6 +1,6 @@
 const BusinessNameApplication = () => {
   return (
-    <>
+    <div>
       <h5>Business Name Application</h5>
       <p>Step 3 of 8</p>
       <label className="font-semibold text-black text-md" htmlFor="name">
@@ -22,7 +22,7 @@ const BusinessNameApplication = () => {
           </label>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

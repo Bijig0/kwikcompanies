@@ -8,7 +8,7 @@ const BusinessDetails = () => {
   ];
 
   return (
-    <>
+    <div>
       <h5>Your business details</h5>
       <p>Step 1 of 8</p>
       <label className="font-bold text-black text-md" htmlFor="name">
@@ -32,7 +32,7 @@ const BusinessDetails = () => {
           </label>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

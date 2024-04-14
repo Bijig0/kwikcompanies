@@ -3,7 +3,7 @@ import { needAbnReasons } from "../form";
 
 const ABNEntitlement = () => {
   return (
-    <>
+    <div>
       <h5>ABN Entitlement</h5>
       <p>Step 2 of 8</p>
       <div className="flex flex-col">
@@ -23,7 +23,7 @@ const ABNEntitlement = () => {
         Why do you need an ABN?
       </label>
       <Select options={needAbnReasons} />
-    </>
+    </div>
   );
 };
 

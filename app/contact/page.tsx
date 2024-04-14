@@ -8,6 +8,7 @@ import FormValues from "./form";
 import { BusinessHistory } from "./individual";
 
 import "react-datepicker/dist/react-datepicker.css";
+import Divider from "./Divider";
 import ABNEntitlement from "./sole-trader/ABNEntitlement";
 import ABNRegistrationDetails from "./sole-trader/ABNRegistrationDetails";
 import BusinessDetails from "./sole-trader/BusinessDetails";
@@ -49,12 +50,13 @@ const Page = () => {
               >
                 <form
                   id="contactForm"
-                  className="contactForm"
+                  className="contactForm flex flex-col gap-4"
                   name="contactForm"
                   action="assets/php/form-process.php"
                   method="post"
                 >
                   <BusinessDetails />
+                  <Divider />
                   <ABNEntitlement />
                   <SoleTraderDetails />
                   <BusinessLocation />

@@ -65,7 +65,7 @@ const BusinessLocation = () => {
     clearSuggestions();
   });
   return (
-    <>
+    <div>
       <h5>Business Location</h5>
       <p>Step 4 of 8</p>
       <div ref={ref}>
@@ -109,7 +109,7 @@ const BusinessLocation = () => {
           </label>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

@@ -4,7 +4,7 @@ import { titles } from "../form";
 
 const SoleTraderDetails = () => {
   return (
-    <>
+    <div>
       <h5>Sole Trader Details</h5>
       <p>Step 3 of 8</p>
       <div className="flex gap-3 items-center ">
@@ -39,7 +39,7 @@ const SoleTraderDetails = () => {
         required={false}
         data-error="Please enter your Name"
       />
-    </>
+    </div>
   );
 };
 

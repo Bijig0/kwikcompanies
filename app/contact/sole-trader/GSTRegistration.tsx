@@ -1,6 +1,6 @@
 const GSTRegistration = () => {
   return (
-    <>
+    <div>
       <label htmlFor="message">Will you register for GST?</label>
       <div className="flex flex-col">
         {["Yes ($49)", "No"].map((option) => (
@@ -15,7 +15,7 @@ const GSTRegistration = () => {
           </label>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

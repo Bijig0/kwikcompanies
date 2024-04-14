@@ -2,7 +2,7 @@ import DatePicker from "../DatePicker";
 
 const ABNRegistrationDetails = () => {
   return (
-    <>
+    <div>
       <h5>ABN Registration details</h5>
       <p>Step 3 of 8</p>
       <label>ABN Active Date</label>
@@ -31,7 +31,7 @@ const ABNRegistrationDetails = () => {
         required={false}
         data-error="Please enter your Name"
       />
-    </>
+    </div>
   );
 };
 

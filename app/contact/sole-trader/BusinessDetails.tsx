@@ -17,7 +17,7 @@ const BusinessDetails = () => {
       <h5>Your business details</h5>
       <p>Step 1 of 8</p>
       <div className="my-2"></div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-3">
         <div>
           <label className="font-bold text-black text-md" htmlFor="name">
             Business History

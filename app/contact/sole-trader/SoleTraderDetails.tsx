@@ -8,15 +8,15 @@ const SoleTraderDetails = () => {
       <h5>Sole Trader Details</h5>
       <p>Step 3 of 8</p>
       <div className="flex gap-3 items-center ">
-        <div>
+        <div className="flex-1">
           <label htmlFor="message">Title</label>
           <Select name="title" options={titles} />
         </div>
-        <div>
+        <div className="flex-[3_3_0%] md:flex-[2_2_0%]">
           <label htmlFor="message">First Name</label>
           <TextInput value="Val" />
         </div>
-        <div>
+        <div className="flex-[3_3_0%] md:flex-[2_2_0%]">
           <label htmlFor="message">Last Name</label>
           <TextInput value="Val" />
         </div>

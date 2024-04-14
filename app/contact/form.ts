@@ -5,7 +5,7 @@ export const businessHistories = [
 
 type BusinessHistory = (typeof businessHistories)[number];
 
-type HaveYouHadAnAbnInThePast =
+export type HaveYouHadAnAbnInThePast =
   | {
       Answer: false;
     }

@@ -61,6 +61,11 @@ const Page = () => {
       });
     };
 
+  const haveYouHadAnAbnInThePast = [
+    "No, I have never had an ABN as a sole trader.",
+    "Yes, I have had an ABN as a sole trader before.",
+  ];
+
   const renderSuggestions = () =>
     data.map((suggestion) => {
       const {
@@ -110,20 +115,8 @@ const Page = () => {
                   action="assets/php/form-process.php"
                   method="post"
                 >
-                  <img
-                    className="shape-one"
-                    src="assets/images/shapes/star-yellow-shape.png"
-                    alt="Star Shape"
-                  />
-                  <img
-                    className="shape-two"
-                    src="assets/images/shapes/star-black-shape.png"
-                    alt="Star Shape"
-                  />
-                  <h5>Send Us Message</h5>
-                  <p>
-                    Questions or you would just like to say hello, contact us.
-                  </p>
+                  <h5>Your business details</h5>
+                  <p>Step 1 of 8</p>
                   <label
                     className="font-bold text-black text-md"
                     htmlFor="name"
@@ -131,13 +124,26 @@ const Page = () => {
                     Business History
                   </label>
                   <Select />
+                  <div className="my-2"></div>
                   <label
                     className="font-semibold text-black text-md"
                     htmlFor="name"
                   >
                     Have you had an ABN in the past?
                   </label>
-                  <RadioButtons />
+                  <div className="flex flex-col">
+                    {haveYouHadAnAbnInThePast.map((option) => (
+                      <label className="inline-flex items-center">
+                        <input
+                          type="radio"
+                          className="form-radio"
+                          name={option}
+                          value={option}
+                        />
+                        <span className="ml-2">{option}</span>
+                      </label>
+                    ))}
+                  </div>
                   <label
                     className="font-semibold text-black text-md"
                     htmlFor="message"
@@ -155,7 +161,7 @@ const Page = () => {
                     type="text"
                     id="name"
                     name="name"
-                    className="form-control"
+                    className="font-normal rounded-md bg-white border py-[1rem] px-6 border-gray-300 w-full font-medium py-5 px-4 rounded-lg w-full py-1 px-3 text-base font-normal leading-normal text-gray-800 bg-white border border-gray-300 appearance-none rounded transition-colors transition-shadow"
                     defaultValue=""
                     placeholder="Somaia D. Silva"
                     required={false}

@@ -1325,10 +1325,6 @@ h6,
 }
 
 /* Padding Top */
-.pt-5,
-.py-5 {
-  padding-top: 5px !important;
-}
 
 .pt-10,
 .py-10 {
@@ -1573,12 +1569,6 @@ h6,
 .pt-250,
 .py-250 {
   padding-top: 250px;
-}
-
-/* Padding Bottom */
-.pb-5,
-.py-5 {
-  padding-bottom: 5px !important;
 }
 
 .pb-10,

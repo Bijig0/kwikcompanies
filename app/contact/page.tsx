@@ -1,7 +1,6 @@
 "use client";
 import PageBanner from "@components/PageBanner";
 import AkpagerLayout from "@layouts/AkpagerLayout";
-import Script from "next/script";
 import { useState } from "react";
 import FormValues from "./form";
 import { BusinessHistory } from "./individual";
@@ -12,9 +11,7 @@ import SoleTraderFormProvider from "./SoleTraderFormContext";
 import ABNEntitlement from "./sole-trader/ABNEntitlement";
 import ABNRegistrationDetails from "./sole-trader/ABNRegistrationDetails";
 import BusinessDetails from "./sole-trader/BusinessDetails";
-import BusinessLocation, {
-  GOOGLE_MAPS_URL,
-} from "./sole-trader/BusinessLocation";
+import BusinessLocation from "./sole-trader/BusinessLocation";
 import BusinessNameApplication from "./sole-trader/BusinessNameApplication";
 import GSTRegistration from "./sole-trader/GSTRegistration";
 import SoleTraderDetails from "./sole-trader/SoleTraderDetails";
@@ -29,7 +26,7 @@ const Page = () => {
 
   return (
     <AkpagerLayout>
-      <Script src={GOOGLE_MAPS_URL} strategy="beforeInteractive" />
+      {/* <Script src={GOOGLE_MAPS_URL} strategy="beforeInteractive" /> */}
       <PageBanner pageName={"Individual ABN Form"} />
       {/* Contact Page Start */}
       <section className="contact-page py-16 rpy-100">

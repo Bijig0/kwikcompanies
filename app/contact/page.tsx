@@ -1,4 +1,5 @@
 "use client";
+import PageBanner from "@components/PageBanner";
 import AkpagerLayout from "@layouts/AkpagerLayout";
 import useClickOutside from "@utils/useClickOutside";
 import Script from "next/script";
@@ -90,6 +91,7 @@ const Page = () => {
   return (
     <AkpagerLayout>
       <Script src={GOOGLE_MAPS_URL} strategy="beforeInteractive" />
+      <PageBanner pageName={"Individual ABN Form"} />
       {/* Contact Page Start */}
       <section className="contact-page py-130 rpy-100">
         <div className="container">

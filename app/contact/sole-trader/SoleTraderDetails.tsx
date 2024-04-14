@@ -39,16 +39,7 @@ const SoleTraderDetails = () => {
 
       <div>
         <label htmlFor="message">Tax File Number</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          className="form-control"
-          defaultValue=""
-          placeholder="Somaia D. Silva"
-          required={false}
-          data-error="Please enter your Name"
-        />
+        <TextInput value="Val" />
       </div>
     </FormPartLayout>
   );

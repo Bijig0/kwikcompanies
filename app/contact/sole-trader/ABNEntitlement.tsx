@@ -13,6 +13,7 @@ const ABNEntitlement = () => {
     const value = e.target.value as ActivitiesLocation;
     if (value === "Overseas") {
       disableForm();
+      setValue("activitiesLocation", "Overseas");
       return;
     } else if (value === "Australia") {
       enableForm();

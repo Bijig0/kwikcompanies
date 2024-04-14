@@ -11,7 +11,7 @@ import usePlacesAutocomplete, {
 } from "use-places-autocomplete";
 import RadioButtons from "./RadioButtons";
 import Select from "./Select";
-import FormValues, { titles } from "./form";
+import FormValues, { needAbnReasons, titles } from "./form";
 import { BusinessHistory } from "./individual";
 
 const GOOGLE_MAPS_API_KEY = "AIzaSyD2uwgS-JBNlmWY84ryeDwy6T_-hFn0oFg";
@@ -144,40 +144,70 @@ const Page = () => {
                       </label>
                     ))}
                   </div>
+                  <h5>ABN Entitlement</h5>
+                  <p>Step 2 of 8</p>
+                  <div className="flex flex-col">
+                    {["Australia", "Overseas"].map((option) => (
+                      <label className="inline-flex items-center">
+                        <input
+                          type="radio"
+                          className="form-radio"
+                          name={option}
+                          value={option}
+                        />
+                        <span className="ml-2">{option}</span>
+                      </label>
+                    ))}
+                  </div>
                   <label
                     className="font-semibold text-black text-md"
                     htmlFor="message"
                   >
                     Why do you need an ABN?
                   </label>
-                  <label htmlFor="message">Title</label>
                   <select className="px-3 py-[18px] border-solid border-black">
-                    {titles.map((title) => (
+                    {needAbnReasons.map((title) => (
                       <option className="">{title}</option>
                     ))}
                   </select>
-                  <label htmlFor="message">First Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    className="font-normal rounded-md bg-white border py-[1rem] px-6 border-gray-300 w-full font-medium py-5 px-4 rounded-lg w-full py-1 px-3 text-base font-normal leading-normal text-gray-800 bg-white border border-gray-300 appearance-none rounded transition-colors transition-shadow"
-                    defaultValue=""
-                    placeholder="Somaia D. Silva"
-                    required={false}
-                    data-error="Please enter your Name"
-                  />
-                  <label htmlFor="message">Last Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    className="form-control"
-                    defaultValue=""
-                    placeholder="Somaia D. Silva"
-                    required={false}
-                    data-error="Please enter your Name"
-                  />
+                  <h5>Solo Trader Details</h5>
+                  <p>Step 3 of 8</p>
+                  <div className="flex gap-3 items-center ">
+                    <div>
+                      <label htmlFor="message">Title</label>
+                      <select className="px-3 py-[18px] border-solid border-black">
+                        {titles.map((title) => (
+                          <option className="">{title}</option>
+                        ))}
+                      </select>
+                    </div>
+                    <div>
+                      <label htmlFor="message">First Name</label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        className="font-normal rounded-md bg-white border py-[1rem] px-6 border-gray-300 w-full font-medium py-5 px-4 rounded-lg w-full py-1 px-3 text-base font-normal leading-normal text-gray-800 bg-white border border-gray-300 appearance-none rounded transition-colors transition-shadow"
+                        defaultValue=""
+                        placeholder="Somaia D. Silva"
+                        required={false}
+                        data-error="Please enter your Name"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="message">Last Name</label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        className="form-control"
+                        defaultValue=""
+                        placeholder="Somaia D. Silva"
+                        required={false}
+                        data-error="Please enter your Name"
+                      />
+                    </div>
+                  </div>
                   <label htmlFor="message">Email</label>
                   <input
                     type="text"

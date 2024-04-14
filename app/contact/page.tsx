@@ -1,25 +1,17 @@
 "use client";
 import PageBanner from "@components/PageBanner";
 import AkpagerLayout from "@layouts/AkpagerLayout";
-import useClickOutside from "@utils/useClickOutside";
 import Script from "next/script";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import usePlacesAutocomplete, {
-  getGeocode,
-  getLatLng,
-} from "use-places-autocomplete";
-import Select from "./Select";
-import TextInput from "./TextInput";
-import FormValues, { businessHistories, needAbnReasons, titles } from "./form";
+import FormValues from "./form";
 import { BusinessHistory } from "./individual";
 
 import "react-datepicker/dist/react-datepicker.css";
-import DatePicker from "./DatePicker";
-
-const GOOGLE_MAPS_API_KEY = "AIzaSyD2uwgS-JBNlmWY84ryeDwy6T_-hFn0oFg";
-
-const GOOGLE_MAPS_URL = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&libraries=places&callback=initMap`;
+import ABNEntitlement from "./ABNEntitlement";
+import BusinessDetails from "./BusinessDetails";
+import BusinessLocation, { GOOGLE_MAPS_URL } from "./BusinessLocation";
+import SoloTraderDetails from "./SoloTraderDetails";
 
 const Page = () => {
   const {
@@ -27,67 +19,6 @@ const Page = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<FormValues>();
-
-  const {
-    ready,
-    value,
-    suggestions: { status, data },
-    setValue,
-    clearSuggestions,
-  } = usePlacesAutocomplete({
-    callbackName: "initMap",
-    requestOptions: {
-      /* Define search scope here */
-    },
-    debounce: 300,
-  });
-
-  console.log({ data });
-
-  const handleInput = (e) => {
-    // Update the keyword of the input element
-    setValue(e.target.value);
-  };
-
-  const handleSelect =
-    ({ description }) =>
-    () => {
-      // When the user selects a place, we can replace the keyword without request data from API
-      // by setting the second parameter to "false"
-      setValue(description, false);
-      clearSuggestions();
-
-      // Get latitude and longitude via utility functions
-      getGeocode({ address: description }).then((results) => {
-        const { lat, lng } = getLatLng(results[0]);
-        console.log("📍 Coordinates: ", { lat, lng });
-      });
-    };
-
-  const haveYouHadAnAbnInThePast = [
-    "No, I have never had an ABN as a sole trader.",
-    "Yes, I have had an ABN as a sole trader before.",
-  ];
-
-  const renderSuggestions = () =>
-    data.map((suggestion) => {
-      const {
-        place_id,
-        structured_formatting: { main_text, secondary_text },
-      } = suggestion;
-
-      return (
-        <li key={place_id} onClick={handleSelect(suggestion)}>
-          <strong>{main_text}</strong> <small>{secondary_text}</small>
-        </li>
-      );
-    });
-
-  const ref = useClickOutside(() => {
-    // When the user clicks outside of the component, we can dismiss
-    // the searched suggestions by calling this method
-    clearSuggestions();
-  });
 
   const onSubmit = (data: FormValues) => {
     console.log(data);
@@ -118,162 +49,12 @@ const Page = () => {
                   action="assets/php/form-process.php"
                   method="post"
                 >
-                  <h5>Your business details</h5>
-                  <p>Step 1 of 8</p>
-                  <label
-                    className="font-bold text-black text-md"
-                    htmlFor="name"
-                  >
-                    Business History
-                  </label>
-                  <Select options={businessHistories} />
-                  <div className="my-2"></div>
-                  <label
-                    className="font-semibold text-black text-md"
-                    htmlFor="name"
-                  >
-                    Have you had an ABN in the past?
-                  </label>
-                  <div className="flex flex-col">
-                    {haveYouHadAnAbnInThePast.map((option) => (
-                      <label className="inline-flex items-center">
-                        <input
-                          type="radio"
-                          className="form-radio"
-                          name={option}
-                          value={option}
-                        />
-                        <span className="ml-2">{option}</span>
-                      </label>
-                    ))}
-                  </div>
-                  <h5>ABN Entitlement</h5>
-                  <p>Step 2 of 8</p>
-                  <div className="flex flex-col">
-                    {["Australia", "Overseas"].map((option) => (
-                      <label className="inline-flex items-center">
-                        <input
-                          type="radio"
-                          className="form-radio"
-                          name={option}
-                          value={option}
-                        />
-                        <span className="ml-2">{option}</span>
-                      </label>
-                    ))}
-                  </div>
-                  <label
-                    className="font-semibold text-black text-md"
-                    htmlFor="message"
-                  >
-                    Why do you need an ABN?
-                  </label>
-                  <Select options={needAbnReasons} />
-                  <h5>Solo Trader Details</h5>
-                  <p>Step 3 of 8</p>
-                  <div className="flex gap-3 items-center ">
-                    <div>
-                      <label htmlFor="message">Title</label>
-                      <Select options={titles} />
-                    </div>
-                    <div>
-                      <label htmlFor="message">First Name</label>
-                      <TextInput value="Val" />
-                    </div>
-                    <div>
-                      <label htmlFor="message">Last Name</label>
-                      <TextInput value="Val" />
-                    </div>
-                  </div>
-                  <label htmlFor="message">Email</label>
-                  <TextInput value="Val" />
+                  <BusinessDetails />
+                  <ABNEntitlement />
+                  <SoloTraderDetails />
+                  <BusinessLocation />
+                  
 
-                  <label htmlFor="message">Phone Number</label>
-                  <TextInput value="Val" />
-
-                  {/* Date Picker */}
-                  <label htmlFor="message">Tax File Number</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    className="form-control"
-                    defaultValue=""
-                    placeholder="Somaia D. Silva"
-                    required={false}
-                    data-error="Please enter your Name"
-                  />
-                  <h5>Business Location</h5>
-                  <p>Step 4 of 8</p>
-                  <div ref={ref}>
-                    <label htmlFor="message">Home Address</label>
-                    <input
-                      value={value}
-                      onChange={handleInput}
-                      disabled={!ready}
-                      placeholder="Where are you going?"
-                    />
-                  </div>
-                  <label htmlFor="message">
-                    Is your business located at your home address?
-                  </label>
-                  <div className="flex flex-col">
-                    {["Yes", "No"].map((option) => (
-                      <label className="inline-flex items-center">
-                        <input
-                          type="radio"
-                          className="form-radio"
-                          name={option}
-                          value={option}
-                        />
-                        <span className="ml-2">{option}</span>
-                      </label>
-                    ))}
-                  </div>
-                  <label htmlFor="message">
-                    What is your address for service of documents?
-                  </label>
-                  <div className="flex flex-col">
-                    {["Home", "Other"].map((option) => (
-                      <label className="inline-flex items-center">
-                        <input
-                          type="radio"
-                          className="form-radio"
-                          name={option}
-                          value={option}
-                        />
-                        <span className="ml-2">{option}</span>
-                      </label>
-                    ))}
-                  </div>
-                  <h5>ABN Registration details</h5>
-                  <p>Step 3 of 8</p>
-                  <label>ABN Active Date</label>
-                  <DatePicker />
-                  <label htmlFor="message">Main Business Activity</label>
-                  <div></div>
-                  {/* ABN Active Date */}
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    className="form-control"
-                    defaultValue=""
-                    placeholder="Somaia D. Silva"
-                    required={false}
-                    data-error="Please enter your Name"
-                  />
-                  <label htmlFor="message">Business Category</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    className="form-control"
-                    defaultValue=""
-                    placeholder="Somaia D. Silva"
-                    required={false}
-                    data-error="Please enter your Name"
-                  />
                   <h5>Business Name Application</h5>
                   <p>Step 3 of 8</p>
                   <label
@@ -313,7 +94,7 @@ const Page = () => {
                     ))}
                   </div>
                   {/* We can use the "status" to decide whether we should display the dropdown or not */}
-                  {status === "OK" && <ul>{renderSuggestions()}</ul>}
+                  {/* {status === "OK" && <ul>{renderSuggestions()}</ul>} */}
                   <div className="col-md-12">
                     <div className="form-group mb-0">
                       <button type="submit" className="theme-btn">

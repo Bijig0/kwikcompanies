@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import RadioButtons from "./RadioButtons";
 import Select from "./Select";
-import FormValues from "./form";
+import FormValues, { titles } from "./form";
 import { BusinessHistory } from "./individual";
 
 const Page = () => {
@@ -74,16 +74,11 @@ const Page = () => {
                   >
                     Why do you need an ABN?
                   </label>
+                  <label htmlFor="message">Title</label>
                   <select className="px-3 py-[18px] border-solid border-black">
-                    <option className="">
-                      This is my first time doing business in Australia
-                    </option>
-                  </select>
-                  <label htmlFor="message">Full Name</label>
-                  <select className="px-3 py-[18px] border-solid border-black">
-                    <option className="">
-                      This is my first time doing business in Australia
-                    </option>
+                    {titles.map((title) => (
+                      <option className="">{title}</option>
+                    ))}
                   </select>
                   <div className="col-md-12">
                     <div className="form-group mb-0">

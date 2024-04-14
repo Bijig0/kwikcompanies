@@ -1,9 +1,9 @@
-const businessHistory = [
+export const businessHistories = [
   "This is my first time doing business in Australia",
   "I have been in Business in Australia before",
 ] as const;
 
-type BusinessHistory = (typeof businessHistory)[number];
+type BusinessHistory = (typeof businessHistories)[number];
 
 type HaveYouHadAnAbnInThePast =
   | {
@@ -14,10 +14,10 @@ type HaveYouHadAnAbnInThePast =
       prevAbn: string;
     };
 
-const activitiesLocation = ["Australia", "Overseas"] as const;
-type ActivitiesLocation = (typeof activitiesLocation)[number];
+export const activitiesLocations = ["Australia", "Overseas"] as const;
+type ActivitiesLocation = (typeof activitiesLocations)[number];
 
-const needAbnReason = [
+export const needAbnReasons = [
   "Starting or running a business",
   "Renting or leasing out a residential property on a regular or continual basis",
   "A licence, lease or other grant of interest in property on a regular or continual basis",
@@ -25,11 +25,11 @@ const needAbnReason = [
   "Labourer, Apprentice or Trade Assistant",
 ];
 
-type NeedAbnReason = (typeof needAbnReason)[number];
+type NeedAbnReason = (typeof needAbnReasons)[number];
 
-const title = ["Mr", "Mrs", "Miss", "Ms", "Dr", "Other"] as const;
+export const titles = ["Mr", "Mrs", "Miss", "Ms", "Dr", "Other"] as const;
 
-type Title = (typeof title)[number];
+type Title = (typeof titles)[number];
 
 type DateOfBirth = {
   year: number;
@@ -37,7 +37,7 @@ type DateOfBirth = {
   day: number;
 };
 
-const addressForServiceDocuments = ["Home", "Other"] as const;
+export const addressForServiceDocuments = ["Home", "Other"] as const;
 
 type AddressForServiceDocuments = (typeof addressForServiceDocuments)[number];
 

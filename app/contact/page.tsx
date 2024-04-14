@@ -5,6 +5,7 @@ import useClickOutside from "@utils/useClickOutside";
 import Script from "next/script";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { AiOutlineDown } from "react-icons/ai"; // Import the down caret icon from react-icons
 import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
@@ -167,8 +168,8 @@ const Page = () => {
                     Why do you need an ABN?
                   </label>
                   <select className="px-3 py-[18px] border-solid border-black">
-                    {needAbnReasons.map((title) => (
-                      <option className="">{title}</option>
+                    {needAbnReasons.map((reason) => (
+                      <option className="">{reason}</option>
                     ))}
                   </select>
                   <h5>Solo Trader Details</h5>
@@ -176,11 +177,18 @@ const Page = () => {
                   <div className="flex gap-3 items-center ">
                     <div>
                       <label htmlFor="message">Title</label>
-                      <select className="px-3 py-[18px] border-solid border-black">
-                        {titles.map((title) => (
-                          <option className="">{title}</option>
-                        ))}
-                      </select>
+                      <div className="relative inline-flex">
+                        <select className="rounded-md text-gray-800 bg-white py-3 border-gray-300 w-full font-medium px-4 rounded-lg w-full text-base font-normal leading-normal bg-white border border-gray-300 appearance-none rounded transition-colors transition-shadow">
+                          {titles.map((title, index) => (
+                            <option key={index} value={title}>
+                              {title}
+                            </option>
+                          ))}
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                          <AiOutlineDown className="h-4 w-4" />
+                        </div>
+                      </div>
                     </div>
                     <div>
                       <label htmlFor="message">First Name</label>

@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { ReactNode, createContext } from "react";
 import { useForm } from "react-hook-form";
 import FormValues from "./form";
 
@@ -15,7 +15,11 @@ const StoreContext = createContext<TSoleTraderFormContext>(
   {} as TSoleTraderFormContext
 );
 
-const SoleTraderFormContext = () => {
+type Props = {
+  children: ReactNode;
+};
+
+const SoleTraderFormContext = (props: Props) => {
   const { register, handleSubmit, formState } = useForm<FormValues>();
 
   return (
@@ -26,7 +30,7 @@ const SoleTraderFormContext = () => {
         formState,
       }}
     >
-      {/* Your Components */}
+      {props.children}
     </StoreContext.Provider>
   );
 };

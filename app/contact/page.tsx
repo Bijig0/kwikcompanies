@@ -3,12 +3,12 @@ import PageBanner from "@components/PageBanner";
 import AkpagerLayout from "@layouts/AkpagerLayout";
 import Script from "next/script";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
 import FormValues from "./form";
 import { BusinessHistory } from "./individual";
 
 import "react-datepicker/dist/react-datepicker.css";
 import Divider from "./Divider";
+import SoleTraderFormContext from "./SoleTraderFormContext";
 import ABNEntitlement from "./sole-trader/ABNEntitlement";
 import ABNRegistrationDetails from "./sole-trader/ABNRegistrationDetails";
 import BusinessDetails from "./sole-trader/BusinessDetails";
@@ -20,7 +20,6 @@ import GSTRegistration from "./sole-trader/GSTRegistration";
 import SoleTraderDetails from "./sole-trader/SoleTraderDetails";
 
 const Page = () => {
-
   const onSubmit = (data: FormValues) => {
     console.log(data);
   };
@@ -50,24 +49,26 @@ const Page = () => {
                   action="assets/php/form-process.php"
                   method="post"
                 >
-                  <BusinessDetails />
-                  <Divider />
-                  <ABNEntitlement />
-                  <Divider />
+                  <SoleTraderFormContext>
+                    <BusinessDetails />
+                    <Divider />
+                    <ABNEntitlement />
+                    <Divider />
 
-                  <SoleTraderDetails />
-                  <Divider />
+                    <SoleTraderDetails />
+                    <Divider />
 
-                  <BusinessLocation />
-                  <Divider />
+                    <BusinessLocation />
+                    <Divider />
 
-                  <ABNRegistrationDetails />
-                  <Divider />
+                    <ABNRegistrationDetails />
+                    <Divider />
 
-                  <BusinessNameApplication />
-                  <Divider />
+                    <BusinessNameApplication />
+                    <Divider />
 
-                  <GSTRegistration />
+                    <GSTRegistration />
+                  </SoleTraderFormContext>
 
                   {/* We can use the "status" to decide whether we should display the dropdown or not */}
                   {/* {status === "OK" && <ul>{renderSuggestions()}</ul>} */}

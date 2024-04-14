@@ -4,7 +4,8 @@ import { useSoleTraderFormContext } from "../SoleTraderFormContext";
 import { ActivitiesLocation, needAbnReasons } from "../form";
 
 const ABNEntitlement = () => {
-  const { register, watch, setValue, disableForm } = useSoleTraderFormContext();
+  const { register, watch, setValue, disableForm, enableForm } =
+    useSoleTraderFormContext();
 
   const handleSelectActivitesLocation = (
     e: React.ChangeEvent<HTMLInputElement>
@@ -13,8 +14,11 @@ const ABNEntitlement = () => {
     if (value === "Overseas") {
       disableForm();
       return;
+    } else if (value === "Australia") {
+      enableForm();
+      setValue("activitiesLocation", "Australia");
+      return;
     }
-    setValue("activitiesLocation", "Australia");
   };
 
   return (

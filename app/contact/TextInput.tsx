@@ -1,10 +1,15 @@
+import { useSoleTraderFormContext } from "./SoleTraderFormContext";
+
 type Props = {
   value: string;
 };
 
 const TextInput = (props: Props) => {
+  const { formDisabled } = useSoleTraderFormContext();
+  console.log({ formDisabled });
   return (
     <input
+      disabled={formDisabled}
       type="text"
       id="name"
       name="name"

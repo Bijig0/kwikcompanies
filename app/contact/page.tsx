@@ -12,7 +12,7 @@ import usePlacesAutocomplete, {
 import RadioButtons from "./RadioButtons";
 import Select from "./Select";
 import TextInput from "./TextInput";
-import FormValues, { needAbnReasons } from "./form";
+import FormValues, { businessHistories, needAbnReasons, titles } from "./form";
 import { BusinessHistory } from "./individual";
 
 const GOOGLE_MAPS_API_KEY = "AIzaSyD2uwgS-JBNlmWY84ryeDwy6T_-hFn0oFg";
@@ -124,7 +124,7 @@ const Page = () => {
                   >
                     Business History
                   </label>
-                  <Select />
+                  <Select options={businessHistories} />
                   <div className="my-2"></div>
                   <label
                     className="font-semibold text-black text-md"
@@ -176,7 +176,7 @@ const Page = () => {
                   <div className="flex gap-3 items-center ">
                     <div>
                       <label htmlFor="message">Title</label>
-                      <Select />
+                      <Select options={titles} />
                     </div>
                     <div>
                       <label htmlFor="message">First Name</label>

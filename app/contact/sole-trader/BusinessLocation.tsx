@@ -3,6 +3,7 @@ import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
 } from "use-places-autocomplete";
+import FormPartLayout from "../FormPartLayout";
 
 const GOOGLE_MAPS_API_KEY = "AIzaSyD2uwgS-JBNlmWY84ryeDwy6T_-hFn0oFg";
 
@@ -65,10 +66,7 @@ const BusinessLocation = () => {
     clearSuggestions();
   });
   return (
-    <div>
-      <h5>Business Location</h5>
-      <p>Step 4 of 8</p>
-      <div className="my-2"></div>
+    <FormPartLayout header="Business Location" step={4}>
       <div className="flex flex-col gap-3">
         <div ref={ref}>
           <label htmlFor="message">Home Address</label>
@@ -116,7 +114,7 @@ const BusinessLocation = () => {
           </div>
         </div>
       </div>
-    </div>
+    </FormPartLayout>
   );
 };
 

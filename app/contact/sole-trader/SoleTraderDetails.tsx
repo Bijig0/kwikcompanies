@@ -1,14 +1,12 @@
 import DatePicker from "../DatePicker";
+import FormPartLayout from "../FormPartLayout";
 import Select from "../Select";
 import TextInput from "../TextInput";
 import { titles } from "../form";
 
 const SoleTraderDetails = () => {
   return (
-    <div>
-      <h5>Sole Trader Details</h5>
-      <p>Step 3 of 8</p>
-      <div className="my-2"></div>
+    <FormPartLayout header="Sole Trader Details" step={3}>
       <div className="flex flex-col gap-3">
         <div className="flex gap-3 items-center ">
           <div className="flex-1">
@@ -54,7 +52,7 @@ const SoleTraderDetails = () => {
           />
         </div>
       </div>
-    </div>
+    </FormPartLayout>
   );
 };
 

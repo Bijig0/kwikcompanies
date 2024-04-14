@@ -1,12 +1,13 @@
 import DatePicker from "../DatePicker";
+import FormPartLayout from "../FormPartLayout";
 
 const ABNRegistrationDetails = () => {
   return (
-    <div>
-      <h5>ABN Registration details</h5>
-      <p>Step 3 of 8</p>
-      <label>ABN Active Date</label>
-      <DatePicker />
+    <FormPartLayout header="ABN Registration Details" step={5}>
+      <div>
+        <label>ABN Active Date</label>
+        <DatePicker />
+      </div>
       <label htmlFor="message">Main Business Activity</label>
       <div></div>
       {/* ABN Active Date */}
@@ -31,7 +32,7 @@ const ABNRegistrationDetails = () => {
         required={false}
         data-error="Please enter your Name"
       />
-    </div>
+    </FormPartLayout>
   );
 };
 

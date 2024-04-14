@@ -8,8 +8,7 @@ import { businessHistories } from "../form";
 import "react-tooltip/dist/react-tooltip.css";
 
 const BusinessDetails = () => {
-  const { register, handleSubmit, formState, getValues, watch, setValue } =
-    useSoleTraderFormContext();
+  const { watch, setValue, formDisabled } = useSoleTraderFormContext();
 
   const text = {
     No: "No, I have never had an ABN as a sole trader.",
@@ -32,16 +31,21 @@ const BusinessDetails = () => {
           {["No", "Yes"].map((option) => (
             <label className="inline-flex items-center">
               <input
+                disabled={formDisabled}
                 // {...register("hasPreviousAbn.Answer")}
                 type="radio"
-                className="form-radio"
+                className={`form-radio ${
+                  formDisabled ? "bg-gray-100" : "bg-white"
+                }`}
                 value={option}
                 name="hasPreviousAbn.Answer"
                 onChange={() =>
                   setValue("hasPreviousAbn.Answer", option === "Yes")
                 }
               />
-              <span className="ml-2">{text[option]}</span>
+              <span className={`ml-2 ${formDisabled ? "text-gray-400" : ""}`}>
+                {text[option]}
+              </span>
             </label>
           ))}
         </div>

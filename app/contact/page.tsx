@@ -80,6 +80,62 @@ const Page = () => {
                       <option className="">{title}</option>
                     ))}
                   </select>
+                  <label htmlFor="message">First Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    className="form-control"
+                    defaultValue=""
+                    placeholder="Somaia D. Silva"
+                    required={false}
+                    data-error="Please enter your Name"
+                  />
+                  <label htmlFor="message">Last Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    className="form-control"
+                    defaultValue=""
+                    placeholder="Somaia D. Silva"
+                    required={false}
+                    data-error="Please enter your Name"
+                  />
+                  <label htmlFor="message">Email</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    className="form-control"
+                    defaultValue=""
+                    placeholder="Somaia D. Silva"
+                    required={false}
+                    data-error="Please enter your Name"
+                  />
+                  <label htmlFor="message">Phone Number</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    className="form-control"
+                    defaultValue=""
+                    placeholder="Somaia D. Silva"
+                    required={false}
+                    data-error="Please enter your Name"
+                  />
+                  {/* Date Picker */}
+                  <label htmlFor="message">Tax File Number</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    className="form-control"
+                    defaultValue=""
+                    placeholder="Somaia D. Silva"
+                    required={false}
+                    data-error="Please enter your Name"
+                  />
                   <div className="col-md-12">
                     <div className="form-group mb-0">
                       <button type="submit" className="theme-btn">

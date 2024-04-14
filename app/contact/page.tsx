@@ -203,8 +203,10 @@ const Page = () => {
                     required={false}
                     data-error="Please enter your Name"
                   />
+                  <h5>Business Location</h5>
+                  <p>Step 4 of 8</p>
                   <div ref={ref}>
-                    <label htmlFor="message">Address</label>
+                    <label htmlFor="message">Home Address</label>
                     <input
                       value={value}
                       onChange={handleInput}
@@ -244,6 +246,8 @@ const Page = () => {
                       </label>
                     ))}
                   </div>
+                  <h5>ABN Registration details</h5>
+                  <p>Step 3 of 8</p>
                   <label>ABN Active Date</label>
                   <DatePicker />
                   <label htmlFor="message">Main Business Activity</label>
@@ -270,17 +274,44 @@ const Page = () => {
                     required={false}
                     data-error="Please enter your Name"
                   />
+                  <h5>Business Name Application</h5>
+                  <p>Step 3 of 8</p>
+                  <label
+                    className="font-semibold text-black text-md"
+                    htmlFor="name"
+                  >
+                    Will you trade under a business name?
+                  </label>
+                  <div className="flex flex-col">
+                    {[
+                      "Yes, the business name I need is...",
+                      "No I will trade under my full name",
+                    ].map((option) => (
+                      <label className="inline-flex items-center">
+                        <input
+                          type="radio"
+                          className="form-radio"
+                          name={option}
+                          value={option}
+                        />
+                        <span className="ml-2">{option}</span>
+                      </label>
+                    ))}
+                  </div>
                   <label htmlFor="message">Will you register for GST?</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    className="form-control"
-                    defaultValue=""
-                    placeholder="Somaia D. Silva"
-                    required={false}
-                    data-error="Please enter your Name"
-                  />
+                  <div className="flex flex-col">
+                    {["Yes ($49)", "No"].map((option) => (
+                      <label className="inline-flex items-center">
+                        <input
+                          type="radio"
+                          className="form-radio"
+                          name={option}
+                          value={option}
+                        />
+                        <span className="ml-2">{option}</span>
+                      </label>
+                    ))}
+                  </div>
                   {/* We can use the "status" to decide whether we should display the dropdown or not */}
                   {status === "OK" && <ul>{renderSuggestions()}</ul>}
                   <div className="col-md-12">

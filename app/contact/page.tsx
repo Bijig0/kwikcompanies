@@ -31,12 +31,14 @@ const Page = () => {
     setValue,
     clearSuggestions,
   } = usePlacesAutocomplete({
-    callbackName: "YOUR_CALLBACK_NAME",
+    callbackName: "initMap",
     requestOptions: {
       /* Define search scope here */
     },
     debounce: 300,
   });
+
+  console.log({ data });
 
   const handleInput = (e) => {
     // Update the keyword of the input element
@@ -202,12 +204,33 @@ const Page = () => {
                     required={false}
                     data-error="Please enter your Name"
                   />
-                  <label htmlFor="message">Address</label>
+                  <div ref={ref}>
+                    <label htmlFor="message">Address</label>
+                    <input
+                      value={value}
+                      onChange={handleInput}
+                      disabled={!ready}
+                      placeholder="Where are you going?"
+                    />
+                  </div>
+                  <label htmlFor="message">
+                    Is your business located at your home address?
+                  </label>
+                  <RadioButtons />
+                  <label htmlFor="message">
+                    What is your address for service of documents?
+                  </label>
+                  {/* ABN Active Date */}
+                  <label htmlFor="message">Main Business Activity</label>
                   <input
-                    value={value}
-                    onChange={handleInput}
-                    disabled={!ready}
-                    placeholder="Where are you going?"
+                    type="text"
+                    id="name"
+                    name="name"
+                    className="form-control"
+                    defaultValue=""
+                    placeholder="Somaia D. Silva"
+                    required={false}
+                    data-error="Please enter your Name"
                   />
                   {/* We can use the "status" to decide whether we should display the dropdown or not */}
                   {status === "OK" && <ul>{renderSuggestions()}</ul>}

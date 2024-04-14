@@ -1,20 +1,14 @@
-//search.easycompanies.com/abn-activities?activity=Selling%20sauce&v=2
+import transformBusinessCategoryStringToQueryString from "./transformBusinessCategoryStringToQueryString";
 
-const createBusinessCategoryFinderURL = (businessCategory: string): URL => {
-  const baseURL = "https://search.easycompanies.com/abn-activities";
+const createBusinessCategoryFinderURL = (businessCategory: string): string => {
+  const transformedBusinessCategory =
+    transformBusinessCategoryStringToQueryString(businessCategory);
 
-  const url = new URL(baseURL);
-  const decodedBusinessCategory = decodeURIComponent(businessCategory);
-  const encodedBusinessCategory = encodeURIComponent(decodedBusinessCategory);
-  url.searchParams.set("activity", encodedBusinessCategory);
-  url.searchParams.set("v", "2");
+  const constructedURL = `https://search.easycompanies.com/abn-activities?activity=${transformedBusinessCategory}&v=2`;
 
-  return url;
+  return constructedURL;
 };
 
-// if (require.main === module) {
-//   const businessCategory = "Selling sauce";
+export default createBusinessCategoryFinderURL;
 
-//   const url = createBusinessCategoryFinderURL(businessCategory);
-//   console.log(url.href);
-// }
+console.log(createBusinessCategoryFinderURL("Selling sauce"));

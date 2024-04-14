@@ -1,5 +1,5 @@
-import Select from "./Select";
-import { needAbnReasons } from "./form";
+import Select from "../Select";
+import { needAbnReasons } from "../form";
 
 const ABNEntitlement = () => {
   return (

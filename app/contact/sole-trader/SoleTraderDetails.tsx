@@ -1,11 +1,11 @@
-import Select from "./Select";
-import TextInput from "./TextInput";
-import { titles } from "./form";
+import Select from "../Select";
+import TextInput from "../TextInput";
+import { titles } from "../form";
 
-const SoloTraderDetails = () => {
+const SoleTraderDetails = () => {
   return (
     <>
-      <h5>Solo Trader Details</h5>
+      <h5>Sole Trader Details</h5>
       <p>Step 3 of 8</p>
       <div className="flex gap-3 items-center ">
         <div>
@@ -43,4 +43,4 @@ const SoloTraderDetails = () => {
   );
 };
 
-export default SoloTraderDetails;
+export default SoleTraderDetails;

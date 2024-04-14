@@ -8,10 +8,15 @@ import FormValues from "./form";
 import { BusinessHistory } from "./individual";
 
 import "react-datepicker/dist/react-datepicker.css";
-import ABNEntitlement from "./ABNEntitlement";
-import BusinessDetails from "./BusinessDetails";
-import BusinessLocation, { GOOGLE_MAPS_URL } from "./BusinessLocation";
-import SoloTraderDetails from "./SoloTraderDetails";
+import ABNEntitlement from "./sole-trader/ABNEntitlement";
+import ABNRegistrationDetails from "./sole-trader/ABNRegistrationDetails";
+import BusinessDetails from "./sole-trader/BusinessDetails";
+import BusinessLocation, {
+  GOOGLE_MAPS_URL,
+} from "./sole-trader/BusinessLocation";
+import BusinessNameApplication from "./sole-trader/BusinessNameApplication";
+import GSTRegistration from "./sole-trader/GSTRegistration";
+import SoleTraderDetails from "./sole-trader/SoleTraderDetails";
 
 const Page = () => {
   const {
@@ -51,48 +56,12 @@ const Page = () => {
                 >
                   <BusinessDetails />
                   <ABNEntitlement />
-                  <SoloTraderDetails />
+                  <SoleTraderDetails />
                   <BusinessLocation />
-                  
+                  <ABNRegistrationDetails />
+                  <BusinessNameApplication />
+                  <GSTRegistration />
 
-                  <h5>Business Name Application</h5>
-                  <p>Step 3 of 8</p>
-                  <label
-                    className="font-semibold text-black text-md"
-                    htmlFor="name"
-                  >
-                    Will you trade under a business name?
-                  </label>
-                  <div className="flex flex-col">
-                    {[
-                      "Yes, the business name I need is...",
-                      "No I will trade under my full name",
-                    ].map((option) => (
-                      <label className="inline-flex items-center">
-                        <input
-                          type="radio"
-                          className="form-radio"
-                          name={option}
-                          value={option}
-                        />
-                        <span className="ml-2">{option}</span>
-                      </label>
-                    ))}
-                  </div>
-                  <label htmlFor="message">Will you register for GST?</label>
-                  <div className="flex flex-col">
-                    {["Yes ($49)", "No"].map((option) => (
-                      <label className="inline-flex items-center">
-                        <input
-                          type="radio"
-                          className="form-radio"
-                          name={option}
-                          value={option}
-                        />
-                        <span className="ml-2">{option}</span>
-                      </label>
-                    ))}
-                  </div>
                   {/* We can use the "status" to decide whether we should display the dropdown or not */}
                   {/* {status === "OK" && <ul>{renderSuggestions()}</ul>} */}
                   <div className="col-md-12">

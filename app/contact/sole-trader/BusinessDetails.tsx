@@ -1,5 +1,5 @@
-import Select from "./Select";
-import { businessHistories } from "./form";
+import Select from "../Select";
+import { businessHistories } from "../form";
 
 const BusinessDetails = () => {
   const haveYouHadAnAbnInThePast = [

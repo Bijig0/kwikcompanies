@@ -3,7 +3,6 @@ import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
 } from "use-places-autocomplete";
-import DatePicker from "./DatePicker";
 
 const GOOGLE_MAPS_API_KEY = "AIzaSyD2uwgS-JBNlmWY84ryeDwy6T_-hFn0oFg";
 
@@ -110,34 +109,6 @@ const BusinessLocation = () => {
           </label>
         ))}
       </div>
-      <h5>ABN Registration details</h5>
-      <p>Step 3 of 8</p>
-      <label>ABN Active Date</label>
-      <DatePicker />
-      <label htmlFor="message">Main Business Activity</label>
-      <div></div>
-      {/* ABN Active Date */}
-      <input
-        type="text"
-        id="name"
-        name="name"
-        className="form-control"
-        defaultValue=""
-        placeholder="Somaia D. Silva"
-        required={false}
-        data-error="Please enter your Name"
-      />
-      <label htmlFor="message">Business Category</label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        className="form-control"
-        defaultValue=""
-        placeholder="Somaia D. Silva"
-        required={false}
-        data-error="Please enter your Name"
-      />
     </>
   );
 };

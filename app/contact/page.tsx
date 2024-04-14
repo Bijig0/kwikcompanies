@@ -232,6 +232,28 @@ const Page = () => {
                     required={false}
                     data-error="Please enter your Name"
                   />
+                  <label htmlFor="message">Business Category</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    className="form-control"
+                    defaultValue=""
+                    placeholder="Somaia D. Silva"
+                    required={false}
+                    data-error="Please enter your Name"
+                  />
+                  <label htmlFor="message">Will you register for GST?</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    className="form-control"
+                    defaultValue=""
+                    placeholder="Somaia D. Silva"
+                    required={false}
+                    data-error="Please enter your Name"
+                  />
                   {/* We can use the "status" to decide whether we should display the dropdown or not */}
                   {status === "OK" && <ul>{renderSuggestions()}</ul>}
                   <div className="col-md-12">

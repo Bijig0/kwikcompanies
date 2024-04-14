@@ -10,7 +10,7 @@ const PageBanner = (props: Props) => {
   const { pageTitle, pageName, titleTag } = props;
   return (
     <section
-      className="page-banner-area overlay pt-80 pb-[4rem] rpy-120 rel z-1 bgs-cover text-center"
+      className="page-banner-area overlay pt-80 pb-[3.25rem] rpy-120 rel z-1 bgs-cover text-center"
       style={{ backgroundImage: "url(assets/images/backgrounds/banner.jpg)" }}
     >
       <div className="container">
@@ -23,13 +23,13 @@ const PageBanner = (props: Props) => {
               data-aos-duration={1500}
               data-aos-offset={50}
             >
-              <li className="breadcrumb-item text-lg">
+              <li className="breadcrumb-item text-sm">
                 <Link href="/">Home</Link>
               </li>
-              <li className="breadcrumb-item active text-lg">{pageName}</li>
+              <li className="breadcrumb-item active text-sm">{pageName}</li>
             </ol>
           </nav>
-          <div className="my-8"></div>
+          <div className="my-4"></div>
           <h1
             className="page-title text-4xl"
             data-aos="fade-up"

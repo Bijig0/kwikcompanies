@@ -93,9 +93,9 @@ const Page = () => {
       <Script src={GOOGLE_MAPS_URL} strategy="beforeInteractive" />
       <PageBanner pageName={"Individual ABN Form"} />
       {/* Contact Page Start */}
-      <section className="contact-page py-130 rpy-100">
-        <div className="container">
-          <div className="row gap-100 align-items-center">
+      <section className="contact-page py-16 rpy-100">
+        <div className="container ">
+          <div className="row gap-100 justify-center flex align-items-center">
             <div className="col-lg-7">
               <div
                 className="contact-form br-10 bgc-lighter rmt-60"

@@ -1,3 +1,4 @@
+import FormPartLayout from "../FormPartLayout";
 import Select from "../Select";
 import { useSoleTraderFormContext } from "../SoleTraderFormContext";
 import { needAbnReasons } from "../form";
@@ -5,10 +6,7 @@ import { needAbnReasons } from "../form";
 const ABNEntitlement = () => {
   const { register } = useSoleTraderFormContext();
   return (
-    <div>
-      <h5>ABN Entitlement</h5>
-      <p>Step 2 of 8</p>
-      <div className="my-2"></div>
+    <FormPartLayout header="ABN Entitlement" step={2}>
       <label className="font-semibold text-black text-md" htmlFor="message">
         Where will your activites be carried out?
       </label>
@@ -31,7 +29,7 @@ const ABNEntitlement = () => {
         </label>
         <Select name="needAbnReason" options={needAbnReasons} />
       </div>
-    </div>
+    </FormPartLayout>
   );
 };
 

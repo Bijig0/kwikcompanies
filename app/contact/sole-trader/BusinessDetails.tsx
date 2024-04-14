@@ -1,3 +1,4 @@
+import FormPartLayout from "../FormPartLayout";
 import Select from "../Select";
 import { useSoleTraderFormContext } from "../SoleTraderFormContext";
 import { businessHistories } from "../form";
@@ -10,13 +11,10 @@ const BusinessDetails = () => {
     "No, I have never had an ABN as a sole trader.",
     "Yes, I have had an ABN as a sole trader before.",
   ];
+  <div onClick={() => console.log(getValues())}>CHECK VALUES</div>;
 
   return (
-    <div>
-      <div onClick={() => console.log(getValues())}>CHECK VALUES</div>
-      <h5>Your business details</h5>
-      <p>Step 1 of 8</p>
-      <div className="my-2"></div>
+    <FormPartLayout header="Your business details" step={1}>
       <div className="flex flex-col gap-3">
         <div>
           <label className="font-bold text-black text-md" htmlFor="name">
@@ -43,7 +41,7 @@ const BusinessDetails = () => {
           </div>
         </div>
       </div>
-    </div>
+    </FormPartLayout>
   );
 };
 

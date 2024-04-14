@@ -5,7 +5,6 @@ import useClickOutside from "@utils/useClickOutside";
 import Script from "next/script";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { AiOutlineDown } from "react-icons/ai"; // Import the down caret icon from react-icons
 import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
@@ -13,7 +12,7 @@ import usePlacesAutocomplete, {
 import RadioButtons from "./RadioButtons";
 import Select from "./Select";
 import TextInput from "./TextInput";
-import FormValues, { needAbnReasons, titles } from "./form";
+import FormValues, { needAbnReasons } from "./form";
 import { BusinessHistory } from "./individual";
 
 const GOOGLE_MAPS_API_KEY = "AIzaSyD2uwgS-JBNlmWY84ryeDwy6T_-hFn0oFg";
@@ -177,18 +176,7 @@ const Page = () => {
                   <div className="flex gap-3 items-center ">
                     <div>
                       <label htmlFor="message">Title</label>
-                      <div className="relative inline-flex">
-                        <select className="rounded-md text-gray-800 bg-white py-3 border-gray-300 w-full font-medium px-4 rounded-lg w-full text-base font-normal leading-normal bg-white border border-gray-300 appearance-none rounded transition-colors transition-shadow">
-                          {titles.map((title, index) => (
-                            <option key={index} value={title}>
-                              {title}
-                            </option>
-                          ))}
-                        </select>
-                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                          <AiOutlineDown className="h-4 w-4" />
-                        </div>
-                      </div>
+                      <Select />
                     </div>
                     <div>
                       <label htmlFor="message">First Name</label>

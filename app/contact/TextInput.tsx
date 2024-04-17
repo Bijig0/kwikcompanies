@@ -5,7 +5,7 @@ import FormValues from "./form";
 type Props = ComponentProps<"input"> & { name: keyof FormValues };
 
 const TextInput = (props: Props) => {
-  const { name, required } = props;
+  const { name, required, placeholder } = props;
   const {
     formManager: { register },
     formDisabled,
@@ -21,7 +21,7 @@ const TextInput = (props: Props) => {
         formDisabled ? "text-gray-400" : "text-gray-800"
       } py-3 border-gray-300 w-full font-medium px-4 rounded-lg w-full text-base font-normal leading-normal border border-gray-300 appearance-none rounded transition-colors transition-shadow`}
       defaultValue=""
-      placeholder="Somaia D. Silva"
+      placeholder={placeholder}
       required={required}
       data-error="Please enter your Name"
     />

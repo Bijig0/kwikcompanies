@@ -6,7 +6,7 @@ const ABNRegistrationDetails = () => {
     <FormPartLayout header="ABN Registration Details" step={5}>
       <div>
         <label>ABN Active Date</label>
-        <DatePicker />
+        <DatePicker name="abnActivateDate" />
       </div>
       <div>
         <label htmlFor="message">Main Business Activity</label>

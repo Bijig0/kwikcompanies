@@ -31,16 +31,6 @@ export const titles = ["Mr", "Mrs", "Miss", "Ms", "Dr", "Other"] as const;
 
 type Title = (typeof titles)[number];
 
-type DateOfBirth = {
-  year: number;
-  month: number;
-  day: number;
-};
-
-export const addressForServiceDocuments = ["Home", "Other"] as const;
-
-type AddressForServiceDocuments = (typeof addressForServiceDocuments)[number];
-
 type HasPreviousAbn =
   | {
       answer: false;
@@ -72,12 +62,13 @@ type FormValues = {
   lastName: string;
   email: string;
   phoneNumber: string;
-  dateOfBirth: DateOfBirth;
+  dateOfBirth: Date;
+  abnActivateDate: Date;
   taxFileNumber: string;
   isAustralianResident: boolean;
   address: string;
-  isBusinessLocatedAtHomeAddress: boolean;
-  addressForServiceDocuments: AddressForServiceDocuments;
+  businessLocation: string;
+  addressForServiceDocuments: string;
 };
 
 export default FormValues;

@@ -24,11 +24,11 @@ const SoleTraderDetails = () => {
         </div>
         <div className="flex-[3_3_0%] md:flex-[2_2_0%]">
           <label htmlFor="message">First Name</label>
-          <TextInput name="firstName" />
+          <TextInput placeholder="John" name="firstName" />
         </div>
         <div className="flex-[3_3_0%] md:flex-[2_2_0%]">
           <label htmlFor="message">Last Name</label>
-          <TextInput name="lastName" />
+          <TextInput placeholder="Smith" name="lastName" />
         </div>
       </div>
       <div>
@@ -46,28 +46,31 @@ const SoleTraderDetails = () => {
       {watch("otherNames.answer") && (
         <div>
           <label htmlFor="message">Other Name</label>
-          {/* @ts-ignore */}
-          <TextInput name="otherNames.otherName" />
+          <TextInput
+            placeholder="Placeholder Name"
+            /* @ts-ignore */
+            name="otherNames.otherName"
+          />
         </div>
       )}
       <div>
         <label htmlFor="message">Email</label>
-        <TextInput name="email" />
+        <TextInput placeholder="john_smith@gmail.com" name="email" />
       </div>
 
       <div>
         <label htmlFor="message">Phone Number</label>
-        <TextInput name="phoneNumber" />
+        <TextInput placeholder="+61 403 057 369" name="phoneNumber" />
       </div>
 
       <div>
         <label htmlFor="message">Date of Birth</label>
-        <DatePicker />
+        <DatePicker name="dateOfBirth" />
       </div>
 
       <div>
         <label htmlFor="message">Tax File Number</label>
-        <TextInput name="taxFileNumber" />
+        <TextInput placeholder="123 456 789" name="taxFileNumber" />
       </div>
     </FormPartLayout>
   );

@@ -39,10 +39,10 @@ const _BusinessNameApplication = () => {
   const handleBusinessNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value as "Yes" | "No";
     if (value === "Yes") {
-      setValue("businessName", { answer: true, businessName: undefined });
+      setValue("businessName.answer", true);
       return;
     } else if (value === "No") {
-      setValue("businessName", { answer: false });
+      setValue("businessName.answer", false);
     }
   };
 
@@ -83,7 +83,9 @@ const _BusinessNameApplication = () => {
                 placeholder="Acme Inc"
               />
               <div className="my-2"></div>
-              <button onClick={handleSearchForBusinessName}>Search</button>
+              <button id="search" onClick={handleSearchForBusinessName}>
+                Search
+              </button>
             </div>
             {businessNameAvailable && (
               <div>

@@ -1,14 +1,20 @@
 import { useQuery } from "@tanstack/react-query";
 import { z } from "zod";
 
+export const KNOWN_STATUSES = [
+  "available",
+  "for manual review",
+  "identical",
+] as const;
+
+export type KNOWN_STATUS = (typeof KNOWN_STATUSES)[number];
 
 const businessNameResponseSchema = z.object({
   success: z.boolean(),
   result: z.object({
-    status: z.string(),
+    status: z.boolean(),
     isAcncFlag: z.boolean(),
-    reason: z.string(),
-    nameSuggestions: z.array(z.string()),
+    reason: z.enum(KNOWN_STATUSES),
   }),
 });
 

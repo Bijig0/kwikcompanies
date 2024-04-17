@@ -1,18 +1,28 @@
 "use client";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { useBoolean } from "@utils/useBoolean";
+import React from "react";
+import { Button, Spinner } from "react-bootstrap";
 import FormPartLayout from "../../FormPartLayout";
 import { useSoleTraderFormContext } from "../../SoleTraderFormContext";
 import TextInput from "../../TextInput";
 import { queryClient } from "../queryClient";
-import useSearchForBusinessName from "./useSearchForBusinessName";
+import AvailableText from "./AvailableText";
+import ForManualReviewText from "./ForManualReviewText";
+import useSearchForBusinessName, {
+  KNOWN_STATUS,
+} from "./useSearchForBusinessName";
 
 const text = {
   Yes: "Yes, the business name I need is...",
   No: "No I will trade under my full name",
 };
 
-const BUSINESS_NAME_AVAILABLE = "available";
+const renderSearchResult = {
+  available: <AvailableText />,
+  "for manual review": <ForManualReviewText />,
+  identical: <ForManualReviewText />,
+} satisfies Record<KNOWN_STATUS, React.ReactNode>;
 
 const _BusinessNameApplication = () => {
   const {
@@ -31,8 +41,7 @@ const _BusinessNameApplication = () => {
     businessName: getValues("businessName.businessName"),
   });
 
-  const businessNameAvailable =
-    data?.result?.reason === BUSINESS_NAME_AVAILABLE;
+  const businessNameAvailable = data?.result?.reason;
 
   const options = ["Yes", "No"];
 
@@ -83,15 +92,12 @@ const _BusinessNameApplication = () => {
                 placeholder="Acme Inc"
               />
               <div className="my-2"></div>
-              <button id="search" onClick={handleSearchForBusinessName}>
-                Search
-              </button>
+              <Button onClick={handleSearchForBusinessName}>
+                {!isLoading ? "Search" : <Spinner animation="border" />}
+              </Button>
+              {error && <p className="text-red-500">{error.message}</p>}
             </div>
-            {businessNameAvailable && (
-              <div>
-                <label htmlFor="message">Business Name Available</label>
-              </div>
-            )}
+            {businessNameAvailable && renderSearchResult[businessNameAvailable]}
           </div>
         )}
       </FormPartLayout>

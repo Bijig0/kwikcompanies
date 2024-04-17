@@ -38,10 +38,10 @@ const _BusinessNameApplication = () => {
 
   const { data, error, isLoading } = useSearchForBusinessName({
     shouldSearchBusinessName,
-    businessName: getValues("businessName.businessName"),
+    businessName: watch("businessName.businessName"),
   });
 
-  const businessNameAvailable = data?.result?.reason;
+  const businessNameAvailable = data?.result?.status;
 
   const options = ["Yes", "No"];
 
@@ -56,6 +56,7 @@ const _BusinessNameApplication = () => {
   };
 
   const handleSearchForBusinessName = () => {
+    console.log(getValues());
     startSearchBusinessName();
   };
 

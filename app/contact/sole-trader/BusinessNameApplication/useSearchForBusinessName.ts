@@ -13,16 +13,16 @@ export type KNOWN_STATUS = (typeof KNOWN_STATUSES)[number];
 const businessNameSuccessResponseSchema = z.object({
   success: z.boolean(),
   result: z.object({
-    status: z.boolean(),
+    status: z.enum(KNOWN_STATUSES),
     isAcncFlag: z.boolean(),
-    reason: z.enum(KNOWN_STATUSES),
+    reason: z.string(),
   }),
 });
 
 const businessNameFailureResponseSchema = z.object({
   success: z.literal(false),
   result: z.object({
-    status: z.string(),
+    status: z.enum(KNOWN_STATUSES),
     reason: z.string(),
   }),
 });

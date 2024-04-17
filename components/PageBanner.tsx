@@ -10,7 +10,7 @@ const PageBanner = (props: Props) => {
   const { pageTitle, pageName, titleTag } = props;
   return (
     <section
-      className="page-banner-area overlay pt-80 pb-[3.25rem] rpy-120 rel z-1 bgs-cover text-center"
+      className="page-banner-area overlay pt-20 pb-[3.25rem] rpy-120 rel z-1 bgs-cover text-center"
       style={{ backgroundImage: "url(assets/images/backgrounds/banner.jpg)" }}
     >
       <div className="container">

@@ -8,8 +8,8 @@ describe("cleanBusinessCategoryString", () => {
   });
 
   it("should remove multiple whitespace characters", () => {
-    const businessCategory = "  Selling sauce  ";
+    const businessCategory = " My     Company";
     const cleanBusinessCategory = cleanBusinessCategoryString(businessCategory);
-    expect(cleanBusinessCategory).toBe("Selling sauce");
+    expect(cleanBusinessCategory).toBe("My Company");
   });
 });

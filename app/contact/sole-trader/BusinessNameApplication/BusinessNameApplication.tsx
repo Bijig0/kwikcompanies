@@ -1,26 +1,45 @@
 "use client";
 import { QueryClientProvider } from "@tanstack/react-query";
+import { useBoolean } from "@utils/useBoolean";
 import FormPartLayout from "../../FormPartLayout";
 import { useSoleTraderFormContext } from "../../SoleTraderFormContext";
 import TextInput from "../../TextInput";
 import { queryClient } from "../queryClient";
+import useSearchForBusinessName from "./useSearchForBusinessName";
 
 const text = {
   Yes: "Yes, the business name I need is...",
   No: "No I will trade under my full name",
 };
 
-const BusinessNameApplication = () => {
+const BUSINESS_NAME_AVAILABLE = "available";
+
+const _BusinessNameApplication = () => {
   const {
-    formManager: { setValue, watch },
+    value: shouldSearchBusinessName,
+    setTrue: startSearchBusinessName,
+    setFalse: stopSearchBusinessName,
+    toggle: toggleSearchBusinessName,
+  } = useBoolean(false);
+
+  const {
+    formManager: { setValue, watch, getValues },
   } = useSoleTraderFormContext();
+
+  const { data, error, isLoading } = useSearchForBusinessName({
+    shouldSearchBusinessName,
+    businessName: getValues("businessName"),
+  });
+
+  const businessNameAvailable =
+    data?.result?.reason === BUSINESS_NAME_AVAILABLE;
 
   const options = ["Yes", "No"];
 
   const handleBusinessNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value as "Yes" | "No";
     if (value === "Yes") {
-      setValue("businessName", "Custom");
+      setValue("businessName", undefined);
       return;
     } else if (value === "No") {
       setValue("businessName", "Full Name");
@@ -28,7 +47,7 @@ const BusinessNameApplication = () => {
   };
 
   const handleSearchForBusinessName = () => {
-    setValue("businessName", "Custom");
+    startSearchBusinessName();
   };
 
   return (
@@ -55,13 +74,28 @@ const BusinessNameApplication = () => {
         </div>
         {watch("businessName") === "Custom" && (
           <div>
-            <label htmlFor="message">Search for your business name</label>
-            <TextInput name="businessName" />
-            <div className="my-2"></div>
-            <button onClick={handleSearchForBusinessName}>Search</button>
+            <div>
+              <label htmlFor="message">Search for your business name</label>
+              <TextInput name="businessName" />
+              <div className="my-2"></div>
+              <button onClick={handleSearchForBusinessName}>Search</button>
+            </div>
+            {businessNameAvailable && (
+              <div>
+                <label htmlFor="message">Business Name Available</label>
+              </div>
+            )}
           </div>
         )}
       </FormPartLayout>
+    </QueryClientProvider>
+  );
+};
+
+const BusinessNameApplication = () => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <_BusinessNameApplication />
     </QueryClientProvider>
   );
 };

@@ -63,12 +63,13 @@ type FormValues = {
   email: string;
   phoneNumber: string;
   dateOfBirth: Date;
-  abnActivateDate: Date;
+  abnActiveDate: Date;
   taxFileNumber: string;
   isAustralianResident: boolean;
   address: string;
   businessLocation: string;
   addressForServiceDocuments: string;
+  businessName: string;
 };
 
 export default FormValues;

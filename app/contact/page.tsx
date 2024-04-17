@@ -12,7 +12,7 @@ import ABNEntitlement from "./sole-trader/ABNEntitlement";
 import ABNRegistrationDetails from "./sole-trader/ABNRegistrationDetails";
 import BusinessDetails from "./sole-trader/BusinessDetails";
 import BusinessLocation from "./sole-trader/BusinessLocation";
-import BusinessNameApplication from "./sole-trader/BusinessNameApplication";
+import BusinessNameApplication from "./sole-trader/BusinessNameApplication/BusinessNameApplication";
 import GSTRegistration from "./sole-trader/GSTRegistration";
 import SoleTraderDetails from "./sole-trader/SoleTraderDetails";
 

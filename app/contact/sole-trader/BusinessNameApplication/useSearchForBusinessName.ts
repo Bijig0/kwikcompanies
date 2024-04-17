@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import createSearchForBusinessUrl from "app/contact/createSearchForBusinessUrl/createSearchForBusinessUrl";
 import { z } from "zod";
 
 export const KNOWN_STATUSES = [
@@ -9,7 +10,7 @@ export const KNOWN_STATUSES = [
 
 export type KNOWN_STATUS = (typeof KNOWN_STATUSES)[number];
 
-const businessNameResponseSchema = z.object({
+const businessNameSuccessResponseSchema = z.object({
   success: z.boolean(),
   result: z.object({
     status: z.boolean(),
@@ -18,9 +19,20 @@ const businessNameResponseSchema = z.object({
   }),
 });
 
-type BusinessNameResponseSchema = z.infer<typeof businessNameResponseSchema>;
+const businessNameFailureResponseSchema = z.object({
+  success: z.literal(false),
+  result: z.object({
+    status: z.string(),
+    reason: z.string(),
+  }),
+});
 
-const url = "https://search.easycompanies.com/abn-activities";
+const businessNameResponseSchema = z.union([
+  businessNameSuccessResponseSchema,
+  businessNameFailureResponseSchema,
+]);
+
+type BusinessNameResponseSchema = z.infer<typeof businessNameResponseSchema>;
 
 type Args = {
   shouldSearchBusinessName: boolean;
@@ -33,9 +45,13 @@ const useSearchForBusinessName = ({
 }: Args) => {
   const searchForBusinessName =
     async (): Promise<BusinessNameResponseSchema> => {
+      const url = createSearchForBusinessUrl(businessName);
       const response = await fetch(url);
       const data = await response.json();
       const parsedData = businessNameResponseSchema.parse(data);
+      if (!parsedData.success) {
+        throw new Error(parsedData.result.reason);
+      }
       return parsedData;
     };
 

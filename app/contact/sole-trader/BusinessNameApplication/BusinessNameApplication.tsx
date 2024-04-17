@@ -28,7 +28,7 @@ const _BusinessNameApplication = () => {
 
   const { data, error, isLoading } = useSearchForBusinessName({
     shouldSearchBusinessName,
-    businessName: getValues("businessName"),
+    businessName: getValues("businessName.businessName"),
   });
 
   const businessNameAvailable =
@@ -39,10 +39,10 @@ const _BusinessNameApplication = () => {
   const handleBusinessNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value as "Yes" | "No";
     if (value === "Yes") {
-      setValue("businessName", undefined);
+      setValue("businessName", { answer: true, businessName: undefined });
       return;
     } else if (value === "No") {
-      setValue("businessName", "Full Name");
+      setValue("businessName", { answer: false });
     }
   };
 
@@ -72,11 +72,16 @@ const _BusinessNameApplication = () => {
             ))}
           </div>
         </div>
-        {watch("businessName") === "Custom" && (
+        {watch("businessName.answer") && (
           <div>
             <div>
               <label htmlFor="message">Search for your business name</label>
-              <TextInput name="businessName" />
+
+              <TextInput
+                // @ts-ignore
+                name="businessName.businessName"
+                placeholder="Acme Inc"
+              />
               <div className="my-2"></div>
               <button onClick={handleSearchForBusinessName}>Search</button>
             </div>

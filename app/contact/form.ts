@@ -49,6 +49,15 @@ type KnownByOtherName =
       otherName: string;
     };
 
+type TradingUnderBusinessName =
+  | {
+      answer: true;
+      businessName: string;
+    }
+  | {
+      answer: false;
+    };
+
 type FormValues = {
   businessHistory: BusinessHistory;
   hasPreviousAbn: HasPreviousAbn;
@@ -69,7 +78,7 @@ type FormValues = {
   address: string;
   businessLocation: string;
   addressForServiceDocuments: string;
-  businessName: string;
+  businessName: TradingUnderBusinessName;
 };
 
 export default FormValues;

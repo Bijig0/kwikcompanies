@@ -6,7 +6,10 @@ type Props = ComponentProps<"input"> & { name: keyof FormValues };
 
 const TextInput = (props: Props) => {
   const { name, required } = props;
-  const { register, formDisabled } = useSoleTraderFormContext();
+  const {
+    formManager: { register },
+    formDisabled,
+  } = useSoleTraderFormContext();
   return (
     <input
       {...register(name)}

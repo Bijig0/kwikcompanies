@@ -8,8 +8,10 @@ type Props = {
 };
 
 const Select = (props: Props) => {
-  const { register, handleSubmit, formState, formDisabled } =
-    useSoleTraderFormContext();
+  const {
+    formManager: { register, handleSubmit, formState },
+    formDisabled,
+  } = useSoleTraderFormContext();
 
   const { options } = props;
   return (

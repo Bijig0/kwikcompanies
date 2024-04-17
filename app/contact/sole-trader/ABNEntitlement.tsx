@@ -1,12 +1,13 @@
+import { watch } from "fs";
 import FormPartLayout from "../FormPartLayout";
 import Select from "../Select";
 import { useSoleTraderFormContext } from "../SoleTraderFormContext";
 import { ActivitiesLocation, needAbnReasons } from "../form";
 
 const ABNEntitlement = () => {
-  const { register, watch, setValue, disableForm, enableForm } =
-    useSoleTraderFormContext();
+  const { formManager, disableForm, enableForm } = useSoleTraderFormContext();
 
+  const { setValue, register, watch } = formManager;
   const handleSelectActivitesLocation = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -29,10 +30,10 @@ const ABNEntitlement = () => {
       </label>
       <div className="flex flex-col">
         {["Australia", "Overseas"].map((option) => (
-          <label className="inline-flex items-center">
+          <label key={option} className="inline-flex items-center">
             <input
+              {...register("activitiesLocation")}
               type="radio"
-              name="activitiesLocation"
               className="form-radio"
               value={option}
               onChange={handleSelectActivitesLocation}

@@ -4,16 +4,9 @@ import { ReactNode, createContext, useContext } from "react";
 import { useForm } from "react-hook-form";
 import FormValues from "./form";
 
-type UseFormReturnType = ReturnType<typeof useForm<FormValues>>;
-
 type TSoleTraderFormContext = {
   //   register: UseFormRegister<FormValues>;
-  register: UseFormReturnType["register"];
-  handleSubmit: UseFormReturnType["handleSubmit"];
-  formState: UseFormReturnType["formState"];
-  getValues: UseFormReturnType["getValues"];
-  watch: UseFormReturnType["watch"];
-  setValue: UseFormReturnType["setValue"];
+  formManager: ReturnType<typeof useForm<FormValues>>;
   enableForm: () => void;
   disableForm: () => void;
   formDisabled: boolean;
@@ -31,8 +24,7 @@ type Props = {
 
 const SoleTraderFormProvider = (props: Props) => {
   const { totalSteps } = props;
-  const { register, handleSubmit, formState, getValues, watch, setValue } =
-    useForm<FormValues>();
+  const formManager = useForm<FormValues>();
 
   const {
     value: formDisabled,
@@ -44,12 +36,7 @@ const SoleTraderFormProvider = (props: Props) => {
   return (
     <SoleTraderFormContext.Provider
       value={{
-        register,
-        handleSubmit,
-        formState,
-        getValues,
-        watch,
-        setValue,
+        formManager,
         disableForm,
         enableForm,
         formDisabled,

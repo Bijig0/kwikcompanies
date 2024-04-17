@@ -43,11 +43,20 @@ type AddressForServiceDocuments = (typeof addressForServiceDocuments)[number];
 
 type HasPreviousAbn =
   | {
-      Answer: false;
+      answer: false;
     }
   | {
-      Answer: true;
+      answer: true;
       prevAbn: string;
+    };
+
+type KnownByOtherName =
+  | {
+      answer: false;
+    }
+  | {
+      answer: true;
+      otherName: string;
     };
 
 type FormValues = {
@@ -58,7 +67,8 @@ type FormValues = {
   activitiesLocation: ActivitiesLocation;
   needAbnReason: NeedAbnReason;
   title: Title;
-  givenNames: string[];
+  firstName: string;
+  otherNames: KnownByOtherName;
   lastName: string;
   email: string;
   phoneNumber: string;

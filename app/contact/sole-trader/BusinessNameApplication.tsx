@@ -12,7 +12,7 @@ const BusinessNameApplication = () => {
             "Yes, the business name I need is...",
             "No I will trade under my full name",
           ].map((option) => (
-            <label className="inline-flex items-center">
+            <label key={option} className="inline-flex items-center">
               <input
                 type="radio"
                 className="form-radio"

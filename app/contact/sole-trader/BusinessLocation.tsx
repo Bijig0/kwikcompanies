@@ -14,7 +14,7 @@ const BusinessLocation = () => {
         </label>
         <div className="flex flex-col">
           {["Yes", "No"].map((option) => (
-            <label className="inline-flex items-center">
+            <label key={option} className="inline-flex items-center">
               <input
                 type="radio"
                 className="form-radio"
@@ -32,7 +32,7 @@ const BusinessLocation = () => {
         </label>
         <div className="flex flex-col">
           {["Home", "Other"].map((option) => (
-            <label className="inline-flex items-center">
+            <label key={option} className="inline-flex items-center">
               <input
                 type="radio"
                 className="form-radio"

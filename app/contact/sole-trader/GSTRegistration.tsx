@@ -6,7 +6,7 @@ const GSTRegistration = () => {
       <label htmlFor="message">Will you register for GST?</label>
       <div className="flex flex-col">
         {["Yes ($49)", "No"].map((option) => (
-          <label className="inline-flex items-center">
+          <label key={option} className="inline-flex items-center">
             <input
               type="radio"
               className="form-radio"

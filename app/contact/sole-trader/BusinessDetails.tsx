@@ -8,7 +8,8 @@ import { businessHistories } from "../form";
 import "react-tooltip/dist/react-tooltip.css";
 
 const BusinessDetails = () => {
-  const { watch, setValue, formDisabled } = useSoleTraderFormContext();
+  const { formManager, formDisabled } = useSoleTraderFormContext();
+  const { setValue, register, watch } = formManager;
 
   const text = {
     No: "No, I have never had an ABN as a sole trader.",
@@ -29,10 +30,9 @@ const BusinessDetails = () => {
         </label>
         <div className="flex flex-col">
           {["No", "Yes"].map((option) => (
-            <label className="inline-flex items-center">
+            <label key={option} className="inline-flex items-center">
               <input
                 disabled={formDisabled}
-                // {...register("hasPreviousAbn.Answer")}
                 type="radio"
                 className={`form-radio ${
                   formDisabled ? "bg-gray-100" : "bg-white"
@@ -40,7 +40,7 @@ const BusinessDetails = () => {
                 value={option}
                 name="hasPreviousAbn.Answer"
                 onChange={() =>
-                  setValue("hasPreviousAbn.Answer", option === "Yes")
+                  setValue("hasPreviousAbn.answer", option === "Yes")
                 }
               />
               <span className={`ml-2 ${formDisabled ? "text-gray-400" : ""}`}>
@@ -50,10 +50,11 @@ const BusinessDetails = () => {
           ))}
         </div>
       </div>
-      {watch("hasPreviousAbn.Answer") && (
+      {watch("hasPreviousAbn.answer") && (
         <div>
           <label htmlFor="message">Previous ABN</label>
-          <TextInput required pattern="[0-9]{13}" maxlength={13} value="Val" />
+          {/* @ts-ignore */}
+          <TextInput name="hasPreviousAbn.prevAbn" />
           <div className="my-2"></div>
           <p>
             If you can't remember your ABN, <a>click here</a>

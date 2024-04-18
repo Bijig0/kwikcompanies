@@ -1,10 +1,13 @@
 import { ComponentProps } from "react";
 import { useSoleTraderFormContext } from "../app/contact/SoleTraderFormContext";
-import { FormRegisterable } from "../app/contact/form";
 
-type Props = ComponentProps<"input"> & { name: FormRegisterable };
+type Props<TFormRegisterable extends string> = ComponentProps<"input"> & {
+  name: TFormRegisterable;
+};
 
-const TextInput = (props: Props) => {
+const TextInput = <TFormRegisterable extends string>(
+  props: Props<TFormRegisterable>
+) => {
   const { name, required, placeholder } = props;
   const {
     formManager: { register },

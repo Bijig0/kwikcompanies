@@ -4,12 +4,16 @@ import { ComponentProps } from "react";
 import _DatePicker from "react-datepicker";
 import { Controller } from "react-hook-form";
 import { useSoleTraderFormContext } from "../app/contact/SoleTraderFormContext";
-import FormValues from "../app/contact/form";
+import { FormRegisterable } from "../app/contact/form";
 dayjs.extend(utc);
 
-type Props = ComponentProps<"input"> & { name: keyof FormValues };
+type Props<TFormRegisterable extends string> = ComponentProps<"input"> & {
+  name: TFormRegisterable;
+};
 
-const DatePicker = (props: Props) => {
+const DatePicker = <TFormRegisterable extends FormRegisterable>(
+  props: Props<TFormRegisterable>
+) => {
   const { name, placeholder } = props;
   const {
     formDisabled,

@@ -2,10 +2,10 @@
 import ErrorText from "@components/ErrorText";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { useBoolean } from "@utils/useBoolean";
+import { SoleTraderTextInput } from "app/contact/SoleTraderFormComponents";
 import React from "react";
 import { Button, Spinner } from "react-bootstrap";
 import { Controller } from "react-hook-form";
-import TextInput from "../../../../components/TextInput";
 import FormPartLayout from "../../FormPartLayout";
 import { useSoleTraderFormContext } from "../../SoleTraderFormContext";
 import { queryClient } from "../queryClient";
@@ -122,7 +122,7 @@ const _BusinessNameApplication = () => {
           <div>
             <div>
               <label htmlFor="message">Search for your business name</label>
-              <TextInput
+              <SoleTraderTextInput
                 name="businessName.businessName"
                 placeholder="Acme Inc"
               />

@@ -4,7 +4,12 @@ import { Controller } from "react-hook-form";
 import { CiCircleCheck } from "react-icons/ci";
 import BusinessNameRegistrationDetails from "./BusinessNameRegistrationDetails";
 
-const AvailableText = () => {
+type Props = {
+  resetSearch: () => void;
+};
+
+const AvailableText = (props: Props) => {
+  const {  } = props;
   const {
     formManager: { control, register, watch, setValue, getValues },
     formDisabled,

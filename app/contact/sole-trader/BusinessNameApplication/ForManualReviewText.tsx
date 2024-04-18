@@ -3,7 +3,12 @@ import { Button } from "react-bootstrap";
 import { Controller } from "react-hook-form";
 import BusinessNameRegistrationDetails from "./BusinessNameRegistrationDetails";
 
-const ForManualReviewText = () => {
+type Props = {
+  resetSearch: () => void;
+};
+
+const ForManualReviewText = (props: Props) => {
+  const {} = props;
   const {
     formManager: { control, register, watch, setValue, getValues },
     formDisabled,

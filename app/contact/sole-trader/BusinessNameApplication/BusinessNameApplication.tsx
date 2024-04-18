@@ -10,6 +10,7 @@ import { queryClient } from "../queryClient";
 import AvailableText from "./AvailableText";
 import ForManualReviewText from "./ForManualReviewText";
 import IdenticalText from "./IdenticalText";
+import useResetSearch from "./useResetSearch";
 import useSearchForBusinessName, {
   KNOWN_STATUS,
 } from "./useSearchForBusinessName";
@@ -20,27 +21,40 @@ const text = {
 };
 
 const renderSearchResult = {
-  available: <AvailableText />,
-  "for manual review": <ForManualReviewText />,
-  identical: <IdenticalText nameSuggestions={[]} />,
-} satisfies Record<KNOWN_STATUS, React.ReactNode>;
+  available: (resetSearch: () => void) => (
+    <AvailableText resetSearch={resetSearch} />
+  ),
+  "for manual review": (resetSearch: () => void) => (
+    <ForManualReviewText resetSearch={resetSearch} />
+  ),
+  identical: (resetSearch: () => void) => (
+    <IdenticalText nameSuggestions={[]} resetSearch={resetSearch} />
+  ),
+} satisfies Record<KNOWN_STATUS, (...args: any[]) => React.ReactNode>;
 
 const _BusinessNameApplication = () => {
   const {
     value: shouldSearchBusinessName,
     setTrue: startSearchBusinessName,
-    setFalse: stopSearchBusinessName,
-    toggle: toggleSearchBusinessName,
+    setFalse: stopShouldSearchBusinessName,
   } = useBoolean(false);
 
   const {
     formManager: { setValue, watch, getValues },
   } = useSoleTraderFormContext();
 
+  console.log({ shouldSearchBusinessName });
+
   const { data, error, isLoading, isFetched } = useSearchForBusinessName({
     shouldSearchBusinessName,
     businessName: watch("businessName.businessName"),
   });
+
+  const { resetSearch } = useResetSearch({
+    stopShouldSearchBusinessName,
+  });
+
+  console.log({ data });
 
   const businessNameAvailable: KNOWN_STATUS = data?.result.status;
 
@@ -60,6 +74,8 @@ const _BusinessNameApplication = () => {
     console.log(getValues());
     startSearchBusinessName();
   };
+
+  const renderSearchResultProps = resetSearch;
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -102,7 +118,8 @@ const _BusinessNameApplication = () => {
             {error && <p className="text-red-500">{error.message}</p>}
           </div>
           <div className="my-3" />
-          {businessNameAvailable && renderSearchResult[businessNameAvailable]}
+          {businessNameAvailable &&
+            renderSearchResult[businessNameAvailable](renderSearchResultProps)}
         </div>
       </FormPartLayout>
     </QueryClientProvider>

@@ -64,7 +64,7 @@ const useSearchForBusinessName = ({
     };
 
   const result = useQuery({
-    queryKey: ["businessName", businessName],
+    queryKey: ["search", businessName],
     queryFn: searchForBusinessName,
     enabled: shouldSearchBusinessName,
   });

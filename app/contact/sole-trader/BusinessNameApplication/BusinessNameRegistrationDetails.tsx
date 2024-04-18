@@ -1,7 +1,12 @@
 import Select from "app/contact/Select";
 import { useSoleTraderFormContext } from "app/contact/SoleTraderFormContext";
 import TextInput from "app/contact/TextInput";
-import { registrationPeriods } from "app/contact/form";
+import countries from "app/contact/countries";
+import {
+  australianStates,
+  australianStates,
+  registrationPeriods,
+} from "app/contact/form";
 
 const BusinessNameRegistrationDetails = () => {
   const {
@@ -27,14 +32,14 @@ const BusinessNameRegistrationDetails = () => {
         <label htmlFor="message">Country of birth</label>
 
         <Select
-          // @ts-ignore
+          options={countries}
           name="isRegisteringBusinessName.birthLocation.country"
         />
       </div>
       <div>
         <label htmlFor="message">State</label>
         <Select
-          // @ts-ignore
+          options={australianStates}
           name="isRegisteringBusinessName.birthLocation.state"
         />
       </div>

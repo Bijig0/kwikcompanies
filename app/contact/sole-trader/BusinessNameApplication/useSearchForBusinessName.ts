@@ -16,6 +16,14 @@ const businessNameSuccessResponseSchema = z.object({
     status: z.enum(KNOWN_STATUSES),
     isAcncFlag: z.boolean(),
     reason: z.string(),
+    nameSuggestion: z.union([
+      z.array(
+        z.object({
+          bn_name: z.string(),
+        })
+      ),
+      z.undefined(),
+    ]),
   }),
 });
 

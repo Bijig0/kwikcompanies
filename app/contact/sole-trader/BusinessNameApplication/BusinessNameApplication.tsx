@@ -9,6 +9,7 @@ import TextInput from "../../TextInput";
 import { queryClient } from "../queryClient";
 import AvailableText from "./AvailableText";
 import ForManualReviewText from "./ForManualReviewText";
+import IdenticalText from "./IdenticalText";
 import useSearchForBusinessName, {
   KNOWN_STATUS,
 } from "./useSearchForBusinessName";
@@ -21,7 +22,7 @@ const text = {
 const renderSearchResult = {
   available: <AvailableText />,
   "for manual review": <ForManualReviewText />,
-  identical: <ForManualReviewText />,
+  identical: <IdenticalText nameSuggestions={[]} />,
 } satisfies Record<KNOWN_STATUS, React.ReactNode>;
 
 const _BusinessNameApplication = () => {
@@ -36,12 +37,12 @@ const _BusinessNameApplication = () => {
     formManager: { setValue, watch, getValues },
   } = useSoleTraderFormContext();
 
-  const { data, error, isLoading } = useSearchForBusinessName({
+  const { data, error, isLoading, isFetched } = useSearchForBusinessName({
     shouldSearchBusinessName,
     businessName: watch("businessName.businessName"),
   });
 
-  const businessNameAvailable = data?.result?.status;
+  const businessNameAvailable = "identical" satisfies KNOWN_STATUS;
 
   const options = ["Yes", "No"];
 
@@ -82,25 +83,27 @@ const _BusinessNameApplication = () => {
             ))}
           </div>
         </div>
-        {watch("businessName.answer") && (
+        <div>
           <div>
-            <div>
-              <label htmlFor="message">Search for your business name</label>
+            <label htmlFor="message">Search for your business name</label>
 
-              <TextInput
-                // @ts-ignore
-                name="businessName.businessName"
-                placeholder="Acme Inc"
-              />
-              <div className="my-2"></div>
-              <Button onClick={handleSearchForBusinessName}>
-                {!isLoading ? "Search" : <Spinner animation="border" />}
-              </Button>
-              {error && <p className="text-red-500">{error.message}</p>}
-            </div>
-            {businessNameAvailable && renderSearchResult[businessNameAvailable]}
+            <TextInput
+              // @ts-ignore
+              name="businessName.businessName"
+              placeholder="Acme Inc"
+            />
+            <div className="my-3"></div>
+            <Button
+              className={isFetched && "hidden"}
+              onClick={handleSearchForBusinessName}
+            >
+              {!isLoading ? "Search" : <Spinner animation="border" />}
+            </Button>
+            {error && <p className="text-red-500">{error.message}</p>}
           </div>
-        )}
+          <div className="my-3" />
+          {businessNameAvailable && renderSearchResult[businessNameAvailable]}
+        </div>
       </FormPartLayout>
     </QueryClientProvider>
   );

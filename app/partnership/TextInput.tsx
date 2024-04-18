@@ -1,5 +1,5 @@
 import { ComponentProps } from "react";
-import { useSoleTraderFormContext } from "./SoleTraderFormContext";
+import { useSoleTraderFormContext } from "./PartnerShipFormContext";
 import { FormRegisterable } from "./form";
 
 type Props = ComponentProps<"input"> & { name: FormRegisterable };

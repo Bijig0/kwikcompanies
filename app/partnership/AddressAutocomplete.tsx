@@ -1,6 +1,6 @@
 import { AddressAutofill } from "@mapbox/search-js-react";
 import { useState } from "react";
-import { useSoleTraderFormContext } from "./SoleTraderFormContext";
+import { useSoleTraderFormContext } from "./PartnerShipFormContext";
 const accessToken =
   "pk.eyJ1IjoiYmlqaWcwIiwiYSI6ImNsdXpreWNnZTFkaGkycW53dDhseWh3cWgifQ.30N1A9KD3UR4762uEEH-yQ";
 

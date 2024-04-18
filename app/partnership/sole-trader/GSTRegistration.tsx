@@ -1,6 +1,6 @@
 import ErrorText from "../ErrorText";
 import FormPartLayout from "../FormPartLayout";
-import { useSoleTraderFormContext } from "../SoleTraderFormContext";
+import { useSoleTraderFormContext } from "../PartnerShipFormContext";
 
 const text = {
   Yes: "Yes ($49)",

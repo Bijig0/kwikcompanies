@@ -1,5 +1,5 @@
 import React from "react";
-import { useSoleTraderFormContext } from "./SoleTraderFormContext";
+import { useSoleTraderFormContext } from "./PartnerShipFormContext";
 
 type Props = {
   header: string;

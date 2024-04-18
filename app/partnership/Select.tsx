@@ -1,5 +1,5 @@
 import { AiOutlineDown } from "react-icons/ai";
-import { useSoleTraderFormContext } from "./SoleTraderFormContext";
+import { useSoleTraderFormContext } from "./PartnerShipFormContext";
 import { FormRegisterable } from "./form";
 type Props = {
   readonly options: readonly string[];

@@ -1,7 +1,7 @@
 import { Tooltip } from "react-bootstrap";
 import FormPartLayout from "../FormPartLayout";
+import { useSoleTraderFormContext } from "../PartnerShipFormContext";
 import Select from "../Select";
-import { useSoleTraderFormContext } from "../SoleTraderFormContext";
 import TextInput from "../TextInput";
 import { businessHistories } from "../form";
 

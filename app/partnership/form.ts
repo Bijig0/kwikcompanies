@@ -96,34 +96,80 @@ type IsRegisteringBusinessName =
       answer: false;
     };
 
-type FormValues = {
-  businessHistory: BusinessHistory;
-  hasPreviousAbn: HasPreviousAbn;
-  phone_number: string;
-  message: string;
-  activitiesLocation: ActivitiesLocation;
-  needAbnReason: NeedAbnReason;
+const partnerTypes = ["Individual", "Company"] as const;
+
+type PartnerType = (typeof partnerTypes)[number];
+
+type Name = {
   title: Title;
   firstName: string;
-  otherNames: KnownByOtherName;
   lastName: string;
+  otherNames: KnownByOtherName;
+};
+
+type BirthLocation =
+  | {
+      country: "Australia";
+      state: AustralianState;
+      city: string;
+    }
+  | {
+      country: Exclude<Country, "Australia">;
+    };
+
+type PartnerDetails = {
+  partnerType: PartnerType;
+  name: Name;
   email: string;
   phoneNumber: string;
   dateOfBirth: Date;
-  abnActiveDate: Date;
+  birthLocation: BirthLocation;
   taxFileNumber: string;
-  isAustralianResident: boolean;
-  address: string;
-  businessLocation: string;
+  homeAddress: string;
+  declaredIsAustralianResidentForTaxPurposes: boolean;
+};
+
+type TBusinessLocation = {
+  businessAddress: string;
   addressForServiceDocuments: string;
+};
+
+const businessHistoriesOfAllPartners = [
+  "This is our first time doing business in Australia.",
+  "We have been in business in Australia before.",
+] as const;
+
+type BusinessHistoriesOfAllPartners = (typeof businessHistories)[number];
+
+type TABNRegisttationDetails = {
+  abnActiveDate: Date;
+  mainBusinessActivity: string;
+  businessCategory: string;
+  businessHistoriesOfAllPartners: BusinessHistoriesOfAllPartners;
+  partnersRelated: boolean;
+};
+
+type TBusinessNameApplication = {
   businessName: TradingUnderBusinessName;
   isRegisteringBusinessName: IsRegisteringBusinessName;
+};
+
+type TGSTRegistration = {
   registerForGst: boolean;
+};
+
+type PartnerShipFormValues = {
+  activitiesLocation: ActivitiesLocation;
+  needAbnReason: NeedAbnReason;
+  partnerDetails: PartnerDetails[];
+  businessLocation: TBusinessLocation;
+  businessNameApplication: TBusinessNameApplication;
+  registerForGST: TGSTRegistration;
   agreedToTermsAndServices: boolean;
 };
 
-export type FormRegisterable = Parameters<
-  ReturnType<typeof useForm<FormValues>>["register"]
+export type PartnershipFormRegisterable = Parameters<
+  ReturnType<typeof useForm<PartnerShipFormValues>>["register"]
 >[0];
 
-export default FormValues;
+export default PartnerShipFormValues;

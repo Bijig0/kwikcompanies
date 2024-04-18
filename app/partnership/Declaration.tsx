@@ -1,4 +1,4 @@
-import { useSoleTraderFormContext } from "./SoleTraderFormContext";
+import { useSoleTraderFormContext } from "./PartnerShipFormContext";
 
 const Declaration = () => {
   const {

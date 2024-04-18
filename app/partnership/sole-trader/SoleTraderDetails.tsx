@@ -2,8 +2,8 @@ import { Controller } from "react-hook-form";
 import DatePicker from "../DatePicker";
 import ErrorText from "../ErrorText";
 import FormPartLayout from "../FormPartLayout";
+import { useSoleTraderFormContext } from "../PartnerShipFormContext";
 import Select from "../Select";
-import { useSoleTraderFormContext } from "../SoleTraderFormContext";
 import TextInput from "../TextInput";
 import { titles } from "../form";
 

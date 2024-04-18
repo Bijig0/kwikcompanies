@@ -1,7 +1,7 @@
 import React from "react";
 import AddressAutocomplete from "../AddressAutocomplete";
 import FormPartLayout from "../FormPartLayout";
-import { useSoleTraderFormContext } from "../SoleTraderFormContext";
+import { useSoleTraderFormContext } from "../PartnerShipFormContext";
 
 const BusinessLocation = () => {
   const {

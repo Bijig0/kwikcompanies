@@ -4,7 +4,7 @@ import { ReactNode, createContext, useContext } from "react";
 import { useForm } from "react-hook-form";
 import FormValues from "./form";
 
-type TSoleTraderFormContext = {
+type TPartnershipFormContext = {
   //   register: UseFormRegister<FormValues>;
   formManager: ReturnType<typeof useForm<FormValues>>;
   enableForm: () => void;
@@ -13,8 +13,8 @@ type TSoleTraderFormContext = {
   totalSteps: number;
 };
 
-const SoleTraderFormContext = createContext<TSoleTraderFormContext>(
-  {} as TSoleTraderFormContext
+const PartnershipFormContext = createContext<TPartnershipFormContext>(
+  {} as TPartnershipFormContext
 );
 
 type Props = {
@@ -22,7 +22,7 @@ type Props = {
   totalSteps: number;
 };
 
-const SoleTraderFormProvider = (props: Props) => {
+const PartnershipFormProvider = (props: Props) => {
   const { totalSteps } = props;
   const formManager = useForm<FormValues>();
 
@@ -34,7 +34,7 @@ const SoleTraderFormProvider = (props: Props) => {
   } = useBoolean(false);
 
   return (
-    <SoleTraderFormContext.Provider
+    <PartnershipFormContext.Provider
       value={{
         formManager,
         disableForm,
@@ -44,10 +44,11 @@ const SoleTraderFormProvider = (props: Props) => {
       }}
     >
       {props.children}
-    </SoleTraderFormContext.Provider>
+    </PartnershipFormContext.Provider>
   );
 };
 
-export const useSoleTraderFormContext = () => useContext(SoleTraderFormContext);
+export const usePartnershipFormContext = () =>
+  useContext(PartnershipFormContext);
 
-export default SoleTraderFormProvider;
+export default PartnershipFormProvider;

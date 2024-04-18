@@ -1,7 +1,7 @@
 import ErrorText from "../ErrorText";
 import FormPartLayout from "../FormPartLayout";
+import { useSoleTraderFormContext } from "../PartnerShipFormContext";
 import Select from "../Select";
-import { useSoleTraderFormContext } from "../SoleTraderFormContext";
 import { ActivitiesLocation, needAbnReasons } from "../form";
 
 const ABNEntitlement = () => {
@@ -29,7 +29,7 @@ const ABNEntitlement = () => {
   };
 
   return (
-    <FormPartLayout header="ABN Entitlement" step={2}>
+    <FormPartLayout header="ABN Entitlement" step={1}>
       <label className="font-semibold text-black text-md" htmlFor="message">
         Where will your activites be carried out?
       </label>

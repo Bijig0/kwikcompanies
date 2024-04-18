@@ -42,7 +42,7 @@ const _BusinessNameApplication = () => {
     businessName: watch("businessName.businessName"),
   });
 
-  const businessNameAvailable: KNOWN_STATUS = "for manual review";
+  const businessNameAvailable: KNOWN_STATUS = data?.result.status;
 
   const options = ["Yes", "No"];
 
@@ -94,7 +94,7 @@ const _BusinessNameApplication = () => {
             <div className="my-3"></div>
             <Button
               data-show={!isFetched}
-              className={isFetched && "hidden"}
+              className="hidden data-[show=true]:block"
               onClick={handleSearchForBusinessName}
             >
               {!isLoading ? "Search" : <Spinner animation="border" />}

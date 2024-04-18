@@ -4,6 +4,11 @@ import TextInput from "app/contact/TextInput";
 import countries from "app/contact/countries";
 import { australianStates, registrationPeriods } from "app/contact/form";
 
+const text = {
+  "3 years": "3 years ($99 per year) save on 3 years registration",
+  "1 year": "1 year $199",
+} satisfies Record<string, string>;
+
 const BusinessNameRegistrationDetails = () => {
   const {
     formManager: { register, watch, setValue, getValues },
@@ -12,6 +17,7 @@ const BusinessNameRegistrationDetails = () => {
   return (
     <div>
       <div className="flex flex-col">
+        <label htmlFor="message">Registration Period</label>
         {registrationPeriods.map((option) => (
           <label key={option} className="inline-flex items-center">
             <input
@@ -20,7 +26,7 @@ const BusinessNameRegistrationDetails = () => {
               className="form-radio"
               value={option}
             />
-            <span className="ml-2">{option}</span>
+            <span className="ml-2">{text[option]}</span>
           </label>
         ))}
       </div>

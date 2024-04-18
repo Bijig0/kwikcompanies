@@ -118,6 +118,8 @@ type FormValues = {
   addressForServiceDocuments: string;
   businessName: TradingUnderBusinessName;
   isRegisteringBusinessName: IsRegisteringBusinessName;
+  registerForGst: boolean;
+  agreedToTermsAndServices: boolean;
 };
 
 export type FormRegisterable = Parameters<

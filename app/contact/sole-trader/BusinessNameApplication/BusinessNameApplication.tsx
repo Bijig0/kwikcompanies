@@ -99,28 +99,31 @@ const _BusinessNameApplication = () => {
             ))}
           </div>
         </div>
-        <div>
+        {watch("businessName.answer") && (
           <div>
-            <label htmlFor="message">Search for your business name</label>
-
-            <TextInput
-              name="businessName.businessName"
-              placeholder="Acme Inc"
-            />
-            <div className="my-3"></div>
-            <Button
-              data-show={!isFetched}
-              className="hidden data-[show=true]:block"
-              onClick={handleSearchForBusinessName}
-            >
-              {!isLoading ? "Search" : <Spinner animation="border" />}
-            </Button>
-            {error && <p className="text-red-500">{error.message}</p>}
+            <div>
+              <label htmlFor="message">Search for your business name</label>
+              <TextInput
+                name="businessName.businessName"
+                placeholder="Acme Inc"
+              />
+              <div className="my-3"></div>
+              <Button
+                data-show={!isFetched}
+                className="hidden data-[show=true]:block"
+                onClick={handleSearchForBusinessName}
+              >
+                {!isLoading ? "Search" : <Spinner animation="border" />}
+              </Button>
+              {error && <p className="text-red-500">{error.message}</p>}
+            </div>
+            <div className="my-3" />
+            {businessNameAvailable &&
+              renderSearchResult[businessNameAvailable](
+                renderSearchResultProps
+              )}
           </div>
-          <div className="my-3" />
-          {businessNameAvailable &&
-            renderSearchResult[businessNameAvailable](renderSearchResultProps)}
-        </div>
+        )}
       </FormPartLayout>
     </QueryClientProvider>
   );

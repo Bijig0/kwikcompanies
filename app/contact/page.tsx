@@ -6,6 +6,7 @@ import FormValues from "./form";
 import { BusinessHistory } from "./individual";
 
 import "react-datepicker/dist/react-datepicker.css";
+import Declaration from "./Declaration";
 import Divider from "./Divider";
 import SoleTraderFormProvider from "./SoleTraderFormContext";
 import ABNEntitlement from "./sole-trader/ABNEntitlement";
@@ -29,9 +30,9 @@ const Page = () => {
       {/* <Script src={GOOGLE_MAPS_URL} strategy="beforeInteractive" /> */}
       <PageBanner pageName={"Individual ABN Form"} />
       {/* Contact Page Start */}
-      <section className="contact-page py-16 rpy-100">
+      <section className="py-16 contact-page rpy-100">
         <div className="container ">
-          <div className="row gap-100 justify-center flex align-items-center">
+          <div className="flex justify-center row gap-100 align-items-center">
             <div className="col-lg-7">
               <div
                 className="contact-form br-10 bgc-lighter rmt-60"
@@ -41,7 +42,7 @@ const Page = () => {
               >
                 <form
                   id="contactForm"
-                  className="contactForm flex flex-col"
+                  className="flex flex-col contactForm"
                   name="contactForm"
                   action="assets/php/form-process.php"
                   method="post"
@@ -65,12 +66,15 @@ const Page = () => {
                     <Divider />
 
                     <GSTRegistration />
+                    <Divider />
+
+                    <Declaration />
                   </SoleTraderFormProvider>
 
                   {/* We can use the "status" to decide whether we should display the dropdown or not */}
                   {/* {status === "OK" && <ul>{renderSuggestions()}</ul>} */}
                   {/* <div className="col-md-12">
-                    <div className="form-group mb-0">
+                    <div className="mb-0 form-group">
                       <button type="submit" className="theme-btn">
                         Send Us Message <i className="far fa-arrow-right" />
                       </button>

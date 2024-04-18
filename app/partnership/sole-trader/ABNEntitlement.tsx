@@ -1,11 +1,11 @@
 import ErrorText from "../ErrorText";
 import FormPartLayout from "../FormPartLayout";
-import { useSoleTraderFormContext } from "../PartnerShipFormContext";
+import { usePartnershipFormContext } from "../PartnerShipFormContext";
 import Select from "../Select";
 import { ActivitiesLocation, needAbnReasons } from "../form";
 
 const ABNEntitlement = () => {
-  const { formManager, disableForm, enableForm } = useSoleTraderFormContext();
+  const { formManager, disableForm, enableForm } = usePartnershipFormContext();
 
   const {
     setValue,

@@ -2,7 +2,7 @@ import { Controller } from "react-hook-form";
 import DatePicker from "../DatePicker";
 import ErrorText from "../ErrorText";
 import FormPartLayout from "../FormPartLayout";
-import { useSoleTraderFormContext } from "../PartnerShipFormContext";
+import { usePartnershipFormContext } from "../PartnerShipFormContext";
 import Select from "../Select";
 import TextInput from "../TextInput";
 import { titles } from "../form";
@@ -16,7 +16,7 @@ const SoleTraderDetails = () => {
       control,
       formState: { errors },
     },
-  } = useSoleTraderFormContext();
+  } = usePartnershipFormContext();
   return (
     <FormPartLayout header="Sole Trader Details" step={3}>
       <div onClick={() => console.log(watch("otherNames.answer"))}>

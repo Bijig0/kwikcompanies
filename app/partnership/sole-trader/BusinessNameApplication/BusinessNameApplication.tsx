@@ -6,7 +6,7 @@ import React from "react";
 import { Button, Spinner } from "react-bootstrap";
 import { Controller } from "react-hook-form";
 import FormPartLayout from "../../FormPartLayout";
-import { useSoleTraderFormContext } from "../../PartnerShipFormContext";
+import { usePartnershipFormContext } from "../../PartnerShipFormContext";
 import TextInput from "../../TextInput";
 import { queryClient } from "../queryClient";
 import AvailableText from "./AvailableText";
@@ -49,7 +49,7 @@ const _BusinessNameApplication = () => {
       control,
       formState: { errors },
     },
-  } = useSoleTraderFormContext();
+  } = usePartnershipFormContext();
 
   console.log({ shouldSearchBusinessName });
 

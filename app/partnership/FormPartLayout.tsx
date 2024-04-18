@@ -1,5 +1,5 @@
 import React from "react";
-import { useSoleTraderFormContext } from "./PartnerShipFormContext";
+import { usePartnershipFormContext } from "./PartnerShipFormContext";
 
 type Props = {
   header: string;
@@ -8,7 +8,7 @@ type Props = {
 };
 
 const FormPartLayout = (props: Props) => {
-  const { totalSteps } = useSoleTraderFormContext();
+  const { totalSteps } = usePartnershipFormContext();
   const { header, step, children } = props;
   return (
     <div>

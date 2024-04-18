@@ -1,5 +1,5 @@
 import { ComponentProps } from "react";
-import { useSoleTraderFormContext } from "./PartnerShipFormContext";
+import { usePartnershipFormContext } from "./PartnerShipFormContext";
 import { FormRegisterable } from "./form";
 
 type Props = ComponentProps<"input"> & { name: FormRegisterable };
@@ -9,7 +9,7 @@ const TextInput = (props: Props) => {
   const {
     formManager: { register },
     formDisabled,
-  } = useSoleTraderFormContext();
+  } = usePartnershipFormContext();
   return (
     <input
       {...register(name, { required: "This field is required" })}

@@ -1,4 +1,4 @@
-import { useSoleTraderFormContext } from "app/contact/SoleTraderFormContext";
+import { usePartnershipFormContext } from "app/contact/SoleTraderFormContext";
 import { Button } from "react-bootstrap";
 import { Controller } from "react-hook-form";
 import { CiCircleCheck } from "react-icons/ci";
@@ -13,7 +13,7 @@ const AvailableText = (props: Props) => {
   const {
     formManager: { control, register, watch, setValue, getValues },
     formDisabled,
-  } = useSoleTraderFormContext();
+  } = usePartnershipFormContext();
 
   const handleClick = () => {
     console.log(getValues());

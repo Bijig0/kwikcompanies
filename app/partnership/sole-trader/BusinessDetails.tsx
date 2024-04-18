@@ -1,6 +1,6 @@
 import { Tooltip } from "react-bootstrap";
 import FormPartLayout from "../FormPartLayout";
-import { useSoleTraderFormContext } from "../PartnerShipFormContext";
+import { usePartnershipFormContext } from "../PartnerShipFormContext";
 import Select from "../Select";
 import TextInput from "../TextInput";
 import { businessHistories } from "../form";
@@ -10,7 +10,7 @@ import "react-tooltip/dist/react-tooltip.css";
 import ErrorText from "../ErrorText";
 
 const BusinessDetails = () => {
-  const { formManager, formDisabled } = useSoleTraderFormContext();
+  const { formManager, formDisabled } = usePartnershipFormContext();
   const {
     setValue,
     register,

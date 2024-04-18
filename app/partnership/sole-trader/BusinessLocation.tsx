@@ -1,12 +1,12 @@
 import React from "react";
 import AddressAutocomplete from "../AddressAutocomplete";
 import FormPartLayout from "../FormPartLayout";
-import { useSoleTraderFormContext } from "../PartnerShipFormContext";
+import { usePartnershipFormContext } from "../PartnerShipFormContext";
 
 const BusinessLocation = () => {
   const {
     formManager: { register, setValue, watch },
-  } = useSoleTraderFormContext();
+  } = usePartnershipFormContext();
 
   const handleBusinessLocationChange = (
     e: React.ChangeEvent<HTMLInputElement>

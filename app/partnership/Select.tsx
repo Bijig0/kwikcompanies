@@ -1,5 +1,5 @@
 import { AiOutlineDown } from "react-icons/ai";
-import { useSoleTraderFormContext } from "./PartnerShipFormContext";
+import { usePartnershipFormContext } from "./PartnerShipFormContext";
 import { FormRegisterable } from "./form";
 type Props = {
   readonly options: readonly string[];
@@ -10,7 +10,7 @@ const Select = (props: Props) => {
   const {
     formManager: { register, handleSubmit, formState },
     formDisabled,
-  } = useSoleTraderFormContext();
+  } = usePartnershipFormContext();
 
   const { options } = props;
   return (

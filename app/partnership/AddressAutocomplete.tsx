@@ -1,12 +1,12 @@
 import { AddressAutofill } from "@mapbox/search-js-react";
 import { useState } from "react";
-import { useSoleTraderFormContext } from "./PartnerShipFormContext";
+import { usePartnershipFormContext } from "./PartnerShipFormContext";
 const accessToken =
   "pk.eyJ1IjoiYmlqaWcwIiwiYSI6ImNsdXpreWNnZTFkaGkycW53dDhseWh3cWgifQ.30N1A9KD3UR4762uEEH-yQ";
 
 export default function AddressAutocomplete() {
   const [value, setValue] = useState("68 Latrobe");
-  const { formDisabled } = useSoleTraderFormContext();
+  const { formDisabled } = usePartnershipFormContext();
 
   const handleChange = (e) => {
     console.log(e.target);

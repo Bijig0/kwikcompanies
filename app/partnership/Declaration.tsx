@@ -1,9 +1,9 @@
-import { useSoleTraderFormContext } from "./PartnerShipFormContext";
+import { usePartnershipFormContext } from "./PartnerShipFormContext";
 
 const Declaration = () => {
   const {
     formManager: { register },
-  } = useSoleTraderFormContext();
+  } = usePartnershipFormContext();
   return (
     <div>
       <input

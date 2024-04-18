@@ -1,7 +1,7 @@
 import { useBoolean } from "@utils/useBoolean";
-import { useSoleTraderFormContext } from "app/contact/SoleTraderFormContext";
 import { useEffect } from "react";
 import { queryClient } from "../queryClient";
+import { usePartnershipFormContext } from "app/partnership/PartnerShipFormContext";
 
 type Args = {
   stopShouldSearchBusinessName: () => void;
@@ -10,7 +10,7 @@ type Args = {
 const useResetSearch = ({ stopShouldSearchBusinessName }: Args) => {
   const {
     // formManager: { setValue },
-  } = useSoleTraderFormContext();
+  } = usePartnershipFormContext();
   const { value: shouldReset, setTrue: startShouldReset } = useBoolean(false);
   const resetSearch = () => {
     stopShouldSearchBusinessName();

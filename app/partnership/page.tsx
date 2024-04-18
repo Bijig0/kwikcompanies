@@ -3,12 +3,13 @@ import PageBanner from "@components/PageBanner";
 import AkpagerLayout from "@layouts/AkpagerLayout";
 import FormValues from "./form";
 
-import { useSoleTraderFormContext } from "app/contact/SoleTraderFormContext";
 import { Button } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
 import Declaration from "./Declaration";
 import Divider from "./Divider";
-import SoleTraderFormProvider from "./PartnerShipFormContext";
+import SoleTraderFormProvider, {
+  usePartnershipFormContext,
+} from "./PartnerShipFormContext";
 import ABNEntitlement from "./sole-trader/ABNEntitlement";
 import ABNRegistrationDetails from "./sole-trader/ABNRegistrationDetails";
 import BusinessLocation from "./sole-trader/BusinessLocation";
@@ -19,7 +20,7 @@ import SoleTraderDetails from "./sole-trader/SoleTraderDetails";
 const _Page = () => {
   const {
     formManager: { handleSubmit },
-  } = useSoleTraderFormContext();
+  } = usePartnershipFormContext();
 
   const onSubmit = (data: FormValues) => {
     console.log(data);

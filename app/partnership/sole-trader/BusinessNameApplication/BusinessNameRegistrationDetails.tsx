@@ -1,5 +1,5 @@
 import Select from "app/contact/Select";
-import { useSoleTraderFormContext } from "app/contact/SoleTraderFormContext";
+import { usePartnershipFormContext } from "app/contact/SoleTraderFormContext";
 import TextInput from "app/contact/TextInput";
 import countries from "app/contact/countries";
 import { australianStates, registrationPeriods } from "app/contact/form";
@@ -12,7 +12,7 @@ const text = {
 const BusinessNameRegistrationDetails = () => {
   const {
     formManager: { register, watch, setValue, getValues },
-  } = useSoleTraderFormContext();
+  } = usePartnershipFormContext();
 
   return (
     <div>

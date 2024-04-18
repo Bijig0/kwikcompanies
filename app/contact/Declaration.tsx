@@ -12,7 +12,8 @@ const Declaration = () => {
         type="checkbox"
       />
       <label htmlFor="agreedToTermsAndServices" className="ml-2">
-        I have been known by another name in the past
+        I have read and accept the{" "}
+        <a className="text-blue-500 hover:underline">Terms and Services</a>
       </label>
     </div>
   );

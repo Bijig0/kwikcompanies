@@ -58,6 +58,37 @@ type TradingUnderBusinessName =
       answer: false;
     };
 
+const australianStates = [
+  "New South Wales",
+  "Western Australia",
+  "South Australia",
+  "Victoria",
+  "Australian Capital Territory",
+  "Tasmania",
+  "Northern Territory",
+  "Queensland",
+] as const;
+
+type AustralianState = (typeof australianStates)[number];
+
+type IsRegisteringBusinessName =
+  | {
+      answer: true;
+      registrationPeriod: "3 years" | "1 year";
+      birthLocation:
+        | {
+            country: "Australia";
+            state: AustralianState;
+            city: string;
+          }
+        | {
+            country: Exclude<string, "Australia">;
+          };
+    }
+  | {
+      answer: false;
+    };
+
 type FormValues = {
   businessHistory: BusinessHistory;
   hasPreviousAbn: HasPreviousAbn;
@@ -79,6 +110,7 @@ type FormValues = {
   businessLocation: string;
   addressForServiceDocuments: string;
   businessName: TradingUnderBusinessName;
+  isRegisteringBusinessName: IsRegisteringBusinessName;
 };
 
 export default FormValues;

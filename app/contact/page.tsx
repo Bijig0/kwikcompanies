@@ -36,9 +36,7 @@ const _Page = () => {
         <div className="container ">
           <div className="flex justify-center row gap-100 align-items-center">
             <div className="col-lg-7">
-              <div
-                className="contact-form br-10 bgc-lighter rmt-60"
-              >
+              <div className="contact-form br-10 bgc-lighter rmt-60">
                 <form
                   id="contactForm"
                   className="flex flex-col contactForm"
@@ -67,7 +65,7 @@ const _Page = () => {
 
                   <Declaration />
                   <div className="my-3" />
-                  <Button className="px-4 py-2 mx-auto font-bold">
+                  <Button type="submit" className="px-4 py-2 mx-auto font-bold">
                     Continue
                   </Button>
 

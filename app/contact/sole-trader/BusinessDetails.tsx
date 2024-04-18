@@ -7,10 +7,17 @@ import { businessHistories } from "../form";
 
 import { Controller } from "react-hook-form";
 import "react-tooltip/dist/react-tooltip.css";
+import ErrorText from "../ErrorText";
 
 const BusinessDetails = () => {
   const { formManager, formDisabled } = useSoleTraderFormContext();
-  const { setValue, register, watch, control } = formManager;
+  const {
+    setValue,
+    register,
+    watch,
+    control,
+    formState: { errors },
+  } = formManager;
 
   const text = {
     No: "No, I have never had an ABN as a sole trader.",
@@ -61,6 +68,9 @@ const BusinessDetails = () => {
           ))}
         </div>
       </div>
+      {errors.hasPreviousAbn && (
+        <ErrorText>{errors.hasPreviousAbn.answer?.message}</ErrorText>
+      )}
       {watch("hasPreviousAbn.answer") && (
         <div>
           <label htmlFor="message">Previous ABN</label>

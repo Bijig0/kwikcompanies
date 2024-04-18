@@ -122,7 +122,9 @@ type FormValues = {
   agreedToTermsAndServices: boolean;
 };
 
-export type FormRegisterable = Parameters<
+export type FormRegisterable = string;
+
+export type SoleTraderFormRegisterable = Parameters<
   ReturnType<typeof useForm<FormValues>>["register"]
 >[0];
 

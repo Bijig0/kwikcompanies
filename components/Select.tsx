@@ -1,12 +1,14 @@
 import { AiOutlineDown } from "react-icons/ai";
 import { useSoleTraderFormContext } from "../app/contact/SoleTraderFormContext";
 import { FormRegisterable } from "../app/contact/form";
-type Props = {
+type Props<TFormRegisterable extends FormRegisterable> = {
   readonly options: readonly string[];
-  name: FormRegisterable;
+  name: TFormRegisterable;
 };
 
-const Select = (props: Props) => {
+const Select = <TFormRegisterable extends FormRegisterable>(
+  props: Props<TFormRegisterable>
+) => {
   const {
     formManager: { register, handleSubmit, formState },
     formDisabled,

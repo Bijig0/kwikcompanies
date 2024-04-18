@@ -1,3 +1,4 @@
+import ErrorText from "../ErrorText";
 import FormPartLayout from "../FormPartLayout";
 import { useSoleTraderFormContext } from "../SoleTraderFormContext";
 
@@ -8,8 +9,12 @@ const text = {
 
 const GSTRegistration = () => {
   const {
-    formManager: { register },
+    formManager: {
+      register,
+      formState: { errors },
+    },
   } = useSoleTraderFormContext();
+
   return (
     <FormPartLayout header="GST Registration" step={7}>
       <label htmlFor="message">Will you register for GST?</label>
@@ -17,7 +22,9 @@ const GSTRegistration = () => {
         {["Yes", "No"].map((option) => (
           <label key={option} className="inline-flex items-center">
             <input
-              {...register("registerForGst")}
+              {...register("registerForGst", {
+                required: "This field is required",
+              })}
               type="radio"
               className="form-radio"
             />
@@ -25,6 +32,9 @@ const GSTRegistration = () => {
           </label>
         ))}
       </div>
+      {errors.registerForGst && (
+        <ErrorText>{errors.registerForGst.message}</ErrorText>
+      )}
     </FormPartLayout>
   );
 };

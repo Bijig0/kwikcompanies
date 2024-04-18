@@ -12,7 +12,7 @@ const TextInput = (props: Props) => {
   } = useSoleTraderFormContext();
   return (
     <input
-      {...register(name)}
+      {...register(name, { required: "This field is required" })}
       disabled={formDisabled}
       type="text"
       className={`rounded-md ${formDisabled ? "bg-gray-100" : "bg-white"} ${

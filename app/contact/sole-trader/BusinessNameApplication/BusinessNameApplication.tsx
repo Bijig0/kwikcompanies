@@ -1,8 +1,10 @@
 "use client";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { useBoolean } from "@utils/useBoolean";
+import ErrorText from "app/contact/ErrorText";
 import React from "react";
 import { Button, Spinner } from "react-bootstrap";
+import { Controller } from "react-hook-form";
 import FormPartLayout from "../../FormPartLayout";
 import { useSoleTraderFormContext } from "../../SoleTraderFormContext";
 import TextInput from "../../TextInput";
@@ -40,7 +42,13 @@ const _BusinessNameApplication = () => {
   } = useBoolean(false);
 
   const {
-    formManager: { setValue, watch, getValues },
+    formManager: {
+      setValue,
+      watch,
+      getValues,
+      control,
+      formState: { errors },
+    },
   } = useSoleTraderFormContext();
 
   console.log({ shouldSearchBusinessName });
@@ -86,18 +94,29 @@ const _BusinessNameApplication = () => {
           </label>
           <div className="flex flex-col">
             {options.map((option) => (
-              <label key={option} className="inline-flex items-center">
-                <input
-                  onChange={handleBusinessNameChange}
-                  name="businessName"
-                  type="radio"
-                  className="form-radio"
-                  value={option}
-                />
-                <span className="ml-2">{text[option]}</span>
-              </label>
+              <Controller
+                key={option}
+                name="businessName.answer"
+                control={control}
+                rules={{ required: "This field is required" }}
+                render={({ field: { onChange, value } }) => (
+                  <label className="inline-flex items-center">
+                    <input
+                      onChange={handleBusinessNameChange}
+                      name="businessName"
+                      type="radio"
+                      className="form-radio"
+                      value={option}
+                    />
+                    <span className="ml-2">{text[option]}</span>
+                  </label>
+                )}
+              />
             ))}
           </div>
+          {errors.businessName?.answer && (
+            <ErrorText>{errors.businessName.answer?.message}</ErrorText>
+          )}
         </div>
         {watch("businessName.answer") && (
           <div>

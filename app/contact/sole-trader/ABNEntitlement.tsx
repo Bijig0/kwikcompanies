@@ -1,4 +1,4 @@
-import { watch } from "fs";
+import ErrorText from "../ErrorText";
 import FormPartLayout from "../FormPartLayout";
 import Select from "../Select";
 import { useSoleTraderFormContext } from "../SoleTraderFormContext";
@@ -7,7 +7,12 @@ import { ActivitiesLocation, needAbnReasons } from "../form";
 const ABNEntitlement = () => {
   const { formManager, disableForm, enableForm } = useSoleTraderFormContext();
 
-  const { setValue, register, watch } = formManager;
+  const {
+    setValue,
+    register,
+    watch,
+    formState: { errors },
+  } = formManager;
   const handleSelectActivitesLocation = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -32,7 +37,9 @@ const ABNEntitlement = () => {
         {["Australia", "Overseas"].map((option) => (
           <label key={option} className="inline-flex items-center">
             <input
-              {...register("activitiesLocation")}
+              {...register("activitiesLocation", {
+                required: "This field is required",
+              })}
               type="radio"
               className="form-radio"
               value={option}
@@ -42,8 +49,11 @@ const ABNEntitlement = () => {
           </label>
         ))}
       </div>
+      {errors.activitiesLocation && (
+        <ErrorText>{errors.activitiesLocation.message}</ErrorText>
+      )}
       {watch("activitiesLocation") === "Overseas" && (
-        <div>Error Text Here, Overseas is not supported</div>
+        <ErrorText>Error Text Here, Overseas is not supported</ErrorText>
       )}
       <label className="font-semibold text-black text-md" htmlFor="message">
         Why do you need an ABN?

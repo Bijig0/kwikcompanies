@@ -9,7 +9,7 @@ type Props = {
 };
 
 const AvailableText = (props: Props) => {
-  const {  } = props;
+  const { resetSearch } = props;
   const {
     formManager: { control, register, watch, setValue, getValues },
     formDisabled,
@@ -57,7 +57,10 @@ const AvailableText = (props: Props) => {
             </Button>
           )}
         />
-        <Button className="text-black bg-gray-300 border-gray-300">
+        <Button
+          onClick={resetSearch}
+          className="text-black bg-gray-300 border-gray-300"
+        >
           Clear and search again
         </Button>
       </div>

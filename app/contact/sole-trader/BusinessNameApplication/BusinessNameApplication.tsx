@@ -42,7 +42,7 @@ const _BusinessNameApplication = () => {
     businessName: watch("businessName.businessName"),
   });
 
-  const businessNameAvailable = "for manual review" satisfies KNOWN_STATUS;
+  const businessNameAvailable = data?.result?.status;
 
   const options = ["Yes", "No"];
 

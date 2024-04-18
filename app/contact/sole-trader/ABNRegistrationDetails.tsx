@@ -1,12 +1,12 @@
-import DatePicker from "../../../components/DatePicker";
 import FormPartLayout from "../FormPartLayout";
+import { SoleTraderDatePicker } from "../SoleTraderFormComponents";
 
 const ABNRegistrationDetails = () => {
   return (
     <FormPartLayout header="ABN Registration Details" step={5}>
       <div>
         <label>ABN Active Date</label>
-        <DatePicker name="abnActiveDate" />
+        <SoleTraderDatePicker name="abnActiveDate" />
       </div>
       <div>
         <label htmlFor="message">Main Business Activity</label>

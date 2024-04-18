@@ -1,6 +1,4 @@
 import { Tooltip } from "react-bootstrap";
-import Select from "../../../components/Select";
-import TextInput from "../../../components/TextInput";
 import FormPartLayout from "../FormPartLayout";
 import { useSoleTraderFormContext } from "../SoleTraderFormContext";
 import { businessHistories } from "../form";
@@ -8,6 +6,10 @@ import { businessHistories } from "../form";
 import { Controller } from "react-hook-form";
 import "react-tooltip/dist/react-tooltip.css";
 import ErrorText from "../../../components/ErrorText";
+import {
+  SoleTraderSelect,
+  SoleTraderTextInput,
+} from "../SoleTraderFormComponents";
 
 const BusinessDetails = () => {
   const { formManager, formDisabled } = useSoleTraderFormContext();
@@ -30,7 +32,7 @@ const BusinessDetails = () => {
         <label className="font-bold text-black text-md" htmlFor="name">
           Business History
         </label>
-        <Select name="businessHistory" options={businessHistories} />
+        <SoleTraderSelect name="businessHistory" options={businessHistories} />
       </div>
       <div>
         <label className="font-semibold text-black text-md" htmlFor="name">
@@ -74,7 +76,7 @@ const BusinessDetails = () => {
       {watch("hasPreviousAbn.answer") && (
         <div>
           <label htmlFor="message">Previous ABN</label>
-          <TextInput name="hasPreviousAbn.prevAbn" />
+          <SoleTraderTextInput name="hasPreviousAbn.prevAbn" />
           <div className="my-2"></div>
           <p>
             If you can't remember your ABN, <a>click here</a>

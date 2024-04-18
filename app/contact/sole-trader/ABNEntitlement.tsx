@@ -1,6 +1,6 @@
 import ErrorText from "../../../components/ErrorText";
-import Select from "../../../components/Select";
 import FormPartLayout from "../FormPartLayout";
+import { SoleTraderSelect } from "../SoleTraderFormComponents";
 import { useSoleTraderFormContext } from "../SoleTraderFormContext";
 import { ActivitiesLocation, needAbnReasons } from "../form";
 
@@ -58,7 +58,7 @@ const ABNEntitlement = () => {
       <label className="font-semibold text-black text-md" htmlFor="message">
         Why do you need an ABN?
       </label>
-      <Select name="needAbnReason" options={needAbnReasons} />
+      <SoleTraderSelect name="needAbnReason" options={needAbnReasons} />
     </FormPartLayout>
   );
 };

@@ -1,5 +1,7 @@
-import Select from "@components/Select";
-import TextInput from "@components/TextInput";
+import {
+  SoleTraderSelect,
+  SoleTraderTextInput,
+} from "app/contact/SoleTraderFormComponents";
 import { useSoleTraderFormContext } from "app/contact/SoleTraderFormContext";
 import countries from "app/contact/countries";
 import { australianStates, registrationPeriods } from "app/contact/form";
@@ -33,21 +35,21 @@ const BusinessNameRegistrationDetails = () => {
       <div>
         <label htmlFor="message">Country of birth</label>
 
-        <Select
+        <SoleTraderSelect
           options={countries}
           name="isRegisteringBusinessName.birthLocation.country"
         />
       </div>
       <div>
         <label htmlFor="message">State</label>
-        <Select
+        <SoleTraderSelect
           options={australianStates}
           name="isRegisteringBusinessName.birthLocation.state"
         />
       </div>
       <div>
         <label htmlFor="message">City</label>
-        <TextInput name="isRegisteringBusinessName.birthLocation.city" />
+        <SoleTraderTextInput name="isRegisteringBusinessName.birthLocation.city" />
       </div>
     </div>
   );

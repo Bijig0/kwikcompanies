@@ -22,4 +22,4 @@ const SoleTraderDatePicker = (
   return <DatePicker<SoleTraderFormRegisterable> {...props} />;
 };
 
-export { SoleTraderSelect, SoleTraderTextInput };
+export { SoleTraderDatePicker, SoleTraderSelect, SoleTraderTextInput };

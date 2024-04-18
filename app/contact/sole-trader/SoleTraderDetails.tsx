@@ -1,11 +1,13 @@
 import { Controller } from "react-hook-form";
-import DatePicker from "../../../components/DatePicker";
 import ErrorText from "../../../components/ErrorText";
 import Select from "../../../components/Select";
-import TextInput from "../../../components/TextInput";
 import FormPartLayout from "../FormPartLayout";
 import { useSoleTraderFormContext } from "../SoleTraderFormContext";
 import { titles } from "../form";
+import {
+  SoleTraderTextInput,
+  SoleTraderDatePicker,
+} from "../SoleTraderFormComponents";
 
 const SoleTraderDetails = () => {
   const {
@@ -29,14 +31,14 @@ const SoleTraderDetails = () => {
         </div>
         <div className="flex-[3_3_0%] md:flex-[2_2_0%]">
           <label htmlFor="message">First Name</label>
-          <TextInput placeholder="John" name="firstName" />
+          <SoleTraderTextInput placeholder="John" name="firstName" />
           {errors.firstName && (
             <ErrorText>{errors.firstName.message}</ErrorText>
           )}
         </div>
         <div className="flex-[3_3_0%] md:flex-[2_2_0%]">
           <label htmlFor="message">Last Name</label>
-          <TextInput placeholder="Smith" name="lastName" />
+          <SoleTraderTextInput placeholder="Smith" name="lastName" />
           {errors.firstName && <ErrorText>{errors.lastName.message}</ErrorText>}
         </div>
       </div>
@@ -58,7 +60,7 @@ const SoleTraderDetails = () => {
             control={control}
             rules={{ required: "This field is required" }}
             render={() => (
-              <TextInput
+              <SoleTraderTextInput
                 placeholder="Placeholder Name"
                 name="otherNames.otherName"
               />
@@ -69,13 +71,13 @@ const SoleTraderDetails = () => {
       )}
       <div>
         <label htmlFor="message">Email</label>
-        <TextInput placeholder="john_smith@gmail.com" name="email" />
+        <SoleTraderTextInput placeholder="john_smith@gmail.com" name="email" />
         {errors.email && <ErrorText>{errors.email?.message}</ErrorText>}
       </div>
 
       <div>
         <label htmlFor="message">Phone Number</label>
-        <TextInput placeholder="+61 403 057 369" name="phoneNumber" />
+        <SoleTraderTextInput placeholder="+61 403 057 369" name="phoneNumber" />
         {errors.phoneNumber && (
           <ErrorText>{errors.phoneNumber?.message}</ErrorText>
         )}
@@ -83,12 +85,12 @@ const SoleTraderDetails = () => {
 
       <div>
         <label htmlFor="message">Date of Birth</label>
-        <DatePicker name="dateOfBirth" />
+        <SoleTraderDatePicker name="dateOfBirth" />
       </div>
 
       <div>
         <label htmlFor="message">Tax File Number</label>
-        <TextInput placeholder="123 456 789" name="taxFileNumber" />
+        <SoleTraderTextInput placeholder="123 456 789" name="taxFileNumber" />
         {errors.taxFileNumber && (
           <ErrorText>{errors.taxFileNumber?.message}</ErrorText>
         )}

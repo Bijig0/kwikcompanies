@@ -9,9 +9,6 @@ const SoleTraderDetails = () => {
   const {
     formManager: { register, watch, setValue },
   } = useSoleTraderFormContext();
-  const handleCheckboxChange = (e) => {
-    setValue("otherNames.answer", e.target.checked);
-  };
   return (
     <FormPartLayout header="Sole Trader Details" step={3}>
       <div onClick={() => console.log(watch("otherNames.answer"))}>
@@ -34,10 +31,8 @@ const SoleTraderDetails = () => {
       <div>
         <input
           type="checkbox"
-          name="otherNames.answer"
+          {...register("otherNames.answer")}
           id="otherNames.answer"
-          checked={watch("otherNames.answer")}
-          onChange={handleCheckboxChange}
         />
         <label htmlFor="otherNames.answer" className="ml-2">
           I have been known by another name in the past

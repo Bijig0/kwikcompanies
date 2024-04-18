@@ -16,8 +16,10 @@ const AvailableText = () => {
         now from just $99 per year.
       </p>
       <div className="flex justify-start items-center gap-3">
-        <Button>Secure it now</Button>
-        <Button>Clear and search again</Button>
+        <Button>Secure this name now!</Button>
+        <Button className="bg-gray-300 border-gray-300 text-black">
+          Clear and search again
+        </Button>
       </div>
     </>
   );

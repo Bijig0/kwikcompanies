@@ -22,11 +22,18 @@ const IdenticalText = (props: Props) => {
       <div className="flex justify-start items-center gap-3">
         <Button className="bg-gray-300">Clear and search again</Button>
       </div>
-      <ul>
-        {nameSuggestions.map((name) => (
-          <li key={name}>{name}</li>
-        ))}
-      </ul>
+      {nameSuggestions.length > 0 && (
+        <div>
+          <p className="text-lg font-semibold">
+            Available business name suggestions
+          </p>
+          <ul>
+            {nameSuggestions.map((name) => (
+              <li key={name}>{name}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };

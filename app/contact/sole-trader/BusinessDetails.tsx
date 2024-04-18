@@ -5,11 +5,12 @@ import { useSoleTraderFormContext } from "../SoleTraderFormContext";
 import TextInput from "../TextInput";
 import { businessHistories } from "../form";
 
+import { Controller } from "react-hook-form";
 import "react-tooltip/dist/react-tooltip.css";
 
 const BusinessDetails = () => {
   const { formManager, formDisabled } = useSoleTraderFormContext();
-  const { setValue, register, watch } = formManager;
+  const { setValue, register, watch, control } = formManager;
 
   const text = {
     No: "No, I have never had an ABN as a sole trader.",
@@ -30,23 +31,33 @@ const BusinessDetails = () => {
         </label>
         <div className="flex flex-col">
           {["No", "Yes"].map((option) => (
-            <label key={option} className="inline-flex items-center">
-              <input
-                disabled={formDisabled}
-                type="radio"
-                className={`form-radio ${
-                  formDisabled ? "bg-gray-100" : "bg-white"
-                }`}
-                value={option}
-                name="hasPreviousAbn.Answer"
-                onChange={() =>
-                  setValue("hasPreviousAbn.answer", option === "Yes")
-                }
-              />
-              <span className={`ml-2 ${formDisabled ? "text-gray-400" : ""}`}>
-                {text[option]}
-              </span>
-            </label>
+            <Controller
+              key={option}
+              name="hasPreviousAbn.answer"
+              control={control}
+              rules={{ required: "This field is required" }}
+              render={({ field: { onChange, value } }) => (
+                <label className="inline-flex items-center">
+                  <input
+                    disabled={formDisabled}
+                    type="radio"
+                    className={`form-radio ${
+                      formDisabled ? "bg-gray-100" : "bg-white"
+                    }`}
+                    name="hasPreviousAbn.answer"
+                    value={option}
+                    onChange={() =>
+                      setValue("hasPreviousAbn.answer", option === "Yes")
+                    }
+                  />
+                  <span
+                    className={`ml-2 ${formDisabled ? "text-gray-400" : ""}`}
+                  >
+                    {text[option]}
+                  </span>
+                </label>
+              )}
+            />
           ))}
         </div>
       </div>

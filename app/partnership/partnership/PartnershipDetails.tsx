@@ -40,7 +40,6 @@ const PartnershipDetails = () => {
       <div className="flex items-center gap-3 ">
         <div className="flex-1">
           <label htmlFor="message">Partner Type</label>
-          {partnerTypes}
           <Select name="title" options={titles} />
         </div>
         <div className="flex-[3_3_0%] md:flex-[2_2_0%]">

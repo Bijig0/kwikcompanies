@@ -96,7 +96,7 @@ type IsRegisteringBusinessName =
       answer: false;
     };
 
-const partnerTypes = ["Individual", "Company"] as const;
+export const partnerTypes = ["Individual", "Company"] as const;
 
 type PartnerType = (typeof partnerTypes)[number];
 

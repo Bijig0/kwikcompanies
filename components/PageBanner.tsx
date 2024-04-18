@@ -14,7 +14,7 @@ const PageBanner = (props: Props) => {
       style={{ backgroundImage: "url(assets/images/backgrounds/banner.jpg)" }}
     >
       <div className="container">
-        <div className="banner-inner pt-70 rpt-60 text-white">
+        <div className="text-white banner-inner pt-70 rpt-60">
           <nav aria-label="breadcrumb">
             <ol
               className="breadcrumb justify-content-center"
@@ -23,15 +23,15 @@ const PageBanner = (props: Props) => {
               data-aos-duration={1500}
               data-aos-offset={50}
             >
-              <li className="breadcrumb-item text-sm">
+              <li className="text-sm breadcrumb-item">
                 <Link href="/">Home</Link>
               </li>
-              <li className="breadcrumb-item active text-sm">{pageName}</li>
+              <li className="text-sm breadcrumb-item active">{pageName}</li>
             </ol>
           </nav>
           <div className="my-4"></div>
           <h1
-            className="page-title text-4xl"
+            className="text-4xl page-title"
             data-aos="fade-up"
             data-aos-duration={1500}
             data-aos-offset={50}

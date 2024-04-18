@@ -141,14 +141,6 @@ const businessHistoriesOfAllPartners = [
 
 type BusinessHistoriesOfAllPartners = (typeof businessHistories)[number];
 
-type TABNRegisttationDetails = {
-  abnActiveDate: Date;
-  mainBusinessActivity: string;
-  businessCategory: string;
-  businessHistoriesOfAllPartners: BusinessHistoriesOfAllPartners;
-  partnersRelated: boolean;
-};
-
 type TBusinessNameApplication = {
   businessName: TradingUnderBusinessName;
   isRegisteringBusinessName: IsRegisteringBusinessName;
@@ -158,12 +150,25 @@ type TGSTRegistration = {
   registerForGst: boolean;
 };
 
-type PartnerShipFormValues = {
+type TABNEntitlement = {
   activitiesLocation: ActivitiesLocation;
   needAbnReason: NeedAbnReason;
+};
+
+type TABNRegistrationDetails = {
+  abnActiveDate: Date;
+  mainBusinessActivity: string;
+  businessCategory: string;
+  businessHistoriesOfAllPartners: BusinessHistoriesOfAllPartners;
+  partnersRelated: boolean;
+};
+
+type PartnerShipFormValues = {
+  abnEntitlement: TABNEntitlement;
   partnerDetails: PartnerDetails[];
   businessLocation: TBusinessLocation;
   businessNameApplication: TBusinessNameApplication;
+  abnRegistrationDetails: TABNRegistrationDetails;
   registerForGST: TGSTRegistration;
   agreedToTermsAndServices: boolean;
 };

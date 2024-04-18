@@ -1,13 +1,26 @@
 import { Controller } from "react-hook-form";
 import DatePicker from "../DatePicker";
 import ErrorText from "../ErrorText";
-import FormPartLayout from "../FormPartLayout";
 import { usePartnershipFormContext } from "../PartnerShipFormContext";
+import PartnerShipDetailsFormPartLayout from "../PartnershipDetailsFormPartLayout";
 import Select from "../Select";
 import TextInput from "../TextInput";
 import { titles } from "../form";
 
-const SoleTraderDetails = () => {
+const numberText = {
+  "1": "First",
+  "2": "Second",
+  "3": "Third",
+  "4": "Fourth",
+  "5": "Fifth",
+  "6": "Sixth",
+  "7": "Seventh",
+  "8": "Eighth",
+  "9": "Ninth",
+  "10": "Tenth",
+};
+
+const PartnershipDetails = () => {
   const {
     formManager: {
       register,
@@ -18,13 +31,16 @@ const SoleTraderDetails = () => {
     },
   } = usePartnershipFormContext();
   return (
-    <FormPartLayout header="Sole Trader Details" step={3}>
+    <PartnerShipDetailsFormPartLayout header="Sole Trader Details" step={2}>
       <div onClick={() => console.log(watch("otherNames.answer"))}>
         Click Me
       </div>
+      <h6>First Partner's Details</h6>
+
       <div className="flex items-center gap-3 ">
         <div className="flex-1">
-          <label htmlFor="message">Title</label>
+          <label htmlFor="message">Partner Type</label>
+          {partnerTypes}
           <Select name="title" options={titles} />
         </div>
         <div className="flex-[3_3_0%] md:flex-[2_2_0%]">
@@ -93,8 +109,8 @@ const SoleTraderDetails = () => {
           <ErrorText>{errors.taxFileNumber?.message}</ErrorText>
         )}
       </div>
-    </FormPartLayout>
+    </PartnerShipDetailsFormPartLayout>
   );
 };
 
-export default SoleTraderDetails;
+export default PartnershipDetails;

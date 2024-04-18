@@ -10,12 +10,12 @@ import Divider from "./Divider";
 import SoleTraderFormProvider, {
   usePartnershipFormContext,
 } from "./PartnerShipFormContext";
-import ABNEntitlement from "./sole-trader/ABNEntitlement";
-import ABNRegistrationDetails from "./sole-trader/ABNRegistrationDetails";
-import BusinessLocation from "./sole-trader/BusinessLocation";
-import BusinessNameApplication from "./sole-trader/BusinessNameApplication/BusinessNameApplication";
-import GSTRegistration from "./sole-trader/GSTRegistration";
-import SoleTraderDetails from "./sole-trader/SoleTraderDetails";
+import ABNEntitlement from "./partnership/ABNEntitlement";
+import ABNRegistrationDetails from "./partnership/ABNRegistrationDetails";
+import BusinessLocation from "./partnership/BusinessLocation";
+import BusinessNameApplication from "./partnership/BusinessNameApplication/BusinessNameApplication";
+import GSTRegistration from "./partnership/GSTRegistration";
+import SoleTraderDetails from "./partnership/PartnershipDetails";
 
 const _Page = () => {
   const {

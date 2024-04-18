@@ -1,4 +1,4 @@
-import Select from "app/contact/Select";
+import Select from "@components/Select";
 import { ComponentProps } from "react";
 
 const SoleTraderSelect = (props: ComponentProps<typeof Select>) => {

@@ -1,4 +1,4 @@
-import ErrorText from "../ErrorText";
+import ErrorText from "../../../components/ErrorText";
 import FormPartLayout from "../FormPartLayout";
 import { useSoleTraderFormContext } from "../SoleTraderFormContext";
 

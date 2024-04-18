@@ -1,10 +1,10 @@
 import { Controller } from "react-hook-form";
-import DatePicker from "../DatePicker";
-import ErrorText from "../ErrorText";
+import DatePicker from "../../../components/DatePicker";
+import ErrorText from "../../../components/ErrorText";
+import Select from "../../../components/Select";
+import TextInput from "../../../components/TextInput";
 import FormPartLayout from "../FormPartLayout";
-import Select from "../Select";
 import { useSoleTraderFormContext } from "../SoleTraderFormContext";
-import TextInput from "../TextInput";
 import { titles } from "../form";
 
 const SoleTraderDetails = () => {

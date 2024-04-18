@@ -1,6 +1,6 @@
-import Select from "app/contact/Select";
+import Select from "@components/Select";
+import TextInput from "@components/TextInput";
 import { usePartnershipFormContext } from "app/contact/SoleTraderFormContext";
-import TextInput from "app/contact/TextInput";
 import countries from "app/contact/countries";
 import { australianStates, registrationPeriods } from "app/contact/form";
 

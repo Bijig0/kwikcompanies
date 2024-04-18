@@ -1,13 +1,13 @@
 "use client";
+import ErrorText from "@components/ErrorText";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { useBoolean } from "@utils/useBoolean";
-import ErrorText from "app/contact/ErrorText";
 import React from "react";
 import { Button, Spinner } from "react-bootstrap";
 import { Controller } from "react-hook-form";
+import TextInput from "../../../../components/TextInput";
 import FormPartLayout from "../../FormPartLayout";
 import { useSoleTraderFormContext } from "../../SoleTraderFormContext";
-import TextInput from "../../TextInput";
 import { queryClient } from "../queryClient";
 import AvailableText from "./AvailableText";
 import ForManualReviewText from "./ForManualReviewText";

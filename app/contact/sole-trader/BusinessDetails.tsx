@@ -1,13 +1,13 @@
 import { Tooltip } from "react-bootstrap";
+import Select from "../../../components/Select";
+import TextInput from "../../../components/TextInput";
 import FormPartLayout from "../FormPartLayout";
-import Select from "../Select";
 import { useSoleTraderFormContext } from "../SoleTraderFormContext";
-import TextInput from "../TextInput";
 import { businessHistories } from "../form";
 
 import { Controller } from "react-hook-form";
 import "react-tooltip/dist/react-tooltip.css";
-import ErrorText from "../ErrorText";
+import ErrorText from "../../../components/ErrorText";
 
 const BusinessDetails = () => {
   const { formManager, formDisabled } = useSoleTraderFormContext();

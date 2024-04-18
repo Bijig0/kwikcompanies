@@ -1,4 +1,4 @@
-import DatePicker from "../DatePicker";
+import DatePicker from "../../../components/DatePicker";
 import FormPartLayout from "../FormPartLayout";
 
 const ABNRegistrationDetails = () => {

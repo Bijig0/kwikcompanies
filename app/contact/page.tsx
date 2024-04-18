@@ -6,7 +6,7 @@ import FormValues from "./form";
 import { Button } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
 import Declaration from "./Declaration";
-import Divider from "./Divider";
+import Divider from "../../components/Divider";
 import SoleTraderFormProvider, {
   useSoleTraderFormContext,
 } from "./SoleTraderFormContext";

@@ -3,8 +3,8 @@ import utc from "dayjs/plugin/utc";
 import { ComponentProps } from "react";
 import _DatePicker from "react-datepicker";
 import { Controller } from "react-hook-form";
-import { useSoleTraderFormContext } from "./SoleTraderFormContext";
-import FormValues from "./form";
+import { useSoleTraderFormContext } from "../app/contact/SoleTraderFormContext";
+import FormValues from "../app/contact/form";
 dayjs.extend(utc);
 
 type Props = ComponentProps<"input"> & { name: keyof FormValues };

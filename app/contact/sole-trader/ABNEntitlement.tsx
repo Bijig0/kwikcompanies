@@ -1,6 +1,6 @@
-import ErrorText from "../ErrorText";
+import ErrorText from "../../../components/ErrorText";
+import Select from "../../../components/Select";
 import FormPartLayout from "../FormPartLayout";
-import Select from "../Select";
 import { useSoleTraderFormContext } from "../SoleTraderFormContext";
 import { ActivitiesLocation, needAbnReasons } from "../form";
 

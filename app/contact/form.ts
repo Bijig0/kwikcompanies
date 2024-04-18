@@ -1,3 +1,4 @@
+import { useForm } from "react-hook-form";
 import { Country } from "./countries";
 
 export const businessHistories = [
@@ -118,5 +119,9 @@ type FormValues = {
   businessName: TradingUnderBusinessName;
   isRegisteringBusinessName: IsRegisteringBusinessName;
 };
+
+export type FormRegisterable = Parameters<
+  ReturnType<typeof useForm<FormValues>>["register"]
+>[0];
 
 export default FormValues;

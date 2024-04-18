@@ -1,8 +1,8 @@
 import { ComponentProps } from "react";
 import { useSoleTraderFormContext } from "./SoleTraderFormContext";
-import FormValues from "./form";
+import { FormRegisterable } from "./form";
 
-type Props = ComponentProps<"input"> & { name: keyof FormValues };
+type Props = ComponentProps<"input"> & { name: FormRegisterable };
 
 const TextInput = (props: Props) => {
   const { name, required, placeholder } = props;

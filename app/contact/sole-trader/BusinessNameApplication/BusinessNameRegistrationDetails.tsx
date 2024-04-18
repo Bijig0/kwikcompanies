@@ -2,11 +2,7 @@ import Select from "app/contact/Select";
 import { useSoleTraderFormContext } from "app/contact/SoleTraderFormContext";
 import TextInput from "app/contact/TextInput";
 import countries from "app/contact/countries";
-import {
-  australianStates,
-  australianStates,
-  registrationPeriods,
-} from "app/contact/form";
+import { australianStates, registrationPeriods } from "app/contact/form";
 
 const BusinessNameRegistrationDetails = () => {
   const {

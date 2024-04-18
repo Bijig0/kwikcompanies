@@ -53,7 +53,6 @@ const BusinessDetails = () => {
       {watch("hasPreviousAbn.answer") && (
         <div>
           <label htmlFor="message">Previous ABN</label>
-          {/* @ts-ignore */}
           <TextInput name="hasPreviousAbn.prevAbn" />
           <div className="my-2"></div>
           <p>

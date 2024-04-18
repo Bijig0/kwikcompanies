@@ -1,10 +1,9 @@
-import { useForm } from "react-hook-form";
 import { AiOutlineDown } from "react-icons/ai";
 import { useSoleTraderFormContext } from "./SoleTraderFormContext";
-import FormValues from "./form";
+import { FormRegisterable } from "./form";
 type Props = {
   readonly options: readonly string[];
-  name: Parameters<ReturnType<typeof useForm<FormValues>>["register"]>[0];
+  name: FormRegisterable;
 };
 
 const Select = (props: Props) => {

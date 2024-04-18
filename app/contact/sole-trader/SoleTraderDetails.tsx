@@ -17,7 +17,7 @@ const SoleTraderDetails = () => {
       <div onClick={() => console.log(watch("otherNames.answer"))}>
         Click Me
       </div>
-      <div className="flex gap-3 items-center ">
+      <div className="flex items-center gap-3 ">
         <div className="flex-1">
           <label htmlFor="message">Title</label>
           <Select name="title" options={titles} />
@@ -48,7 +48,6 @@ const SoleTraderDetails = () => {
           <label htmlFor="message">Other Name</label>
           <TextInput
             placeholder="Placeholder Name"
-            /* @ts-ignore */
             name="otherNames.otherName"
           />
         </div>

@@ -88,7 +88,6 @@ const _BusinessNameApplication = () => {
             <label htmlFor="message">Search for your business name</label>
 
             <TextInput
-              // @ts-ignore
               name="businessName.businessName"
               placeholder="Acme Inc"
             />

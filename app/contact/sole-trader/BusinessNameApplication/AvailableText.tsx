@@ -56,6 +56,7 @@ const AvailableText = () => {
           Clear and search again
         </Button>
       </div>
+      <div className="my-2" />
       {watch("isRegisteringBusinessName.answer") && (
         <BusinessNameRegistrationDetails />
       )}

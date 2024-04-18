@@ -93,6 +93,7 @@ const _BusinessNameApplication = () => {
             />
             <div className="my-3"></div>
             <Button
+              data-show={!isFetched}
               className={isFetched && "hidden"}
               onClick={handleSearchForBusinessName}
             >

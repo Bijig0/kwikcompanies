@@ -42,7 +42,7 @@ const _BusinessNameApplication = () => {
     businessName: watch("businessName.businessName"),
   });
 
-  const businessNameAvailable = data?.result?.status;
+  const businessNameAvailable: KNOWN_STATUS = "available";
 
   const options = ["Yes", "No"];
 

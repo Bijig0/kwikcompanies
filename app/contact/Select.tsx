@@ -1,10 +1,11 @@
+import { useForm } from "react-hook-form";
 import { AiOutlineDown } from "react-icons/ai";
 import { useSoleTraderFormContext } from "./SoleTraderFormContext";
 import FormValues from "./form";
 
 type Props = {
   readonly options: readonly string[];
-  name: keyof FormValues;
+  name: Parameters<ReturnType<typeof useForm<FormValues>>["register"]>[0];
 };
 
 const Select = (props: Props) => {
@@ -31,8 +32,8 @@ const Select = (props: Props) => {
           </option>
         ))}
       </select>
-      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-700">
-        <AiOutlineDown className="h-4 w-4" />
+      <div className="absolute inset-y-0 right-0 flex items-center px-3 text-gray-700 pointer-events-none">
+        <AiOutlineDown className="w-4 h-4" />
       </div>
     </div>
   );

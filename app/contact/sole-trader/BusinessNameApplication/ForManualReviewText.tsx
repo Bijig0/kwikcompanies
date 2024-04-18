@@ -25,7 +25,10 @@ const ForManualReviewText = () => {
         </p>
       </div>
       <div className="my-2" />
-      <p className="text-sm">
+      <p
+        data-show={!Boolean(watch("isRegisteringBusinessName.answer"))}
+        className="text-sm data-[show]:hidden"
+      >
         This business name will be reviewed by our specialist team before final
         registration.
       </p>

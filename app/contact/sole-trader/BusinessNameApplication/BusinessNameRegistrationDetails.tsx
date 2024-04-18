@@ -1,15 +1,46 @@
+import Select from "app/contact/Select";
+import { useSoleTraderFormContext } from "app/contact/SoleTraderFormContext";
 import TextInput from "app/contact/TextInput";
+import { registrationPeriods } from "app/contact/form";
 
 const BusinessNameRegistrationDetails = () => {
+  const {
+    formManager: { register, watch, setValue, getValues },
+  } = useSoleTraderFormContext();
+
   return (
     <div>
-      <div className="flex-[3_3_0%] md:flex-[2_2_0%]">
-        <label htmlFor="message">First Name</label>
-        <TextInput placeholder="John" name="firstName" />
+      <div className="flex flex-col">
+        {registrationPeriods.map((option) => (
+          <label key={option} className="inline-flex items-center">
+            <input
+              {...register("isRegisteringBusinessName.registrationPeriod")}
+              type="radio"
+              className="form-radio"
+              value={option}
+            />
+            <span className="ml-2">{option}</span>
+          </label>
+        ))}
       </div>
-      <div className="flex-[3_3_0%] md:flex-[2_2_0%]">
-        <label htmlFor="message">Last Name</label>
-        <TextInput placeholder="Smith" name="lastName" />
+      <div>
+        <label htmlFor="message">Country of birth</label>
+
+        <Select
+          // @ts-ignore
+          name="isRegisteringBusinessName.birthLocation.country"
+        />
+      </div>
+      <div>
+        <label htmlFor="message">State</label>
+        <Select
+          // @ts-ignore
+          name="isRegisteringBusinessName.birthLocation.state"
+        />
+      </div>
+      <div>
+        <label htmlFor="message">City</label>
+        <TextInput name="isRegisteringBusinessName.birthLocation.city" />
       </div>
     </div>
   );

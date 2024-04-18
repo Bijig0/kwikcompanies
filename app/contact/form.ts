@@ -1,3 +1,5 @@
+import { Country } from "./countries";
+
 export const businessHistories = [
   "This is my first time doing business in Australia",
   "I have been in Business in Australia before",
@@ -58,7 +60,7 @@ type TradingUnderBusinessName =
       answer: false;
     };
 
-const australianStates = [
+export const australianStates = [
   "New South Wales",
   "Western Australia",
   "South Australia",
@@ -71,10 +73,14 @@ const australianStates = [
 
 type AustralianState = (typeof australianStates)[number];
 
+export const registrationPeriods = ["3 years", "1 year"] as const;
+
+type RegistrationPeriod = (typeof registrationPeriods)[number];
+
 type IsRegisteringBusinessName =
   | {
       answer: true;
-      registrationPeriod: "3 years" | "1 year";
+      registrationPeriod: RegistrationPeriod;
       birthLocation:
         | {
             country: "Australia";
@@ -82,7 +88,7 @@ type IsRegisteringBusinessName =
             city: string;
           }
         | {
-            country: Exclude<string, "Australia">;
+            country: Exclude<Country, "Australia">;
           };
     }
   | {

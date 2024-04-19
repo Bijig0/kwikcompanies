@@ -1,12 +1,12 @@
-import DatePicker from "../DatePicker";
 import FormPartLayout from "../FormPartLayout";
+import PartnershipFormProvider from "../PartnerShipFormContext";
 
 const ABNRegistrationDetails = () => {
   return (
     <FormPartLayout header="ABN Registration Details" step={5}>
       <div>
         <label>ABN Active Date</label>
-        <DatePicker name="abnActiveDate" />
+        <PartnershipFormProvider.DatePicker name="abnActiveDate" />
       </div>
       <div>
         <label htmlFor="message">Main Business Activity</label>

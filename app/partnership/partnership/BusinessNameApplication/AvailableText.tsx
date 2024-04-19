@@ -1,4 +1,4 @@
-import { usePartnershipFormContext } from "app/contact/SoleTraderFormContext";
+import { usePartnershipFormContext } from "app/partnership/PartnerShipFormContext";
 import { Button } from "react-bootstrap";
 import { Controller } from "react-hook-form";
 import { CiCircleCheck } from "react-icons/ci";

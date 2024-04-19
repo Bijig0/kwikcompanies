@@ -1,9 +1,9 @@
 import { Controller } from "react-hook-form";
 import ErrorText from "../../../components/ErrorText";
-import Select from "../../../components/Select";
 import FormPartLayout from "../FormPartLayout";
 import {
   SoleTraderDatePicker,
+  SoleTraderSelect,
   SoleTraderTextInput,
 } from "../SoleTraderFormComponents";
 import { useSoleTraderFormContext } from "../SoleTraderFormContext";
@@ -27,7 +27,7 @@ const SoleTraderDetails = () => {
       <div className="flex items-center gap-3 ">
         <div className="flex-1">
           <label htmlFor="message">Title</label>
-          <Select name="title" options={titles} />
+          <SoleTraderSelect name="title" options={titles} />
         </div>
         <div className="flex-[3_3_0%] md:flex-[2_2_0%]">
           <label htmlFor="message">First Name</label>

@@ -1,7 +1,7 @@
-import { usePartnershipFormContext } from "app/contact/SoleTraderFormContext";
 import { Button } from "react-bootstrap";
 import { Controller } from "react-hook-form";
 import BusinessNameRegistrationDetails from "./BusinessNameRegistrationDetails";
+import { usePartnershipFormContext } from "app/partnership/PartnerShipFormContext";
 
 type Props = {
   resetSearch: () => void;

@@ -1,7 +1,8 @@
 import ErrorText from "../ErrorText";
 import FormPartLayout from "../FormPartLayout";
-import { usePartnershipFormContext } from "../PartnerShipFormContext";
-import Select from "../Select";
+import PartnershipFormProvider, {
+  usePartnershipFormContext,
+} from "../PartnerShipFormContext";
 import { ActivitiesLocation, needAbnReasons } from "../form";
 
 const ABNEntitlement = () => {
@@ -58,7 +59,10 @@ const ABNEntitlement = () => {
       <label className="font-semibold text-black text-md" htmlFor="message">
         Why do you need an ABN?
       </label>
-      <Select name="needAbnReason" options={needAbnReasons} />
+      <PartnershipFormProvider.Select
+        name="needAbnReason"
+        options={needAbnReasons}
+      />
     </FormPartLayout>
   );
 };

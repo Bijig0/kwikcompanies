@@ -64,8 +64,9 @@ const PartnershipSelect = (
 
 // const Partnership
 
-PartnershipFormProvider.TextInput = PartnershipTextInput;
-PartnershipFormProvider.Select = PartnershipSelect;
+PartnershipFormProvider.TextInput = <div />;
+PartnershipFormProvider.Select = <div />;
+PartnershipFormProvider.DatePicker = <div />;
 
 export const usePartnershipFormContext = () =>
   useContext(PartnershipFormContext);

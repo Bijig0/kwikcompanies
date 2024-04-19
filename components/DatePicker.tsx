@@ -1,18 +1,26 @@
+import {
+  CreateFormRegisterable,
+  FormContexts,
+  FormValues,
+} from "app/types/types";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
-import { ComponentProps } from "react";
+import { ComponentProps, Context } from "react";
 import _DatePicker from "react-datepicker";
 import { Controller } from "react-hook-form";
 import { useSoleTraderFormContext } from "../app/contact/SoleTraderFormContext";
-import { FormRegisterable } from "../app/contact/soleTraderForm";
 dayjs.extend(utc);
 
-type Props<TFormRegisterable extends string> = ComponentProps<"input"> & {
-  name: TFormRegisterable;
+type Props<
+  T extends FormValues,
+  FormContext extends FormContexts
+> = ComponentProps<"input"> & {
+  name: CreateFormRegisterable<T>;
+  context: Context<FormContext>;
 };
 
-const DatePicker = <TFormRegisterable extends FormRegisterable>(
-  props: Props<TFormRegisterable>
+const DatePicker = <T extends FormValues, FormContext extends FormContexts>(
+  props: Props<T, FormContext>
 ) => {
   const { name, placeholder } = props;
   const {

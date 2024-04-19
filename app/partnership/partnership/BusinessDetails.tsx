@@ -1,8 +1,8 @@
 import { Tooltip } from "react-bootstrap";
 import FormPartLayout from "../FormPartLayout";
-import { usePartnershipFormContext } from "../PartnerShipFormContext";
-import Select from "../Select";
-import TextInput from "../TextInput";
+import PartnershipFormProvider, {
+  usePartnershipFormContext,
+} from "../PartnerShipFormContext";
 import { businessHistories } from "../form";
 
 import { Controller } from "react-hook-form";
@@ -30,7 +30,10 @@ const BusinessDetails = () => {
         <label className="font-bold text-black text-md" htmlFor="name">
           Business History
         </label>
-        <Select name="businessHistory" options={businessHistories} />
+        <PartnershipFormProvider.Select
+          name="businessHistory"
+          options={businessHistories}
+        />
       </div>
       <div>
         <label className="font-semibold text-black text-md" htmlFor="name">
@@ -74,7 +77,7 @@ const BusinessDetails = () => {
       {watch("hasPreviousAbn.answer") && (
         <div>
           <label htmlFor="message">Previous ABN</label>
-          <TextInput name="hasPreviousAbn.prevAbn" />
+          <PartnershipFormProvider.TextInput name="hasPreviousAbn.prevAbn" />
           <div className="my-2"></div>
           <p>
             If you can't remember your ABN, <a>click here</a>

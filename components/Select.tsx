@@ -1,12 +1,7 @@
 import FormValues from "app/contact/soleTraderForm";
-import { FormContexts } from "app/types/types";
+import { CreateFormRegisterable, FormContexts } from "app/types/types";
 import { Context, useContext } from "react";
-import { useForm } from "react-hook-form";
 import { AiOutlineDown } from "react-icons/ai";
-
-type CreateFormRegisterable<T extends FormValues> = Parameters<
-  ReturnType<typeof useForm<T>>["register"]
->[0];
 
 type Props<T extends FormValues, FormContext extends FormContexts> = {
   readonly options: readonly string[];

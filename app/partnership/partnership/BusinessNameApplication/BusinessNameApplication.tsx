@@ -6,8 +6,9 @@ import React from "react";
 import { Button, Spinner } from "react-bootstrap";
 import { Controller } from "react-hook-form";
 import FormPartLayout from "../../FormPartLayout";
-import { usePartnershipFormContext } from "../../PartnerShipFormContext";
-import TextInput from "../../TextInput";
+import PartnershipFormProvider, {
+  usePartnershipFormContext,
+} from "../../PartnerShipFormContext";
 import { queryClient } from "../queryClient";
 import AvailableText from "./AvailableText";
 import ForManualReviewText from "./ForManualReviewText";
@@ -122,7 +123,7 @@ const _BusinessNameApplication = () => {
           <div>
             <div>
               <label htmlFor="message">Search for your business name</label>
-              <TextInput
+              <PartnershipFormProvider.TextInput
                 name="businessName.businessName"
                 placeholder="Acme Inc"
               />

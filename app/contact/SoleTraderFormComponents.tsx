@@ -23,9 +23,19 @@ const SoleTraderSelect = (
 };
 
 const SoleTraderTextInput = (
-  props: ComponentProps<typeof TextInput<SoleTraderFormValues>>
+  props: Omit<
+    ComponentProps<
+      typeof TextInput<SoleTraderFormValues, TSoleTraderFormContext>
+    >,
+    "context"
+  >
 ) => {
-  return <TextInput<SoleTraderFormValues> {...props} />;
+  return (
+    <TextInput<SoleTraderFormValues, TSoleTraderFormContext>
+      context={SoleTraderFormContext}
+      {...props}
+    />
+  );
 };
 
 const SoleTraderDatePicker = (

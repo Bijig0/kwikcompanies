@@ -1,18 +1,26 @@
-import { ComponentProps } from "react";
-import { useSoleTraderFormContext } from "../app/contact/SoleTraderFormContext";
+import {
+  CreateFormRegisterable,
+  FormContexts,
+  FormValues,
+} from "app/types/types";
+import { ComponentProps, Context, useContext } from "react";
 
-type Props<TFormRegisterable extends string> = ComponentProps<"input"> & {
-  name: TFormRegisterable;
+type Props<
+  T extends FormValues,
+  FormContext extends FormContexts
+> = ComponentProps<"input"> & {
+  name: CreateFormRegisterable<T>;
+  context: Context<FormContext>;
 };
 
-const TextInput = <TFormRegisterable extends string>(
-  props: Props<TFormRegisterable>
+const TextInput = <T extends FormValues, FormContext extends FormContexts>(
+  props: Props<T, FormContext>
 ) => {
   const { name, required, placeholder } = props;
   const {
     formManager: { register },
     formDisabled,
-  } = useSoleTraderFormContext();
+  } = useContext(props.context);
   return (
     <input
       {...register(name, { required: "This field is required" })}

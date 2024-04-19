@@ -1,11 +1,11 @@
-import Select from "@components/Select";
-import TextInput from "@components/TextInput";
-import { usePartnershipFormContext } from "app/contact/SoleTraderFormContext";
 import countries from "app/contact/countries";
 import {
   australianStates,
   registrationPeriods,
 } from "app/contact/soleTraderForm";
+import PartnershipFormProvider, {
+  usePartnershipFormContext,
+} from "app/partnership/PartnerShipFormContext";
 
 const text = {
   "3 years": "3 years ($99 per year) save on 3 years registration",
@@ -36,21 +36,21 @@ const BusinessNameRegistrationDetails = () => {
       <div>
         <label htmlFor="message">Country of birth</label>
 
-        <Select
+        <PartnershipFormProvider.Select
           options={countries}
           name="isRegisteringBusinessName.birthLocation.country"
         />
       </div>
       <div>
         <label htmlFor="message">State</label>
-        <Select
+        <PartnershipFormProvider.Select
           options={australianStates}
           name="isRegisteringBusinessName.birthLocation.state"
         />
       </div>
       <div>
         <label htmlFor="message">City</label>
-        <TextInput name="isRegisteringBusinessName.birthLocation.city" />
+        <PartnershipFormProvider.TextInput name="isRegisteringBusinessName.birthLocation.city" />
       </div>
     </div>
   );

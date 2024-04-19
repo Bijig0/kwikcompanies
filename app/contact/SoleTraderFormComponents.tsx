@@ -2,12 +2,24 @@ import DatePicker from "@components/DatePicker";
 import Select from "@components/Select";
 import TextInput from "@components/TextInput";
 import { ComponentProps } from "react";
+import {
+  SoleTraderFormContext,
+  TSoleTraderFormContext,
+} from "./SoleTraderFormContext";
 import SoleTraderFormValues from "./soleTraderForm";
 
 const SoleTraderSelect = (
-  props: ComponentProps<typeof Select<SoleTraderFormValues>>
+  props: Omit<
+    ComponentProps<typeof Select<SoleTraderFormValues, TSoleTraderFormContext>>,
+    "context"
+  >
 ) => {
-  return <Select<SoleTraderFormValues> {...props} />;
+  return (
+    <Select<SoleTraderFormValues, TSoleTraderFormContext>
+      context={SoleTraderFormContext}
+      {...props}
+    />
+  );
 };
 
 const SoleTraderTextInput = (

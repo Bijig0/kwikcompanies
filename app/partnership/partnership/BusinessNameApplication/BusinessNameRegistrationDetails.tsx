@@ -2,7 +2,10 @@ import Select from "@components/Select";
 import TextInput from "@components/TextInput";
 import { usePartnershipFormContext } from "app/contact/SoleTraderFormContext";
 import countries from "app/contact/countries";
-import { australianStates, registrationPeriods } from "app/contact/form";
+import {
+  australianStates,
+  registrationPeriods,
+} from "app/contact/soleTraderForm";
 
 const text = {
   "3 years": "3 years ($99 per year) save on 3 years registration",

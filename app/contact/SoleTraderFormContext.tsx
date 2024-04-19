@@ -2,9 +2,9 @@
 import { useBoolean } from "@utils/useBoolean";
 import { ReactNode, createContext, useContext } from "react";
 import { useForm } from "react-hook-form";
-import FormValues from "./form";
+import FormValues from "./soleTraderForm";
 
-type TSoleTraderFormContext = {
+export type TSoleTraderFormContext = {
   //   register: UseFormRegister<FormValues>;
   formManager: ReturnType<typeof useForm<FormValues>>;
   enableForm: () => void;
@@ -13,7 +13,7 @@ type TSoleTraderFormContext = {
   totalSteps: number;
 };
 
-const SoleTraderFormContext = createContext<TSoleTraderFormContext>(
+export const SoleTraderFormContext = createContext<TSoleTraderFormContext>(
   {} as TSoleTraderFormContext
 );
 

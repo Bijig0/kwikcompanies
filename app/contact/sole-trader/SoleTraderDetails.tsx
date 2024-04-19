@@ -2,12 +2,12 @@ import { Controller } from "react-hook-form";
 import ErrorText from "../../../components/ErrorText";
 import Select from "../../../components/Select";
 import FormPartLayout from "../FormPartLayout";
-import { useSoleTraderFormContext } from "../SoleTraderFormContext";
-import { titles } from "../form";
 import {
-  SoleTraderTextInput,
   SoleTraderDatePicker,
+  SoleTraderTextInput,
 } from "../SoleTraderFormComponents";
+import { useSoleTraderFormContext } from "../SoleTraderFormContext";
+import { titles } from "../soleTraderForm";
 
 const SoleTraderDetails = () => {
   const {

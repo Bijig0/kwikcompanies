@@ -1,18 +1,33 @@
+import FormValues from "app/contact/soleTraderForm";
+import { FormContexts } from "app/types/types";
+import { Context, useContext } from "react";
+import { useForm } from "react-hook-form";
 import { AiOutlineDown } from "react-icons/ai";
-import { useSoleTraderFormContext } from "../app/contact/SoleTraderFormContext";
-import { FormRegisterable } from "../app/contact/form";
-type Props<TFormRegisterable extends FormRegisterable> = {
+
+type CreateFormRegisterable<T extends FormValues> = Parameters<
+  ReturnType<typeof useForm<T>>["register"]
+>[0];
+
+type Props<T extends FormValues, FormContext extends FormContexts> = {
   readonly options: readonly string[];
-  name: TFormRegisterable;
+  name: CreateFormRegisterable<T>;
+  context: Context<FormContext>;
 };
 
-const Select = <TFormRegisterable extends FormRegisterable>(
-  props: Props<TFormRegisterable>
+// context requires FormValues
+// TFormRegisterable is all the strings that useForm creates from the FormValues
+
+// So we can actually jsut pass in FormValues and derive the res
+
+const Select = <T extends FormValues, FormContext extends FormContexts>(
+  props: Props<T, FormContext>
 ) => {
   const {
     formManager: { register, handleSubmit, formState },
     formDisabled,
-  } = useSoleTraderFormContext();
+  } = useContext(props.context);
+
+  const v = useContext(props.context);
 
   const { options } = props;
   return (

@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import FormValues from "./form";
+import FormValues from "./soleTraderForm";
 type SoleTraderFormState = {
   soleTraderDetails: FormValues;
   updateSoleTraderDetails: (toUpdate: PartialSoleTraderFormState) => void;

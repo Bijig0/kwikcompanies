@@ -2,7 +2,7 @@ import ErrorText from "../../../components/ErrorText";
 import FormPartLayout from "../FormPartLayout";
 import { SoleTraderSelect } from "../SoleTraderFormComponents";
 import { useSoleTraderFormContext } from "../SoleTraderFormContext";
-import { ActivitiesLocation, needAbnReasons } from "../form";
+import { ActivitiesLocation, needAbnReasons } from "../soleTraderForm";
 
 const ABNEntitlement = () => {
   const { formManager, disableForm, enableForm } = useSoleTraderFormContext();

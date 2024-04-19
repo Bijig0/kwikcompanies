@@ -96,7 +96,7 @@ type IsRegisteringBusinessName =
       answer: false;
     };
 
-type FormValues = {
+type SoleTraderFormValues = {
   businessHistory: BusinessHistory;
   hasPreviousAbn: HasPreviousAbn;
   phone_number: string;
@@ -125,7 +125,7 @@ type FormValues = {
 export type FormRegisterable = string;
 
 export type SoleTraderFormRegisterable = Parameters<
-  ReturnType<typeof useForm<FormValues>>["register"]
+  ReturnType<typeof useForm<SoleTraderFormValues>>["register"]
 >[0];
 
-export default FormValues;
+export default SoleTraderFormValues;

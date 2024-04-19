@@ -1,7 +1,7 @@
 import { Tooltip } from "react-bootstrap";
 import FormPartLayout from "../FormPartLayout";
 import { useSoleTraderFormContext } from "../SoleTraderFormContext";
-import { businessHistories } from "../form";
+import { businessHistories } from "../soleTraderForm";
 
 import { Controller } from "react-hook-form";
 import "react-tooltip/dist/react-tooltip.css";

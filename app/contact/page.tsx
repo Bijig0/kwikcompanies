@@ -1,12 +1,12 @@
 "use client";
 import PageBanner from "@components/PageBanner";
 import AkpagerLayout from "@layouts/AkpagerLayout";
-import FormValues from "./form";
+import FormValues from "./soleTraderForm";
 
 import { Button } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
-import Declaration from "./Declaration";
 import Divider from "../../components/Divider";
+import Declaration from "./Declaration";
 import SoleTraderFormProvider, {
   useSoleTraderFormContext,
 } from "./SoleTraderFormContext";

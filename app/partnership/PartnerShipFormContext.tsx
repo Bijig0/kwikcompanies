@@ -1,8 +1,10 @@
 "use client";
+import Select from "@components/Select";
+import TextInput from "@components/TextInput";
 import { useBoolean } from "@utils/useBoolean";
-import { ReactNode, createContext, useContext } from "react";
+import { ComponentProps, ReactNode, createContext, useContext } from "react";
 import { useForm } from "react-hook-form";
-import FormValues from "./form";
+import FormValues, { PartnershipFormRegisterable } from "./form";
 
 type TPartnershipFormContext = {
   //   register: UseFormRegister<FormValues>;
@@ -47,6 +49,23 @@ const PartnershipFormProvider = (props: Props) => {
     </PartnershipFormContext.Provider>
   );
 };
+
+const PartnershipTextInput = (
+  props: ComponentProps<typeof TextInput<PartnershipFormRegisterable>>
+) => {
+  return <TextInput<PartnershipFormRegisterable> {...props} />;
+};
+
+const PartnershipSelect = (
+  props: ComponentProps<typeof Select<PartnershipFormRegisterable>>
+) => {
+  return <Select<PartnershipFormRegisterable> {...props} />;
+};
+
+// const Partnership
+
+PartnershipFormProvider.TextInput = PartnershipTextInput;
+PartnershipFormProvider.Select = PartnershipSelect;
 
 export const usePartnershipFormContext = () =>
   useContext(PartnershipFormContext);

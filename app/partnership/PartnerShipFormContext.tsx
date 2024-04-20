@@ -4,7 +4,7 @@ import TextInput from "@components/TextInput";
 import { useBoolean } from "@utils/useBoolean";
 import { ComponentProps, ReactNode, createContext, useContext } from "react";
 import { useForm } from "react-hook-form";
-import FormValues, { PartnershipFormRegisterable } from "./form";
+import FormValues, { PartnershipFormRegisterable } from "./partnershipForm";
 import { ABNForms } from "app/types/types";
 
 export type TPartnershipFormContext = {

@@ -3,7 +3,7 @@ import FormPartLayout from "../FormPartLayout";
 import PartnershipFormProvider, {
   usePartnershipFormContext,
 } from "../PartnerShipFormContext";
-import { ActivitiesLocation, needAbnReasons } from "../form";
+import { ActivitiesLocation, needAbnReasons } from "../partnershipForm";
 
 const ABNEntitlement = () => {
   const { formManager, disableForm, enableForm } = usePartnershipFormContext();

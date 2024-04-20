@@ -4,7 +4,7 @@ import { ComponentProps } from "react";
 import _DatePicker from "react-datepicker";
 import { Controller } from "react-hook-form";
 import { usePartnershipFormContext } from "./PartnerShipFormContext";
-import FormValues from "./form";
+import FormValues from "./partnershipForm";
 dayjs.extend(utc);
 
 type Props = ComponentProps<"input"> & { name: keyof FormValues };

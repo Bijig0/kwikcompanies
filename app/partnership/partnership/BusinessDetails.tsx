@@ -3,7 +3,7 @@ import FormPartLayout from "../FormPartLayout";
 import PartnershipFormProvider, {
   usePartnershipFormContext,
 } from "../PartnerShipFormContext";
-import { businessHistories } from "../form";
+import { businessHistories } from "../partnershipForm";
 
 import { Controller } from "react-hook-form";
 import "react-tooltip/dist/react-tooltip.css";

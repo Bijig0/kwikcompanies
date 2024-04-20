@@ -1,7 +1,7 @@
 "use client";
 import PageBanner from "@components/PageBanner";
 import AkpagerLayout from "@layouts/AkpagerLayout";
-import FormValues from "./form";
+import FormValues from "./partnershipForm";
 
 import { Button } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";

@@ -1,7 +1,7 @@
 import { TSoleTraderFormContext } from "app/contact/SoleTraderFormContext";
 import SoleTraderFormValues from "app/contact/soleTraderForm";
 import { TPartnershipFormContext } from "app/partnership/PartnerShipFormContext";
-import PartnerShipFormValues from "app/partnership/form";
+import PartnerShipFormValues from "app/partnership/partnershipForm";
 import { useForm } from "react-hook-form";
 
 export type UnionOfValues<T> = T[keyof T];

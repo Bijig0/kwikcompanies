@@ -1,4 +1,6 @@
-import { useCompanyFormContext } from "../CompanyFormContext";
+import CompanyFormProvider, {
+  useCompanyFormContext,
+} from "../CompanyFormContext";
 import FormPartLayout from "../FormPartLayout";
 
 const CompanyDetails = () => {
@@ -41,6 +43,12 @@ const CompanyDetails = () => {
       {/* {errors.activitiesLocation && (
         <ErrorText>{errors.activitiesLocation.message}</ErrorText>
       )} */}
+      {watch("companyDetails.hasACN.answer") && (
+        <div>
+          <label htmlFor="message">Previous ABN</label>
+          <CompanyFormProvider.TextInput name="companyDetails.hasACN.prevAbn" />
+        </div>
+      )}
       <label className="font-semibold text-black text-md" htmlFor="message">
         Is the company a majority-owned subsidiary?
       </label>

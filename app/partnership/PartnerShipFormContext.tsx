@@ -6,6 +6,7 @@ import { ComponentProps, ReactNode, createContext, useContext } from "react";
 import { useForm } from "react-hook-form";
 import FormValues, { PartnershipFormRegisterable } from "./partnershipForm";
 import { ABNForms } from "app/types/types";
+import PartnerShipFormValues from "./partnershipForm";
 
 export type TPartnershipFormContext = {
   //   register: UseFormRegister<FormValues>;
@@ -25,9 +26,40 @@ type Props = {
   totalSteps: number;
 };
 
+export const createEmptyPartnerDetails =
+  (): PartnerShipFormValues["partnerDetails"] => [
+    {
+      partnerType: "Individual",
+      name: {
+        title: "Mr",
+        firstName: "",
+        lastName: "",
+        otherNames: {
+          answer: false,
+          otherName: "",
+        },
+      },
+      email: "",
+      phoneNumber: "",
+      dateOfBirth: new Date(),
+      birthLocation: {
+        country: "Australia",
+        state: "Australian Capital Territory",
+        city: "",
+      },
+      taxFileNumber: "",
+      homeAddress: "",
+      declaredIsAustralianResidentForTaxPurposes: false,
+    },
+  ];
+
 const PartnershipFormProvider = (props: Props) => {
   const { totalSteps } = props;
-  const formManager = useForm<FormValues>();
+  const formManager = useForm<FormValues>({
+    defaultValues: {
+      partnerDetails: createEmptyPartnerDetails(),
+    },
+  });
 
   const {
     value: formDisabled,

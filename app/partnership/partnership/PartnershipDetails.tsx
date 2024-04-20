@@ -4,7 +4,10 @@ import PartnershipFormProvider, {
   usePartnershipFormContext,
 } from "../PartnerShipFormContext";
 import PartnerShipDetailsFormPartLayout from "../PartnershipDetailsFormPartLayout";
-import { partnerTypes, titles } from "../partnershipForm";
+import PartnerShipFormValues, {
+  partnerTypes,
+  titles,
+} from "../partnershipForm";
 
 const numberText = {
   "1": "First",

@@ -33,10 +33,11 @@ const BusinessLocation = () => {
   };
 
   return (
-    <FormPartLayout header="Business Location" step={4}>
+    <FormPartLayout header="Business Location" step={3}>
       <div>
-        <label htmlFor="message">Home Address</label>
+        <label htmlFor="message">Business Address</label>
         <AddressAutocomplete />
+        <p>Can't find your address? Click Enter here</p>
       </div>
       <div>
         <label className="font-semibold text-black text-md" htmlFor="message">

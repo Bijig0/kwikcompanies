@@ -1,5 +1,4 @@
 "use client";
-import ErrorText from "@components/ErrorText";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { useBoolean } from "@utils/useBoolean";
 import React from "react";
@@ -19,8 +18,8 @@ import useSearchForBusinessName, {
 } from "./useSearchForBusinessName";
 
 const text = {
-  Yes: "Yes, the business name I need is...",
-  No: "No I will trade under my full name",
+  Yes: "Yes, I want to register our name now",
+  No: "No, we will trade under our full names",
 };
 
 const renderSearchResult = {
@@ -56,7 +55,7 @@ const _BusinessNameApplication = () => {
 
   const { data, error, isLoading, isFetched } = useSearchForBusinessName({
     shouldSearchBusinessName,
-    businessName: watch("businessName.businessName"),
+    businessName: watch("businessNameApplication.businessName.businessName"),
   });
 
   const { resetSearch } = useResetSearch({
@@ -72,10 +71,10 @@ const _BusinessNameApplication = () => {
   const handleBusinessNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value as "Yes" | "No";
     if (value === "Yes") {
-      setValue("businessName.answer", true);
+      setValue("businessNameApplication.businessName.answer", true);
       return;
     } else if (value === "No") {
-      setValue("businessName.answer", false);
+      setValue("businessNameApplication.businessName.answer", false);
     }
   };
 
@@ -97,7 +96,7 @@ const _BusinessNameApplication = () => {
             {options.map((option) => (
               <Controller
                 key={option}
-                name="businessName.answer"
+                name="businessNameApplication.businessName.answer"
                 control={control}
                 rules={{ required: "This field is required" }}
                 render={({ field: { onChange, value } }) => (
@@ -115,16 +114,16 @@ const _BusinessNameApplication = () => {
               />
             ))}
           </div>
-          {errors.businessName?.answer && (
+          {/* {errors.businessName?.answer && (
             <ErrorText>{errors.businessName.answer?.message}</ErrorText>
-          )}
+          )} */}
         </div>
-        {watch("businessName.answer") && (
+        {watch("businessNameApplication.businessName.answer") && (
           <div>
             <div>
               <label htmlFor="message">Search for your business name</label>
               <PartnershipFormProvider.TextInput
-                name="businessName.businessName"
+                name="businessNameApplication.businessName.businessName"
                 placeholder="Acme Inc"
               />
               <div className="my-3"></div>

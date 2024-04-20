@@ -1,12 +1,12 @@
-import React from "react";
 import AddressAutocomplete from "../AddressAutocomplete";
+import React from "react";
+import { useCompanyFormContext } from "../CompanyFormContext";
 import FormPartLayout from "../FormPartLayout";
-import { usePartnershipFormContext } from "../PartnerShipFormContext";
 
 const BusinessLocation = () => {
   const {
     formManager: { register, setValue, watch },
-  } = usePartnershipFormContext();
+  } = useCompanyFormContext();
 
   const handleBusinessLocationChange = (
     e: React.ChangeEvent<HTMLInputElement>

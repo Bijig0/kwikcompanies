@@ -10,7 +10,7 @@ import {
   default as PartnerShipFormValues,
 } from "./companyForm";
 
-export type TPartnershipFormContext = {
+export type TCompanyFormContext = {
   //   register: UseFormRegister<FormValues>;
   formManager: ReturnType<typeof useForm<FormValues>>;
   enableForm: () => void;
@@ -19,8 +19,8 @@ export type TPartnershipFormContext = {
   totalSteps: number;
 };
 
-const PartnershipFormContext = createContext<TPartnershipFormContext>(
-  {} as TPartnershipFormContext
+const CompanyFormContext = createContext<TCompanyFormContext>(
+  {} as TCompanyFormContext
 );
 
 type Props = {
@@ -55,7 +55,7 @@ export const createEmptyPartnerDetails =
     },
   ];
 
-const PartnershipFormProvider = (props: Props) => {
+const CompanyFormProvider = (props: Props) => {
   const { totalSteps } = props;
   const formManager = useForm<FormValues>({
     defaultValues: {
@@ -71,7 +71,7 @@ const PartnershipFormProvider = (props: Props) => {
   } = useBoolean(false);
 
   return (
-    <PartnershipFormContext.Provider
+    <CompanyFormContext.Provider
       value={{
         formManager,
         disableForm,
@@ -81,11 +81,11 @@ const PartnershipFormProvider = (props: Props) => {
       }}
     >
       {props.children}
-    </PartnershipFormContext.Provider>
+    </CompanyFormContext.Provider>
   );
 };
 
-const PartnershipTextInput = (
+const CompanyTextInput = (
   props: Omit<
     ComponentProps<typeof TextInput<ABNForms["partnership"]>>,
     "context"
@@ -94,29 +94,25 @@ const PartnershipTextInput = (
   return (
     <TextInput<ABNForms["partnership"]>
       {...props}
-      context={PartnershipFormContext}
+      context={CompanyFormContext}
     />
   );
 };
 
-const PartnershipSelect = (
+const CompanySelect = (
   props: Omit<ComponentProps<typeof Select<ABNForms["partnership"]>>, "context">
 ) => {
   return (
-    <Select<ABNForms["partnership"]>
-      context={PartnershipFormContext}
-      {...props}
-    />
+    <Select<ABNForms["partnership"]> context={CompanyFormContext} {...props} />
   );
 };
 
 // const Partnership
 
-PartnershipFormProvider.TextInput = PartnershipTextInput;
-PartnershipFormProvider.Select = PartnershipSelect;
-PartnershipFormProvider.DatePicker = PartnershipSelect;
+CompanyFormProvider.TextInput = CompanyTextInput;
+CompanyFormProvider.Select = CompanySelect;
+CompanyFormProvider.DatePicker = CompanySelect;
 
-export const usePartnershipFormContext = () =>
-  useContext(PartnershipFormContext);
+export const useCompanyFormContext = () => useContext(CompanyFormContext);
 
-export default PartnershipFormProvider;
+export default CompanyFormProvider;

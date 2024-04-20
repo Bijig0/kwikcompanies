@@ -5,11 +5,11 @@ import FormValues from "./companyForm";
 
 import { Button } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
+import SoleTraderFormProvider, {
+  useCompanyFormContext,
+} from "./CompanyFormContext";
 import Declaration from "./Declaration";
 import Divider from "./Divider";
-import SoleTraderFormProvider, {
-  usePartnershipFormContext,
-} from "./PartnerShipFormContext";
 import ABNEntitlement from "./partnership/ABNEntitlement";
 import ABNRegistrationDetails from "./partnership/ABNRegistrationDetails";
 import BusinessLocation from "./partnership/BusinessLocation";
@@ -20,7 +20,7 @@ import PartnershipDetails from "./partnership/PartnershipDetails";
 const _Page = () => {
   const {
     formManager: { handleSubmit },
-  } = usePartnershipFormContext();
+  } = useCompanyFormContext();
 
   const onSubmit = (data: FormValues) => {
     console.log(data);

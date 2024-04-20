@@ -1,6 +1,6 @@
+import { useCompanyFormContext } from "../CompanyFormContext";
 import ErrorText from "../ErrorText";
 import FormPartLayout from "../FormPartLayout";
-import { usePartnershipFormContext } from "../PartnerShipFormContext";
 
 const text = {
   Yes: "Yes ($49)",
@@ -13,7 +13,7 @@ const GSTRegistration = () => {
       register,
       formState: { errors },
     },
-  } = usePartnershipFormContext();
+  } = useCompanyFormContext();
 
   return (
     <FormPartLayout header="GST Registration" step={7}>

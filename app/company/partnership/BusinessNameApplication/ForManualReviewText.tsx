@@ -1,7 +1,7 @@
 import { Button } from "react-bootstrap";
 import { Controller } from "react-hook-form";
 import BusinessNameRegistrationDetails from "./BusinessNameRegistrationDetails";
-import { usePartnershipFormContext } from "app/partnership/PartnerShipFormContext";
+import { useCompanyFormContext } from "app/company/CompanyFormContext";
 
 type Props = {
   resetSearch: () => void;
@@ -12,7 +12,7 @@ const ForManualReviewText = (props: Props) => {
   const {
     formManager: { control, register, watch, setValue, getValues },
     formDisabled,
-  } = usePartnershipFormContext();
+  } = useCompanyFormContext();
 
   const handleClick = () => {
     console.log(getValues());

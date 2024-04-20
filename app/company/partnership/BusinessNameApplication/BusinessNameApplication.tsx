@@ -4,10 +4,10 @@ import { useBoolean } from "@utils/useBoolean";
 import React from "react";
 import { Button, Spinner } from "react-bootstrap";
 import { Controller } from "react-hook-form";
-import FormPartLayout from "../../FormPartLayout";
 import PartnershipFormProvider, {
-  usePartnershipFormContext,
-} from "../../PartnerShipFormContext";
+  useCompanyFormContext,
+} from "../../CompanyFormContext";
+import FormPartLayout from "../../FormPartLayout";
 import { queryClient } from "../queryClient";
 import AvailableText from "./AvailableText";
 import ForManualReviewText from "./ForManualReviewText";
@@ -49,7 +49,7 @@ const _BusinessNameApplication = () => {
       control,
       formState: { errors },
     },
-  } = usePartnershipFormContext();
+  } = useCompanyFormContext();
 
   console.log({ shouldSearchBusinessName });
 

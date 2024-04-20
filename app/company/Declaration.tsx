@@ -1,9 +1,9 @@
-import { usePartnershipFormContext } from "./PartnerShipFormContext";
+import { useCompanyFormContext } from "./CompanyFormContext";
 
 const Declaration = () => {
   const {
     formManager: { register },
-  } = usePartnershipFormContext();
+  } = useCompanyFormContext();
   return (
     <div>
       <input

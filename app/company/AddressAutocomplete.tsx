@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { usePartnershipFormContext } from "./PartnerShipFormContext";
+import { useCompanyFormContext } from "./CompanyFormContext";
 const accessToken =
   "pk.eyJ1IjoiYmlqaWcwIiwiYSI6ImNsdXpreWNnZTFkaGkycW53dDhseWh3cWgifQ.30N1A9KD3UR4762uEEH-yQ";
 
 export default function AddressAutocomplete() {
   const [value, setValue] = useState("68 Latrobe");
-  const { formDisabled } = usePartnershipFormContext();
+  const { formDisabled } = useCompanyFormContext();
 
   const handleChange = (e) => {
     console.log(e.target);

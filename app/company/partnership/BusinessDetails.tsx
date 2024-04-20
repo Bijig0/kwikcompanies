@@ -1,16 +1,14 @@
 import { Tooltip } from "react-bootstrap";
-import FormPartLayout from "../FormPartLayout";
-import PartnershipFormProvider, {
-  usePartnershipFormContext,
-} from "../PartnerShipFormContext";
-import { businessHistories } from "../companyForm";
-
 import { Controller } from "react-hook-form";
 import "react-tooltip/dist/react-tooltip.css";
+import PartnershipFormProvider, {
+  useCompanyFormContext,
+} from "../CompanyFormContext";
 import ErrorText from "../ErrorText";
+import FormPartLayout from "../FormPartLayout";
 
 const BusinessDetails = () => {
-  const { formManager, formDisabled } = usePartnershipFormContext();
+  const { formManager, formDisabled } = useCompanyFormContext();
   const {
     setValue,
     register,
@@ -30,10 +28,6 @@ const BusinessDetails = () => {
         <label className="font-bold text-black text-md" htmlFor="name">
           Business History
         </label>
-        <PartnershipFormProvider.Select
-          name="businessHistory"
-          options={businessHistories}
-        />
       </div>
       <div>
         <label className="font-semibold text-black text-md" htmlFor="name">

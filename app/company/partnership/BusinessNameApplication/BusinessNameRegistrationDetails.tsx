@@ -1,10 +1,9 @@
+import { useCompanyFormContext } from "app/company/CompanyFormContext";
 import {
   australianStates,
   registrationPeriods,
 } from "app/contact/soleTraderForm";
-import PartnershipFormProvider, {
-  usePartnershipFormContext,
-} from "app/partnership/PartnerShipFormContext";
+import PartnershipFormProvider from "app/partnership/PartnerShipFormContext";
 import countries from "app/types/countries";
 
 const text = {
@@ -15,7 +14,7 @@ const text = {
 const BusinessNameRegistrationDetails = () => {
   const {
     formManager: { register, watch, setValue, getValues },
-  } = usePartnershipFormContext();
+  } = useCompanyFormContext();
 
   return (
     <div>

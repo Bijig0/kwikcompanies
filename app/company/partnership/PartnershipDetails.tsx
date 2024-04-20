@@ -3,8 +3,8 @@ import countries from "app/types/countries";
 import { Button } from "react-bootstrap";
 import { Controller, useFieldArray } from "react-hook-form";
 import PartnershipFormProvider, {
-  usePartnershipFormContext,
-} from "../PartnerShipFormContext";
+  useCompanyFormContext,
+} from "../CompanyFormContext";
 import PartnerShipDetailsFormPartLayout from "../PartnershipDetailsFormPartLayout";
 import { australianStates, partnerTypes } from "../companyForm";
 
@@ -29,7 +29,7 @@ const PartnershipDetails = () => {
       control,
       formState: { errors },
     },
-  } = usePartnershipFormContext();
+  } = useCompanyFormContext();
   const { fields, append, prepend, remove, swap, move, insert } = useFieldArray(
     {
       control, // control props comes from useForm (optional: if you are using FormProvider)

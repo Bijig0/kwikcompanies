@@ -1,8 +1,8 @@
-import { usePartnershipFormContext } from "app/partnership/PartnerShipFormContext";
 import { Button } from "react-bootstrap";
 import { Controller } from "react-hook-form";
 import { CiCircleCheck } from "react-icons/ci";
 import BusinessNameRegistrationDetails from "./BusinessNameRegistrationDetails";
+import { useCompanyFormContext } from "app/company/CompanyFormContext";
 
 type Props = {
   resetSearch: () => void;
@@ -13,7 +13,7 @@ const AvailableText = (props: Props) => {
   const {
     formManager: { control, register, watch, setValue, getValues },
     formDisabled,
-  } = usePartnershipFormContext();
+  } = useCompanyFormContext();
 
   const handleClick = () => {
     console.log(getValues());

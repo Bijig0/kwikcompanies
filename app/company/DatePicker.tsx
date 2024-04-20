@@ -3,7 +3,7 @@ import utc from "dayjs/plugin/utc";
 import { ComponentProps } from "react";
 import _DatePicker from "react-datepicker";
 import { Controller } from "react-hook-form";
-import { usePartnershipFormContext } from "./PartnerShipFormContext";
+import { useCompanyFormContext } from "./CompanyFormContext";
 import FormValues from "./companyForm";
 dayjs.extend(utc);
 
@@ -14,7 +14,7 @@ const DatePicker = (props: Props) => {
   const {
     formDisabled,
     formManager: { control, register },
-  } = usePartnershipFormContext();
+  } = useCompanyFormContext();
   return (
     <div>
       <Controller

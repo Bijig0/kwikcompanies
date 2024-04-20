@@ -1,5 +1,5 @@
 import React from "react";
-import { usePartnershipFormContext } from "./PartnerShipFormContext";
+import { useCompanyFormContext } from "./CompanyFormContext";
 
 type Props = {
   header: string;
@@ -8,7 +8,7 @@ type Props = {
 };
 
 const PartnerShipDetailsFormPartLayout = (props: Props) => {
-  const { totalSteps } = usePartnershipFormContext();
+  const { totalSteps } = useCompanyFormContext();
   const { header, step, children } = props;
   return (
     <div>

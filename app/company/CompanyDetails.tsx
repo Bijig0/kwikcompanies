@@ -1,12 +1,11 @@
-import PartnershipFormProvider, {
-  useCompanyFormContext,
-} from "../CompanyFormContext";
-import ErrorText from "../ErrorText";
-import FormPartLayout from "../FormPartLayout";
-import { ActivitiesLocation, needAbnReasons } from "../companyForm";
+import { SoleTraderSelect } from "app/contact/SoleTraderFormComponents";
+import { useSoleTraderFormContext } from "app/contact/SoleTraderFormContext";
+import ErrorText from "./ErrorText";
+import FormPartLayout from "./FormPartLayout";
+import { ActivitiesLocation, needAbnReasons } from "./companyForm";
 
-const ABNEntitlement = () => {
-  const { formManager, disableForm, enableForm } = useCompanyFormContext();
+const CompanyDetails = () => {
+  const { formManager, disableForm, enableForm } = useSoleTraderFormContext();
 
   const {
     setValue,
@@ -30,7 +29,7 @@ const ABNEntitlement = () => {
   };
 
   return (
-    <FormPartLayout header="ABN Entitlement" step={1}>
+    <FormPartLayout header="Company Details" step={1}>
       <label className="font-semibold text-black text-md" htmlFor="message">
         Where will your activites be carried out?
       </label>
@@ -59,12 +58,9 @@ const ABNEntitlement = () => {
       <label className="font-semibold text-black text-md" htmlFor="message">
         Why do you need an ABN?
       </label>
-      <PartnershipFormProvider.Select
-        name="needAbnReason"
-        options={needAbnReasons}
-      />
+      <SoleTraderSelect name="needAbnReason" options={needAbnReasons} />
     </FormPartLayout>
   );
 };
 
-export default ABNEntitlement;
+export default CompanyDetails;

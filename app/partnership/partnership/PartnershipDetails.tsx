@@ -8,6 +8,7 @@ import PartnerShipFormValues, {
   partnerTypes,
   titles,
 } from "../partnershipForm";
+import { Button } from "react-bootstrap";
 
 const numberText = {
   "1": "First",
@@ -39,9 +40,11 @@ const PartnershipDetails = () => {
   );
 
   console.log({ fields });
+
   return (
     <>
       {fields.map((field, index) => {
+        const isLastField = fields.length === index + 1;
         return (
           <PartnerShipDetailsFormPartLayout
             key={field.id}
@@ -51,7 +54,7 @@ const PartnershipDetails = () => {
             <div onClick={() => console.log(watch("partnerDetails"))}>
               Click Me
             </div>
-            <h6>First Partner's Details</h6>
+            <h6>{numberText[index + 1]} Partner's Details</h6>
 
             <div className="flex items-center gap-3 ">
               <div className="flex-1">
@@ -92,7 +95,10 @@ const PartnershipDetails = () => {
                 {...register(`partnerDetails.${index}.name.otherNames.answer`)}
                 id={`partnerDetails.${index}.name.otherNames.answer`}
               />
-              <label htmlFor="otherNames.answer" className="ml-2">
+              <label
+                htmlFor={`partnerDetails.${index}.name.otherNames.answer`}
+                className="ml-2"
+              >
                 I have been known by another name in the past
               </label>
             </div>
@@ -153,11 +159,17 @@ const PartnershipDetails = () => {
                 name={`partnerDetails.${index}.taxFileNumber`}
               />
               {/* {errors.partnerDetails[index]?.taxFileNumber && (
-              <ErrorText>
-                {errors.partnerDetails[index].taxFileNumber.message}
-              </ErrorText>
-            )} */}
+                <ErrorText>
+                  {errors.partnerDetails[index].taxFileNumber.message}
+                </ErrorText>
+              )} */}
             </div>
+            {isLastField && (
+              <div className="flex justify-start gap-4">
+                <Button onClick={() => append(field)}>Add Partner</Button>
+                <Button onClick={() => remove(index)}>Remove Partner</Button>
+              </div>
+            )}
           </PartnerShipDetailsFormPartLayout>
         );
       })}

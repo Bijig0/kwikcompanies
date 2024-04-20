@@ -16,6 +16,7 @@ import BusinessLocation from "./partnership/BusinessLocation";
 import BusinessNameApplication from "./partnership/BusinessNameApplication/BusinessNameApplication";
 import GSTRegistration from "./partnership/GSTRegistration";
 import SoleTraderDetails from "./partnership/PartnershipDetails";
+import PartnershipDetails from "./partnership/PartnershipDetails";
 
 const _Page = () => {
   const {
@@ -29,7 +30,7 @@ const _Page = () => {
   return (
     <AkpagerLayout>
       {/* <Script src={GOOGLE_MAPS_URL} strategy="beforeInteractive" /> */}
-      <PageBanner pageName={"Individual ABN Form"} />
+      <PageBanner pageName={"Partnership ABN Registration Form"} />
       {/* Contact Page Start */}
       <section className="py-16 contact-page rpy-100">
         <div className="container ">
@@ -45,7 +46,7 @@ const _Page = () => {
                   <ABNEntitlement />
                   <Divider />
 
-                  <SoleTraderDetails />
+                  <PartnershipDetails />
                   <Divider />
 
                   <BusinessLocation />

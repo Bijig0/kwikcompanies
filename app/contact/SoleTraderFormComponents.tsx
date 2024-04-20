@@ -7,15 +7,13 @@ import {
   TSoleTraderFormContext,
 } from "./SoleTraderFormContext";
 import SoleTraderFormValues from "./soleTraderForm";
+import { ABNForms } from "app/types/types";
 
 const SoleTraderSelect = (
-  props: Omit<
-    ComponentProps<typeof Select<SoleTraderFormValues, TSoleTraderFormContext>>,
-    "context"
-  >
+  props: Omit<ComponentProps<typeof Select<ABNForms["soleTrader"]>>, "context">
 ) => {
   return (
-    <Select<SoleTraderFormValues, TSoleTraderFormContext>
+    <Select<ABNForms["soleTrader"]>
       context={SoleTraderFormContext}
       {...props}
     />
@@ -24,14 +22,12 @@ const SoleTraderSelect = (
 
 const SoleTraderTextInput = (
   props: Omit<
-    ComponentProps<
-      typeof TextInput<SoleTraderFormValues, TSoleTraderFormContext>
-    >,
+    ComponentProps<typeof TextInput<ABNForms["soleTrader"]>>,
     "context"
   >
 ) => {
   return (
-    <TextInput<SoleTraderFormValues, TSoleTraderFormContext>
+    <TextInput<ABNForms["soleTrader"]>
       context={SoleTraderFormContext}
       {...props}
     />
@@ -39,9 +35,9 @@ const SoleTraderTextInput = (
 };
 
 const SoleTraderDatePicker = (
-  props: ComponentProps<typeof DatePicker<SoleTraderFormValues>>
+  props: ComponentProps<typeof DatePicker<ABNForms["soleTrader"]>>
 ) => {
-  return <DatePicker<SoleTraderFormValues> {...props} />;
+  return <DatePicker<ABNForms["soleTrader"]> {...props} />;
 };
 
 export { SoleTraderDatePicker, SoleTraderSelect, SoleTraderTextInput };

@@ -3,11 +3,11 @@ import {
   SoleTraderTextInput,
 } from "app/contact/SoleTraderFormComponents";
 import { useSoleTraderFormContext } from "app/contact/SoleTraderFormContext";
-import countries from "app/contact/countries";
 import {
   australianStates,
   registrationPeriods,
 } from "app/contact/soleTraderForm";
+import countries from "app/types/countries";
 
 const text = {
   "3 years": "3 years ($99 per year) save on 3 years registration",

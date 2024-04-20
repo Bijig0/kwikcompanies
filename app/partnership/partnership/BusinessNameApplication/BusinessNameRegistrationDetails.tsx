@@ -1,4 +1,3 @@
-import countries from "app/contact/countries";
 import {
   australianStates,
   registrationPeriods,
@@ -6,6 +5,7 @@ import {
 import PartnershipFormProvider, {
   usePartnershipFormContext,
 } from "app/partnership/PartnerShipFormContext";
+import countries from "app/types/countries";
 
 const text = {
   "3 years": "3 years ($99 per year) save on 3 years registration",

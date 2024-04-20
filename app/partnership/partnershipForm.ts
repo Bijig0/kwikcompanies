@@ -1,5 +1,6 @@
+import { Country } from "app/types/countries";
 import { useForm } from "react-hook-form";
-import { Country } from "./countries";
+import { Title } from "./individual";
 
 export const businessHistories = [
   "This is my first time doing business in Australia",
@@ -29,10 +30,6 @@ export const needAbnReasons = [
 ];
 
 type NeedAbnReason = (typeof needAbnReasons)[number];
-
-export const titles = ["Mr", "Mrs", "Miss", "Ms", "Dr", "Other"] as const;
-
-type Title = (typeof titles)[number];
 
 type HasPreviousAbn =
   | {

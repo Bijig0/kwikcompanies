@@ -109,7 +109,7 @@ const PartnershipDetails = () => {
 
       <div>
         <label htmlFor="message">Date of Birth</label>
-        <PartnershipFormProvider.DatePicker name="dateOfBirth" />
+        {/* <PartnershipFormProvider.DatePicker name="dateOfBirth" /> */}
       </div>
 
       <div>

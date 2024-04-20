@@ -1,8 +1,12 @@
-import { ABNForms, CreateFormRegisterable } from "app/types/types";
+import {
+  ABNForms,
+  CreateFormRegisterable,
+  UnionOfValues,
+} from "app/types/types";
 import { Context, useContext } from "react";
 import { AiOutlineDown } from "react-icons/ai";
 
-type Props<T extends ABNForms> = {
+type Props<T extends UnionOfValues<ABNForms>> = {
   readonly options: readonly string[];
   name: CreateFormRegisterable<T["formValues"]>;
   context: Context<T["context"]>;
@@ -13,21 +17,19 @@ type Props<T extends ABNForms> = {
 
 // So we can actually jsut pass in FormValues and derive the res
 
-const Select = <T extends ABNForms>(props: Props<T>) => {
+const Select = <T extends UnionOfValues<ABNForms>>(props: Props<T>) => {
+  const { options, name, context } = props;
   const {
     formManager: { register, handleSubmit, formState },
     formDisabled,
-    
-  } = useContext(props.context);
+  } = useContext(context);
 
-  const v = useContext(props.context);
-
-  const { options } = props;
   return (
     <div className="relative flex">
       <select
         disabled={formDisabled}
-        {...register(props.name)}
+        // @ts-ignore
+        {...register(name)}
         className={`rounded-md text-gray-800 ${
           formDisabled ? "bg-gray-100" : "bg-white"
         } ${

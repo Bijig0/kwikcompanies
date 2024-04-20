@@ -1,21 +1,20 @@
 import {
+  ABNForms,
   CreateFormRegisterable,
   FormContexts,
   FormValues,
+  UnionOfValues,
 } from "app/types/types";
 import { ComponentProps, Context, useContext } from "react";
 
-type Props<
-  T extends FormValues,
-  FormContext extends FormContexts
-> = ComponentProps<"input"> & {
-  name: CreateFormRegisterable<T>;
-  context: Context<FormContext>;
+type Props<T extends UnionOfValues<ABNForms>> = ComponentProps<"input"> & {
+  name: CreateFormRegisterable<T["formValues"]>;
+  context: Context<T["context"]>;
 };
 
-const TextInput = <T extends FormValues, FormContext extends FormContexts>(
-  props: Props<T, FormContext>
-) => {
+// const Select = <T extends UnionOfValues<ABNForms>>(props: Props<T>) => {
+
+const TextInput = <T extends UnionOfValues<ABNForms>>(props: Props<T>) => {
   const { name, required, placeholder } = props;
   const {
     formManager: { register },
@@ -23,6 +22,7 @@ const TextInput = <T extends FormValues, FormContext extends FormContexts>(
   } = useContext(props.context);
   return (
     <input
+      // @ts-ignore
       {...register(name, { required: "This field is required" })}
       disabled={formDisabled}
       type="text"

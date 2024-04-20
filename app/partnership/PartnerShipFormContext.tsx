@@ -5,6 +5,7 @@ import { useBoolean } from "@utils/useBoolean";
 import { ComponentProps, ReactNode, createContext, useContext } from "react";
 import { useForm } from "react-hook-form";
 import FormValues, { PartnershipFormRegisterable } from "./form";
+import { ABNForms } from "app/types/types";
 
 export type TPartnershipFormContext = {
   //   register: UseFormRegister<FormValues>;
@@ -51,22 +52,35 @@ const PartnershipFormProvider = (props: Props) => {
 };
 
 const PartnershipTextInput = (
-  props: ComponentProps<typeof TextInput<PartnershipFormRegisterable>>
+  props: Omit<
+    ComponentProps<typeof TextInput<ABNForms["partnership"]>>,
+    "context"
+  >
 ) => {
-  return <TextInput<PartnershipFormRegisterable> {...props} />;
+  return (
+    <TextInput<ABNForms["partnership"]>
+      {...props}
+      context={PartnershipFormContext}
+    />
+  );
 };
 
 const PartnershipSelect = (
-  props: ComponentProps<typeof Select<PartnershipFormRegisterable>>
+  props: Omit<ComponentProps<typeof Select<ABNForms["partnership"]>>, "context">
 ) => {
-  return <Select<PartnershipFormRegisterable> {...props} />;
+  return (
+    <Select<ABNForms["partnership"]>
+      context={PartnershipFormContext}
+      {...props}
+    />
+  );
 };
 
 // const Partnership
 
-PartnershipFormProvider.TextInput = <div />;
-PartnershipFormProvider.Select = <div />;
-PartnershipFormProvider.DatePicker = <div />;
+PartnershipFormProvider.TextInput = PartnershipTextInput;
+PartnershipFormProvider.Select = PartnershipSelect;
+PartnershipFormProvider.DatePicker = PartnershipSelect;
 
 export const usePartnershipFormContext = () =>
   useContext(PartnershipFormContext);

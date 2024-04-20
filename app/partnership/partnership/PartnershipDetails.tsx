@@ -161,9 +161,14 @@ const PartnershipDetails = () => {
             </div>
             <div className="my-3" />
             {isLastField && (
-              <div className="flex justify-start gap-4">
+              <div className="flex justify-start gap-2">
                 <Button onClick={() => append(field)}>Add Partner</Button>
-                <Button onClick={() => remove(index)}>Remove Partner</Button>
+                <Button
+                  variant="danger"
+                  onClick={() => index !== 0 && remove(index)}
+                >
+                  Remove Partner
+                </Button>
               </div>
             )}
           </div>

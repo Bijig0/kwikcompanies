@@ -200,12 +200,12 @@ const PartnershipDetails = () => {
                 <input
                   type="checkbox"
                   {...register(
-                    `partnerDetails.${index}.name.otherNames.answer`
+                    `partnerDetails.${index}.declaredIsAustralianResidentForTaxPurposes`
                   )}
-                  id={`partnerDetails.${index}.name.otherNames.answer`}
+                  id={`partnerDetails.${index}.declaredIsAustralianResidentForTaxPurposes`}
                 />
                 <label
-                  htmlFor={`partnerDetails.${index}.name.otherNames.answer`}
+                  htmlFor={`partnerDetails.${index}.declaredIsAustralianResidentForTaxPurposes`}
                   className="ml-2"
                 >
                   I am an Australian resident for tax purposes.

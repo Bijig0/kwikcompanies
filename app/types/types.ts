@@ -1,3 +1,5 @@
+import { TCompanyFormContext } from "app/company/CompanyFormContext";
+import CompanyFormValues from "app/company/companyForm";
 import { TSoleTraderFormContext } from "app/contact/SoleTraderFormContext";
 import SoleTraderFormValues from "app/contact/soleTraderForm";
 import { TPartnershipFormContext } from "app/partnership/PartnerShipFormContext";
@@ -10,9 +12,15 @@ type Title = (typeof titles)[number];
 
 export type UnionOfValues<T> = T[keyof T];
 
-export type FormValues = SoleTraderFormValues | PartnerShipFormValues;
+export type FormValues =
+  | SoleTraderFormValues
+  | PartnerShipFormValues
+  | CompanyFormValues;
 
-export type FormContexts = TSoleTraderFormContext | TPartnershipFormContext;
+export type FormContexts =
+  | TSoleTraderFormContext
+  | TPartnershipFormContext
+  | TCompanyFormContext;
 
 export type ABNForms = {
   soleTrader: {
@@ -22,6 +30,10 @@ export type ABNForms = {
   partnership: {
     formValues: PartnerShipFormValues;
     context: TPartnershipFormContext;
+  };
+  company: {
+    formValues: CompanyFormValues;
+    context: TCompanyFormContext;
   };
 };
 

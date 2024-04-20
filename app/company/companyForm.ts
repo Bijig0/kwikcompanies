@@ -166,7 +166,7 @@ type DirectorAndPublicOfficerDetails = {
   shareholdersDetails: ShareHolderDetails[];
 };
 
-type PartnerShipFormValues = {
+type CompanyFormValues = {
   companyDetails: CompanyDetails;
   directorAndPublicOfficerDetails: DirectorAndPublicOfficerDetails[];
   businessLocation: TBusinessLocation;
@@ -177,7 +177,7 @@ type PartnerShipFormValues = {
 };
 
 export type PartnershipFormRegisterable = Parameters<
-  ReturnType<typeof useForm<PartnerShipFormValues>>["register"]
+  ReturnType<typeof useForm<CompanyFormValues>>["register"]
 >[0];
 
-export default PartnerShipFormValues;
+export default CompanyFormValues;

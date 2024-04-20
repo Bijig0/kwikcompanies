@@ -5,14 +5,12 @@ import { useBoolean } from "@utils/useBoolean";
 import { ABNForms } from "app/types/types";
 import { ComponentProps, ReactNode, createContext, useContext } from "react";
 import { useForm } from "react-hook-form";
-import {
-  default as FormValues,
+import CompanyFormValues, {
   default as PartnerShipFormValues,
 } from "./companyForm";
 
 export type TCompanyFormContext = {
-  //   register: UseFormRegister<FormValues>;
-  formManager: ReturnType<typeof useForm<FormValues>>;
+  formManager: ReturnType<typeof useForm<CompanyFormValues>>;
   enableForm: () => void;
   disableForm: () => void;
   formDisabled: boolean;
@@ -57,11 +55,7 @@ export const createEmptyPartnerDetails =
 
 const CompanyFormProvider = (props: Props) => {
   const { totalSteps } = props;
-  const formManager = useForm<FormValues>({
-    defaultValues: {
-      partnerDetails: createEmptyPartnerDetails(),
-    },
-  });
+  const formManager = useForm<CompanyFormValues>();
 
   const {
     value: formDisabled,
@@ -87,12 +81,12 @@ const CompanyFormProvider = (props: Props) => {
 
 const CompanyTextInput = (
   props: Omit<
-    ComponentProps<typeof TextInput<ABNForms["partnership"]>>,
+    ComponentProps<typeof TextInput<ABNForms["company"]>>,
     "context"
   >
 ) => {
   return (
-    <TextInput<ABNForms["partnership"]>
+    <TextInput<ABNForms["company"]>
       {...props}
       context={CompanyFormContext}
     />
@@ -100,10 +94,10 @@ const CompanyTextInput = (
 };
 
 const CompanySelect = (
-  props: Omit<ComponentProps<typeof Select<ABNForms["partnership"]>>, "context">
+  props: Omit<ComponentProps<typeof Select<ABNForms["company"]>>, "context">
 ) => {
   return (
-    <Select<ABNForms["partnership"]> context={CompanyFormContext} {...props} />
+    <Select<ABNForms["company"]> context={CompanyFormContext} {...props} />
   );
 };
 

@@ -6,7 +6,7 @@ import { ComponentProps, ReactNode, createContext, useContext } from "react";
 import { useForm } from "react-hook-form";
 import FormValues, { PartnershipFormRegisterable } from "./form";
 
-type TPartnershipFormContext = {
+export type TPartnershipFormContext = {
   //   register: UseFormRegister<FormValues>;
   formManager: ReturnType<typeof useForm<FormValues>>;
   enableForm: () => void;

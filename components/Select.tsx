@@ -1,12 +1,11 @@
-import FormValues from "app/contact/soleTraderForm";
-import { CreateFormRegisterable, FormContexts } from "app/types/types";
+import { ABNForms, CreateFormRegisterable } from "app/types/types";
 import { Context, useContext } from "react";
 import { AiOutlineDown } from "react-icons/ai";
 
-type Props<T extends FormValues, FormContext extends FormContexts> = {
+type Props<T extends ABNForms> = {
   readonly options: readonly string[];
-  name: CreateFormRegisterable<T>;
-  context: Context<FormContext>;
+  name: CreateFormRegisterable<T["formValues"]>;
+  context: Context<T["context"]>;
 };
 
 // context requires FormValues
@@ -14,12 +13,11 @@ type Props<T extends FormValues, FormContext extends FormContexts> = {
 
 // So we can actually jsut pass in FormValues and derive the res
 
-const Select = <T extends FormValues, FormContext extends FormContexts>(
-  props: Props<T, FormContext>
-) => {
+const Select = <T extends ABNForms>(props: Props<T>) => {
   const {
     formManager: { register, handleSubmit, formState },
     formDisabled,
+    
   } = useContext(props.context);
 
   const v = useContext(props.context);

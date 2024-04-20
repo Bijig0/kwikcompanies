@@ -42,19 +42,14 @@ const PartnershipDetails = () => {
   console.log({ fields });
 
   return (
-    <>
+    <PartnerShipDetailsFormPartLayout header="Partnership Details" step={2}>
       {fields.map((field, index) => {
         const isLastField = fields.length === index + 1;
         return (
-          <PartnerShipDetailsFormPartLayout
-            key={field.id}
-            header="Sole Trader Details"
-            step={2}
-          >
-            <div onClick={() => console.log(watch("partnerDetails"))}>
-              Click Me
-            </div>
-            <h6>{numberText[index + 1]} Partner's Details</h6>
+          <div key={field.id}>
+            <h6 className="text-lg">
+              {numberText[index + 1]} Partner's Details
+            </h6>
 
             <div className="flex items-center gap-3 ">
               <div className="flex-1">
@@ -71,10 +66,10 @@ const PartnershipDetails = () => {
                   name={`partnerDetails.${index}.name.firstName`}
                 />
                 {/* {errors.partnerDetails[index]?.name?.firstName && (
-                <ErrorText>
-                  {errors.partnerDetails[index].name.firstName.message}
-                </ErrorText>
-              )} */}
+                      <ErrorText>
+                        {errors.partnerDetails[index].name.firstName.message}
+                      </ErrorText>
+                    )} */}
               </div>
               <div className="flex-[3_3_0%] md:flex-[2_2_0%]">
                 <label htmlFor="message">Last Name</label>
@@ -83,10 +78,10 @@ const PartnershipDetails = () => {
                   name={`partnerDetails.${index}.name.lastName`}
                 />
                 {/* {errors.partnerDetails[index]?.name?.lastName && (
-                <ErrorText>
-                  {errors.partnerDetails[index].name.lastName.message}
-                </ErrorText>
-              )} */}
+                      <ErrorText>
+                        {errors.partnerDetails[index].name.lastName.message}
+                      </ErrorText>
+                    )} */}
               </div>
             </div>
             <div>
@@ -117,8 +112,8 @@ const PartnershipDetails = () => {
                   )}
                 />
                 {/* {errors.partnerDetails[index]?.name?.otherNames?.otherName && (
-                <ErrorText>This field is required</ErrorText>
-              )} */}
+                      <ErrorText>This field is required</ErrorText>
+                    )} */}
               </div>
             )}
             <div>
@@ -128,10 +123,10 @@ const PartnershipDetails = () => {
                 name={`partnerDetails.${index}.email`}
               />
               {/* {errors.partnerDetails[index]?.email && (
-              <ErrorText>
-                {errors.partnerDetails[index].email.message}
-              </ErrorText>
-            )} */}
+                    <ErrorText>
+                      {errors.partnerDetails[index].email.message}
+                    </ErrorText>
+                  )} */}
             </div>
 
             <div>
@@ -141,10 +136,10 @@ const PartnershipDetails = () => {
                 name={`partnerDetails.${index}.phoneNumber`}
               />
               {/* {errors.partnerDetails[index]?.phoneNumber && (
-              <ErrorText>
-                {errors.partnerDetails[index].phoneNumber.message}
-              </ErrorText>
-            )} */}
+                    <ErrorText>
+                      {errors.partnerDetails[index].phoneNumber.message}
+                    </ErrorText>
+                  )} */}
             </div>
 
             <div>
@@ -159,21 +154,22 @@ const PartnershipDetails = () => {
                 name={`partnerDetails.${index}.taxFileNumber`}
               />
               {/* {errors.partnerDetails[index]?.taxFileNumber && (
-                <ErrorText>
-                  {errors.partnerDetails[index].taxFileNumber.message}
-                </ErrorText>
-              )} */}
+                      <ErrorText>
+                        {errors.partnerDetails[index].taxFileNumber.message}
+                      </ErrorText>
+                    )} */}
             </div>
+            <div className="my-3" />
             {isLastField && (
               <div className="flex justify-start gap-4">
                 <Button onClick={() => append(field)}>Add Partner</Button>
                 <Button onClick={() => remove(index)}>Remove Partner</Button>
               </div>
             )}
-          </PartnerShipDetailsFormPartLayout>
+          </div>
         );
       })}
-    </>
+    </PartnerShipDetailsFormPartLayout>
   );
 };
 

@@ -1,5 +1,5 @@
+import { Country } from "app/types/countries";
 import { useForm } from "react-hook-form";
-import { Country } from "./countries";
 
 export const businessHistories = [
   "This is my first time doing business in Australia",

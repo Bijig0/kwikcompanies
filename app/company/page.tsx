@@ -10,12 +10,13 @@ import SoleTraderFormProvider, {
 } from "./CompanyFormContext";
 import Declaration from "./Declaration";
 import Divider from "./Divider";
-import ABNEntitlement from "./partnership/ABNEntitlement";
+import ABNEntitlement from "./partnership/CompanyDetails";
 import ABNRegistrationDetails from "./partnership/ABNRegistrationDetails";
 import BusinessLocation from "./partnership/BusinessLocation";
 import BusinessNameApplication from "./partnership/BusinessNameApplication/BusinessNameApplication";
 import GSTRegistration from "./partnership/GSTRegistration";
 import PartnershipDetails from "./partnership/PartnershipDetails";
+import CompanyDetails from "./CompanyDetails";
 
 const _Page = () => {
   const {

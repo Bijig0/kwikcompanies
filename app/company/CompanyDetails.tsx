@@ -29,7 +29,7 @@ const CompanyDetails = () => {
   };
 
   return (
-    <FormPartLayout header="Company Details" step={1}>
+    <FormPartLayout header="Company" step={2}>
       <label className="font-semibold text-black text-md" htmlFor="message">
         Where will your activites be carried out?
       </label>

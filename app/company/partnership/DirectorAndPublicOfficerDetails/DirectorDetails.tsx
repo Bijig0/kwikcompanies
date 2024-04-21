@@ -207,22 +207,6 @@ const DirectorDetails = (props: Props) => {
           />
         </div>
 
-        {/* <div>
-        <input
-          type="checkbox"
-          {...register(
-            `partnerDetails.${index}.declaredIsAustralianResidentForTaxPurposes`
-          )}
-          id={`partnerDetails.${index}.declaredIsAustralianResidentForTaxPurposes`}
-        />
-        <label
-          htmlFor={`partnerDetails.${index}.declaredIsAustralianResidentForTaxPurposes`}
-          className="ml-2"
-        >
-          I am an Australian resident for tax purposes.
-        </label>
-      </div> */}
-
         <div className="my-3" />
       </div>
 
@@ -245,6 +229,31 @@ const DirectorDetails = (props: Props) => {
           ))}
         </div>
       </div>
+
+      <div>
+        <label
+          className="block font-semibold text-black text-md"
+          htmlFor={`directorAndPublicOfficerDetails.directorsDetails.${index}.declaredIsAustralianResidentForTaxPurposes`}
+        >
+          Declaration
+        </label>
+
+        <input
+          type="checkbox"
+          {...register(
+            `directorAndPublicOfficerDetails.directorsDetails.${index}.declaredIsAustralianResidentForTaxPurposes`
+          )}
+          id={`directorAndPublicOfficerDetails.directorsDetails.${index}.declaredIsAustralianResidentForTaxPurposes`}
+        />
+        <label
+          htmlFor={`directorAndPublicOfficerDetails.directorsDetails.${index}.declaredIsAustralianResidentForTaxPurposes`}
+          className="ml-2"
+        >
+          I am an Australian resident for tax purposes.
+        </label>
+      </div>
+
+      <div className="my-2" />
 
       <div className="flex justify-start gap-2">
         <Button

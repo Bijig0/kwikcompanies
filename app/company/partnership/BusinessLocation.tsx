@@ -8,27 +8,15 @@ const BusinessLocation = () => {
     formManager: { register, setValue, watch },
   } = useCompanyFormContext();
 
-  const handleBusinessLocationChange = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const value = e.target.value as "Yes" | "No";
-    if (value === "Yes") {
-      setValue("businessLocation", "Home");
-      return;
-    } else if (value === "No") {
-      setValue("businessLocation", "Other");
-    }
-  };
-
   const handleServiceDocumentsLocationChange = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const value = e.target.value as "Home" | "Other";
     if (value === "Home") {
-      setValue("addressForServiceDocuments", "Home");
+      setValue("businessLocation.addressForServiceDocuments", "Home");
       return;
     } else if (value === "Other") {
-      setValue("addressForServiceDocuments", "Other");
+      setValue("businessLocation.addressForServiceDocuments", "Other");
     }
   };
 
@@ -39,7 +27,7 @@ const BusinessLocation = () => {
         <AddressAutocomplete />
         <p>Can't find your address? Click Enter here</p>
       </div>
-      {watch("businessLocation") === "Other" && (
+      {watch("businessLocation.businessAddress") === "Other" && (
         <div>
           <label htmlFor="message">Other Address</label>
           <AddressAutocomplete />
@@ -53,7 +41,7 @@ const BusinessLocation = () => {
           {["Home", "Other"].map((option) => (
             <label key={option} className="inline-flex items-center">
               <input
-                name="addressForServiceDocuments"
+                name="businessLocation.addressForServiceDocuments"
                 onChange={handleServiceDocumentsLocationChange}
                 type="radio"
                 className="form-radio"
@@ -64,7 +52,7 @@ const BusinessLocation = () => {
           ))}
         </div>
       </div>
-      {watch("addressForServiceDocuments") === "Other" && (
+      {watch("businessLocation.addressForServiceDocuments") === "Other" && (
         <div>
           <label htmlFor="message">Other Address</label>
           <AddressAutocomplete />

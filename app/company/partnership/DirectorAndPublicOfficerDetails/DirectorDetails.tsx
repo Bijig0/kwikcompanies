@@ -6,6 +6,7 @@ import { titles } from "app/contact/soleTraderForm";
 import countries from "app/types/countries";
 import { Controller } from "react-hook-form";
 import { DirectorField, numberText } from "./types";
+import { Button } from "react-bootstrap";
 
 type Props = {
   index: number;
@@ -231,9 +232,8 @@ const DirectorDetails = (props: Props) => {
         </div>
       </div>
 
-      {/* {isLastField && (
       <div className="flex justify-start gap-2">
-        <Button onClick={() => appendDirector(field)}>Add Partner</Button>
+        <Button onClick={() => appendDirector(field)}>Add Shareholder</Button>
         <Button
           variant="danger"
           onClick={() => index !== 0 && removeDirector(index)}
@@ -241,7 +241,6 @@ const DirectorDetails = (props: Props) => {
           Remove Partner
         </Button>
       </div>
-    )} */}
     </div>
   );
 };

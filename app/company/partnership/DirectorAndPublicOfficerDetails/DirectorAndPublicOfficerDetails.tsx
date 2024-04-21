@@ -1,15 +1,9 @@
-import { titles } from "app/contact/soleTraderForm";
-import countries from "app/types/countries";
-import { Button } from "react-bootstrap";
-import { Controller, useFieldArray } from "react-hook-form";
-import PartnershipFormProvider, {
-  useCompanyFormContext,
-} from "../../CompanyFormContext";
+import { zip } from "radash";
+import { useState } from "react";
+import { useFieldArray } from "react-hook-form";
+import { useCompanyFormContext } from "../../CompanyFormContext";
 import PartnerShipDetailsFormPartLayout from "../../PartnershipDetailsFormPartLayout";
-import { australianStates } from "../../companyForm";
 import useHandleDirectorOrPublicOfficerDetails from "./useHandleDirectorOrPublicOfficerDetails";
-
-
 
 const DirectorAndPublicOfficerDetails = () => {
   const {
@@ -20,6 +14,11 @@ const DirectorAndPublicOfficerDetails = () => {
       formState: { errors },
     },
   } = useCompanyFormContext();
+
+  const [additionOrder, setAdditionOrder] = useState<
+    ("director" | "shareholder")[]
+  >([]);
+
   const directorFieldsManager = useFieldArray({
     control, // control props comes from useForm (optional: if you are using FormProvider)
     name: "directorAndPublicOfficerDetails.directorsDetails", // unique name for your Field Array
@@ -39,13 +38,14 @@ const DirectorAndPublicOfficerDetails = () => {
   } = useHandleDirectorOrPublicOfficerDetails({
     directorFieldsManager,
     shareholderFieldsManager,
+    additionOrder,
+    setAdditionOrder,
   });
 
   return (
     <PartnerShipDetailsFormPartLayout header="Director Details" step={2}>
-      {directorFields.map((field, index) => {
-        const isLastField = directorFields.length === index + 1;
-        return 
+      {zip(fields, additionOrder).map(([field, type], index) => {
+        return type;
       })}
     </PartnerShipDetailsFormPartLayout>
   );

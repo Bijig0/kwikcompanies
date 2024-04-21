@@ -1,5 +1,4 @@
 import CompanyFormValues from "app/company/companyForm";
-import { useState } from "react";
 import { useFieldArray } from "react-hook-form";
 
 type Args = {
@@ -17,10 +16,19 @@ type Args = {
       "id"
     >
   >;
+  setAdditionOrder: React.Dispatch<
+    React.SetStateAction<("director" | "shareholder")[]>
+  >;
+  additionOrder: ("director" | "shareholder")[];
 };
 
 const useHandleDirectorOrPublicOfficerDetails = (args: Args) => {
-  const { shareholderFieldsManager, directorFieldsManager } = args;
+  const {
+    shareholderFieldsManager,
+    directorFieldsManager,
+    setAdditionOrder,
+    additionOrder,
+  } = args;
   const {
     fields: directorFields,
     append: appendDirector,
@@ -31,20 +39,17 @@ const useHandleDirectorOrPublicOfficerDetails = (args: Args) => {
     append: appendShareholder,
     remove: removeShareholder,
   } = shareholderFieldsManager;
-  const [additionOrder, setAdditionOrder] = useState<
-    ("director" | "shareholder")[]
-  >([]);
 
   // Function to handle adding director
   const handleAddDirector = (field: typeof directorFields) => {
     appendDirector(field); // Assuming the director object is empty initially
-    setAdditionOrder([...additionOrder, "director"]);
+    setAdditionOrder((prevOrder) => [...prevOrder, "director"]);
   };
 
   // Function to handle adding shareholder
   const handleAddShareholder = (field: typeof shareholderFields) => {
     appendShareholder(field); // Assuming the shareholder object is empty initially
-    setAdditionOrder([...additionOrder, "shareholder"]);
+    setAdditionOrder((prevOrder) => [...prevOrder, "shareholder"]);
   };
 
   const interleavedFields = additionOrder.map((type) => {

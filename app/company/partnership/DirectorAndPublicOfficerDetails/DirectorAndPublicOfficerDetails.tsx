@@ -4,9 +4,9 @@ import { Button } from "react-bootstrap";
 import { Controller, useFieldArray } from "react-hook-form";
 import PartnershipFormProvider, {
   useCompanyFormContext,
-} from "../CompanyFormContext";
-import PartnerShipDetailsFormPartLayout from "../PartnershipDetailsFormPartLayout";
-import { australianStates, partnerTypes } from "../companyForm";
+} from "../../CompanyFormContext";
+import PartnerShipDetailsFormPartLayout from "../../PartnershipDetailsFormPartLayout";
+import { australianStates } from "../../companyForm";
 
 const numberText = {
   "1": "First",
@@ -21,7 +21,7 @@ const numberText = {
   "10": "Tenth",
 };
 
-const PartnershipDetails = () => {
+const DirectorAndPublicOfficerDetails = () => {
   const {
     formManager: {
       register,
@@ -30,32 +30,50 @@ const PartnershipDetails = () => {
       formState: { errors },
     },
   } = useCompanyFormContext();
-  const { fields, append, prepend, remove, swap, move, insert } = useFieldArray(
-    {
-      control, // control props comes from useForm (optional: if you are using FormProvider)
-      name: "partnerDetails", // unique name for your Field Array
-    }
-  );
+  const directorFieldsManager = useFieldArray({
+    control, // control props comes from useForm (optional: if you are using FormProvider)
+    name: "directorAndPublicOfficerDetails.directorsDetails", // unique name for your Field Array
+  });
 
-  console.log({ fields });
+  const shareholderFieldsManager = useFieldArray({
+    control, // control props comes from useForm (optional: if you are using FormProvider)
+    name: "directorAndPublicOfficerDetails.shareholdersDetails", // unique name for your Field Array
+  });
+
+  const directorAndPublicOfficerDetailsManager = useAddDirectorOrPublicOfficer();
 
   return (
-    <PartnerShipDetailsFormPartLayout header="Partnership Details" step={2}>
-      {fields.map((field, index) => {
-        const isLastField = fields.length === index + 1;
+    <PartnerShipDetailsFormPartLayout header="Director Details" step={2}>
+      {directorFields.map((field, index) => {
+        const isLastField = directorFields.length === index + 1;
         return (
           <div key={field.id}>
             <h6 className="text-lg">
-              {numberText[index + 1]} Partner's Details
+              {numberText[index + 1]} Director's Details
             </h6>
-            <div className="flex flex-col gap-3">
-              <div className="flex-1">
-                <label htmlFor="message">Partner Type</label>
-                <PartnershipFormProvider.Select
-                  name={`partnerDetails.${index}.partnerType`}
-                  options={partnerTypes}
-                />
+            <div>
+              <label
+                className="font-semibold text-black text-md"
+                htmlFor="name"
+              >
+                Will you be the only director?
+              </label>
+              <div className="flex flex-col">
+                {["Yes", "No"].map((option) => (
+                  <label key={option} className="inline-flex items-center">
+                    <input
+                      name="businessLocation"
+                      // onChange={handleBusinessLocationChange}
+                      type="radio"
+                      className="form-radio"
+                      value={option}
+                    />
+                    <span className="ml-2">{option}</span>
+                  </label>
+                ))}
               </div>
+            </div>
+            <div className="flex flex-col gap-3">
               <div className="flex items-center gap-3 ">
                 <div className="flex-1">
                   <label htmlFor="message">Title</label>
@@ -217,10 +235,12 @@ const PartnershipDetails = () => {
 
             {isLastField && (
               <div className="flex justify-start gap-2">
-                <Button onClick={() => append(field)}>Add Partner</Button>
+                <Button onClick={() => appendDirector(field)}>
+                  Add Partner
+                </Button>
                 <Button
                   variant="danger"
-                  onClick={() => index !== 0 && remove(index)}
+                  onClick={() => index !== 0 && removeDirector(index)}
                 >
                   Remove Partner
                 </Button>
@@ -233,4 +253,4 @@ const PartnershipDetails = () => {
   );
 };
 
-export default PartnershipDetails;
+export default DirectorAndPublicOfficerDetails;

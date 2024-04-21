@@ -158,17 +158,17 @@ type ShareHolderDetails = {
   name: Name;
   dateOfBirth: Date;
   taxFileNumber: string;
-  declaredIsAustralianResidentForTaxPurposes;
+  declaredIsAustralianResidentForTaxPurposes: boolean;
 };
 
-type DirectorAndPublicOfficerDetails = {
+type DirectorAndPublicOfficersDetails = {
   directorsDetails: DirectorDetails[];
   shareholdersDetails: ShareHolderDetails[];
 };
 
 type CompanyFormValues = {
   companyDetails: CompanyDetails;
-  directorAndPublicOfficerDetails: DirectorAndPublicOfficerDetails[];
+  directorAndPublicOfficerDetails: DirectorAndPublicOfficersDetails;
   businessLocation: TBusinessLocation;
   abnRegistrationDetails: TABNRegistrationDetails;
   businessNameApplication: TBusinessNameApplication;

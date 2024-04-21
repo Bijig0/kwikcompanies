@@ -10,13 +10,12 @@ import SoleTraderFormProvider, {
 } from "./CompanyFormContext";
 import Declaration from "./Declaration";
 import Divider from "./Divider";
-import ABNEntitlement from "./partnership/CompanyDetails";
 import ABNRegistrationDetails from "./partnership/ABNRegistrationDetails";
 import BusinessLocation from "./partnership/BusinessLocation";
 import BusinessNameApplication from "./partnership/BusinessNameApplication/BusinessNameApplication";
+import CompanyDetails from "./partnership/CompanyDetails";
+import DirectorAndPublicOfficerDetails from "./partnership/DirectorAndPublicOfficerDetails/DirectorAndPublicOfficerDetails";
 import GSTRegistration from "./partnership/GSTRegistration";
-import PartnershipDetails from "./partnership/PartnershipDetails";
-import CompanyDetails from "./CompanyDetails";
 
 const _Page = () => {
   const {
@@ -43,10 +42,10 @@ const _Page = () => {
                   name="contactForm"
                   onSubmit={handleSubmit(onSubmit)}
                 >
-                  <ABNEntitlement />
+                  <CompanyDetails />
                   <Divider />
 
-                  <PartnershipDetails />
+                  <DirectorAndPublicOfficerDetails />
                   <Divider />
 
                   <BusinessLocation />

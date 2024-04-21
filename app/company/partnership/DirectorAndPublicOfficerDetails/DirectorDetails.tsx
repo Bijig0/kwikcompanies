@@ -1,3 +1,4 @@
+import { useBoolean } from "@utils/useBoolean";
 import CompanyFormProvider, {
   useCompanyFormContext,
 } from "app/company/CompanyFormContext";
@@ -18,6 +19,10 @@ const DirectorDetails = (props: Props) => {
   const {
     formManager: { control, watch, register },
   } = useCompanyFormContext();
+
+  const { value: isOnlyDirector, toggle: toggleIsOnlyDirector } =
+    useBoolean(false);
+
   return (
     <div key={field.id}>
       <h6 className="text-lg">{numberText[index + 1]} Director's Details</h6>
@@ -25,12 +30,13 @@ const DirectorDetails = (props: Props) => {
         <label className="font-semibold text-black text-md" htmlFor="name">
           Will you be the only director?
         </label>
+        <p>{String(isOnlyDirector)}</p>
         <div className="flex flex-col">
           {["Yes", "No"].map((option) => (
             <label key={option} className="inline-flex items-center">
               <input
-                name="businessLocation"
-                // onChange={handleBusinessLocationChange}
+                name="isOnlyDirector"
+                onChange={toggleIsOnlyDirector}
                 type="radio"
                 className="form-radio"
                 value={option}
@@ -75,8 +81,6 @@ const DirectorDetails = (props: Props) => {
           </div>
         </div>
         <div>
-          directorAndPublicOfficerDetails.directorsDetails.${index}
-          .name.lastName
           <input
             type="checkbox"
             {...register(
@@ -202,6 +206,26 @@ const DirectorDetails = (props: Props) => {
       </div> */}
 
         <div className="my-3" />
+      </div>
+
+      <div>
+        <label className="font-semibold text-black text-md" htmlFor="name">
+          Will you be the only shareholder?
+        </label>
+        <div className="flex flex-col">
+          {["Yes", "No"].map((option) => (
+            <label key={option} className="inline-flex items-center">
+              <input
+                name="businessLocation"
+                // onChange={handleBusinessLocationChange}
+                type="radio"
+                className="form-radio"
+                value={option}
+              />
+              <span className="ml-2">{option}</span>
+            </label>
+          ))}
+        </div>
       </div>
 
       {/* {isLastField && (

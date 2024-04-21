@@ -16,7 +16,7 @@ type Props = {
 const DirectorDetails = (props: Props) => {
   const { index, field, handleAddDirector, handleRemoveDirector } = props;
   const {
-    formManager: { control, watch },
+    formManager: { control, watch, register },
   } = useCompanyFormContext();
   return (
     <div key={field.id}>
@@ -45,7 +45,7 @@ const DirectorDetails = (props: Props) => {
           <div className="flex-1">
             <label htmlFor="message">Title</label>
             <CompanyFormProvider.Select
-              name={`partnerDetails.${index}.name.title`}
+              name={`directorAndPublicOfficerDetails.directorsDetails.${index}.name.title`}
               options={titles}
             />
           </div>
@@ -53,7 +53,7 @@ const DirectorDetails = (props: Props) => {
             <label htmlFor="message">First Name</label>
             <CompanyFormProvider.TextInput
               placeholder="John"
-              name={`partnerDetails.${index}.name.firstName`}
+              name={`directorAndPublicOfficerDetails.directorsDetails.${index}.name.firstName`}
             />
             {/* {errors.partnerDetails[index]?.name?.firstName && (
                       <ErrorText>
@@ -65,7 +65,7 @@ const DirectorDetails = (props: Props) => {
             <label htmlFor="message">Last Name</label>
             <CompanyFormProvider.TextInput
               placeholder="Smith"
-              name={`partnerDetails.${index}.name.lastName`}
+              name={`directorAndPublicOfficerDetails.directorsDetails.${index}.name.lastName`}
             />
             {/* {errors.partnerDetails[index]?.name?.lastName && (
                       <ErrorText>
@@ -75,29 +75,35 @@ const DirectorDetails = (props: Props) => {
           </div>
         </div>
         <div>
+          directorAndPublicOfficerDetails.directorsDetails.${index}
+          .name.lastName
           <input
             type="checkbox"
-            //   {...register(`partnerDetails.${index}.name.otherNames.answer`)}
-            id={`partnerDetails.${index}.name.otherNames.answer`}
+            {...register(
+              `directorAndPublicOfficerDetails.directorsDetails.${index}.name.otherNames.answer`
+            )}
+            id={`directorAndPublicOfficerDetails.directorsDetails.${index}.name.otherNames.answer`}
           />
           <label
-            htmlFor={`partnerDetails.${index}.name.otherNames.answer`}
+            htmlFor={`directorAndPublicOfficerDetails.directorsDetails.${index}.name.otherNames.answer`}
             className="ml-2"
           >
             I have been known by another name in the past
           </label>
         </div>
-        {watch(`partnerDetails.${index}.name.otherNames.answer`) && (
+        {watch(
+          `directorAndPublicOfficerDetails.directorsDetails.${index}.name.otherNames.answer`
+        ) && (
           <div>
             <label htmlFor="message">Other Name</label>
             <Controller
-              name={`partnerDetails.${index}.name.otherNames.otherName`}
+              name={`directorAndPublicOfficerDetails.directorsDetails.${index}.name.otherNames.otherName`}
               control={control}
               rules={{ required: "This field is required" }}
               render={() => (
                 <CompanyFormProvider.TextInput
                   placeholder="Placeholder Name"
-                  name={`partnerDetails.${index}.name.otherNames.otherName`}
+                  name={`directorAndPublicOfficerDetails.directorsDetails.${index}.name.otherNames.otherName`}
                 />
               )}
             />
@@ -110,7 +116,7 @@ const DirectorDetails = (props: Props) => {
           <label htmlFor="message">Email</label>
           <CompanyFormProvider.TextInput
             placeholder="john_smith@gmail.com"
-            name={`partnerDetails.${index}.email`}
+            name={`directorAndPublicOfficerDetails.directorsDetails.${index}.email`}
           />
           {/* {errors.partnerDetails[index]?.email && (
                     <ErrorText>
@@ -123,7 +129,7 @@ const DirectorDetails = (props: Props) => {
           <label htmlFor="message">Phone Number</label>
           <CompanyFormProvider.TextInput
             placeholder="+61 403 057 369"
-            name={`partnerDetails.${index}.phoneNumber`}
+            name={`directorAndPublicOfficerDetails.directorsDetails.${index}.phoneNumber`}
           />
           {/* {errors.partnerDetails[index]?.phoneNumber && (
                     <ErrorText>
@@ -142,7 +148,7 @@ const DirectorDetails = (props: Props) => {
 
           <CompanyFormProvider.Select
             options={countries}
-            name={`partnerDetails.${index}.birthLocation.country`}
+            name={`directorAndPublicOfficerDetails.directorsDetails.${index}.birthLocation.country`}
           />
         </div>
 
@@ -168,14 +174,14 @@ const DirectorDetails = (props: Props) => {
         <div>
           <label htmlFor="message">Tax File Number</label>
           <CompanyFormProvider.TextInput
-            name={`partnerDetails.${index}.birthLocation.city`}
+            name={`directorAndPublicOfficerDetails.directorsDetails.${index}.birthLocation.city`}
           />
         </div>
 
         <div>
           <label htmlFor="message">Home Address</label>
           <CompanyFormProvider.TextInput
-            name={`partnerDetails.${index}.homeAddress`}
+            name={`directorAndPublicOfficerDetails.directorsDetails.${index}.homeAddress`}
           />
         </div>
 

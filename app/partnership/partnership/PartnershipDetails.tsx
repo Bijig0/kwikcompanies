@@ -6,6 +6,7 @@ import PartnershipFormProvider, {
   usePartnershipFormContext,
 } from "../PartnerShipFormContext";
 import PartnerShipDetailsFormPartLayout from "../PartnershipDetailsFormPartLayout";
+import { createEmptyPartnerDetails } from "../createEmptyPartnerDetails";
 import { australianStates, partnerTypes } from "../partnershipForm";
 
 const numberText = {
@@ -38,6 +39,7 @@ const PartnershipDetails = () => {
   );
 
   console.log({ fields });
+  console.log(fields.length);
 
   return (
     <PartnerShipDetailsFormPartLayout header="Partnership Details" step={2}>
@@ -217,7 +219,9 @@ const PartnershipDetails = () => {
 
             {isLastField && (
               <div className="flex justify-start gap-2">
-                <Button onClick={() => append(field)}>Add Partner</Button>
+                <Button onClick={() => append(createEmptyPartnerDetails())}>
+                  Add Partner
+                </Button>
                 <Button
                   variant="danger"
                   onClick={() => index !== 0 && remove(index)}

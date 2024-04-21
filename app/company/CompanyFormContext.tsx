@@ -6,6 +6,7 @@ import { ABNForms } from "app/types/types";
 import { ComponentProps, ReactNode, createContext, useContext } from "react";
 import { useForm } from "react-hook-form";
 import CompanyFormValues from "./companyForm";
+import { createEmptyDirectorDetails } from "./createEmptyDirectorDetails";
 
 export type TCompanyFormContext = {
   formManager: ReturnType<typeof useForm<CompanyFormValues>>;
@@ -23,51 +24,6 @@ type Props = {
   children: ReactNode;
   totalSteps: number;
 };
-
-export const createEmptyShareholderDetails =
-  (): CompanyFormValues["directorAndPublicOfficerDetails"]["shareholdersDetails"] => [
-    {
-      entityType: "Individual",
-      name: {
-        title: "Mr",
-        firstName: "",
-        lastName: "",
-        otherNames: {
-          answer: false,
-          otherName: "",
-        },
-      },
-      dateOfBirth: new Date(),
-      taxFileNumber: "",
-      declaredIsAustralianResidentForTaxPurposes: false,
-    },
-  ];
-
-export const createEmptyDirectorDetails =
-  (): CompanyFormValues["directorAndPublicOfficerDetails"]["directorsDetails"] => [
-    {
-      name: {
-        title: "Mr",
-        firstName: "",
-        lastName: "",
-        otherNames: {
-          answer: false,
-          otherName: "",
-        },
-      },
-      email: "",
-      phoneNumber: "",
-      dateOfBirth: new Date(),
-      birthLocation: {
-        country: "Australia",
-        state: "Australian Capital Territory",
-        city: "",
-      },
-      taxFileNumber: "",
-      homeAddress: "",
-      declaredIsAustralianResidentForTaxPurposes: false,
-    },
-  ];
 
 const CompanyFormProvider = (props: Props) => {
   const { totalSteps } = props;

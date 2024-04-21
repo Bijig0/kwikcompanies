@@ -2,11 +2,11 @@
 import Select from "@components/Select";
 import TextInput from "@components/TextInput";
 import { useBoolean } from "@utils/useBoolean";
+import { ABNForms } from "app/types/types";
 import { ComponentProps, ReactNode, createContext, useContext } from "react";
 import { useForm } from "react-hook-form";
-import FormValues, { PartnershipFormRegisterable } from "./partnershipForm";
-import { ABNForms } from "app/types/types";
-import PartnerShipFormValues from "./partnershipForm";
+import { createEmptyPartnerDetails } from "./createEmptyPartnerDetails";
+import FormValues from "./partnershipForm";
 
 export type TPartnershipFormContext = {
   //   register: UseFormRegister<FormValues>;
@@ -25,33 +25,6 @@ type Props = {
   children: ReactNode;
   totalSteps: number;
 };
-
-export const createEmptyPartnerDetails =
-  (): PartnerShipFormValues["partnerDetails"] => [
-    {
-      partnerType: "Individual",
-      name: {
-        title: "Mr",
-        firstName: "",
-        lastName: "",
-        otherNames: {
-          answer: false,
-          otherName: "",
-        },
-      },
-      email: "",
-      phoneNumber: "",
-      dateOfBirth: new Date(),
-      birthLocation: {
-        country: "Australia",
-        state: "Australian Capital Territory",
-        city: "",
-      },
-      taxFileNumber: "",
-      homeAddress: "",
-      declaredIsAustralianResidentForTaxPurposes: false,
-    },
-  ];
 
 const PartnershipFormProvider = (props: Props) => {
   const { totalSteps } = props;

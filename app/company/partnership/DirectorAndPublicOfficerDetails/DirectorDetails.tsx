@@ -1,6 +1,7 @@
-import { useCompanyFormContext } from "app/company/CompanyFormContext";
+import CompanyFormProvider, {
+  useCompanyFormContext,
+} from "app/company/CompanyFormContext";
 import { titles } from "app/contact/soleTraderForm";
-import PartnershipFormProvider from "app/partnership/PartnerShipFormContext";
 import countries from "app/types/countries";
 import { Controller } from "react-hook-form";
 import { DirectorField, numberText } from "./types";
@@ -43,14 +44,14 @@ const DirectorDetails = (props: Props) => {
         <div className="flex items-center gap-3 ">
           <div className="flex-1">
             <label htmlFor="message">Title</label>
-            <PartnershipFormProvider.Select
+            <CompanyFormProvider.Select
               name={`partnerDetails.${index}.name.title`}
               options={titles}
             />
           </div>
           <div className="flex-[3_3_0%] md:flex-[2_2_0%]">
             <label htmlFor="message">First Name</label>
-            <PartnershipFormProvider.TextInput
+            <CompanyFormProvider.TextInput
               placeholder="John"
               name={`partnerDetails.${index}.name.firstName`}
             />
@@ -62,7 +63,7 @@ const DirectorDetails = (props: Props) => {
           </div>
           <div className="flex-[3_3_0%] md:flex-[2_2_0%]">
             <label htmlFor="message">Last Name</label>
-            <PartnershipFormProvider.TextInput
+            <CompanyFormProvider.TextInput
               placeholder="Smith"
               name={`partnerDetails.${index}.name.lastName`}
             />
@@ -94,7 +95,7 @@ const DirectorDetails = (props: Props) => {
               control={control}
               rules={{ required: "This field is required" }}
               render={() => (
-                <PartnershipFormProvider.TextInput
+                <CompanyFormProvider.TextInput
                   placeholder="Placeholder Name"
                   name={`partnerDetails.${index}.name.otherNames.otherName`}
                 />
@@ -107,7 +108,7 @@ const DirectorDetails = (props: Props) => {
         )}
         <div>
           <label htmlFor="message">Email</label>
-          <PartnershipFormProvider.TextInput
+          <CompanyFormProvider.TextInput
             placeholder="john_smith@gmail.com"
             name={`partnerDetails.${index}.email`}
           />
@@ -120,7 +121,7 @@ const DirectorDetails = (props: Props) => {
 
         <div>
           <label htmlFor="message">Phone Number</label>
-          <PartnershipFormProvider.TextInput
+          <CompanyFormProvider.TextInput
             placeholder="+61 403 057 369"
             name={`partnerDetails.${index}.phoneNumber`}
           />
@@ -133,13 +134,13 @@ const DirectorDetails = (props: Props) => {
 
         <div>
           <label htmlFor="message">Date of Birth</label>
-          {/* <PartnershipFormProvider.DatePicker name="dateOfBirth" /> */}
+          {/* <CompanyFormProvider.DatePicker name="dateOfBirth" /> */}
         </div>
 
         <div>
           <label htmlFor="message">Country of birth</label>
 
-          <PartnershipFormProvider.Select
+          <CompanyFormProvider.Select
             options={countries}
             name={`partnerDetails.${index}.birthLocation.country`}
           />
@@ -150,14 +151,14 @@ const DirectorDetails = (props: Props) => {
         <>
           <div>
             <label htmlFor="message">State</label>
-            <PartnershipFormProvider.Select
+            <CompanyFormProvider.Select
               options={australianStates}
               name={`partnerDetails.${index}.birthLocation.state`}
             />
           </div>
           <div>
             <label htmlFor="message">City</label>
-            <PartnershipFormProvider.TextInput
+            <CompanyFormProvider.TextInput
               name={`partnerDetails.${index}.birthLocation.city`}
             />
           </div>
@@ -166,14 +167,14 @@ const DirectorDetails = (props: Props) => {
 
         <div>
           <label htmlFor="message">Tax File Number</label>
-          <PartnershipFormProvider.TextInput
+          <CompanyFormProvider.TextInput
             name={`partnerDetails.${index}.birthLocation.city`}
           />
         </div>
 
         <div>
           <label htmlFor="message">Home Address</label>
-          <PartnershipFormProvider.TextInput
+          <CompanyFormProvider.TextInput
             name={`partnerDetails.${index}.homeAddress`}
           />
         </div>

@@ -16,9 +16,13 @@ const DirectorAndPublicOfficerDetails = () => {
     },
   } = useCompanyFormContext();
 
-  const [additionOrder, setAdditionOrder] = useState<
-    ("director" | "shareholder")[]
-  >([]);
+  // We need to initialize RHF with a director as default value. This is the same link
+  // as the one in CompanyFormContext where we initialize that with an empty director details
+  // This initialOrder is just meant to reflect that, albeit in a bit of an ad-hoc and not type safe manner
+  const initialOrder = ["director"] as const;
+
+  const [additionOrder, setAdditionOrder] =
+    useState<readonly ("director" | "shareholder")[]>(initialOrder);
 
   const directorFieldsManager = useFieldArray({
     control, // control props comes from useForm (optional: if you are using FormProvider)
@@ -42,6 +46,10 @@ const DirectorAndPublicOfficerDetails = () => {
     additionOrder,
     setAdditionOrder,
   });
+
+  console.log(directorFieldsManager.fields);
+
+  console.log({ fields });
 
   return (
     <PartnerShipDetailsFormPartLayout header="Director Details" step={2}>

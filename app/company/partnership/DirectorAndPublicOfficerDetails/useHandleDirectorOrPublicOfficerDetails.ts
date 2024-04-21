@@ -20,7 +20,7 @@ type Args = {
   setAdditionOrder: React.Dispatch<
     React.SetStateAction<("director" | "shareholder")[]>
   >;
-  additionOrder: ("director" | "shareholder")[];
+  additionOrder: readonly ("director" | "shareholder")[];
 };
 
 type DirectororPublicOfficerField =
@@ -53,6 +53,8 @@ const useHandleDirectorOrPublicOfficerDetails = (args: Args): Return => {
     setAdditionOrder((prevOrder) => [...prevOrder, "shareholder"]);
   };
 
+  console.log(directorFieldsManager.fields);
+
   const interleavedFields: DirectororPublicOfficerField[] = additionOrder.map(
     (type, index) => {
       if (type === "director" && index < directorFieldsManager.fields.length) {
@@ -72,6 +74,8 @@ const useHandleDirectorOrPublicOfficerDetails = (args: Args): Return => {
       throw new Error("Invalid type or out of bounds access"); // handle potential errors
     }
   );
+
+  console.log(interleavedFields);
 
   const handleRemoveDirector = (index: number) => {
     const id = interleavedFields[index].fieldDetails.id;

@@ -334,103 +334,21 @@ const Index = () => {
       {/* Counter TimeLine Area End */}
       {/* Management Area Start */}
       <section
-        className="management-area bgp-bottom bgc-navyblue py-60"
+        className="pt-32 pb-24 management-area bgp-bottom bgc-navyblue md:py-60"
         style={{
           backgroundImage: "url(assets/images/backgrounds/wave-shape.png)",
         }}
       >
         <div className="container">
-          <div className="row gap-110 align-items-center">
-            <div className="col-lg-6">
-              <div className="mt-40 text-white management-content">
-                <div className="section-title mb-30">
-                  <h2>Take Effect Control of Business Management</h2>
-                </div>
-                <p>
-                  Sed ut perspiciatis unde omnis iste natus voluptatem
-                  accusantium doloremque laudantium totamto aperiame eaque
-                </p>
-                <div className="row gap-50 pt-25">
-                  <div className="col-md-6">
-                    <div className="text-white iconic-box style-nine">
-                      <div className="icon">
-                        <i className="fal fa-laptop-code" />
-                      </div>
-                      <div className="content">
-                        <h5>
-                          <Link legacyBehavior href="service-details">
-                            Mobile Friendly
-                          </Link>
-                        </h5>
-                        <p>
-                          Mistaken denouncing pleasure praising born will give
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-6">
-                    <div className="text-white iconic-box style-nine">
-                      <div className="icon">
-                        <i className="fal fa-cog" />
-                      </div>
-                      <div className="content">
-                        <h5>
-                          <Link legacyBehavior href="service-details">
-                            Powerful Prediction
-                          </Link>
-                        </h5>
-                        <p>
-                          At vero eos et accus amusesy praesen deleniti
-                          corruptie
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6">
-              <div
-                className="my-40 management-images"
-                data-aos="fade-right"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
-                <img
-                  src="assets/images/about/management1.png"
-                  alt="Management"
-                />
-                <div className="management-over">
-                  <img
-                    src="assets/images/about/management2.png"
-                    alt="Management"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* Management Area End */}
-      {/* Testimonials Area Start */}
-      <section className="testimonials-area pt-130 rpt-100 pb-80 rpb-50">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-xl-7 col-lg-9 col-md-11">
-              <div
-                className="text-center section-title mb-60"
-                data-aos="fade-up"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
-                <h2>1253+ Global Clients Say About Our Business Services</h2>
-              </div>
-            </div>
+          <div className="mb-24 text-center text-white section-title md:mb-60">
+            <h2 className="text-white">
+              1253+ Global Clients Say About Our Business Services
+            </h2>
           </div>
         </div>
         <TestimonialSlider />
       </section>
-      {/* Testimonials Area End */}
+      {/* Management Area End */}
 
       {/* Client Logos Area Start */}
       <section className="client-logo-area pb-90 rpb-65">

@@ -1,5 +1,5 @@
-import AddressAutocomplete from "../AddressAutocomplete";
 import React from "react";
+import AddressAutocomplete from "../AddressAutocomplete";
 import { useCompanyFormContext } from "../CompanyFormContext";
 import FormPartLayout from "../FormPartLayout";
 
@@ -38,25 +38,6 @@ const BusinessLocation = () => {
         <label htmlFor="message">Business Address</label>
         <AddressAutocomplete />
         <p>Can't find your address? Click Enter here</p>
-      </div>
-      <div>
-        <label className="font-semibold text-black text-md" htmlFor="message">
-          Is your business located at your home address?
-        </label>
-        <div className="flex flex-col">
-          {["Yes", "No"].map((option) => (
-            <label key={option} className="inline-flex items-center">
-              <input
-                name="businessLocation"
-                onChange={handleBusinessLocationChange}
-                type="radio"
-                className="form-radio"
-                value={option}
-              />
-              <span className="ml-2">{option}</span>
-            </label>
-          ))}
-        </div>
       </div>
       {watch("businessLocation") === "Other" && (
         <div>

@@ -72,10 +72,6 @@ type IsRegisteringBusinessName =
       answer: false;
     };
 
-export const partnerTypes = ["Individual", "Company"] as const;
-
-type PartnerType = (typeof partnerTypes)[number];
-
 type Name = {
   title: Title;
   firstName: string;
@@ -100,21 +96,12 @@ type TBusinessLocation = {
 
 type BusinessHistoriesOfAllPartners = (typeof businessHistories)[number];
 
-type TBusinessNameApplication = {
-  businessName: TradingUnderBusinessName;
-  isRegisteringBusinessName: IsRegisteringBusinessName;
-};
-
-type TGSTRegistration = {
-  registerForGst: boolean;
-};
-
 type TABNRegistrationDetails = {
   abnActiveDate: Date;
   mainBusinessActivity: string;
   businessCategory: string;
   businessHistoriesOfAllPartners: BusinessHistoriesOfAllPartners;
-  partnersRelated: boolean;
+  companyWillPayOtherFees: boolean;
 };
 
 type HasACN =
@@ -171,12 +158,10 @@ type CompanyFormValues = {
   directorAndPublicOfficerDetails: DirectorAndPublicOfficersDetails;
   businessLocation: TBusinessLocation;
   abnRegistrationDetails: TABNRegistrationDetails;
-  businessNameApplication: TBusinessNameApplication;
-  registerForGST: TGSTRegistration;
   agreedToTermsAndServices: boolean;
 };
 
-export type PartnershipFormRegisterable = Parameters<
+export type CompanyFormRegisterable = Parameters<
   ReturnType<typeof useForm<CompanyFormValues>>["register"]
 >[0];
 

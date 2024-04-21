@@ -12,10 +12,8 @@ import Declaration from "./Declaration";
 import Divider from "./Divider";
 import ABNRegistrationDetails from "./partnership/ABNRegistrationDetails";
 import BusinessLocation from "./partnership/BusinessLocation";
-import BusinessNameApplication from "./partnership/BusinessNameApplication/BusinessNameApplication";
 import CompanyDetails from "./partnership/CompanyDetails";
 import DirectorAndPublicOfficerDetails from "./partnership/DirectorAndPublicOfficerDetails/DirectorAndPublicOfficerDetails";
-import GSTRegistration from "./partnership/GSTRegistration";
 
 const _Page = () => {
   const {
@@ -52,12 +50,6 @@ const _Page = () => {
                   <Divider />
 
                   <ABNRegistrationDetails />
-                  <Divider />
-
-                  <BusinessNameApplication />
-                  <Divider />
-
-                  <GSTRegistration />
                   <Divider />
 
                   <Declaration />

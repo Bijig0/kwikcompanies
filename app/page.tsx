@@ -39,9 +39,9 @@ const Index = () => {
                   <Crown />
                 </div> */}
                 <span className="mb-20 subtitle-one">
-                  <i className="fas fa-rocket-launch" /> Awards Winning Agency
+                  <i className="fas fa-rocket-launch" /> ATO Authorized Agency
                 </span>
-                <h1>Register an ABN in 15 minutes for just $49</h1>
+                <h1>Register an ABN in under 15 minutes for just $49</h1>
                 <div className="hero-btns">
                   <Link href="/about" legacyBehavior>
                     <a className="theme-btn">
@@ -49,6 +49,10 @@ const Index = () => {
                     </a>
                   </Link>
                 </div>
+                <div className="my-3" />
+                <p className="text-gray-400">
+                  No hidden costs and unlimited FREE support
+                </p>
               </div>
             </div>
           </div>
@@ -204,46 +208,35 @@ const Index = () => {
             <div className="col-lg-6">
               <div className="mt-40 about-content rmt-15">
                 <div className="section-title mb-30">
-                  <h2>
-                    Discover Our Company's Vision and Commitment to Excellence
-                  </h2>
+                  <h2>Start your dream business today</h2>
                 </div>
                 <p>
-                  Business consulting is a dynamic and multifaceted field that
-                  plays a pivotal role in helping organizations thrive in
-                  today's competitive landscape. These consulting services are
-                  sought after by businesses of all sizes
+                  We understand the challenges of building a business: spending
+                  time on your product, working with customers, and on top of
+                  that, the constant pressure of business administration. We
+                  hope to alleviate some of these pains through our seamless ABN
+                  registration process.
                 </p>
                 <div className="row pt-30">
                   <div className="col-sm-6">
                     <div className="counter-item counter-text-wrap counted">
-                      <span
-                        className="count-text percent"
-                        data-speed={3000}
-                        data-stop={95}
-                      >
-                        95
-                      </span>
-                      <h5 className="counter-title">Strategy Consulting</h5>
+                      <span className="count-text">{">"} 15 Minutes</span>
+                      <h5 className="counter-title">Registration Time</h5>
                       <div className="text">
-                        Strategy consultants work closely organizations define
-                        their
+                        Optimized registration process requiring only the
+                        essentials for quick and easy registration
                       </div>
                     </div>
                   </div>
                   <div className="col-sm-6">
                     <div className="counter-item counter-text-wrap counted">
-                      <span
-                        className="count-text percent"
-                        data-speed={3000}
-                        data-stop={85}
-                      >
-                        85
-                      </span>
-                      <h5 className="counter-title">Financial Consulting</h5>
+                      <span className="count-text">{">"} 30 Seconds</span>
+                      <h5 className="counter-title">
+                        Average Support Response Time
+                      </h5>
                       <div className="text">
-                        Financial consultants provides the financial planning,
-                        budgeting
+                        Our friendly staff are constantly on deck to help you at
+                        every step
                       </div>
                     </div>
                   </div>

@@ -341,7 +341,7 @@ const Index = () => {
       >
         <div className="container">
           <div className="mb-24 text-center text-white section-title md:mb-60">
-            <h2 className="text-white">
+            <h2 className="text-white md:px-52">
               1253+ Global Clients Say About Our Business Services
             </h2>
           </div>

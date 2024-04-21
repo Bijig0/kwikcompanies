@@ -33,7 +33,7 @@ const _Page = () => {
       <PageBanner pageName={"Individual ABN Form"} />
       {/* Contact Page Start */}
       <section className="py-16 contact-page rpy-100">
-        <div className="container ">
+        <div className="mx-auto px-4 lg:px-8 w-full sm:max-w-[540px] md:max-w-[720px] lg:max-w-[1750px]">
           <div className="flex justify-center row gap-100 align-items-center">
             <div className="col-lg-7">
               <div className="contact-form br-10 bgc-lighter rmt-60">

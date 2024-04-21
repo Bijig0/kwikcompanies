@@ -210,7 +210,7 @@ input[type="radio"] {
 
 @media only screen and (min-width: 1200px) {
   .container {
-    max-width: 1920px;
+    max-width: 1320px;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -1325,6 +1325,10 @@ h6,
 }
 
 /* Padding Top */
+.pt-5,
+.py-5 {
+  padding-top: 5px !important;
+}
 
 .pt-10,
 .py-10 {
@@ -1569,6 +1573,12 @@ h6,
 .pt-250,
 .py-250 {
   padding-top: 250px;
+}
+
+/* Padding Bottom */
+.pb-5,
+.py-5 {
+  padding-bottom: 5px !important;
 }
 
 .pb-10,

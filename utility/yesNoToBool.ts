@@ -1,9 +1,3 @@
-const yesNoToBool = (value: "Yes" | "No") => {
-  if (value === "Yes") {
-    return true;
-  } else if (value === "No") {
-    return false;
-  }
-};
+const yesNoToBool = (value: "Yes" | "No") => value === "Yes";
 
 export default yesNoToBool;

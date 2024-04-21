@@ -1,63 +1,71 @@
-import { useCompanyFormContext } from "app/company/CompanyFormContext";
+import { useBoolean } from "@utils/useBoolean";
+import CompanyFormProvider, {
+  useCompanyFormContext,
+} from "app/company/CompanyFormContext";
+import { entityTypes } from "app/company/companyForm";
+import { createEmptyDirectorDetails } from "app/company/createEmptyDirectorDetails";
+import { createEmptyShareholderDetails } from "app/company/createEmptyShareholderDetails";
 import { titles } from "app/contact/soleTraderForm";
-import PartnershipFormProvider from "app/partnership/PartnerShipFormContext";
-import countries from "app/types/countries";
+import { Button } from "react-bootstrap";
 import { Controller } from "react-hook-form";
 import {
+  AppendDirectorParams,
   AppendShareholderParams,
-  RemoveShareholderParams,
-  ShareholderField,
+  DirectorField,
+  RemoveDirectorParams,
   numberText,
 } from "./types";
 
 type Props = {
   index: number;
-  field: ShareholderField;
+  field: DirectorField;
+  handleAddDirector: (field: AppendDirectorParams) => void;
   handleAddShareholder: (field: AppendShareholderParams) => void;
-  handleRemoveShareholder: (index: RemoveShareholderParams) => void;
+  handleRemoveDirector: (index: RemoveDirectorParams) => void;
 };
 
 const ShareholderDetails = (props: Props) => {
-  const { index, field, handleAddShareholder, handleRemoveShareholder } = props;
   const {
-    formManager: { control, watch },
+    index,
+    field,
+    handleAddDirector,
+    handleAddShareholder,
+    handleRemoveDirector,
+  } = props;
+  const {
+    formManager: { control, watch, register },
   } = useCompanyFormContext();
+
+  const { value: isOnlyDirector, toggle: toggleIsOnlyDirector } =
+    useBoolean(false);
+
+  const { value: isOnlyShareholder, toggle: toggleIsOnlyShareholder } =
+    useBoolean(true);
+
   return (
     <div key={field.id}>
-      <h6 className="text-lg">{numberText[index + 1]} Director's Details</h6>
-      <div>
-        <label className="font-semibold text-black text-md" htmlFor="name">
-          Will you be the only director?
-        </label>
-        <div className="flex flex-col">
-          {["Yes", "No"].map((option) => (
-            <label key={option} className="inline-flex items-center">
-              <input
-                name="businessLocation"
-                // onChange={handleBusinessLocationChange}
-                type="radio"
-                className="form-radio"
-                value={option}
-              />
-              <span className="ml-2">{option}</span>
-            </label>
-          ))}
-        </div>
+      <h6 className="text-lg">{numberText[index + 1]} Shareholder's Details</h6>
+      <div className="flex-1">
+        <label htmlFor="message">Entity Type</label>
+        <CompanyFormProvider.Select
+          name={`directorAndPublicOfficerDetails.shareholdersDetails.${index}.entityType`}
+          options={entityTypes}
+        />
       </div>
       <div className="flex flex-col gap-3">
         <div className="flex items-center gap-3 ">
           <div className="flex-1">
             <label htmlFor="message">Title</label>
-            <PartnershipFormProvider.Select
-              name={`partnerDetails.${index}.name.title`}
+            <CompanyFormProvider.Select
+              name={`directorAndPublicOfficerDetails.shareholdersDetails.${index}.name.title`}
               options={titles}
             />
           </div>
           <div className="flex-[3_3_0%] md:flex-[2_2_0%]">
             <label htmlFor="message">First Name</label>
-            <PartnershipFormProvider.TextInput
+            <CompanyFormProvider.TextInput
               placeholder="John"
-              name={`partnerDetails.${index}.name.firstName`}
+              name={`directorAndPublicOfficerDetails.shareholdersDetails.${index}.name.firstName`}
             />
             {/* {errors.partnerDetails[index]?.name?.firstName && (
                       <ErrorText>
@@ -67,9 +75,9 @@ const ShareholderDetails = (props: Props) => {
           </div>
           <div className="flex-[3_3_0%] md:flex-[2_2_0%]">
             <label htmlFor="message">Last Name</label>
-            <PartnershipFormProvider.TextInput
+            <CompanyFormProvider.TextInput
               placeholder="Smith"
-              name={`partnerDetails.${index}.name.lastName`}
+              name={`directorAndPublicOfficerDetails.shareholdersDetails.${index}.name.lastName`}
             />
             {/* {errors.partnerDetails[index]?.name?.lastName && (
                       <ErrorText>
@@ -81,27 +89,31 @@ const ShareholderDetails = (props: Props) => {
         <div>
           <input
             type="checkbox"
-            //   {...register(`partnerDetails.${index}.name.otherNames.answer`)}
-            id={`partnerDetails.${index}.name.otherNames.answer`}
+            {...register(
+              `directorAndPublicOfficerDetails.shareholdersDetails.${index}.name.otherNames.answer`
+            )}
+            id={`directorAndPublicOfficerDetails.shareholdersDetails.${index}.name.otherNames.answer`}
           />
           <label
-            htmlFor={`partnerDetails.${index}.name.otherNames.answer`}
+            htmlFor={`directorAndPublicOfficerDetails.shareholdersDetails.${index}.name.otherNames.answer`}
             className="ml-2"
           >
             I have been known by another name in the past
           </label>
         </div>
-        {watch(`partnerDetails.${index}.name.otherNames.answer`) && (
+        {watch(
+          `directorAndPublicOfficerDetails.shareholdersDetails.${index}.name.otherNames.answer`
+        ) && (
           <div>
             <label htmlFor="message">Other Name</label>
             <Controller
-              name={`partnerDetails.${index}.name.otherNames.otherName`}
+              name={`directorAndPublicOfficerDetails.shareholdersDetails.${index}.name.otherNames.otherName`}
               control={control}
               rules={{ required: "This field is required" }}
               render={() => (
-                <PartnershipFormProvider.TextInput
+                <CompanyFormProvider.TextInput
                   placeholder="Placeholder Name"
-                  name={`partnerDetails.${index}.name.otherNames.otherName`}
+                  name={`directorAndPublicOfficerDetails.shareholdersDetails.${index}.name.otherNames.otherName`}
                 />
               )}
             />
@@ -110,109 +122,69 @@ const ShareholderDetails = (props: Props) => {
                     )} */}
           </div>
         )}
-        <div>
-          <label htmlFor="message">Email</label>
-          <PartnershipFormProvider.TextInput
-            placeholder="john_smith@gmail.com"
-            name={`partnerDetails.${index}.email`}
-          />
-          {/* {errors.partnerDetails[index]?.email && (
-                    <ErrorText>
-                      {errors.partnerDetails[index].email.message}
-                    </ErrorText>
-                  )} */}
-        </div>
-
-        <div>
-          <label htmlFor="message">Phone Number</label>
-          <PartnershipFormProvider.TextInput
-            placeholder="+61 403 057 369"
-            name={`partnerDetails.${index}.phoneNumber`}
-          />
-          {/* {errors.partnerDetails[index]?.phoneNumber && (
-                    <ErrorText>
-                      {errors.partnerDetails[index].phoneNumber.message}
-                    </ErrorText>
-                  )} */}
-        </div>
 
         <div>
           <label htmlFor="message">Date of Birth</label>
-          {/* <PartnershipFormProvider.DatePicker name="dateOfBirth" /> */}
+          {/* <CompanyFormProvider.DatePicker name="dateOfBirth" /> */}
         </div>
-
-        <div>
-          <label htmlFor="message">Country of birth</label>
-
-          <PartnershipFormProvider.Select
-            options={countries}
-            name={`partnerDetails.${index}.birthLocation.country`}
-          />
-        </div>
-
-        {/* {watch(`partnerDetails.${index}.birthLocation.country`) ===
-        "Australia" && (
-        <>
-          <div>
-            <label htmlFor="message">State</label>
-            <PartnershipFormProvider.Select
-              options={australianStates}
-              name={`partnerDetails.${index}.birthLocation.state`}
-            />
-          </div>
-          <div>
-            <label htmlFor="message">City</label>
-            <PartnershipFormProvider.TextInput
-              name={`partnerDetails.${index}.birthLocation.city`}
-            />
-          </div>
-        </>
-      )} */}
 
         <div>
           <label htmlFor="message">Tax File Number</label>
-          <PartnershipFormProvider.TextInput
-            name={`partnerDetails.${index}.birthLocation.city`}
+          <CompanyFormProvider.TextInput
+            name={`directorAndPublicOfficerDetails.shareholdersDetails.${index}.taxFileNumber`}
           />
         </div>
-
-        <div>
-          <label htmlFor="message">Home Address</label>
-          <PartnershipFormProvider.TextInput
-            name={`partnerDetails.${index}.homeAddress`}
-          />
-        </div>
-
-        {/* <div>
-        <input
-          type="checkbox"
-          {...register(
-            `partnerDetails.${index}.declaredIsAustralianResidentForTaxPurposes`
-          )}
-          id={`partnerDetails.${index}.declaredIsAustralianResidentForTaxPurposes`}
-        />
-        <label
-          htmlFor={`partnerDetails.${index}.declaredIsAustralianResidentForTaxPurposes`}
-          className="ml-2"
-        >
-          I am an Australian resident for tax purposes.
-        </label>
-      </div> */}
 
         <div className="my-3" />
       </div>
 
-      {/* {isLastField && (
+      <div>
+        <label
+          className="block font-semibold text-black text-md"
+          htmlFor={`directorAndPublicOfficerDetails.shareholdersDetails.${index}.declaredIsAustralianResidentForTaxPurposes`}
+        >
+          Declaration
+        </label>
+
+        <input
+          type="checkbox"
+          {...register(
+            `directorAndPublicOfficerDetails.shareholdersDetails.${index}.declaredIsAustralianResidentForTaxPurposes`
+          )}
+          id={`directorAndPublicOfficerDetails.shareholdersDetails.${index}.declaredIsAustralianResidentForTaxPurposes`}
+        />
+        <label
+          htmlFor={`directorAndPublicOfficerDetails.shareholdersDetails.${index}.declaredIsAustralianResidentForTaxPurposes`}
+          className="ml-2"
+        >
+          I am an Australian resident for tax purposes.
+        </label>
+      </div>
+
+      <div className="my-2" />
+
       <div className="flex justify-start gap-2">
-        <Button onClick={() => appendDirector(field)}>Add Partner</Button>
+        <Button
+          data-show={isOnlyDirector}
+          className="hidden data-[show=true]:block"
+          onClick={() => handleAddDirector(createEmptyDirectorDetails())}
+        >
+          Add Director
+        </Button>
+        <Button
+          data-show={!isOnlyShareholder}
+          className="hidden data-[show=true]:block"
+          onClick={() => handleAddShareholder(createEmptyShareholderDetails())}
+        >
+          Add Shareholder
+        </Button>
         <Button
           variant="danger"
-          onClick={() => index !== 0 && removeDirector(index)}
+          onClick={() => index !== 0 && handleRemoveDirector(index)}
         >
           Remove Partner
         </Button>
       </div>
-    )} */}
     </div>
   );
 };

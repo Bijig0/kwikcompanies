@@ -174,6 +174,13 @@ const DirectorDetails = (props: Props) => {
           />
         </div>
 
+        <div>
+          <label htmlFor="message">City</label>
+          <CompanyFormProvider.TextInput
+            name={`directorAndPublicOfficerDetails.directorsDetails.${index}.birthLocation.city`}
+          />
+        </div>
+
         {/* {watch(`partnerDetails.${index}.birthLocation.country`) ===
         "Australia" && (
         <>
@@ -196,7 +203,7 @@ const DirectorDetails = (props: Props) => {
         <div>
           <label htmlFor="message">Tax File Number</label>
           <CompanyFormProvider.TextInput
-            name={`directorAndPublicOfficerDetails.directorsDetails.${index}.birthLocation.city`}
+            name={`directorAndPublicOfficerDetails.directorsDetails.${index}.taxFileNumber`}
           />
         </div>
 
@@ -274,7 +281,7 @@ const DirectorDetails = (props: Props) => {
           variant="danger"
           onClick={() => index !== 0 && handleRemoveDirector(index)}
         >
-          Remove Partner
+          Remove
         </Button>
       </div>
     </div>

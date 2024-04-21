@@ -61,26 +61,23 @@ const useHandleDirectorOrPublicOfficerDetails = (args: Args): Return => {
   };
 
   console.log(directorFieldsManager.fields);
+  console.log(directorFieldsManager.fields.length);
+  console.log(shareholderFieldsManager.fields);
+  console.log(shareholderFieldsManager.fields.length);
+  console.log(additionOrder);
 
-  const interleavedFields: DirectororPublicOfficerField[] = additionOrder.map(
-    (type, index) => {
-      if (type === "director" && index < directorFieldsManager.fields.length) {
-        return {
-          fieldDetails: directorFieldsManager.fields[index],
-          type: "director",
-        };
-      } else if (
-        type === "shareholder" &&
-        index < shareholderFieldsManager.fields.length
-      ) {
-        return {
-          fieldDetails: shareholderFieldsManager.fields[index],
-          type: "shareholder",
-        };
-      }
-      throw new Error("Invalid type or out of bounds access"); // handle potential errors
+  const directorFieldsCopy = [...directorFieldsManager.fields];
+  const shareholderFieldsCopy = [...shareholderFieldsManager.fields];
+
+  const interleavedFields = additionOrder.map((type) => {
+    if (type === "director") {
+      const fieldDetails = directorFieldsCopy.shift();
+      return { fieldDetails, type };
+    } else {
+      const fieldDetails = shareholderFieldsCopy.shift();
+      return { fieldDetails, type };
     }
-  );
+  });
 
   console.log(interleavedFields);
 

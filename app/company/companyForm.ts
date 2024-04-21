@@ -3,9 +3,9 @@ import { Country } from "app/types/countries";
 import { useForm } from "react-hook-form";
 import { Title } from "./individual";
 
-export const entityType = ["Individual", "Company"] as const;
+export const entityTypes = ["Individual", "Company"] as const;
 
-export type EntityType = (typeof entityType)[number];
+export type EntityType = (typeof entityTypes)[number];
 
 export const activitiesLocations = ["Australia", "Overseas"] as const;
 export type ActivitiesLocation = (typeof activitiesLocations)[number];

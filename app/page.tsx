@@ -2,6 +2,8 @@ import Counter from "@components/Counter";
 import AkpagerLayout from "@layouts/AkpagerLayout";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import { FaCrown } from "react-icons/fa6";
+
 const TestimonialSlider = dynamic(
   () => import("@components/TestimonialSlider"),
   {
@@ -9,18 +11,33 @@ const TestimonialSlider = dynamic(
   }
 );
 
+const Crown = () => {
+  return (
+    <div className="flex flex-col items-center">
+      <FaCrown size={60} />
+      <span className="p-0 m-0 font-thin">Verified ASIC Agent</span>
+      <p>33614</p>
+    </div>
+  );
+};
+
 const Index = () => {
   return (
     <AkpagerLayout>
       {/* Hero area start */}
       <section
-        className="hero-area bgs-cover py-250 rpy-150 overlay"
+        className="py-52 hero-area bgs-cover pb-250 rpy-150 overlay"
         style={{ backgroundImage: "url(assets/images/hero/hero-one.png)" }}
       >
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-xl-7 col-lg-10 col-md-11">
-              <div className="text-center text-white hero-content">
+              <div className="text-center text-white px-11 hero-content">
+                {/* <div className="flex justify-center gap-24">
+                  <Crown />
+                  <Crown />
+                  <Crown />
+                </div> */}
                 <span className="mb-20 subtitle-one">
                   <i className="fas fa-rocket-launch" /> Awards Winning Agency
                 </span>
@@ -28,12 +45,7 @@ const Index = () => {
                 <div className="hero-btns">
                   <Link href="/about" legacyBehavior>
                     <a className="theme-btn">
-                      Learn More <i className="far fa-arrow-right" />
-                    </a>
-                  </Link>
-                  <Link href="/services" legacyBehavior>
-                    <a className="theme-btn style-two">
-                      Our Services <i className="far fa-arrow-right" />
+                      Register An ABN! <i className="far fa-arrow-right" />
                     </a>
                   </Link>
                 </div>

@@ -23,6 +23,9 @@ const DirectorDetails = (props: Props) => {
   const { value: isOnlyDirector, toggle: toggleIsOnlyDirector } =
     useBoolean(false);
 
+  const { value: isOnlyShareholder, toggle: toggleIsOnlyShareholder } =
+    useBoolean(true);
+
   return (
     <div key={field.id}>
       <h6 className="text-lg">{numberText[index + 1]} Director's Details</h6>
@@ -216,8 +219,8 @@ const DirectorDetails = (props: Props) => {
           {["Yes", "No"].map((option) => (
             <label key={option} className="inline-flex items-center">
               <input
-                name="businessLocation"
-                // onChange={handleBusinessLocationChange}
+                name="isOnlyShareholder"
+                onChange={toggleIsOnlyShareholder}
                 type="radio"
                 className="form-radio"
                 value={option}

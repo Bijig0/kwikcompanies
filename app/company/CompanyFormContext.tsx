@@ -30,7 +30,7 @@ const CompanyFormProvider = (props: Props) => {
   const formManager = useForm<CompanyFormValues>({
     defaultValues: {
       directorAndPublicOfficerDetails: {
-        directorsDetails: createEmptyDirectorDetails(),
+        directorsDetails: [createEmptyDirectorDetails()],
       },
     },
   });

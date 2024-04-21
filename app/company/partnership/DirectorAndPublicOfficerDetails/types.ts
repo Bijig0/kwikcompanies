@@ -30,6 +30,30 @@ export type ShareholderFieldsManager = ReturnType<
   >
 >;
 
+export type AppendDirectorParams = Parameters<
+  ReturnType<
+    typeof useFieldArray<
+      CompanyFormValues,
+      "directorAndPublicOfficerDetails.directorsDetails",
+      "id"
+    >
+  >["append"]
+>[0];
+
+export type AppendShareholderParams = Parameters<
+  ReturnType<
+    typeof useFieldArray<
+      CompanyFormValues,
+      "directorAndPublicOfficerDetails.shareholdersDetails",
+      "id"
+    >
+  >["append"]
+>[0];
+
+export type RemoveDirectorParams = number | number[];
+
+export type RemoveShareholderParams = number | number[];
+
 export type DirectorFields = DirectorFieldsManager["fields"];
 export type DirectorField = DirectorFields[number];
 export type ShareholderFields = ShareholderFieldsManager["fields"];

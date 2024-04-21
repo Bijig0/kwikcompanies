@@ -2,17 +2,23 @@ import { useBoolean } from "@utils/useBoolean";
 import CompanyFormProvider, {
   useCompanyFormContext,
 } from "app/company/CompanyFormContext";
+import { createEmptyDirectorDetails } from "app/company/createEmptyDirectorDetails";
 import { titles } from "app/contact/soleTraderForm";
 import countries from "app/types/countries";
-import { Controller } from "react-hook-form";
-import { DirectorField, numberText } from "./types";
 import { Button } from "react-bootstrap";
+import { Controller } from "react-hook-form";
+import {
+  AppendDirectorParams,
+  DirectorField,
+  RemoveDirectorParams,
+  numberText,
+} from "./types";
 
 type Props = {
   index: number;
   field: DirectorField;
-  handleAddDirector: (field: DirectorField) => void;
-  handleRemoveDirector: (index: number) => void;
+  handleAddDirector: (field: AppendDirectorParams) => void;
+  handleRemoveDirector: (index: RemoveDirectorParams) => void;
 };
 
 const DirectorDetails = (props: Props) => {
@@ -233,10 +239,12 @@ const DirectorDetails = (props: Props) => {
       </div>
 
       <div className="flex justify-start gap-2">
-        <Button onClick={() => appendDirector(field)}>Add Shareholder</Button>
+        <Button onClick={() => handleAddDirector(createEmptyDirectorDetails())}>
+          Add Shareholder
+        </Button>
         <Button
           variant="danger"
-          onClick={() => index !== 0 && removeDirector(index)}
+          onClick={() => index !== 0 && handleRemoveDirector(index)}
         >
           Remove Partner
         </Button>

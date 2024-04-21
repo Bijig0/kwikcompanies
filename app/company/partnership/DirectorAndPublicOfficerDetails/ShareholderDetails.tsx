@@ -3,13 +3,18 @@ import { titles } from "app/contact/soleTraderForm";
 import PartnershipFormProvider from "app/partnership/PartnerShipFormContext";
 import countries from "app/types/countries";
 import { Controller } from "react-hook-form";
-import { ShareholderField, numberText } from "./types";
+import {
+  AppendShareholderParams,
+  RemoveShareholderParams,
+  ShareholderField,
+  numberText,
+} from "./types";
 
 type Props = {
   index: number;
   field: ShareholderField;
-  handleAddShareholder: (field: ShareholderField) => void;
-  handleRemoveShareholder: (index: number) => void;
+  handleAddShareholder: (field: AppendShareholderParams) => void;
+  handleRemoveShareholder: (index: RemoveShareholderParams) => void;
 };
 
 const ShareholderDetails = (props: Props) => {

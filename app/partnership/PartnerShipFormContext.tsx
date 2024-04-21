@@ -30,7 +30,7 @@ const PartnershipFormProvider = (props: Props) => {
   const { totalSteps } = props;
   const formManager = useForm<FormValues>({
     defaultValues: {
-      partnerDetails: createEmptyPartnerDetails(),
+      partnerDetails: [createEmptyPartnerDetails()],
     },
   });
 

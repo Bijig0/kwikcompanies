@@ -1,6 +1,13 @@
 import CompanyFormValues from "app/company/companyForm";
 import { useFieldArray } from "react-hook-form";
-import { DirectorField, ShareholderField } from "./types";
+import {
+  AppendDirectorParams,
+  AppendShareholderParams,
+  DirectorField,
+  RemoveDirectorParams,
+  RemoveShareholderParams,
+  ShareholderField,
+} from "./types";
 
 type Args = {
   shareholderFieldsManager: ReturnType<
@@ -29,10 +36,10 @@ type DirectororPublicOfficerField =
 
 type Return = {
   fields: DirectororPublicOfficerField[];
-  handleAddDirector: (field: DirectorField) => void;
-  handleAddShareholder: (field: ShareholderField) => void;
-  handleRemoveDirector: (index: number) => void;
-  handleRemoveShareholder: (index: number) => void;
+  handleAddDirector: (field: AppendDirectorParams) => void;
+  handleAddShareholder: (field: AppendShareholderParams) => void;
+  handleRemoveDirector: (index: RemoveDirectorParams) => void;
+  handleRemoveShareholder: (index: RemoveShareholderParams) => void;
 };
 
 const useHandleDirectorOrPublicOfficerDetails = (args: Args): Return => {
@@ -43,7 +50,7 @@ const useHandleDirectorOrPublicOfficerDetails = (args: Args): Return => {
     additionOrder,
   } = args;
 
-  const handleAddDirector = (field: DirectorField) => {
+  const handleAddDirector = (field: AppendDirectorParams) => {
     directorFieldsManager.append(field);
     setAdditionOrder((prevOrder) => [...prevOrder, "director"]);
   };

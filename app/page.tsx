@@ -68,7 +68,11 @@ const Index = () => {
               <div className="col-xl-4 col-md-6">
                 <div className="iconic-box">
                   <div className="icon">
-                    <i className="flaticon-customer-service-1" />
+                    <img
+                      src="https://abnregistration.com.au/assets/images/icons/mark-icon-1.png"
+                      alt="Shape"
+                      className="w-20"
+                    />
                   </div>
                   <div className="content">
                     <h4>

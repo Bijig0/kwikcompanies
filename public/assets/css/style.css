@@ -4366,7 +4366,7 @@ a.theme-btn.style-four:hover {
   margin-bottom: 45px;
   color: var(--primary-color);
 }
-.iconic-box .icon:after {
+/* .iconic-box .icon:after {
   content: "";
   width: 80px;
   height: 80px;
@@ -4382,7 +4382,7 @@ a.theme-btn.style-four:hover {
   -o-transition-delay: 0.2s;
   transition-delay: 0.2s;
   background: var(--lighter-color);
-}
+} */
 .iconic-box .content h4 {
   margin-bottom: 15px;
 }

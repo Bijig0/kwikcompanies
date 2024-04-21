@@ -21,29 +21,11 @@ const Index = () => {
           <div className="row justify-content-center">
             <div className="col-xl-7 col-lg-10 col-md-11">
               <div className="text-center text-white hero-content">
-                <span
-                  className="mb-20 subtitle-one"
-                  data-aos="fade-up"
-                  data-aos-duration={1500}
-                  data-aos-offset={50}
-                >
+                <span className="mb-20 subtitle-one">
                   <i className="fas fa-rocket-launch" /> Awards Winning Agency
                 </span>
-                <h1
-                  data-aos="fade-up"
-                  data-aos-delay={200}
-                  data-aos-duration={1500}
-                  data-aos-offset={50}
-                >
-                  Everything you need to start and run your business grow
-                </h1>
-                <div
-                  className="hero-btns"
-                  data-aos="fade-up"
-                  data-aos-delay={400}
-                  data-aos-duration={1500}
-                  data-aos-offset={50}
-                >
+                <h1>Register an ABN in 15 minutes for just $49</h1>
+                <div className="hero-btns">
                   <Link href="/about" legacyBehavior>
                     <a className="theme-btn">
                       Learn More <i className="far fa-arrow-right" />
@@ -71,12 +53,7 @@ const Index = () => {
         <div className="container">
           <div className="services-wrap">
             <div className="row justify-content-center">
-              <div
-                className="col-xl-4 col-md-6"
-                data-aos="fade-up"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="col-xl-4 col-md-6">
                 <div className="iconic-box">
                   <div className="icon">
                     <i className="flaticon-customer-service-1" />
@@ -106,13 +83,7 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-              <div
-                className="col-xl-4 col-md-6"
-                data-aos="fade-up"
-                data-aos-delay={100}
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="col-xl-4 col-md-6">
                 <div className="iconic-box">
                   <div className="icon">
                     <i className="flaticon-idea" />
@@ -142,13 +113,7 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-              <div
-                className="col-xl-4 col-md-6"
-                data-aos="fade-up"
-                data-aos-delay={200}
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="col-xl-4 col-md-6">
                 <div className="iconic-box">
                   <div className="icon">
                     <i className="flaticon-earning" />
@@ -182,12 +147,7 @@ const Index = () => {
           </div>
           <div className="row justify-content-center">
             <div className="col-xl-9">
-              <blockquote
-                className="text-white blockquote-one"
-                data-aos="fade-up"
-                data-aos-duration={1000}
-                data-aos-offset={50}
-              >
+              <blockquote className="text-white blockquote-one">
                 <div className="text">
                   Business consulting involves the provision expert advice and
                   guidance to organizations seeking to improve their
@@ -213,12 +173,7 @@ const Index = () => {
         <div className="container">
           <div className="row gap-90 align-items-center">
             <div className="col-lg-6">
-              <div
-                className="my-40 about-images"
-                data-aos="fade-left"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="my-40 about-images">
                 <img src="assets/images/about/about.jpg" alt="About" />
                 <div className="about-over">
                   <img src="assets/images/about/about2.png" alt="About" />
@@ -226,12 +181,7 @@ const Index = () => {
               </div>
             </div>
             <div className="col-lg-6">
-              <div
-                className="mt-40 about-content rmt-15"
-                data-aos="fade-right"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="mt-40 about-content rmt-15">
                 <div className="section-title mb-30">
                   <h2>
                     Discover Our Company's Vision and Commitment to Excellence
@@ -288,12 +238,7 @@ const Index = () => {
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-xl-7 col-lg-9 col-md-11">
-              <div
-                className="text-center section-title mb-60"
-                data-aos="fade-up"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="text-center section-title mb-60">
                 <h2>Discover Company Solutions Tailored to Your Needs</h2>
                 <p>
                   Sed ut perspiciatis unde omnis iste sit voluptatem accusantium
@@ -305,12 +250,7 @@ const Index = () => {
           </div>
           <div className="row justify-content-center">
             <div className="col-xl-4 col-md-6 col-sm-10">
-              <div
-                className="fancy-box"
-                data-aos="fade-up"
-                data-aos-duration={1000}
-                data-aos-offset={50}
-              >
+              <div className="fancy-box">
                 <div className="image">
                   <img
                     src="assets/images/fancy-box/fancy-box1.jpg"
@@ -347,13 +287,7 @@ const Index = () => {
               </div>
             </div>
             <div className="col-xl-4 col-md-6 col-sm-10">
-              <div
-                className="fancy-box"
-                data-aos="fade-up"
-                data-aos-delay={200}
-                data-aos-duration={1000}
-                data-aos-offset={50}
-              >
+              <div className="fancy-box">
                 <div className="image">
                   <img
                     src="assets/images/fancy-box/fancy-box2.jpg"
@@ -390,13 +324,7 @@ const Index = () => {
               </div>
             </div>
             <div className="col-xl-4 col-md-6 col-sm-10">
-              <div
-                className="fancy-box"
-                data-aos="fade-up"
-                data-aos-delay={400}
-                data-aos-duration={1000}
-                data-aos-offset={50}
-              >
+              <div className="fancy-box">
                 <div className="image">
                   <img
                     src="assets/images/fancy-box/fancy-box3.jpg"
@@ -433,12 +361,7 @@ const Index = () => {
               </div>
             </div>
             <div className="col-xl-4 col-md-6 col-sm-10">
-              <div
-                className="fancy-box"
-                data-aos="fade-up"
-                data-aos-duration={1000}
-                data-aos-offset={50}
-              >
+              <div className="fancy-box">
                 <div className="image">
                   <img
                     src="assets/images/fancy-box/fancy-box4.jpg"
@@ -475,13 +398,7 @@ const Index = () => {
               </div>
             </div>
             <div className="col-xl-4 col-md-6 col-sm-10">
-              <div
-                className="fancy-box"
-                data-aos="fade-up"
-                data-aos-delay={200}
-                data-aos-duration={1000}
-                data-aos-offset={50}
-              >
+              <div className="fancy-box">
                 <div className="image">
                   <img
                     src="assets/images/fancy-box/fancy-box5.jpg"
@@ -518,13 +435,7 @@ const Index = () => {
               </div>
             </div>
             <div className="col-xl-4 col-md-6 col-sm-10">
-              <div
-                className="fancy-box"
-                data-aos="fade-up"
-                data-aos-delay={400}
-                data-aos-duration={1000}
-                data-aos-offset={50}
-              >
+              <div className="fancy-box">
                 <div className="image">
                   <img
                     src="assets/images/fancy-box/fancy-box6.jpg"
@@ -572,12 +483,7 @@ const Index = () => {
         <div className="container">
           <div className="row align-items-center justify-content-between">
             <div className="col-xl-6 col-lg-8">
-              <div
-                className="text-white cta-content rmb-35"
-                data-aos="fade-left"
-                data-aos-duration={1000}
-                data-aos-offset={50}
-              >
+              <div className="text-white cta-content rmb-35">
                 <div className="mb-40 section-title">
                   <span className="mb-10 subtitle d-block">
                     Website Builder
@@ -592,11 +498,7 @@ const Index = () => {
               </div>
             </div>
             <div className="col-lg-4">
-              <div
-                className="cta-btn text-lg-center text-start ps-lg-0 ps-2"
-                data-aos="zoom-in-right"
-                data-aos-duration={1000}
-              >
+              <div className="cta-btn text-lg-center text-start ps-lg-0 ps-2">
                 <a
                   href="https://www.youtube.com/watch?v=9Y7ma241N8k"
                   className="mfp-iframe video-play"
@@ -614,12 +516,7 @@ const Index = () => {
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-xl-6 col-lg-8 col-md-10">
-              <div
-                className="text-center section-title mb-60"
-                data-aos="fade-up"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="text-center section-title mb-60">
                 <h2>Explore Our Recent Case Studies &amp; Projects</h2>
                 <p>
                   Sed ut perspiciatis unde omnis iste sit voluptatem accusantium
@@ -631,12 +528,7 @@ const Index = () => {
           </div>
           <div className="row justify-content-center">
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-8">
-              <div
-                className="fancy-box style-two"
-                data-aos="fade-up"
-                data-aos-duration={1000}
-                data-aos-offset={50}
-              >
+              <div className="fancy-box style-two">
                 <div className="image">
                   <img
                     src="assets/images/fancy-box/fancy-box-two1.jpg"
@@ -680,13 +572,7 @@ const Index = () => {
               </div>
             </div>
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-8">
-              <div
-                className="fancy-box style-two"
-                data-aos="fade-up"
-                data-aos-delay={200}
-                data-aos-duration={1000}
-                data-aos-offset={50}
-              >
+              <div className="fancy-box style-two">
                 <div className="image">
                   <img
                     src="assets/images/fancy-box/fancy-box-two2.jpg"
@@ -719,13 +605,7 @@ const Index = () => {
               </div>
             </div>
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-8">
-              <div
-                className="fancy-box style-two"
-                data-aos="fade-up"
-                data-aos-delay={400}
-                data-aos-duration={1000}
-                data-aos-offset={50}
-              >
+              <div className="fancy-box style-two">
                 <div className="image">
                   <img
                     src="assets/images/fancy-box/fancy-box-two3.jpg"
@@ -758,13 +638,7 @@ const Index = () => {
               </div>
             </div>
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-8">
-              <div
-                className="fancy-box style-two"
-                data-aos="fade-up"
-                data-aos-delay={600}
-                data-aos-duration={1000}
-                data-aos-offset={50}
-              >
+              <div className="fancy-box style-two">
                 <div className="image">
                   <img
                     src="assets/images/fancy-box/fancy-box-two4.jpg"
@@ -806,13 +680,7 @@ const Index = () => {
           <div className="counter-timeline-wrap">
             <div className="row no-gap justify-content-center">
               <div className="col-lg-4 col-sm-6">
-                <div
-                  className="counter-timeline-item counter-text-wrap"
-                  data-aos="fade-up"
-                  data-aos-delay={200}
-                  data-aos-duration={1000}
-                  data-aos-offset={50}
-                >
+                <div className="counter-timeline-item counter-text-wrap">
                   <div className="icon">
                     <i className="flaticon-review" />
                   </div>
@@ -837,12 +705,7 @@ const Index = () => {
                 </div>
               </div>
               <div className="col-lg-4 col-sm-6">
-                <div
-                  className="counter-timeline-item counter-text-wrap"
-                  data-aos="fade-down"
-                  data-aos-duration={1000}
-                  data-aos-offset={50}
-                >
+                <div className="counter-timeline-item counter-text-wrap">
                   <div className="content">
                     <span
                       className="count-text k-plus"
@@ -867,13 +730,7 @@ const Index = () => {
                 </div>
               </div>
               <div className="col-lg-4 col-sm-6">
-                <div
-                  className="counter-timeline-item counter-text-wrap"
-                  data-aos="fade-up"
-                  data-aos-delay={400}
-                  data-aos-duration={1000}
-                  data-aos-offset={50}
-                >
+                <div className="counter-timeline-item counter-text-wrap">
                   <div className="icon">
                     <i className="flaticon-online-registration" />
                   </div>
@@ -912,12 +769,7 @@ const Index = () => {
         <div className="container">
           <div className="row gap-110 align-items-center">
             <div className="col-lg-6">
-              <div
-                className="mt-40 text-white management-content"
-                data-aos="fade-left"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="mt-40 text-white management-content">
                 <div className="section-title mb-30">
                   <h2>Take Effect Control of Business Management</h2>
                 </div>

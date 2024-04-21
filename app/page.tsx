@@ -193,12 +193,83 @@ const Index = () => {
         </div>
       </section>
       {/* Services Area End */}
+      {/* Client Logos Area Start */}
+      {/* <section className="client-logo-area">
+        <p className="text-center">Trusted By</p>
+        <div className="client-logo-wrap">
+          <div className="client-logo-item">
+            <a href="#">
+              <img
+                src="assets/images/client-logos/client-logo-two1.png"
+                alt="Client Logo"
+              />
+            </a>
+          </div>
+          <div className="client-logo-item">
+            <a href="#">
+              <img
+                src="assets/images/client-logos/client-logo-two2.png"
+                alt="Client Logo"
+              />
+            </a>
+          </div>
+          <div className="client-logo-item">
+            <a href="#">
+              <img
+                src="assets/images/client-logos/client-logo-two3.png"
+                alt="Client Logo"
+              />
+            </a>
+          </div>
+          <div className="client-logo-item">
+            <a href="#">
+              <img
+                src="assets/images/client-logos/client-logo-two4.png"
+                alt="Client Logo"
+              />
+            </a>
+          </div>
+          <div className="client-logo-item">
+            <a href="#">
+              <img
+                src="assets/images/client-logos/client-logo-two5.png"
+                alt="Client Logo"
+              />
+            </a>
+          </div>
+          <div className="client-logo-item">
+            <a href="#">
+              <img
+                src="assets/images/client-logos/client-logo-two6.png"
+                alt="Client Logo"
+              />
+            </a>
+          </div>
+          <div className="client-logo-item">
+            <a href="#">
+              <img
+                src="assets/images/client-logos/client-logo-two7.png"
+                alt="Client Logo"
+              />
+            </a>
+          </div>
+          <div className="client-logo-item">
+            <a href="#">
+              <img
+                src="assets/images/client-logos/client-logo-two8.png"
+                alt="Client Logo"
+              />
+            </a>
+          </div>
+        </div>
+      </section> */}
+      {/* Client Logos Area End */}
       {/* About Area Start */}
-      <section className="about-area py-90 rpy-60">
+      <section className="about-area">
         <div className="container">
           <div className="row gap-90 align-items-center">
             <div className="col-lg-6">
-              <div className="my-40 about-images">
+              <div className="about-images">
                 <img src="assets/images/about/about.jpg" alt="About" />
                 <div className="about-over">
                   <img src="assets/images/about/about2.png" alt="About" />
@@ -206,7 +277,7 @@ const Index = () => {
               </div>
             </div>
             <div className="col-lg-6">
-              <div className="mt-40 about-content rmt-15">
+              <div className="about-content rmt-15">
                 <div className="section-title mb-30">
                   <h2>Start your dream business today</h2>
                 </div>
@@ -236,7 +307,7 @@ const Index = () => {
                       </h5>
                       <div className="text">
                         Our friendly staff are constantly on deck to help you at
-                        every step
+                        every step of the way
                       </div>
                     </div>
                   </div>
@@ -349,132 +420,6 @@ const Index = () => {
         <TestimonialSlider />
       </section>
       {/* Management Area End */}
-
-      {/* Client Logos Area Start */}
-      <section className="client-logo-area pb-90 rpb-65">
-        <div
-          className="text-center section-title mb-60"
-          data-aos="fade-up"
-          data-aos-duration={1500}
-          data-aos-offset={50}
-        >
-          <h4>I’ve 1253+ Global Clients &amp; lot’s of Project Complete</h4>
-        </div>
-        <div className="client-logo-wrap">
-          <div
-            className="client-logo-item"
-            data-aos="fade-up"
-            data-aos-duration={1000}
-            data-aos-offset={50}
-          >
-            <a href="#">
-              <img
-                src="assets/images/client-logos/client-logo-two1.png"
-                alt="Client Logo"
-              />
-            </a>
-          </div>
-          <div
-            className="client-logo-item"
-            data-aos="fade-up"
-            data-aos-delay={100}
-            data-aos-duration={1000}
-            data-aos-offset={50}
-          >
-            <a href="#">
-              <img
-                src="assets/images/client-logos/client-logo-two2.png"
-                alt="Client Logo"
-              />
-            </a>
-          </div>
-          <div
-            className="client-logo-item"
-            data-aos="fade-up"
-            data-aos-delay={200}
-            data-aos-duration={1000}
-            data-aos-offset={50}
-          >
-            <a href="#">
-              <img
-                src="assets/images/client-logos/client-logo-two3.png"
-                alt="Client Logo"
-              />
-            </a>
-          </div>
-          <div
-            className="client-logo-item"
-            data-aos="fade-up"
-            data-aos-delay={300}
-            data-aos-duration={1000}
-            data-aos-offset={50}
-          >
-            <a href="#">
-              <img
-                src="assets/images/client-logos/client-logo-two4.png"
-                alt="Client Logo"
-              />
-            </a>
-          </div>
-          <div
-            className="client-logo-item"
-            data-aos="fade-up"
-            data-aos-delay={400}
-            data-aos-duration={1000}
-            data-aos-offset={50}
-          >
-            <a href="#">
-              <img
-                src="assets/images/client-logos/client-logo-two5.png"
-                alt="Client Logo"
-              />
-            </a>
-          </div>
-          <div
-            className="client-logo-item"
-            data-aos="fade-up"
-            data-aos-delay={500}
-            data-aos-duration={1000}
-            data-aos-offset={50}
-          >
-            <a href="#">
-              <img
-                src="assets/images/client-logos/client-logo-two6.png"
-                alt="Client Logo"
-              />
-            </a>
-          </div>
-          <div
-            className="client-logo-item"
-            data-aos="fade-up"
-            data-aos-delay={600}
-            data-aos-duration={1000}
-            data-aos-offset={50}
-          >
-            <a href="#">
-              <img
-                src="assets/images/client-logos/client-logo-two7.png"
-                alt="Client Logo"
-              />
-            </a>
-          </div>
-          <div
-            className="client-logo-item"
-            data-aos="fade-up"
-            data-aos-delay={700}
-            data-aos-duration={1000}
-            data-aos-offset={50}
-          >
-            <a href="#">
-              <img
-                src="assets/images/client-logos/client-logo-two8.png"
-                alt="Client Logo"
-              />
-            </a>
-          </div>
-        </div>
-      </section>
-      {/* Client Logos Area End */}
     </AkpagerLayout>
   );
 };

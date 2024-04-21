@@ -1,5 +1,6 @@
 import CompanyFormValues from "app/company/companyForm";
 import { useFieldArray } from "react-hook-form";
+import { DirectorField, ShareholderField } from "./types";
 
 type Args = {
   shareholderFieldsManager: ReturnType<
@@ -22,78 +23,76 @@ type Args = {
   additionOrder: ("director" | "shareholder")[];
 };
 
-const useHandleDirectorOrPublicOfficerDetails = (args: Args) => {
+type DirectororPublicOfficerField =
+  | { fieldDetails: DirectorField; type: "director" }
+  | { fieldDetails: ShareholderField; type: "shareholder" };
+
+type Return = {
+  fields: DirectororPublicOfficerField[];
+  handleAddDirector: (field: DirectorField) => void;
+  handleAddShareholder: (field: ShareholderField) => void;
+  handleRemoveDirector: (index: number) => void;
+  handleRemoveShareholder: (index: number) => void;
+};
+
+const useHandleDirectorOrPublicOfficerDetails = (args: Args): Return => {
   const {
     shareholderFieldsManager,
     directorFieldsManager,
     setAdditionOrder,
     additionOrder,
   } = args;
-  const {
-    fields: directorFields,
-    append: appendDirector,
-    remove: removeDirector,
-  } = directorFieldsManager;
-  const {
-    fields: shareholderFields,
-    append: appendShareholder,
-    remove: removeShareholder,
-  } = shareholderFieldsManager;
 
-  // Function to handle adding director
-  const handleAddDirector = (field: typeof directorFields) => {
-    appendDirector(field); // Assuming the director object is empty initially
+  const handleAddDirector = (field: DirectorField) => {
+    directorFieldsManager.append(field);
     setAdditionOrder((prevOrder) => [...prevOrder, "director"]);
   };
 
-  // Function to handle adding shareholder
-  const handleAddShareholder = (field: typeof shareholderFields) => {
-    appendShareholder(field); // Assuming the shareholder object is empty initially
+  const handleAddShareholder = (field: ShareholderField) => {
+    shareholderFieldsManager.append(field);
     setAdditionOrder((prevOrder) => [...prevOrder, "shareholder"]);
   };
 
-  const interleavedFields = additionOrder.map((type) => {
-    if (type === "director") {
-      return directorFieldsManager.fields.shift();
-    } else {
-      return shareholderFieldsManager.fields.shift();
+  const interleavedFields: DirectororPublicOfficerField[] = additionOrder.map(
+    (type, index) => {
+      if (type === "director" && index < directorFieldsManager.fields.length) {
+        return {
+          fieldDetails: directorFieldsManager.fields[index],
+          type: "director",
+        };
+      } else if (
+        type === "shareholder" &&
+        index < shareholderFieldsManager.fields.length
+      ) {
+        return {
+          fieldDetails: shareholderFieldsManager.fields[index],
+          type: "shareholder",
+        };
+      }
+      throw new Error("Invalid type or out of bounds access"); // handle potential errors
     }
-  });
+  );
 
   const handleRemoveDirector = (index: number) => {
-    // Find the actual index in the original directors array
-    const actualIndex = directorFields.findIndex(
-      (field) => field.id === interleavedFields[index].id
+    const id = interleavedFields[index].fieldDetails.id;
+    const actualIndex = directorFieldsManager.fields.findIndex(
+      (field) => field.id === id
     );
-
-    if (actualIndex <= -1) throw new Error("Director not found");
-
-    removeDirector(actualIndex);
-    // Update the additionOrder to remove the corresponding entry
-    const updatedOrder = additionOrder.filter(
-      (type, idx) =>
-        !(type === "director" && directorFields[actualIndex] && idx === index)
-    );
-    setAdditionOrder(updatedOrder);
+    if (actualIndex > -1) {
+      directorFieldsManager.remove(actualIndex);
+      setAdditionOrder((order) => order.filter((type, idx) => idx !== index));
+    }
   };
 
   const handleRemoveShareholder = (index: number) => {
-    // Find the actual index in the original shareholders array
-    const actualIndex = shareholderFields.findIndex(
-      (field) => field.id === interleavedFields[index].id
+    const id = interleavedFields[index].fieldDetails.id;
+    const actualIndex = shareholderFieldsManager.fields.findIndex(
+      (field) => field.id === id
     );
-    if (actualIndex <= -1) throw new Error("Shareholder not found");
-    removeShareholder(actualIndex);
-    // Update the additionOrder to remove the corresponding entry
-    const updatedOrder = additionOrder.filter(
-      (type, idx) =>
-        !(
-          type === "shareholder" &&
-          shareholderFields[actualIndex] &&
-          idx === index
-        )
-    );
-    setAdditionOrder(updatedOrder);
+    if (actualIndex > -1) {
+      shareholderFieldsManager.remove(actualIndex);
+      setAdditionOrder((order) => order.filter((type, idx) => idx !== index));
+    }
   };
 
   return {
@@ -104,5 +103,4 @@ const useHandleDirectorOrPublicOfficerDetails = (args: Args) => {
     handleRemoveShareholder,
   };
 };
-
 export default useHandleDirectorOrPublicOfficerDetails;

@@ -1,8 +1,9 @@
-import { zip } from "radash";
 import { useState } from "react";
 import { useFieldArray } from "react-hook-form";
 import { useCompanyFormContext } from "../../CompanyFormContext";
 import PartnerShipDetailsFormPartLayout from "../../PartnershipDetailsFormPartLayout";
+import DirectorDetails from "./DirectorDetails";
+import ShareholderDetails from "./ShareholderDetails";
 import useHandleDirectorOrPublicOfficerDetails from "./useHandleDirectorOrPublicOfficerDetails";
 
 const DirectorAndPublicOfficerDetails = () => {
@@ -44,8 +45,24 @@ const DirectorAndPublicOfficerDetails = () => {
 
   return (
     <PartnerShipDetailsFormPartLayout header="Director Details" step={2}>
-      {zip(fields, additionOrder).map(([field, type], index) => {
-        return type;
+      {fields.map(({ fieldDetails, type }, index) => {
+        return type === "director" ? (
+          <DirectorDetails
+            key={fieldDetails.id}
+            index={index}
+            field={fieldDetails}
+            handleAddDirector={handleAddDirector}
+            handleRemoveDirector={handleRemoveDirector}
+          />
+        ) : (
+          <ShareholderDetails
+            key={fieldDetails.id}
+            index={index}
+            field={fieldDetails}
+            handleAddShareholder={handleAddShareholder}
+            handleRemoveShareholder={handleRemoveShareholder}
+          />
+        );
       })}
     </PartnerShipDetailsFormPartLayout>
   );

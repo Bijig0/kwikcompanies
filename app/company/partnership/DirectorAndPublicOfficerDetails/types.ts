@@ -31,4 +31,6 @@ export type ShareholderFieldsManager = ReturnType<
 >;
 
 export type DirectorFields = DirectorFieldsManager["fields"];
+export type DirectorField = DirectorFields[number];
 export type ShareholderFields = ShareholderFieldsManager["fields"];
+export type ShareholderField = ShareholderFields[number];

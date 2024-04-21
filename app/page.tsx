@@ -67,7 +67,7 @@ const Index = () => {
             <div className="row justify-content-center">
               <div className="col-xl-4 col-md-6">
                 <div className="iconic-box">
-                  <div className="icon">
+                  <div className="mb-4 icon">
                     <img
                       src="https://abnregistration.com.au/assets/images/icons/mark-icon-1.png"
                       alt="Shape"
@@ -77,12 +77,12 @@ const Index = () => {
                   <div className="content">
                     <h4>
                       <Link legacyBehavior href="service-details">
-                        Best Quality Services
+                        Registered ASIC Agent #29963
                       </Link>
                     </h4>
                     <p>
-                      Sed ut perspiciatis unde omnis iste natus error sit
-                      voluptatem
+                      We handle dealing with ASIC when registering your business
+                      name
                     </p>
                     <hr />
                     <Link legacyBehavior href="/service-details">
@@ -101,18 +101,22 @@ const Index = () => {
               </div>
               <div className="col-xl-4 col-md-6">
                 <div className="iconic-box">
-                  <div className="icon">
-                    <i className="flaticon-idea" />
+                  <div className="mb-4 icon">
+                    <img
+                      src="https://abnregistration.com.au/assets/images/icons/mark-icon-2.png"
+                      alt="Shape"
+                      className="w-20"
+                    />
                   </div>
                   <div className="content">
                     <h4>
                       <Link legacyBehavior href="service-details">
-                        Innovation Ideas
+                        Registered Tax Agent #03631006
                       </Link>
                     </h4>
                     <p>
-                      Sed ut perspiciatis unde omnis iste natus error sit
-                      voluptatem
+                      Authorised to handle your business registration with the
+                      ATO
                     </p>
                     <hr />
                     <Link legacyBehavior href="/service-details">
@@ -131,19 +135,20 @@ const Index = () => {
               </div>
               <div className="col-xl-4 col-md-6">
                 <div className="iconic-box">
-                  <div className="icon">
-                    <i className="flaticon-earning" />
+                  <div className="mb-4 icon">
+                    <img
+                      src="https://abnregistration.com.au/assets/images/icons/iso-icon.png"
+                      alt="Shape"
+                      className="w-20"
+                    />
                   </div>
                   <div className="content">
                     <h4>
                       <Link legacyBehavior href="service-details">
-                        Business Growth
+                        ISO27001:2013 Certificate #AIT1019
                       </Link>
                     </h4>
-                    <p>
-                      Sed ut perspiciatis unde omnis iste natus error sit
-                      voluptatem
-                    </p>
+                    <p>Certified information security management systems</p>
                     <hr />
                     <Link legacyBehavior href="/service-details">
                       <a className="read-more">

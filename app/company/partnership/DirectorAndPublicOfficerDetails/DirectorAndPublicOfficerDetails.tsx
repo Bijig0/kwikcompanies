@@ -60,6 +60,7 @@ const DirectorAndPublicOfficerDetails = () => {
             index={index}
             field={fieldDetails}
             handleAddDirector={handleAddDirector}
+            handleAddShareholder={handleAddShareholder}
             handleRemoveDirector={handleRemoveDirector}
           />
         ) : (

@@ -3,12 +3,14 @@ import CompanyFormProvider, {
   useCompanyFormContext,
 } from "app/company/CompanyFormContext";
 import { createEmptyDirectorDetails } from "app/company/createEmptyDirectorDetails";
+import { createEmptyShareholderDetails } from "app/company/createEmptyShareholderDetails";
 import { titles } from "app/contact/soleTraderForm";
 import countries from "app/types/countries";
 import { Button } from "react-bootstrap";
 import { Controller } from "react-hook-form";
 import {
   AppendDirectorParams,
+  AppendShareholderParams,
   DirectorField,
   RemoveDirectorParams,
   numberText,
@@ -18,11 +20,18 @@ type Props = {
   index: number;
   field: DirectorField;
   handleAddDirector: (field: AppendDirectorParams) => void;
+  handleAddShareholder: (field: AppendShareholderParams) => void;
   handleRemoveDirector: (index: RemoveDirectorParams) => void;
 };
 
 const DirectorDetails = (props: Props) => {
-  const { index, field, handleAddDirector, handleRemoveDirector } = props;
+  const {
+    index,
+    field,
+    handleAddDirector,
+    handleAddShareholder,
+    handleRemoveDirector,
+  } = props;
   const {
     formManager: { control, watch, register },
   } = useCompanyFormContext();
@@ -40,7 +49,6 @@ const DirectorDetails = (props: Props) => {
         <label className="font-semibold text-black text-md" htmlFor="name">
           Will you be the only director?
         </label>
-        <p>{String(isOnlyDirector)}</p>
         <div className="flex flex-col">
           {["Yes", "No"].map((option) => (
             <label key={option} className="inline-flex items-center">
@@ -239,7 +247,18 @@ const DirectorDetails = (props: Props) => {
       </div>
 
       <div className="flex justify-start gap-2">
-        <Button onClick={() => handleAddDirector(createEmptyDirectorDetails())}>
+        <Button
+          data-show={isOnlyDirector}
+          className="hidden data-[show=true]:block"
+          onClick={() => handleAddDirector(createEmptyDirectorDetails())}
+        >
+          Add Director
+        </Button>
+        <Button
+          data-show={!isOnlyShareholder}
+          className="hidden data-[show=true]:block"
+          onClick={() => handleAddShareholder(createEmptyShareholderDetails())}
+        >
           Add Shareholder
         </Button>
         <Button

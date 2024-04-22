@@ -265,7 +265,7 @@ const Index = () => {
       </section> */}
       {/* Client Logos Area End */}
       {/* About Area Start */}
-      <section className="about-area">
+      <section className="py-24 about-area">
         <div className="container">
           <div className="row gap-90 align-items-center">
             <div className="col-lg-6">
@@ -278,7 +278,7 @@ const Index = () => {
             </div>
             <div className="col-lg-6">
               <div className="about-content rmt-15">
-                <div className="section-title mb-30">
+                <div className="mt-8 section-title mb-30">
                   <h2>Start your dream business today</h2>
                 </div>
                 <p>

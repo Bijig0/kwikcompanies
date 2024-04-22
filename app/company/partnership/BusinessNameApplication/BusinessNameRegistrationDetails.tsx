@@ -1,9 +1,9 @@
 import { useCompanyFormContext } from "app/company/CompanyFormContext";
+import PartnershipFormProvider from "app/partnership/PartnerShipFormContext";
 import {
   australianStates,
   registrationPeriods,
-} from "app/contact/soleTraderForm";
-import PartnershipFormProvider from "app/partnership/PartnerShipFormContext";
+} from "app/sole-trader/soleTraderForm";
 import countries from "app/types/countries";
 
 const text = {

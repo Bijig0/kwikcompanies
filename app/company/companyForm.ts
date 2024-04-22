@@ -1,4 +1,4 @@
-import { businessHistories } from "app/contact/soleTraderForm";
+import { businessHistories } from "app/sole-trader/soleTraderForm";
 import { Country } from "app/types/countries";
 import { useForm } from "react-hook-form";
 import { Title } from "./individual";

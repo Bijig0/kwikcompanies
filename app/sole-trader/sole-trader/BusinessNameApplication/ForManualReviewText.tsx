@@ -1,14 +1,13 @@
-import { useSoleTraderFormContext } from "app/contact/SoleTraderFormContext";
+import { useSoleTraderFormContext } from "app/sole-trader/SoleTraderFormContext";
 import { Button } from "react-bootstrap";
 import { Controller } from "react-hook-form";
-import { CiCircleCheck } from "react-icons/ci";
 import BusinessNameRegistrationDetails from "./BusinessNameRegistrationDetails";
 
 type Props = {
   resetSearch: () => void;
 };
 
-const AvailableText = (props: Props) => {
+const ForManualReviewText = (props: Props) => {
   const { resetSearch } = props;
   const {
     formManager: { control, register, watch, setValue, getValues },
@@ -26,20 +25,19 @@ const AvailableText = (props: Props) => {
   const showText = !Boolean(watch("isRegisteringBusinessName.answer"));
 
   return (
-    <div>
-      <div
-        data-show={showText}
-        className="flex items-center justify-start gap-2 hidden data-[show=true]:block"
-      >
-        <CiCircleCheck width={20} height={20} className="text-green-700" />
-        <p className="p-0 m-0 text-lg font-semibold text-green-700">
-          Congratulations! This business name is available!
+    <>
+      <div className="flex items-center justify-start gap-2">
+        <p
+          data-show={showText}
+          className="p-0 m-0 text-lg font-semibold text-green-700 hidden data-[show=true]:block"
+        >
+          Your name may be available. Secure it before someone else does.
         </p>
       </div>
       <div className="my-2" />
-      <p data-show={showText} className="hidden text-sm data-[show=true]:block">
-        The business name above is still available and you <br /> may secure it
-        now from just $99 per year.
+      <p data-show={showText} className="text-sm hidden data-[show=true]:block">
+        This business name will be reviewed by our specialist team before final
+        registration.
       </p>
       <div className="flex items-center justify-start gap-3">
         <Controller
@@ -68,8 +66,8 @@ const AvailableText = (props: Props) => {
       {watch("isRegisteringBusinessName.answer") && (
         <BusinessNameRegistrationDetails />
       )}
-    </div>
+    </>
   );
 };
 
-export default AvailableText;
+export default ForManualReviewText;

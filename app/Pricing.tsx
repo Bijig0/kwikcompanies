@@ -30,7 +30,7 @@ const page = () => {
                     <div className="text">
                       For contractors or sole business owners
                     </div>
-                    <a href="#" className="theme-btn">
+                    <a href={Urls["Choose Structure"]} className="theme-btn">
                       Register Now! <i className="far fa-arrow-right" />
                     </a>
                     <h4 className="title">Sole Trader ABN Registration</h4>
@@ -60,7 +60,7 @@ const page = () => {
                       <span className="prev">$</span>39
                     </div>
                     <div className="text">For families/partnerships</div>
-                    <a href="#" className="theme-btn">
+                    <a href={Urls["Choose Structure"]} className="theme-btn">
                       Register Now! <i className="far fa-arrow-right" />
                     </a>
                     <h4 className="title">Partnership ABN Registration</h4>
@@ -90,7 +90,7 @@ const page = () => {
                       <span className="prev">$</span>59
                     </div>
                     <div className="text">Corporate industry</div>
-                    <a href="#" className="theme-btn">
+                    <a href={Urls["Choose Structure"]} className="theme-btn">
                       Register Now! <i className="far fa-arrow-right" />
                     </a>
                     <h4 className="title">Company Registration</h4>

@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import createSearchForBusinessUrl from "app/contact/createSearchForBusinessUrl/createSearchForBusinessUrl";
+import createSearchForBusinessUrl from "app/sole-trader/createSearchForBusinessUrl/createSearchForBusinessUrl";
 import { z } from "zod";
 
 export const KNOWN_STATUSES = [

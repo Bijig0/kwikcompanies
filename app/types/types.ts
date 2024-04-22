@@ -1,9 +1,9 @@
 import { TCompanyFormContext } from "app/company/CompanyFormContext";
 import CompanyFormValues from "app/company/companyForm";
-import { TSoleTraderFormContext } from "app/contact/SoleTraderFormContext";
-import SoleTraderFormValues from "app/contact/soleTraderForm";
 import { TPartnershipFormContext } from "app/partnership/PartnerShipFormContext";
 import PartnerShipFormValues from "app/partnership/partnershipForm";
+import { TSoleTraderFormContext } from "app/sole-trader/SoleTraderFormContext";
+import SoleTraderFormValues from "app/sole-trader/soleTraderForm";
 import { useForm } from "react-hook-form";
 
 export const titles = ["Mr", "Mrs", "Miss", "Ms", "Dr", "Other"] as const;

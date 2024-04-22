@@ -2,7 +2,7 @@
 import ErrorText from "@components/ErrorText";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { useBoolean } from "@utils/useBoolean";
-import { SoleTraderTextInput } from "app/contact/SoleTraderFormComponents";
+import { SoleTraderTextInput } from "app/sole-trader/SoleTraderFormComponents";
 import React from "react";
 import { Button, Spinner } from "react-bootstrap";
 import { Controller } from "react-hook-form";

@@ -406,7 +406,7 @@ const Index = () => {
       {/* Counter TimeLine Area End */}
       {/* Management Area Start */}
       <section
-        className="py-32 management-area bgp-bottom bgc-navyblue md:py-60"
+        className="py-32 management-area bgp-bottom bgc-navyblue md:pt-60"
         style={{
           backgroundImage: "url(assets/images/backgrounds/wave-shape.png)",
         }}

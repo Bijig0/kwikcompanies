@@ -1,10 +1,10 @@
-import {
-  australianStates,
-  registrationPeriods,
-} from "app/contact/soleTraderForm";
 import PartnershipFormProvider, {
   usePartnershipFormContext,
 } from "app/partnership/PartnerShipFormContext";
+import {
+  australianStates,
+  registrationPeriods,
+} from "app/sole-trader/soleTraderForm";
 import countries from "app/types/countries";
 
 const text = {

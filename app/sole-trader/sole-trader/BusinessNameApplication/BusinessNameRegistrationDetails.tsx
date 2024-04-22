@@ -1,12 +1,12 @@
 import {
   SoleTraderSelect,
   SoleTraderTextInput,
-} from "app/contact/SoleTraderFormComponents";
-import { useSoleTraderFormContext } from "app/contact/SoleTraderFormContext";
+} from "app/sole-trader/SoleTraderFormComponents";
+import { useSoleTraderFormContext } from "app/sole-trader/SoleTraderFormContext";
 import {
   australianStates,
   registrationPeriods,
-} from "app/contact/soleTraderForm";
+} from "app/sole-trader/soleTraderForm";
 import countries from "app/types/countries";
 
 const text = {

@@ -1,4 +1,4 @@
-import { titles } from "app/contact/soleTraderForm";
+import { titles } from "app/sole-trader/soleTraderForm";
 import countries from "app/types/countries";
 import { Button } from "react-bootstrap";
 import { Controller, useFieldArray } from "react-hook-form";

@@ -1,5 +1,5 @@
 import { useBoolean } from "@utils/useBoolean";
-import { useSoleTraderFormContext } from "app/contact/SoleTraderFormContext";
+import { useSoleTraderFormContext } from "app/sole-trader/SoleTraderFormContext";
 import { useEffect } from "react";
 import { queryClient } from "../queryClient";
 

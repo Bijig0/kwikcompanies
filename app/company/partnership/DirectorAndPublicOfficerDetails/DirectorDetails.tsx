@@ -4,7 +4,7 @@ import CompanyFormProvider, {
 } from "app/company/CompanyFormContext";
 import { createEmptyDirectorDetails } from "app/company/createEmptyDirectorDetails";
 import { createEmptyShareholderDetails } from "app/company/createEmptyShareholderDetails";
-import { titles } from "app/contact/soleTraderForm";
+import { titles } from "app/sole-trader/soleTraderForm";
 import countries from "app/types/countries";
 import { Button } from "react-bootstrap";
 import { Controller } from "react-hook-form";

@@ -1,10 +1,10 @@
 "use client";
 import { sliderProps } from "@utils/sliderProps";
-import { Fragment } from "react";
+import { Button } from "react-bootstrap";
 import Slider from "react-slick";
 const TestimonialSlider = () => {
   return (
-    <Fragment>
+    <div className="relative">
       <Slider
         {...sliderProps.marqueeSliderRight}
         className="marquee-slider-right testi-slider-right"
@@ -88,91 +88,10 @@ const TestimonialSlider = () => {
           </div>
         </div>
       </Slider>
-      <Slider
-        {...sliderProps.marqueeSliderLeft}
-        className="marquee-slider-left testi-slider-left"
-        dir="rtl"
-      >
-        <div className="testimonial-item">
-          <div className="author">
-            <div className="image">
-              <img src="assets/images/testimonials/author5.png" alt="Author" />
-            </div>
-            <div className="title">
-              <b>Joseph D. Tucker / </b> Consultant
-            </div>
-          </div>
-          <div className="author-text">
-            At vero eoset accusamus iusto dignissimos ducimus blanditiis
-            praesentium voluptatume delenitie corruptie dolores molestias
-          </div>
-          <div className="testi-footer">
-            <div className="ratting">
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-            </div>
-            <span className="text">
-              <span>4.7/5</span> on Trustpilot
-            </span>
-          </div>
-        </div>
-        <div className="testimonial-item">
-          <div className="author">
-            <div className="image">
-              <img src="assets/images/testimonials/author6.png" alt="Author" />
-            </div>
-            <div className="title">
-              <b>Wiley D. Swanson / </b> Businessman
-            </div>
-          </div>
-          <div className="author-text">
-            At vero eoset accusamus iusto dignissimos ducimus blanditiis
-            praesentium voluptatume delenitie corruptie dolores molestias
-          </div>
-          <div className="testi-footer">
-            <div className="ratting">
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-            </div>
-            <span className="text">
-              <span>4.7/5</span> on Trustpilot
-            </span>
-          </div>
-        </div>
-        <div className="testimonial-item">
-          <div className="author">
-            <div className="image">
-              <img src="assets/images/testimonials/author7.png" alt="Author" />
-            </div>
-            <div className="title">
-              <b>Steven J. Ung / </b> JR Manager
-            </div>
-          </div>
-          <div className="author-text">
-            At vero eoset accusamus iusto dignissimos ducimus blanditiis
-            praesentium voluptatume delenitie corruptie dolores molestias
-          </div>
-          <div className="testi-footer">
-            <div className="ratting">
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-            </div>
-            <span className="text">
-              <span>4.7/5</span> on Trustpilot
-            </span>
-          </div>
-        </div>
-      </Slider>
-    </Fragment>
+      <Button className="theme-btn absolute bottom-[300px] left-1/2 -translate-x-1/2">
+        Read More Reviews
+      </Button>
+    </div>
   );
 };
 export default TestimonialSlider;

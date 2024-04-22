@@ -4,7 +4,6 @@ import { createClient } from "@utils/supabase/server";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import Pricing from "./Pricing";
-import Pricing2 from "./Pricing2";
 import { Urls } from "./types/urls";
 
 const TestimonialSlider = dynamic(
@@ -398,7 +397,7 @@ const Index = async () => {
       {/* Counter TimeLine Area End */}
       {/* Management Area Start */}
       <section
-        className="py-32 management-area bgp-bottom bgc-navyblue md:pt-60"
+        className="px-4 py-32 management-area bgp-bottom bgc-navyblue md:pt-60"
         style={{
           backgroundImage: "url(assets/images/backgrounds/wave-shape.png)",
         }}
@@ -413,7 +412,7 @@ const Index = async () => {
         <TestimonialSlider />
       </section>
       <Pricing />
-      <Pricing2 user={null} subscription={null} products={products} />
+      {/* <Pricing2 user={null} subscription={null} products={products} /> */}
       {/* Management Area End */}
     </AkpagerLayout>
   );

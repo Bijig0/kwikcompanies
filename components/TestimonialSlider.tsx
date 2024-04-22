@@ -1,177 +1,290 @@
 "use client";
 import { sliderProps } from "@utils/sliderProps";
 import { Fragment } from "react";
+import MediaQuery from "react-responsive";
 import Slider from "react-slick";
 const TestimonialSlider = () => {
+  const tabletWidth = 760;
   return (
     <Fragment>
-      <Slider
-        {...sliderProps.marqueeSliderRight}
-        className="marquee-slider-right testi-slider-right"
-      >
-        <div className="testimonial-item">
-          <div className="author">
-            <div className="image">
-              <img src="assets/images/testimonials/author1.png" alt="Author" />
+      <MediaQuery maxWidth={tabletWidth}>
+        <div>
+          <div className="testimonial-item">
+            <div className="author">
+              <div className="image">
+                <img
+                  src="assets/images/testimonials/author1.png"
+                  alt="Author"
+                />
+              </div>
+              <div className="title">
+                <b>Dennis J. Lester /</b> CEO &amp; Founder
+              </div>
             </div>
-            <div className="title">
-              <b>Dennis J. Lester /</b> CEO &amp; Founder
+            <div className="author-text">
+              At vero eoset accusamus iusto dignissimos ducimus blanditiis
+              praesentium voluptatume delenitie corruptie dolores molestias
+            </div>
+            <div className="testi-footer">
+              <div className="ratting">
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+              </div>
+              <span className="text">
+                <span>4.7/5</span> on Trustpilot
+              </span>
             </div>
           </div>
-          <div className="author-text">
-            At vero eoset accusamus iusto dignissimos ducimus blanditiis
-            praesentium voluptatume delenitie corruptie dolores molestias
-          </div>
-          <div className="testi-footer">
-            <div className="ratting">
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
+          <div className="testimonial-item">
+            <div className="author">
+              <div className="image">
+                <img
+                  src="assets/images/testimonials/author1.png"
+                  alt="Author"
+                />
+              </div>
+              <div className="title">
+                <b>Dennis J. Lester /</b> CEO &amp; Founder
+              </div>
             </div>
-            <span className="text">
-              <span>4.7/5</span> on Trustpilot
-            </span>
+            <div className="author-text">
+              At vero eoset accusamus iusto dignissimos ducimus blanditiis
+              praesentium voluptatume delenitie corruptie dolores molestias
+            </div>
+            <div className="testi-footer">
+              <div className="ratting">
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+              </div>
+              <span className="text">
+                <span>4.7/5</span> on Trustpilot
+              </span>
+            </div>
+          </div>{" "}
+          <div className="testimonial-item">
+            <div className="author">
+              <div className="image">
+                <img
+                  src="assets/images/testimonials/author1.png"
+                  alt="Author"
+                />
+              </div>
+              <div className="title">
+                <b>Dennis J. Lester /</b> CEO &amp; Founder
+              </div>
+            </div>
+            <div className="author-text">
+              At vero eoset accusamus iusto dignissimos ducimus blanditiis
+              praesentium voluptatume delenitie corruptie dolores molestias
+            </div>
+            <div className="testi-footer">
+              <div className="ratting">
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+              </div>
+              <span className="text">
+                <span>4.7/5</span> on Trustpilot
+              </span>
+            </div>
           </div>
         </div>
-        <div className="testimonial-item">
-          <div className="author">
-            <div className="image">
-              <img src="assets/images/testimonials/author2.png" alt="Author" />
+      </MediaQuery>
+      <MediaQuery minWidth={tabletWidth}>
+        <Slider
+          {...sliderProps.marqueeSliderRight}
+          className="marquee-slider-right testi-slider-right"
+        >
+          <div className="testimonial-item">
+            <div className="author">
+              <div className="image">
+                <img
+                  src="assets/images/testimonials/author1.png"
+                  alt="Author"
+                />
+              </div>
+              <div className="title">
+                <b>Dennis J. Lester /</b> CEO &amp; Founder
+              </div>
             </div>
-            <div className="title">
-              <b>Nicholas S. Moore /</b> Manager
+            <div className="author-text">
+              At vero eoset accusamus iusto dignissimos ducimus blanditiis
+              praesentium voluptatume delenitie corruptie dolores molestias
             </div>
-          </div>
-          <div className="author-text">
-            At vero eoset accusamus iusto dignissimos ducimus blanditiis
-            praesentium voluptatume delenitie corruptie dolores molestias
-          </div>
-          <div className="testi-footer">
-            <div className="ratting">
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-            </div>
-            <span className="text">
-              <span>4.7/5</span> on Trustpilot
-            </span>
-          </div>
-        </div>
-        <div className="testimonial-item">
-          <div className="author">
-            <div className="image">
-              <img src="assets/images/testimonials/author3.png" alt="Author" />
-            </div>
-            <div className="title">
-              <b>Mark S. Dearing /</b> Designer
-            </div>
-          </div>
-          <div className="author-text">
-            At vero eoset accusamus iusto dignissimos ducimus blanditiis
-            praesentium voluptatume delenitie corruptie dolores molestias
-          </div>
-          <div className="testi-footer">
-            <div className="ratting">
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-            </div>
-            <span className="text">
-              <span>4.7/5</span> on Trustpilot
-            </span>
-          </div>
-        </div>
-      </Slider>
-      <Slider
-        {...sliderProps.marqueeSliderLeft}
-        className="marquee-slider-left testi-slider-left"
-        dir="rtl"
-      >
-        <div className="testimonial-item">
-          <div className="author">
-            <div className="image">
-              <img src="assets/images/testimonials/author5.png" alt="Author" />
-            </div>
-            <div className="title">
-              <b>Joseph D. Tucker / </b> Consultant
+            <div className="testi-footer">
+              <div className="ratting">
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+              </div>
+              <span className="text">
+                <span>4.7/5</span> on Trustpilot
+              </span>
             </div>
           </div>
-          <div className="author-text">
-            At vero eoset accusamus iusto dignissimos ducimus blanditiis
-            praesentium voluptatume delenitie corruptie dolores molestias
-          </div>
-          <div className="testi-footer">
-            <div className="ratting">
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
+          <div className="testimonial-item">
+            <div className="author">
+              <div className="image">
+                <img
+                  src="assets/images/testimonials/author2.png"
+                  alt="Author"
+                />
+              </div>
+              <div className="title">
+                <b>Nicholas S. Moore /</b> Manager
+              </div>
             </div>
-            <span className="text">
-              <span>4.7/5</span> on Trustpilot
-            </span>
-          </div>
-        </div>
-        <div className="testimonial-item">
-          <div className="author">
-            <div className="image">
-              <img src="assets/images/testimonials/author6.png" alt="Author" />
+            <div className="author-text">
+              At vero eoset accusamus iusto dignissimos ducimus blanditiis
+              praesentium voluptatume delenitie corruptie dolores molestias
             </div>
-            <div className="title">
-              <b>Wiley D. Swanson / </b> Businessman
-            </div>
-          </div>
-          <div className="author-text">
-            At vero eoset accusamus iusto dignissimos ducimus blanditiis
-            praesentium voluptatume delenitie corruptie dolores molestias
-          </div>
-          <div className="testi-footer">
-            <div className="ratting">
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-            </div>
-            <span className="text">
-              <span>4.7/5</span> on Trustpilot
-            </span>
-          </div>
-        </div>
-        <div className="testimonial-item">
-          <div className="author">
-            <div className="image">
-              <img src="assets/images/testimonials/author7.png" alt="Author" />
-            </div>
-            <div className="title">
-              <b>Steven J. Ung / </b> JR Manager
+            <div className="testi-footer">
+              <div className="ratting">
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+              </div>
+              <span className="text">
+                <span>4.7/5</span> on Trustpilot
+              </span>
             </div>
           </div>
-          <div className="author-text">
-            At vero eoset accusamus iusto dignissimos ducimus blanditiis
-            praesentium voluptatume delenitie corruptie dolores molestias
-          </div>
-          <div className="testi-footer">
-            <div className="ratting">
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
-              <i className="fas fa-star" />
+          <div className="testimonial-item">
+            <div className="author">
+              <div className="image">
+                <img
+                  src="assets/images/testimonials/author3.png"
+                  alt="Author"
+                />
+              </div>
+              <div className="title">
+                <b>Mark S. Dearing /</b> Designer
+              </div>
             </div>
-            <span className="text">
-              <span>4.7/5</span> on Trustpilot
-            </span>
+            <div className="author-text">
+              At vero eoset accusamus iusto dignissimos ducimus blanditiis
+              praesentium voluptatume delenitie corruptie dolores molestias
+            </div>
+            <div className="testi-footer">
+              <div className="ratting">
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+              </div>
+              <span className="text">
+                <span>4.7/5</span> on Trustpilot
+              </span>
+            </div>
           </div>
-        </div>
-      </Slider>
+        </Slider>
+        <Slider
+          {...sliderProps.marqueeSliderLeft}
+          className="marquee-slider-left testi-slider-left"
+          dir="rtl"
+        >
+          <div className="testimonial-item">
+            <div className="author">
+              <div className="image">
+                <img
+                  src="assets/images/testimonials/author5.png"
+                  alt="Author"
+                />
+              </div>
+              <div className="title">
+                <b>Joseph D. Tucker / </b> Consultant
+              </div>
+            </div>
+            <div className="author-text">
+              At vero eoset accusamus iusto dignissimos ducimus blanditiis
+              praesentium voluptatume delenitie corruptie dolores molestias
+            </div>
+            <div className="testi-footer">
+              <div className="ratting">
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+              </div>
+              <span className="text">
+                <span>4.7/5</span> on Trustpilot
+              </span>
+            </div>
+          </div>
+          <div className="testimonial-item">
+            <div className="author">
+              <div className="image">
+                <img
+                  src="assets/images/testimonials/author6.png"
+                  alt="Author"
+                />
+              </div>
+              <div className="title">
+                <b>Wiley D. Swanson / </b> Businessman
+              </div>
+            </div>
+            <div className="author-text">
+              At vero eoset accusamus iusto dignissimos ducimus blanditiis
+              praesentium voluptatume delenitie corruptie dolores molestias
+            </div>
+            <div className="testi-footer">
+              <div className="ratting">
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+              </div>
+              <span className="text">
+                <span>4.7/5</span> on Trustpilot
+              </span>
+            </div>
+          </div>
+          <div className="testimonial-item">
+            <div className="author">
+              <div className="image">
+                <img
+                  src="assets/images/testimonials/author7.png"
+                  alt="Author"
+                />
+              </div>
+              <div className="title">
+                <b>Steven J. Ung / </b> JR Manager
+              </div>
+            </div>
+            <div className="author-text">
+              At vero eoset accusamus iusto dignissimos ducimus blanditiis
+              praesentium voluptatume delenitie corruptie dolores molestias
+            </div>
+            <div className="testi-footer">
+              <div className="ratting">
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+              </div>
+              <span className="text">
+                <span>4.7/5</span> on Trustpilot
+              </span>
+            </div>
+          </div>
+        </Slider>
+      </MediaQuery>
       <div className="flex justify-center mt-20">
         <a className="theme-btn">Read More Reviews</a>
       </div>

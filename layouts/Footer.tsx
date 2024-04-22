@@ -29,48 +29,7 @@ export default Footer;
 
 const DefaultFooter = () => {
   return (
-    <footer className="main-footer footer-one rel z-1 mt-100">
-      <div className="container">
-        <div className="footer-newsletter text-white">
-          <div className="row align-items-center justify-content-between">
-            <div className="col-lg-5">
-              <div
-                className="logo-part"
-                data-aos="fade-left"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
-                <div className="logo mb-10">
-                  <Link href="/">
-                    <img src="assets/images/logos/logo-white.png" alt="Logo" />
-                  </Link>
-                </div>
-                <p>Digital Business Consulting Agency</p>
-              </div>
-            </div>
-            <div className="col-xl-6 col-lg-7">
-              <div
-                className="form-part"
-                data-aos="fade-right"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
-                <h5>Subscribe Our Newsletter</h5>
-                <form className="newsletter-form mt-15" action="#">
-                  <input
-                    type="email"
-                    placeholder="Email Address"
-                    required={false}
-                  />
-                  <button type="submit">
-                    Sign Up <i className="far fa-arrow-right" />
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <footer className="pt-20 main-footer footer-one rel z-1 mt-100">
       <div className="container">
         <div className="row justify-content-between">
           <div className="col-xl-3 col-lg-4 col-sm-6">
@@ -210,7 +169,7 @@ const DefaultFooter = () => {
           <div className="row align-items-center">
             <div className="col-xl-4 col-lg-6">
               <div
-                className="copyright-text pt-10 text-lg-start text-center"
+                className="pt-10 text-center copyright-text text-lg-start"
                 data-aos="fade-left"
                 data-aos-duration={1000}
                 data-aos-offset={50}
@@ -223,7 +182,7 @@ const DefaultFooter = () => {
             </div>
             <div className="col-xl-8 col-lg-6">
               <div
-                className="footer-bottom-menu text-lg-end text-center"
+                className="text-center footer-bottom-menu text-lg-end"
                 data-aos="fade-right"
                 data-aos-duration={1000}
                 data-aos-offset={50}
@@ -268,7 +227,7 @@ const Footer2 = () => {
           <div className="row justify-content-center">
             <div className="col-xl-5 col-lg-7 mx-xl-3">
               <div
-                className="section-title mb-40 text-white text-center"
+                className="mb-40 text-center text-white section-title"
                 data-aos="fade-up"
                 data-aos-duration={1500}
                 data-aos-offset={50}
@@ -421,7 +380,7 @@ const Footer2 = () => {
         <div className="footer-bottom py-15">
           <div className="row align-items-center">
             <div className="col-xl-4 col-lg-6">
-              <div className="copyright-text pt-10 text-lg-start text-center">
+              <div className="pt-10 text-center copyright-text text-lg-start">
                 <p>
                   Copyright @2024, <Link href="/">Akpager </Link> All Rights
                   Reserved
@@ -429,7 +388,7 @@ const Footer2 = () => {
               </div>
             </div>
             <div className="col-xl-8 col-lg-6">
-              <div className="footer-bottom-menu text-lg-end text-center">
+              <div className="text-center footer-bottom-menu text-lg-end">
                 <ul>
                   <li>
                     <Link href="faqs">Faqs</Link>
@@ -470,7 +429,7 @@ const Footer3 = () => {
                 data-aos-duration={1500}
                 data-aos-offset={50}
               >
-                <div className="section-title text-white">
+                <div className="text-white section-title">
                   <h2>We’re Now Available On Store Download Our Apps</h2>
                   <p>No credit card requirement it’s full free for all</p>
                 </div>
@@ -546,7 +505,7 @@ const Footer3 = () => {
           <div className="row align-items-center">
             <div className="col-xl-4 col-lg-6">
               <div
-                className="copyright-text pt-10 text-lg-start text-center"
+                className="pt-10 text-center copyright-text text-lg-start"
                 data-aos="fade-left"
                 data-aos-duration={1500}
                 data-aos-offset={50}
@@ -559,7 +518,7 @@ const Footer3 = () => {
             </div>
             <div className="col-xl-8 col-lg-6">
               <div
-                className="footer-bottom-logo text-lg-end text-center"
+                className="text-center footer-bottom-logo text-lg-end"
                 data-aos="fade-right"
                 data-aos-duration={1500}
                 data-aos-offset={50}
@@ -582,9 +541,9 @@ const Footer3 = () => {
 
 const Footer4 = () => {
   return (
-    <footer className="main-footer footer-four bg-black rel z-1">
+    <footer className="bg-black main-footer footer-four rel z-1">
       <div className="container pb-45">
-        <div className="footer-cta pt-50 pb-20 text-white">
+        <div className="pb-20 text-white footer-cta pt-50">
           <div
             className="logo"
             data-aos="fade-left"
@@ -774,7 +733,7 @@ const Footer4 = () => {
           <div className="row align-items-center">
             <div className="col-xl-4 col-lg-6">
               <div
-                className="copyright-text pt-10 text-lg-start text-center"
+                className="pt-10 text-center copyright-text text-lg-start"
                 data-aos="fade-left"
                 data-aos-duration={1500}
                 data-aos-offset={50}
@@ -787,7 +746,7 @@ const Footer4 = () => {
             </div>
             <div className="col-xl-8 col-lg-6">
               <div
-                className="footer-bottom-menu text-lg-end text-center"
+                className="text-center footer-bottom-menu text-lg-end"
                 data-aos="fade-right"
                 data-aos-duration={1500}
                 data-aos-offset={50}
@@ -821,9 +780,9 @@ const Footer4 = () => {
 
 const Footer5 = () => {
   return (
-    <footer className="main-footer footer-four bg-black rel z-1">
+    <footer className="bg-black main-footer footer-four rel z-1">
       <div className="container pb-45">
-        <div className="footer-cta pt-50 pb-20 text-white">
+        <div className="pb-20 text-white footer-cta pt-50">
           <div
             className="logo"
             data-aos="fade-left"
@@ -1013,7 +972,7 @@ const Footer5 = () => {
           <div className="row align-items-center">
             <div className="col-xl-4 col-lg-6">
               <div
-                className="copyright-text pt-10 text-lg-start text-center"
+                className="pt-10 text-center copyright-text text-lg-start"
                 data-aos="fade-left"
                 data-aos-duration={1500}
                 data-aos-offset={50}
@@ -1026,7 +985,7 @@ const Footer5 = () => {
             </div>
             <div className="col-xl-8 col-lg-6">
               <div
-                className="footer-bottom-menu text-lg-end text-center"
+                className="text-center footer-bottom-menu text-lg-end"
                 data-aos="fade-right"
                 data-aos-duration={1500}
                 data-aos-offset={50}
@@ -1062,7 +1021,7 @@ const Footer6 = () => {
   return (
     <footer className="main-footer footer-one rel z-1 mt-100">
       <div className="container">
-        <div className="footer-newsletter text-white">
+        <div className="text-white footer-newsletter">
           <div className="row align-items-center justify-content-between">
             <div className="col-lg-6">
               <div
@@ -1233,7 +1192,7 @@ const Footer6 = () => {
           <div className="row align-items-center">
             <div className="col-xl-4 col-lg-6">
               <div
-                className="copyright-text pt-10 text-lg-start text-center"
+                className="pt-10 text-center copyright-text text-lg-start"
                 data-aos="fade-left"
                 data-aos-duration={1500}
                 data-aos-offset={50}
@@ -1246,7 +1205,7 @@ const Footer6 = () => {
             </div>
             <div className="col-xl-8 col-lg-6">
               <div
-                className="footer-bottom-menu text-lg-end text-center"
+                className="text-center footer-bottom-menu text-lg-end"
                 data-aos="fade-right"
                 data-aos-duration={1500}
                 data-aos-offset={50}
@@ -1302,7 +1261,7 @@ const Footer7 = () => {
                 data-aos-duration={1500}
                 data-aos-offset={50}
               >
-                <Link href="contact" className="theme-btn mb-10">
+                <Link href="contact" className="mb-10 theme-btn">
                   Get Started Free <i className="far fa-arrow-right" />
                 </Link>
                 <p>No credit card required</p>
@@ -1453,7 +1412,7 @@ const Footer7 = () => {
         <div className="footer-bottom mt-30 py-15">
           <div className="row align-items-center">
             <div className="col-xl-4 col-lg-6">
-              <div className="copyright-text pt-10 text-lg-start text-center">
+              <div className="pt-10 text-center copyright-text text-lg-start">
                 <p>
                   Copyright @2024, <Link href="/">Akpager </Link> All Rights
                   Reserved
@@ -1461,7 +1420,7 @@ const Footer7 = () => {
               </div>
             </div>
             <div className="col-xl-8 col-lg-6">
-              <div className="footer-bottom-menu text-lg-end text-center">
+              <div className="text-center footer-bottom-menu text-lg-end">
                 <ul>
                   <li>
                     <Link href="faqs">Faqs</Link>
@@ -1497,9 +1456,9 @@ const Footer7 = () => {
 
 const Footer8 = () => {
   return (
-    <footer className="main-footer footer-six bgc-lighter text-black rel z-1">
+    <footer className="text-black main-footer footer-six bgc-lighter rel z-1">
       <div className="container">
-        <div className="footer-newsletter text-white">
+        <div className="text-white footer-newsletter">
           <div className="row align-items-center justify-content-between">
             <div className="col-lg-6">
               <div
@@ -1508,7 +1467,7 @@ const Footer8 = () => {
                 data-aos-duration={1500}
                 data-aos-offset={50}
               >
-                <span className="subtitle d-inline-block mb-5">
+                <span className="mb-5 subtitle d-inline-block">
                   Get more updates to join us
                 </span>
                 <h3>Subscribe our Newsletter</h3>
@@ -1680,7 +1639,7 @@ const Footer8 = () => {
           <div className="row align-items-center">
             <div className="col-xl-4 col-lg-6">
               <div
-                className="copyright-text pt-10 text-lg-start text-center"
+                className="pt-10 text-center copyright-text text-lg-start"
                 data-aos="fade-left"
                 data-aos-duration={1500}
                 data-aos-offset={50}
@@ -1693,7 +1652,7 @@ const Footer8 = () => {
             </div>
             <div className="col-xl-8 col-lg-6">
               <div
-                className="footer-bottom-menu text-lg-end text-center"
+                className="text-center footer-bottom-menu text-lg-end"
                 data-aos="fade-right"
                 data-aos-duration={1500}
                 data-aos-offset={50}
@@ -1727,7 +1686,7 @@ const Footer8 = () => {
 
 const Footer9 = () => {
   return (
-    <footer className="main-footer footer-five text-black pt-100 rel z-1">
+    <footer className="text-black main-footer footer-five pt-100 rel z-1">
       <div className="container">
         <div className="for-middle-border pb-50">
           <div className="row justify-content-between">
@@ -1839,7 +1798,7 @@ const Footer9 = () => {
           <div className="row align-items-center">
             <div className="col-xl-8 col-lg-6">
               <div
-                className="footer-bottom-logo mb-25 rmb-0 rmt-25 text-lg-start text-center"
+                className="text-center footer-bottom-logo mb-25 rmb-0 rmt-25 text-lg-start"
                 data-aos="fade-left"
                 data-aos-duration={1500}
                 data-aos-offset={50}
@@ -1851,7 +1810,7 @@ const Footer9 = () => {
             </div>
             <div className="col-xl-4 col-lg-6">
               <div
-                className="copyright-text mb-25 pt-10 text-lg-end text-center"
+                className="pt-10 text-center copyright-text mb-25 text-lg-end"
                 data-aos="fade-right"
                 data-aos-duration={1500}
                 data-aos-offset={50}

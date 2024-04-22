@@ -33,12 +33,7 @@ const DefaultFooter = () => {
       <div className="container">
         <div className="row justify-content-between">
           <div className="col-xl-3 col-lg-4 col-sm-6">
-            <div
-              className="footer-widget widget-about"
-              data-aos="fade-up"
-              data-aos-duration={1500}
-              data-aos-offset={50}
-            >
+            <div className="footer-widget widget-about">
               <h6 className="footer-title">About Company</h6>
               <p>
                 Doloremque laudantium tota aperiam eaque abillo inventore
@@ -61,13 +56,7 @@ const DefaultFooter = () => {
             </div>
           </div>
           <div className="col-xl-3 col-lg-4 col-sm-6 order-xl-2">
-            <div
-              className="footer-widget widget-contact"
-              data-aos="fade-up"
-              data-aos-delay={400}
-              data-aos-duration={1500}
-              data-aos-offset={50}
-            >
+            <div className="footer-widget widget-contact">
               <h6 className="footer-title">Contact</h6>
               <ul>
                 <li>
@@ -88,13 +77,7 @@ const DefaultFooter = () => {
           <div className="col-xl-6">
             <div className="row">
               <div className="col-sm-4 col-6">
-                <div
-                  className="footer-widget widget-links"
-                  data-aos="fade-up"
-                  data-aos-delay={100}
-                  data-aos-duration={1500}
-                  data-aos-offset={50}
-                >
+                <div className="footer-widget widget-links">
                   <h6 className="footer-title">Resources</h6>
                   <ul>
                     <li>
@@ -113,13 +96,7 @@ const DefaultFooter = () => {
                 </div>
               </div>
               <div className="col-sm-4 col-6">
-                <div
-                  className="footer-widget widget-links"
-                  data-aos="fade-up"
-                  data-aos-delay={200}
-                  data-aos-duration={1500}
-                  data-aos-offset={50}
-                >
+                <div className="footer-widget widget-links">
                   <h6 className="footer-title">Quick Link</h6>
                   <ul>
                     <li>
@@ -138,13 +115,7 @@ const DefaultFooter = () => {
                 </div>
               </div>
               <div className="col-sm-4 col-6">
-                <div
-                  className="footer-widget widget-links"
-                  data-aos="fade-up"
-                  data-aos-delay={300}
-                  data-aos-duration={1500}
-                  data-aos-offset={50}
-                >
+                <div className="footer-widget widget-links">
                   <h6 className="footer-title">Company</h6>
                   <ul>
                     <li>
@@ -168,12 +139,7 @@ const DefaultFooter = () => {
         <div className="footer-bottom mt-30 py-15">
           <div className="row align-items-center">
             <div className="col-xl-4 col-lg-6">
-              <div
-                className="pt-10 text-center copyright-text text-lg-start"
-                data-aos="fade-left"
-                data-aos-duration={1000}
-                data-aos-offset={50}
-              >
+              <div className="pt-10 text-center copyright-text text-lg-start">
                 <p>
                   Copyright @2024, <Link href="/">Akpager </Link> All Rights
                   Reserved
@@ -181,12 +147,7 @@ const DefaultFooter = () => {
               </div>
             </div>
             <div className="col-xl-8 col-lg-6">
-              <div
-                className="text-center footer-bottom-menu text-lg-end"
-                data-aos="fade-right"
-                data-aos-duration={1000}
-                data-aos-offset={50}
-              >
+              <div className="text-center footer-bottom-menu text-lg-end">
                 <ul>
                   <li>
                     <Link href="faqs">Faqs</Link>
@@ -226,12 +187,7 @@ const Footer2 = () => {
         <div className="footer-top-newsletter pt-120 rpt-100 mb-120 rmb-100">
           <div className="row justify-content-center">
             <div className="col-xl-5 col-lg-7 mx-xl-3">
-              <div
-                className="mb-40 text-center text-white section-title"
-                data-aos="fade-up"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="mb-40 text-center text-white section-title">
                 <h2>
                   Join Our Newsletter to Get <span>Updates</span>
                 </h2>
@@ -239,14 +195,7 @@ const Footer2 = () => {
               </div>
             </div>
             <div className="col-xl-7 col-lg-8">
-              <form
-                className="newsletter-form style-three"
-                action="#"
-                data-aos="fade-up"
-                data-aos-delay={200}
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <form className="newsletter-form style-three" action="#">
                 <input type="email" placeholder="Email Address" required="" />
                 <button type="submit">
                   Register <i className="far fa-arrow-right" />
@@ -260,12 +209,7 @@ const Footer2 = () => {
         <div className="footer-inner">
           <div className="row justify-content-between">
             <div className="col-xl-2 col-lg-12 col-sm-6">
-              <div
-                className="footer-widget widget-logo"
-                data-aos="fade-up"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="footer-widget widget-logo">
                 <div className="footer-logo">
                   <Link href="/">
                     <img src="assets/images/logos/logo-white2.png" alt="Logo" />
@@ -274,13 +218,7 @@ const Footer2 = () => {
               </div>
             </div>
             <div className="col-xl-2 col-lg-3 col-sm-4 col-6">
-              <div
-                className="footer-widget widget-links"
-                data-aos="fade-up"
-                data-aos-delay={100}
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="footer-widget widget-links">
                 <h6 className="footer-title">Resources</h6>
                 <ul>
                   <li>
@@ -299,13 +237,7 @@ const Footer2 = () => {
               </div>
             </div>
             <div className="col-xl-2 col-lg-3 col-sm-4 col-6">
-              <div
-                className="footer-widget widget-links"
-                data-aos="fade-up"
-                data-aos-delay={200}
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="footer-widget widget-links">
                 <h6 className="footer-title">Quick Link</h6>
                 <ul>
                   <li>
@@ -324,13 +256,7 @@ const Footer2 = () => {
               </div>
             </div>
             <div className="col-xl-2 col-lg-3 col-sm-4 col-6">
-              <div
-                className="footer-widget widget-links"
-                data-aos="fade-up"
-                data-aos-delay={300}
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="footer-widget widget-links">
                 <h6 className="footer-title">Company</h6>
                 <ul>
                   <li>
@@ -349,13 +275,7 @@ const Footer2 = () => {
               </div>
             </div>
             <div className="col-xl-2 col-lg-3 col-sm-4 col-6">
-              <div
-                className="footer-widget widget-links"
-                data-aos="fade-up"
-                data-aos-delay={400}
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="footer-widget widget-links">
                 <h6 className="footer-title">Social</h6>
                 <ul>
                   <li>
@@ -423,12 +343,7 @@ const Footer3 = () => {
         <div className="for-middle-border pb-50">
           <div className="row justify-content-between">
             <div className="col-xl-6 col-lg-7">
-              <div
-                className="footer-widget widget-about"
-                data-aos="fade-up"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="footer-widget widget-about">
                 <div className="text-white section-title">
                   <h2>We’re Now Available On Store Download Our Apps</h2>
                   <p>No credit card requirement it’s full free for all</p>
@@ -450,13 +365,7 @@ const Footer3 = () => {
               </div>
             </div>
             <div className="col-lg-2 col-6 ms-lg-auto">
-              <div
-                className="footer-widget widget-links"
-                data-aos="fade-up"
-                data-aos-delay={100}
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="footer-widget widget-links">
                 <h6 className="footer-title">Resources</h6>
                 <ul>
                   <li>
@@ -475,13 +384,7 @@ const Footer3 = () => {
               </div>
             </div>
             <div className="col-lg-2 col-6">
-              <div
-                className="footer-widget widget-links"
-                data-aos="fade-up"
-                data-aos-delay={150}
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="footer-widget widget-links">
                 <h6 className="footer-title">Quick Link</h6>
                 <ul>
                   <li>
@@ -504,12 +407,7 @@ const Footer3 = () => {
         <div className="footer-bottom py-15">
           <div className="row align-items-center">
             <div className="col-xl-4 col-lg-6">
-              <div
-                className="pt-10 text-center copyright-text text-lg-start"
-                data-aos="fade-left"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="pt-10 text-center copyright-text text-lg-start">
                 <p>
                   Copyright @2024, <Link href="/">Akpager </Link> All Rights
                   Reserved
@@ -517,12 +415,7 @@ const Footer3 = () => {
               </div>
             </div>
             <div className="col-xl-8 col-lg-6">
-              <div
-                className="text-center footer-bottom-logo text-lg-end"
-                data-aos="fade-right"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="text-center footer-bottom-logo text-lg-end">
                 <Link href="/">
                   <img src="assets/images/logos/logo-white3.png" alt="Logo" />
                 </Link>
@@ -544,30 +437,13 @@ const Footer4 = () => {
     <footer className="bg-black main-footer footer-four rel z-1">
       <div className="container pb-45">
         <div className="pb-20 text-white footer-cta pt-50">
-          <div
-            className="logo"
-            data-aos="fade-left"
-            data-aos-duration={1500}
-            data-aos-offset={50}
-          >
+          <div className="logo">
             <Link href="/">
               <img src="assets/images/logos/logo4.png" alt="Logo" />
             </Link>
           </div>
-          <h3
-            data-aos="fade-right"
-            data-aos-duration={1500}
-            data-aos-offset={50}
-          >
-            Ready to Enroll Our Course?
-          </h3>
-          <Link
-            href="contact"
-            className="theme-btn style-two"
-            data-aos="fade-right"
-            data-aos-duration={1500}
-            data-aos-offset={50}
-          >
+          <h3>Ready to Enroll Our Course?</h3>
+          <Link href="contact" className="theme-btn style-two">
             Enroll Now <i className="far fa-arrow-right" />
           </Link>
         </div>
@@ -576,12 +452,7 @@ const Footer4 = () => {
       <div className="container">
         <div className="row justify-content-between">
           <div className="col-lg-4 col-sm-6">
-            <div
-              className="footer-widget widget-newsletter"
-              data-aos="fade-up"
-              data-aos-duration={1500}
-              data-aos-offset={50}
-            >
+            <div className="footer-widget widget-newsletter">
               <h3>Subscribe Newsletter</h3>
               <p>Please enter your email and get your answer</p>
               <form className="newsletter-form style-two mt-30" action="#">
@@ -606,13 +477,7 @@ const Footer4 = () => {
             </div>
           </div>
           <div className="col-xl-2 col-lg-3 col-sm-4 col-6">
-            <div
-              className="footer-widget widget-links"
-              data-aos="fade-up"
-              data-aos-delay={50}
-              data-aos-duration={1500}
-              data-aos-offset={50}
-            >
+            <div className="footer-widget widget-links">
               <h6 className="footer-title">Courses</h6>
               <ul>
                 <li>
@@ -634,13 +499,7 @@ const Footer4 = () => {
             </div>
           </div>
           <div className="col-xl-2 col-lg-3 col-sm-4 col-6">
-            <div
-              className="footer-widget widget-links"
-              data-aos="fade-up"
-              data-aos-delay={100}
-              data-aos-duration={1500}
-              data-aos-offset={50}
-            >
+            <div className="footer-widget widget-links">
               <h6 className="footer-title">Quick Link</h6>
               <ul>
                 <li>
@@ -662,13 +521,7 @@ const Footer4 = () => {
             </div>
           </div>
           <div className="col-xl-3 col-lg-4 col-sm-6 order-xl-2">
-            <div
-              className="footer-widget widget-gallery"
-              data-aos="fade-up"
-              data-aos-delay={150}
-              data-aos-duration={1500}
-              data-aos-offset={50}
-            >
+            <div className="footer-widget widget-gallery">
               <h6 className="footer-title">Gallery</h6>
               <ul>
                 <li>
@@ -732,12 +585,7 @@ const Footer4 = () => {
         <div className="footer-bottom mt-30 py-15">
           <div className="row align-items-center">
             <div className="col-xl-4 col-lg-6">
-              <div
-                className="pt-10 text-center copyright-text text-lg-start"
-                data-aos="fade-left"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="pt-10 text-center copyright-text text-lg-start">
                 <p>
                   Copyright @2024, <Link href="/">Akpager </Link> All Rights
                   Reserved
@@ -745,12 +593,7 @@ const Footer4 = () => {
               </div>
             </div>
             <div className="col-xl-8 col-lg-6">
-              <div
-                className="text-center footer-bottom-menu text-lg-end"
-                data-aos="fade-right"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="text-center footer-bottom-menu text-lg-end">
                 <ul>
                   <li>
                     <Link href="faqs">Faqs</Link>
@@ -783,30 +626,13 @@ const Footer5 = () => {
     <footer className="bg-black main-footer footer-four rel z-1">
       <div className="container pb-45">
         <div className="pb-20 text-white footer-cta pt-50">
-          <div
-            className="logo"
-            data-aos="fade-left"
-            data-aos-duration={1500}
-            data-aos-offset={50}
-          >
+          <div className="logo">
             <Link href="/">
               <img src="assets/images/logos/logo4.png" alt="Logo" />
             </Link>
           </div>
-          <h3
-            data-aos="fade-right"
-            data-aos-duration={1500}
-            data-aos-offset={50}
-          >
-            Ready to Enroll Our Course?
-          </h3>
-          <Link
-            href="contact"
-            className="theme-btn style-two"
-            data-aos="fade-right"
-            data-aos-duration={1500}
-            data-aos-offset={50}
-          >
+          <h3>Ready to Enroll Our Course?</h3>
+          <Link href="contact" className="theme-btn style-two">
             Enroll Now <i className="far fa-arrow-right" />
           </Link>
         </div>
@@ -815,12 +641,7 @@ const Footer5 = () => {
       <div className="container">
         <div className="row justify-content-between">
           <div className="col-lg-4 col-sm-6">
-            <div
-              className="footer-widget widget-newsletter"
-              data-aos="fade-up"
-              data-aos-duration={1500}
-              data-aos-offset={50}
-            >
+            <div className="footer-widget widget-newsletter">
               <h3>Subscribe Newsletter</h3>
               <p>Please enter your email and get your answer</p>
               <form className="newsletter-form style-two mt-30" action="#">
@@ -845,13 +666,7 @@ const Footer5 = () => {
             </div>
           </div>
           <div className="col-xl-2 col-lg-3 col-sm-4 col-6">
-            <div
-              className="footer-widget widget-links"
-              data-aos="fade-up"
-              data-aos-delay={50}
-              data-aos-duration={1500}
-              data-aos-offset={50}
-            >
+            <div className="footer-widget widget-links">
               <h6 className="footer-title">Courses</h6>
               <ul>
                 <li>
@@ -873,13 +688,7 @@ const Footer5 = () => {
             </div>
           </div>
           <div className="col-xl-2 col-lg-3 col-sm-4 col-6">
-            <div
-              className="footer-widget widget-links"
-              data-aos="fade-up"
-              data-aos-delay={100}
-              data-aos-duration={1500}
-              data-aos-offset={50}
-            >
+            <div className="footer-widget widget-links">
               <h6 className="footer-title">Quick Link</h6>
               <ul>
                 <li>
@@ -901,13 +710,7 @@ const Footer5 = () => {
             </div>
           </div>
           <div className="col-xl-3 col-lg-4 col-sm-6 order-xl-2">
-            <div
-              className="footer-widget widget-gallery"
-              data-aos="fade-up"
-              data-aos-delay={150}
-              data-aos-duration={1500}
-              data-aos-offset={50}
-            >
+            <div className="footer-widget widget-gallery">
               <h6 className="footer-title">Gallery</h6>
               <ul>
                 <li>
@@ -971,12 +774,7 @@ const Footer5 = () => {
         <div className="footer-bottom mt-30 py-15">
           <div className="row align-items-center">
             <div className="col-xl-4 col-lg-6">
-              <div
-                className="pt-10 text-center copyright-text text-lg-start"
-                data-aos="fade-left"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="pt-10 text-center copyright-text text-lg-start">
                 <p>
                   Copyright @2024, <Link href="/">Akpager </Link> All Rights
                   Reserved
@@ -984,12 +782,7 @@ const Footer5 = () => {
               </div>
             </div>
             <div className="col-xl-8 col-lg-6">
-              <div
-                className="text-center footer-bottom-menu text-lg-end"
-                data-aos="fade-right"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="text-center footer-bottom-menu text-lg-end">
                 <ul>
                   <li>
                     <Link href="faqs">Faqs</Link>
@@ -1024,22 +817,12 @@ const Footer6 = () => {
         <div className="text-white footer-newsletter">
           <div className="row align-items-center justify-content-between">
             <div className="col-lg-6">
-              <div
-                className="section-title pt-30 rpt-0 rpb-10"
-                data-aos="fade-left"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="section-title pt-30 rpt-0 rpb-10">
                 <h2>Get started today with 7 days free credits ?</h2>
               </div>
             </div>
             <div className="col-lg-6">
-              <div
-                className="form-part"
-                data-aos="fade-right"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="form-part">
                 <form className="newsletter-form" action="#">
                   <input type="email" placeholder="Email Address" required="" />
                   <button type="submit">
@@ -1056,12 +839,7 @@ const Footer6 = () => {
       <div className="container">
         <div className="row justify-content-between">
           <div className="col-xl-3 col-lg-4 col-sm-6">
-            <div
-              className="footer-widget widget-about"
-              data-aos="fade-up"
-              data-aos-duration={1500}
-              data-aos-offset={50}
-            >
+            <div className="footer-widget widget-about">
               <h6 className="footer-title">About Company</h6>
               <p>
                 Doloremque laudantium tota aperiam eaque abillo inventore
@@ -1084,13 +862,7 @@ const Footer6 = () => {
             </div>
           </div>
           <div className="col-xl-3 col-lg-4 col-sm-6 order-xl-2">
-            <div
-              className="footer-widget widget-contact"
-              data-aos="fade-up"
-              data-aos-delay={200}
-              data-aos-duration={1500}
-              data-aos-offset={50}
-            >
+            <div className="footer-widget widget-contact">
               <h6 className="footer-title">Contact</h6>
               <ul>
                 <li>
@@ -1111,13 +883,7 @@ const Footer6 = () => {
           <div className="col-xl-6">
             <div className="row">
               <div className="col-sm-4 col-6">
-                <div
-                  className="footer-widget widget-links"
-                  data-aos="fade-up"
-                  data-aos-delay={50}
-                  data-aos-duration={1500}
-                  data-aos-offset={50}
-                >
+                <div className="footer-widget widget-links">
                   <h6 className="footer-title">Resources</h6>
                   <ul>
                     <li>
@@ -1136,13 +902,7 @@ const Footer6 = () => {
                 </div>
               </div>
               <div className="col-sm-4 col-6">
-                <div
-                  className="footer-widget widget-links"
-                  data-aos="fade-up"
-                  data-aos-delay={100}
-                  data-aos-duration={1500}
-                  data-aos-offset={50}
-                >
+                <div className="footer-widget widget-links">
                   <h6 className="footer-title">Quick Link</h6>
                   <ul>
                     <li>
@@ -1161,13 +921,7 @@ const Footer6 = () => {
                 </div>
               </div>
               <div className="col-sm-4 col-6">
-                <div
-                  className="footer-widget widget-links"
-                  data-aos="fade-up"
-                  data-aos-delay={150}
-                  data-aos-duration={1500}
-                  data-aos-offset={50}
-                >
+                <div className="footer-widget widget-links">
                   <h6 className="footer-title">Company</h6>
                   <ul>
                     <li>
@@ -1191,12 +945,7 @@ const Footer6 = () => {
         <div className="footer-bottom mt-30 py-15">
           <div className="row align-items-center">
             <div className="col-xl-4 col-lg-6">
-              <div
-                className="pt-10 text-center copyright-text text-lg-start"
-                data-aos="fade-left"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="pt-10 text-center copyright-text text-lg-start">
                 <p>
                   Copyright @2024, <Link href="/">Akpager </Link> All Rights
                   Reserved
@@ -1204,12 +953,7 @@ const Footer6 = () => {
               </div>
             </div>
             <div className="col-xl-8 col-lg-6">
-              <div
-                className="text-center footer-bottom-menu text-lg-end"
-                data-aos="fade-right"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="text-center footer-bottom-menu text-lg-end">
                 <ul>
                   <li>
                     <Link href="faqs">Faqs</Link>
@@ -1240,12 +984,7 @@ const Footer7 = () => {
         <div className="footer-cta-two bgc-lighter mb-80 rel z-1">
           <div className="row align-items-center justify-content-between">
             <div className="col-lg-7">
-              <div
-                className="section-title rmb-25"
-                data-aos="fade-left"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="section-title rmb-25">
                 <h2>Looking For Professional Website Builders ?</h2>
                 <p>
                   At vero eos et accusamus et iusto odio dignissimos ducimus
@@ -1255,12 +994,7 @@ const Footer7 = () => {
               </div>
             </div>
             <div className="col-lg-4">
-              <div
-                className="btn-part text-lg-center ps-xl-5"
-                data-aos="fade-right"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="btn-part text-lg-center ps-xl-5">
                 <Link href="contact" className="mb-10 theme-btn">
                   Get Started Free <i className="far fa-arrow-right" />
                 </Link>
@@ -1276,12 +1010,7 @@ const Footer7 = () => {
       <div className="container">
         <div className="row justify-content-between">
           <div className="col-xl-3 col-lg-4 col-sm-6">
-            <div
-              className="footer-widget widget-about"
-              data-aos="fade-up"
-              data-aos-duration={1500}
-              data-aos-offset={50}
-            >
+            <div className="footer-widget widget-about">
               <div className="footer-logo mb-25">
                 <Link href="/">
                   <img src="assets/images/logos/logo-white-4.png" alt="Logo" />
@@ -1305,13 +1034,7 @@ const Footer7 = () => {
             </div>
           </div>
           <div className="col-xl-3 col-lg-4 col-sm-6 order-xl-2">
-            <div
-              className="footer-widget widget-contact"
-              data-aos="fade-up"
-              data-aos-delay={400}
-              data-aos-duration={1500}
-              data-aos-offset={50}
-            >
+            <div className="footer-widget widget-contact">
               <h6 className="footer-title">Contact</h6>
               <ul>
                 <li>
@@ -1332,13 +1055,7 @@ const Footer7 = () => {
           <div className="col-xl-6">
             <div className="row ps-xl-5">
               <div className="col-sm-4 col-6">
-                <div
-                  className="footer-widget widget-links"
-                  data-aos="fade-up"
-                  data-aos-delay={100}
-                  data-aos-duration={1500}
-                  data-aos-offset={50}
-                >
+                <div className="footer-widget widget-links">
                   <h6 className="footer-title">Resources</h6>
                   <ul>
                     <li>
@@ -1357,13 +1074,7 @@ const Footer7 = () => {
                 </div>
               </div>
               <div className="col-sm-4 col-6">
-                <div
-                  className="footer-widget widget-links"
-                  data-aos="fade-up"
-                  data-aos-delay={200}
-                  data-aos-duration={1500}
-                  data-aos-offset={50}
-                >
+                <div className="footer-widget widget-links">
                   <h6 className="footer-title">Quick Link</h6>
                   <ul>
                     <li>
@@ -1382,13 +1093,7 @@ const Footer7 = () => {
                 </div>
               </div>
               <div className="col-sm-4 col-6">
-                <div
-                  className="footer-widget widget-links"
-                  data-aos="fade-up"
-                  data-aos-delay={300}
-                  data-aos-duration={1500}
-                  data-aos-offset={50}
-                >
+                <div className="footer-widget widget-links">
                   <h6 className="footer-title">Company</h6>
                   <ul>
                     <li>
@@ -1461,12 +1166,7 @@ const Footer8 = () => {
         <div className="text-white footer-newsletter">
           <div className="row align-items-center justify-content-between">
             <div className="col-lg-6">
-              <div
-                className="section-title pt-15 rmb-35"
-                data-aos="fade-left"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="section-title pt-15 rmb-35">
                 <span className="mb-5 subtitle d-inline-block">
                   Get more updates to join us
                 </span>
@@ -1474,12 +1174,7 @@ const Footer8 = () => {
               </div>
             </div>
             <div className="col-lg-6">
-              <div
-                className="form-part"
-                data-aos="fade-right"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="form-part">
                 <form className="newsletter-form" action="#">
                   <label htmlFor="email-address">
                     <i className="fas fa-envelope" />
@@ -1499,12 +1194,7 @@ const Footer8 = () => {
       <div className="container">
         <div className="row justify-content-between">
           <div className="col-xl-3 col-lg-4 col-sm-6">
-            <div
-              className="footer-widget widget-about"
-              data-aos="fade-up"
-              data-aos-duration={1500}
-              data-aos-offset={50}
-            >
+            <div className="footer-widget widget-about">
               <div className="footer-logo mb-30">
                 <Link href="/">
                   <img src="assets/images/logos/logo8.png" alt="Logo" />
@@ -1531,13 +1221,7 @@ const Footer8 = () => {
             </div>
           </div>
           <div className="col-xl-3 col-lg-4 col-sm-6 order-xl-2">
-            <div
-              className="footer-widget widget-contact"
-              data-aos="fade-up"
-              data-aos-delay={200}
-              data-aos-duration={1500}
-              data-aos-offset={50}
-            >
+            <div className="footer-widget widget-contact">
               <h6 className="footer-title">Contact</h6>
               <ul>
                 <li>
@@ -1558,13 +1242,7 @@ const Footer8 = () => {
           <div className="col-xl-6">
             <div className="row">
               <div className="col-sm-4 col-6">
-                <div
-                  className="footer-widget widget-links"
-                  data-aos="fade-up"
-                  data-aos-delay={50}
-                  data-aos-duration={1500}
-                  data-aos-offset={50}
-                >
+                <div className="footer-widget widget-links">
                   <h6 className="footer-title">Resources</h6>
                   <ul>
                     <li>
@@ -1583,13 +1261,7 @@ const Footer8 = () => {
                 </div>
               </div>
               <div className="col-sm-4 col-6">
-                <div
-                  className="footer-widget widget-links"
-                  data-aos="fade-up"
-                  data-aos-delay={100}
-                  data-aos-duration={1500}
-                  data-aos-offset={50}
-                >
+                <div className="footer-widget widget-links">
                   <h6 className="footer-title">Quick Link</h6>
                   <ul>
                     <li>
@@ -1608,13 +1280,7 @@ const Footer8 = () => {
                 </div>
               </div>
               <div className="col-sm-4 col-6">
-                <div
-                  className="footer-widget widget-links"
-                  data-aos="fade-up"
-                  data-aos-delay={150}
-                  data-aos-duration={1500}
-                  data-aos-offset={50}
-                >
+                <div className="footer-widget widget-links">
                   <h6 className="footer-title">Company</h6>
                   <ul>
                     <li>
@@ -1638,12 +1304,7 @@ const Footer8 = () => {
         <div className="footer-bottom mt-30 py-15">
           <div className="row align-items-center">
             <div className="col-xl-4 col-lg-6">
-              <div
-                className="pt-10 text-center copyright-text text-lg-start"
-                data-aos="fade-left"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="pt-10 text-center copyright-text text-lg-start">
                 <p>
                   Copyright @2024, <Link href="/">Akpager </Link> All Rights
                   Reserved
@@ -1651,12 +1312,7 @@ const Footer8 = () => {
               </div>
             </div>
             <div className="col-xl-8 col-lg-6">
-              <div
-                className="text-center footer-bottom-menu text-lg-end"
-                data-aos="fade-right"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="text-center footer-bottom-menu text-lg-end">
                 <ul>
                   <li>
                     <Link href="faqs">Faqs</Link>
@@ -1691,12 +1347,7 @@ const Footer9 = () => {
         <div className="for-middle-border pb-50">
           <div className="row justify-content-between">
             <div className="col-lg-5 col-md-7">
-              <div
-                className="footer-widget widget-about"
-                data-aos="fade-up"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="footer-widget widget-about">
                 <div className="section-title">
                   <h2>Get Our Newsletters</h2>
                 </div>
@@ -1723,13 +1374,7 @@ const Footer9 = () => {
               </div>
             </div>
             <div className="col-lg-3 col-md-4 col-sm-6">
-              <div
-                className="footer-widget widget-contact-info"
-                data-aos="fade-up"
-                data-aos-delay={100}
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="footer-widget widget-contact-info">
                 <h6 className="footer-title">Get In Touch</h6>
                 <ul>
                   <li>
@@ -1743,13 +1388,7 @@ const Footer9 = () => {
               </div>
             </div>
             <div className="col-lg-2 col-6 ms-lg-auto">
-              <div
-                className="footer-widget widget-links"
-                data-aos="fade-up"
-                data-aos-delay={100}
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="footer-widget widget-links">
                 <h6 className="footer-title">Resources</h6>
                 <ul>
                   <li>
@@ -1768,13 +1407,7 @@ const Footer9 = () => {
               </div>
             </div>
             <div className="col-lg-2 col-6">
-              <div
-                className="footer-widget widget-links"
-                data-aos="fade-up"
-                data-aos-delay={150}
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="footer-widget widget-links">
                 <h6 className="footer-title">Quick Link</h6>
                 <ul>
                   <li>
@@ -1797,24 +1430,14 @@ const Footer9 = () => {
         <div className="footer-bottom py-15">
           <div className="row align-items-center">
             <div className="col-xl-8 col-lg-6">
-              <div
-                className="text-center footer-bottom-logo mb-25 rmb-0 rmt-25 text-lg-start"
-                data-aos="fade-left"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="text-center footer-bottom-logo mb-25 rmb-0 rmt-25 text-lg-start">
                 <Link href="/">
                   <img src="assets/images/logos/logo6.png" alt="Logo" />
                 </Link>
               </div>
             </div>
             <div className="col-xl-4 col-lg-6">
-              <div
-                className="pt-10 text-center copyright-text mb-25 text-lg-end"
-                data-aos="fade-right"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              <div className="pt-10 text-center copyright-text mb-25 text-lg-end">
                 <p>
                   Copyright @2024, <Link href="/">Akpager </Link> All Rights
                   Reserved

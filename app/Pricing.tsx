@@ -1,5 +1,6 @@
 "use client";
 import { Tab } from "react-bootstrap";
+import { Urls } from "./types/urls";
 const page = () => {
   return (
     <section className="pricing-three-area bgc-lighter bgp-bottom pt-130 rpt-100 pb-100 rpb-70 rel z-1">

@@ -59,7 +59,7 @@ const _Page = () => {
 };
 
 const Page = () => {
-  const methods = useForm<ChooseStructureForm>();
+  const methods = useForm<ChooseStructureFormValues>();
 
   return (
     <FormProvider {...methods}>

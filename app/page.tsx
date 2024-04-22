@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { FaCrown } from "react-icons/fa6";
 import Pricing from "./Pricing";
+import { Urls } from "./types/urls";
 
 const TestimonialSlider = dynamic(
   () => import("@components/TestimonialSlider"),
@@ -24,7 +25,7 @@ const Crown = () => {
 
 const Index = () => {
   return (
-    <AkpagerLayout>
+    <AkpagerLayout onePage={true}>
       {/* Hero area start */}
       <section
         className="py-52 hero-area bgs-cover pb-250 rpy-150 overlay"
@@ -44,7 +45,7 @@ const Index = () => {
                 </span>
                 <h1>Register an ABN in under 15 minutes for just $49</h1>
                 <div className="hero-btns">
-                  <Link href="/about" legacyBehavior>
+                  <Link href={Urls["Choose Structure"]} legacyBehavior>
                     <a className="theme-btn">
                       Register An ABN! <i className="far fa-arrow-right" />
                     </a>

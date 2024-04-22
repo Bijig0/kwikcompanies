@@ -3,6 +3,7 @@ import AkpagerLayout from "@layouts/AkpagerLayout";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import Pricing from "./Pricing";
+import Pricing2 from "./Pricing2";
 import { Urls } from "./types/urls";
 
 const TestimonialSlider = dynamic(
@@ -35,7 +36,7 @@ const Index = () => {
                     </a>
                   </Link>
                 </div>
-                
+
                 <div className="my-3" />
                 <p className="text-gray-400">
                   No hidden costs and unlimited FREE support
@@ -407,6 +408,84 @@ const Index = () => {
         <TestimonialSlider />
       </section>
       <Pricing />
+      <Pricing2
+        user={null}
+        subscription={null}
+        products={[
+          {
+            id: "prod_PxtTCg5EigCHvi",
+            active: true,
+            name: "Hobby",
+            description: "Hobby product description",
+            image: null,
+            metadata: { index: "0" },
+            prices: [
+              {
+                id: "price_1P7xgnFERRdMhMyUhnalJiBt",
+                type: "recurring",
+                active: true,
+                currency: "usd",
+                interval: "month",
+                metadata: null,
+                product_id: "prod_PxtTCg5EigCHvi",
+                description: null,
+                unit_amount: 1000,
+                interval_count: 1,
+                trial_period_days: 0,
+              },
+              {
+                id: "price_1P7xgoFERRdMhMyUTDdN63IK",
+                type: "recurring",
+                active: true,
+                currency: "usd",
+                interval: "year",
+                metadata: null,
+                product_id: "prod_PxtTCg5EigCHvi",
+                description: null,
+                unit_amount: 10000,
+                interval_count: 1,
+                trial_period_days: 0,
+              },
+            ],
+          },
+          {
+            id: "prod_PxtTM6yPGe7zwI",
+            active: true,
+            name: "Freelancer",
+            description: "Freelancer product description",
+            image: null,
+            metadata: { index: "1" },
+            prices: [
+              {
+                id: "price_1P7xgpFERRdMhMyU18CwtfT2",
+                type: "recurring",
+                active: true,
+                currency: "usd",
+                interval: "month",
+                metadata: null,
+                product_id: "prod_PxtTM6yPGe7zwI",
+                description: null,
+                unit_amount: 2000,
+                interval_count: 1,
+                trial_period_days: 0,
+              },
+              {
+                id: "price_1P7xgpFERRdMhMyUclnF7nfz",
+                type: "recurring",
+                active: true,
+                currency: "usd",
+                interval: "year",
+                metadata: null,
+                product_id: "prod_PxtTM6yPGe7zwI",
+                description: null,
+                unit_amount: 20000,
+                interval_count: 1,
+                trial_period_days: 0,
+              },
+            ],
+          },
+        ]}
+      />
       {/* Management Area End */}
     </AkpagerLayout>
   );

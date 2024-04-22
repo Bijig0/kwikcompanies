@@ -1,13 +1,16 @@
 "use client";
 import CountUp from "react-countup";
 import ReactVisibilitySensor from "react-visibility-sensor";
-const Counter = ({ end, decimals, extraClass }) => {
+
+type Props = {
+  end: number;
+  extraClass?: string;
+};
+
+const Counter = (props: Props) => {
+  const { end, extraClass } = props;
   return (
-    <CountUp
-      end={end ? end : 100}
-      duration={3}
-      decimals={decimals ? decimals : 0}
-    >
+    <CountUp end={end ? end : 100} duration={3} decimals={0}>
       {({ countUpRef, start }) => (
         <ReactVisibilitySensor onChange={start} delayedCall>
           <span

@@ -3,6 +3,7 @@ import AkpagerLayout from "@layouts/AkpagerLayout";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { FaCrown } from "react-icons/fa6";
+import Pricing from "./Pricing";
 
 const TestimonialSlider = dynamic(
   () => import("@components/TestimonialSlider"),
@@ -419,6 +420,7 @@ const Index = () => {
         </div>
         <TestimonialSlider />
       </section>
+      <Pricing />
       {/* Management Area End */}
     </AkpagerLayout>
   );

@@ -29,7 +29,7 @@ export default Footer;
 
 const DefaultFooter = () => {
   return (
-    <footer className="pt-20 main-footer footer-one rel z-1 mt-100">
+    <footer className="pt-20 main-footer footer-one rel z-1">
       <div className="container">
         <div className="row justify-content-between">
           <div className="col-xl-3 col-lg-4 col-sm-6">

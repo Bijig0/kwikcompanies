@@ -4,6 +4,7 @@ import { User } from "@supabase/supabase-js";
 import { getErrorRedirect } from "@utils/helpers";
 import { getStripe } from "@utils/stripe/client";
 import { checkoutWithStripe } from "@utils/stripe/server";
+import { createClient } from "@utils/supabase/client";
 import cn from "classnames";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
@@ -31,7 +32,17 @@ interface Props {
 
 type BillingInterval = "lifetime" | "year" | "month";
 
-export default function Pricing2({ user, products, subscription }: Props) {
+export default async function Pricing2({ user, subscription }: Props) {
+  const supabase = createClient();
+
+  //   const { data: products } = await supabase
+  //     .from("products")
+  //     .select("*, prices(*)")
+  //     .eq("active", true)
+  //     .eq("prices.active", true)
+  //     .order("metadata->index")
+  //     .order("unit_amount", { referencedTable: "prices" });
+  console.log(products);
   const intervals = Array.from(
     new Set(
       products.flatMap((product) =>

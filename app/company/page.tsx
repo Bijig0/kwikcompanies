@@ -25,7 +25,7 @@ const _Page = () => {
   };
 
   return (
-    <AkpagerLayout>
+    <AkpagerLayout onePage>
       {/* <Script src={GOOGLE_MAPS_URL} strategy="beforeInteractive" /> */}
       <PageBanner pageName={"Partnership ABN Registration Form"} />
       {/* Contact Page Start */}

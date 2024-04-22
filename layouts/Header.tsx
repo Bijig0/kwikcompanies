@@ -19,7 +19,7 @@ const DefaultHeader = ({ onePage }) => {
     },
     {
       id: 2,
-      href: "/#/#services:~:text=Start%20your%20dream%20business%20today",
+      href: "/#services:~:text=Start%20your%20dream%20business%20today",
       title: "Features",
     },
     {
@@ -55,16 +55,13 @@ const DefaultHeader = ({ onePage }) => {
               {/* Main Menu */}
               <nav className="main-menu navbar-expand-lg">
                 <Nav
+                  dark={false}
                   logo="assets/images/logos/logo.png"
                   menus={menus}
                   onePage={onePage}
                 />
               </nav>
               {/* Main Menu End*/}
-            </div>
-            {/* Nav Search */}
-            <div className="py-10 nav-search ms-xl-2 ms-4">
-              <NavSearch />
             </div>
             {/* Menu Button */}
             <div className="menu-btns ms-lg-auto d-none d-xl-flex">

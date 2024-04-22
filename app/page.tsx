@@ -2,7 +2,6 @@ import Counter from "@components/Counter";
 import AkpagerLayout from "@layouts/AkpagerLayout";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { FaCrown } from "react-icons/fa6";
 import Pricing from "./Pricing";
 import { Urls } from "./types/urls";
 
@@ -12,16 +11,6 @@ const TestimonialSlider = dynamic(
     ssr: false,
   }
 );
-
-const Crown = () => {
-  return (
-    <div className="flex flex-col items-center">
-      <FaCrown size={60} />
-      <span className="p-0 m-0 font-thin">Verified ASIC Agent</span>
-      <p>33614</p>
-    </div>
-  );
-};
 
 const Index = () => {
   return (
@@ -35,11 +24,6 @@ const Index = () => {
           <div className="row justify-content-center">
             <div className="col-xl-7 col-lg-10 col-md-11">
               <div className="text-center text-white px-11 hero-content">
-                {/* <div className="flex justify-center gap-24">
-                  <Crown />
-                  <Crown />
-                  <Crown />
-                </div> */}
                 <span className="mb-20 subtitle-one">
                   <i className="fas fa-rocket-launch" /> ATO Authorized Agency
                 </span>
@@ -51,6 +35,7 @@ const Index = () => {
                     </a>
                   </Link>
                 </div>
+                
                 <div className="my-3" />
                 <p className="text-gray-400">
                   No hidden costs and unlimited FREE support

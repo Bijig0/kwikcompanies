@@ -15,7 +15,6 @@ import ABNRegistrationDetails from "./partnership/ABNRegistrationDetails";
 import BusinessLocation from "./partnership/BusinessLocation";
 import BusinessNameApplication from "./partnership/BusinessNameApplication/BusinessNameApplication";
 import GSTRegistration from "./partnership/GSTRegistration";
-import SoleTraderDetails from "./partnership/PartnershipDetails";
 import PartnershipDetails from "./partnership/PartnershipDetails";
 
 const _Page = () => {
@@ -28,7 +27,7 @@ const _Page = () => {
   };
 
   return (
-    <AkpagerLayout>
+    <AkpagerLayout onePage>
       {/* <Script src={GOOGLE_MAPS_URL} strategy="beforeInteractive" /> */}
       <PageBanner pageName={"Partnership ABN Registration Form"} />
       {/* Contact Page Start */}

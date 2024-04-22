@@ -42,6 +42,7 @@ export default async function Pricing2({ user, subscription }: Props) {
   //     .eq("prices.active", true)
   //     .order("metadata->index")
   //     .order("unit_amount", { referencedTable: "prices" });
+  const products = [];
   console.log(products);
   const intervals = Array.from(
     new Set(
@@ -194,7 +195,7 @@ export default async function Pricing2({ user, subscription }: Props) {
                     <Button
                       variant="slim"
                       type="button"
-                      loading={priceIdLoading === price.id}
+                      // loading={priceIdLoading === price.id}
                       onClick={() => handleStripeCheckout(price)}
                       className="block w-full py-2 mt-8 text-sm font-semibold text-center text-white rounded-md hover:bg-zinc-900"
                     >

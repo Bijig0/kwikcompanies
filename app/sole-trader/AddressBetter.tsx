@@ -4,7 +4,8 @@ import {
   useConfirmAddress,
 } from "@mapbox/search-js-react";
 import { AddressAutofillProps } from "@mapbox/search-js-react/dist/components/AddressAutofill";
-import { useCallback, useEffect, useState } from "react";
+import { useBoolean } from "@utils/useBoolean";
+import { useEffect, useRef, useState } from "react";
 import { SoleTraderTextInput } from "./SoleTraderFormComponents";
 import { useSoleTraderFormContext } from "./SoleTraderFormContext";
 
@@ -14,12 +15,19 @@ const mapBoxAccessToken =
 type AutoCompleteResponse = Parameters<AddressAutofillProps["onRetrieve"]>[0];
 
 export default function AutofillCheckoutDemo() {
-  const [showFormExpanded, setShowFormExpanded] = useState(false);
+  const {
+    value: isFormExpanded,
+    toggle: toggleFormExpansion,
+    setTrue: expandForm,
+    setFalse: closeForm,
+  } = useBoolean(false);
+
   const [showValidationText, setShowValidationText] = useState(false);
   const [token, setToken] = useState("");
 
   const {
-    formManager: { setValue, register },
+    formDisabled,
+    formManager: { setValue, register, watch },
   } = useSoleTraderFormContext();
 
   useEffect(() => {
@@ -28,22 +36,24 @@ export default function AutofillCheckoutDemo() {
     config.accessToken = accessToken;
   }, []);
 
-  const { formRef, showConfirm } = useConfirmAddress({
-    minimap: true,
+  const { showConfirm } = useConfirmAddress({
     skipConfirmModal: (feature) =>
       ["exact", "high"].includes(feature.properties.match_code.confidence),
   });
 
+  const autofillInputRef = useRef<HTMLInputElement | null>(null);
+
   const handleRetrieve = (res: AutoCompleteResponse) => {
     console.log(res);
     const feature = res.features[0];
+    console.log(feature.properties.place_name);
     setValue(
       "businessLocation.businessLocation.full_address",
-      feature.properties.full_address
+      feature.properties.place_name
     );
     setValue(
       "businessLocation.businessLocation.address_line_1",
-      feature.properties.address_level1
+      feature.properties.address_line1
     );
     setValue(
       "businessLocation.businessLocation.address_line_2",
@@ -61,17 +71,15 @@ export default function AutofillCheckoutDemo() {
       "businessLocation.businessLocation.postcode",
       feature.properties.postcode
     );
-    setShowFormExpanded(true);
+    expandForm();
+    Promise.resolve(() => (autofillInputRef.current.value = ""));
   };
 
-  const handleSubmit = useCallback(
-    async (e) => {
-      e.preventDefault();
-      const result = await showConfirm();
-      if (result.type === "nochange") submitForm();
-    },
-    [showConfirm]
-  );
+  const retrieveSuggestedAddress = async (e) => {
+    e.preventDefault();
+    const result = await showConfirm();
+    if (result.type === "nochange") submitForm();
+  };
 
   function submitForm() {
     setShowValidationText(true);
@@ -83,77 +91,82 @@ export default function AutofillCheckoutDemo() {
   function resetForm() {
     const inputs = document.querySelectorAll("input");
     inputs.forEach((input) => (input.value = ""));
-    setShowFormExpanded(false);
+    closeForm();
     setShowValidationText(false);
   }
 
   return (
-    <>
-      <form ref={formRef} className="flex flex--column" onSubmit={handleSubmit}>
-        <div className="grid grid--gut24 mb60">
-          <div className="w-full col col--auto-mm">
-            {/* Input form */}
-            <AddressAutofill accessToken={token} onRetrieve={handleRetrieve}>
-              <SoleTraderTextInput name="businessLocation.businessLocation.full_address" />
-            </AddressAutofill>
-            {!showFormExpanded && (
-              <button
-                id="manual-entry"
-                className="border-b w180 mt6 link txt-ms color-gray color-black-on-hover"
-                onClick={() => setShowFormExpanded(true)}
-              >
-                Enter an address manually
-              </button>
-            )}
-            <div
-              className="secondary-inputs"
-              style={{ display: showFormExpanded ? "block" : "none" }}
-            >
-              <label className="txt-s txt-bold color-gray mb3">
-                Address Line 2
-              </label>
-              <SoleTraderTextInput
-                placeholder="Apartment, suite, unit, building, floor, etc."
-                name="businessLocation.businessLocation.address_line_2"
-              />
-              <label className="txt-s txt-bold color-gray mb3">City</label>
-              <SoleTraderTextInput name="businessLocation.businessLocation.address_level_2" />
-              <label className="txt-s txt-bold color-gray mb3">
-                State / Region
-              </label>
-              <SoleTraderTextInput name="businessLocation.businessLocation.address_level_1" />
-              <label className="txt-s txt-bold color-gray mb3">
-                ZIP / Postcode
-              </label>
-              <SoleTraderTextInput name="businessLocation.businessLocation.postcode" />
-            </div>
-          </div>
-        </div>
-
-        {/* Form buttons */}
-        {showFormExpanded && (
-          <div className="mb30 submit-btns">
-            <button type="submit" className="btn round" id="btn-confirm">
-              Confirm
-            </button>
-            <button
-              type="button"
-              className="btn round btn--gray-light ml3"
-              id="btn-reset"
-              onClick={resetForm}
-            >
-              Reset
-            </button>
-          </div>
+    <div className="flex flex-col w-full gap-3">
+      {/* Input form */}
+      <div>
+        <AddressAutofill accessToken={token} onRetrieve={handleRetrieve}>
+          <SoleTraderTextInput
+            placeholder="Address"
+            name="businessLocation.businessLocation.full_address"
+            required
+          />
+        </AddressAutofill>
+        {!isFormExpanded && (
+          <button
+            id="manual-entry block"
+            className="text-leftborder-b w180 mt6 link txt-ms color-gray color-black-on-hover"
+            onClick={toggleFormExpansion}
+          >
+            Enter an address manually
+          </button>
         )}
-      </form>
-
-      {/* Validation text */}
-      {showValidationText && (
-        <div id="validation-msg" className="mt24 txt-m txt-bold">
-          Order successfully submitted.
+      </div>
+      <div
+        data-show={isFormExpanded}
+        className="secondary-inputs hidden data-[show=true]:contents"
+      >
+        <div>
+          <label className="txt-s txt-bold color-gray mb3">
+            Address Line 2
+          </label>
+          <SoleTraderTextInput
+            placeholder="Apartment, suite, unit, building, floor, etc."
+            name="businessLocation.businessLocation.address_line_2"
+          />
         </div>
+        <div>
+          <label className="txt-s txt-bold color-gray mb3">City</label>
+          <SoleTraderTextInput
+            placeholder="City"
+            name="businessLocation.businessLocation.address_level_2"
+            required
+          />
+        </div>
+        <div>
+          <label className="txt-s txt-bold color-gray mb3">
+            State / Region
+          </label>
+          <SoleTraderTextInput
+            placeholder="State/Region"
+            name="businessLocation.businessLocation.address_level_1"
+            required
+          />
+        </div>
+        <div>
+          <label className="txt-s txt-bold color-gray mb3">
+            ZIP / Postcode
+          </label>
+          <SoleTraderTextInput
+            placeholder="e.g. 3000"
+            name="businessLocation.businessLocation.postcode"
+            required
+          />
+        </div>
+      </div>
+      {isFormExpanded && (
+        <button
+          id="manual-entry block"
+          className="text-left border-b w180 mt6 link txt-ms color-gray color-black-on-hover"
+          onClick={toggleFormExpansion}
+        >
+          Search for another address
+        </button>
       )}
-    </>
+    </div>
   );
 }

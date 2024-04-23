@@ -6,6 +6,7 @@ import {
 import { AddressAutofillProps } from "@mapbox/search-js-react/dist/components/AddressAutofill";
 import { useCallback, useEffect, useState } from "react";
 import { SoleTraderTextInput } from "./SoleTraderFormComponents";
+import { useSoleTraderFormContext } from "./SoleTraderFormContext";
 
 const mapBoxAccessToken =
   "pk.eyJ1IjoiYmlqaWcwIiwiYSI6ImNsdXpreWNnZTFkaGkycW53dDhseWh3cWgifQ.30N1A9KD3UR4762uEEH-yQ";
@@ -16,6 +17,10 @@ export default function AutofillCheckoutDemo() {
   const [showFormExpanded, setShowFormExpanded] = useState(false);
   const [showValidationText, setShowValidationText] = useState(false);
   const [token, setToken] = useState("");
+
+  const {
+    formManager: { setValue, register },
+  } = useSoleTraderFormContext();
 
   useEffect(() => {
     const accessToken = mapBoxAccessToken;
@@ -32,6 +37,30 @@ export default function AutofillCheckoutDemo() {
   const handleRetrieve = (res: AutoCompleteResponse) => {
     console.log(res);
     const feature = res.features[0];
+    setValue(
+      "businessLocation.businessLocation.full_address",
+      feature.properties.full_address
+    );
+    setValue(
+      "businessLocation.businessLocation.address_line_1",
+      feature.properties.address_level1
+    );
+    setValue(
+      "businessLocation.businessLocation.address_line_2",
+      feature.properties.address_line2
+    );
+    setValue(
+      "businessLocation.businessLocation.address_level_1",
+      feature.properties.address_level1
+    );
+    setValue(
+      "businessLocation.businessLocation.address_level_2",
+      feature.properties.address_level2
+    );
+    setValue(
+      "businessLocation.businessLocation.postcode",
+      feature.properties.postcode
+    );
     setShowFormExpanded(true);
   };
 
@@ -65,7 +94,7 @@ export default function AutofillCheckoutDemo() {
           <div className="w-full col col--auto-mm">
             {/* Input form */}
             <AddressAutofill accessToken={token} onRetrieve={handleRetrieve}>
-              <SoleTraderTextInput name="businessDetails.hasPreviousAbn.prevAbn" />
+              <SoleTraderTextInput name="businessLocation.businessLocation.full_address" />
             </AddressAutofill>
             {!showFormExpanded && (
               <button
@@ -83,33 +112,20 @@ export default function AutofillCheckoutDemo() {
               <label className="txt-s txt-bold color-gray mb3">
                 Address Line 2
               </label>
-              <input
-                className="input mb12"
+              <SoleTraderTextInput
                 placeholder="Apartment, suite, unit, building, floor, etc."
-                autoComplete="address-line2"
+                name="businessLocation.businessLocation.address_line_2"
               />
               <label className="txt-s txt-bold color-gray mb3">City</label>
-              <input
-                className="input mb12"
-                placeholder="City"
-                autoComplete="address-level2"
-              />
+              <SoleTraderTextInput name="businessLocation.businessLocation.address_level_2" />
               <label className="txt-s txt-bold color-gray mb3">
                 State / Region
               </label>
-              <input
-                className="input mb12"
-                placeholder="State / Region"
-                autoComplete="address-level1"
-              />
+              <SoleTraderTextInput name="businessLocation.businessLocation.address_level_1" />
               <label className="txt-s txt-bold color-gray mb3">
                 ZIP / Postcode
               </label>
-              <input
-                className="input"
-                placeholder="ZIP / Postcode"
-                autoComplete="postal-code"
-              />
+              <SoleTraderTextInput name="businessLocation.businessLocation.postcode" />
             </div>
           </div>
         </div>

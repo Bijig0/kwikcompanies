@@ -121,8 +121,17 @@ type TSoleTraderDetails = {
   taxFileNumber: string;
 };
 
+type Address = {
+  full_address: string;
+  address_line_1: string;
+  address_line_2: string;
+  address_level_1: string;
+  address_level_2: string;
+  postcode: string;
+};
+
 type TBusinessLocation = {
-  businessLocation: string;
+  businessLocation: Address;
   addressForServiceDocuments: string;
 };
 

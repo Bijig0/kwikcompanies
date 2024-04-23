@@ -22,7 +22,7 @@ const GSTRegistration = () => {
         {["Yes", "No"].map((option) => (
           <label key={option} className="inline-flex items-center">
             <input
-              {...register("registerForGst", {
+              {...register("gstRegistration.registerForGst", {
                 required: "This field is required",
               })}
               type="radio"
@@ -32,8 +32,8 @@ const GSTRegistration = () => {
           </label>
         ))}
       </div>
-      {errors.registerForGst && (
-        <ErrorText>{errors.registerForGst.message}</ErrorText>
+      {errors?.gstRegistration?.registerForGst && (
+        <ErrorText>{errors?.gstRegistration?.registerForGst.message}</ErrorText>
       )}
     </FormPartLayout>
   );

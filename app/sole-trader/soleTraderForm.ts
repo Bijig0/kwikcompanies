@@ -96,29 +96,59 @@ type IsRegisteringBusinessName =
       answer: false;
     };
 
-type SoleTraderFormValues = {
+type TBusinessDetails = {
   businessHistory: BusinessHistory;
   hasPreviousAbn: HasPreviousAbn;
-  phone_number: string;
-  message: string;
+};
+
+type TABNEntitlement = {
   activitiesLocation: ActivitiesLocation;
   needAbnReason: NeedAbnReason;
+};
+
+type Name = {
   title: Title;
   firstName: string;
-  otherNames: KnownByOtherName;
   lastName: string;
+  otherNames: KnownByOtherName;
+};
+
+type TSoleTraderDetails = {
+  name: Name;
   email: string;
   phoneNumber: string;
   dateOfBirth: Date;
-  abnActiveDate: Date;
   taxFileNumber: string;
-  isAustralianResident: boolean;
-  address: string;
+};
+
+type TBusinessLocation = {
   businessLocation: string;
   addressForServiceDocuments: string;
+};
+
+type TABNRegistrationDetails = {
+  abnActiveDate: Date;
+  mainBusinessActivity: string;
+  businessCategory: string;
+};
+
+type TBusinessNameApplication = {
   businessName: TradingUnderBusinessName;
   isRegisteringBusinessName: IsRegisteringBusinessName;
+};
+
+type TGSTRegistration = {
   registerForGst: boolean;
+};
+
+type SoleTraderFormValues = {
+  businessDetails: TBusinessDetails;
+  abnEntitlement: TABNEntitlement;
+  soleTraderDetails: TSoleTraderDetails;
+  businessLocation: TBusinessLocation;
+  abnRegistrationDetails: TABNRegistrationDetails;
+  businessNameApplication: TBusinessNameApplication;
+  gstRegistration: TGSTRegistration;
   agreedToTermsAndServices: boolean;
 };
 

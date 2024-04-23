@@ -32,7 +32,10 @@ const BusinessDetails = () => {
         <label className="font-bold text-black text-md" htmlFor="name">
           Business History
         </label>
-        <SoleTraderSelect name="businessHistory" options={businessHistories} />
+        <SoleTraderSelect
+          name="businessDetails.businessHistory"
+          options={businessHistories}
+        />
       </div>
       <div>
         <label className="font-semibold text-black text-md" htmlFor="name">
@@ -42,7 +45,7 @@ const BusinessDetails = () => {
           {["No", "Yes"].map((option) => (
             <Controller
               key={option}
-              name="hasPreviousAbn.answer"
+              name="businessDetails.hasPreviousAbn.answer"
               control={control}
               rules={{ required: "This field is required" }}
               render={({ field: { onChange, value } }) => (
@@ -56,7 +59,10 @@ const BusinessDetails = () => {
                     name="hasPreviousAbn.answer"
                     value={option}
                     onChange={() =>
-                      setValue("hasPreviousAbn.answer", option === "Yes")
+                      setValue(
+                        "businessDetails.hasPreviousAbn.answer",
+                        option === "Yes"
+                      )
                     }
                   />
                   <span
@@ -70,13 +76,15 @@ const BusinessDetails = () => {
           ))}
         </div>
       </div>
-      {errors.hasPreviousAbn && (
-        <ErrorText>{errors.hasPreviousAbn.answer?.message}</ErrorText>
+      {errors?.businessDetails?.hasPreviousAbn && (
+        <ErrorText>
+          {errors.businessDetails.hasPreviousAbn.answer?.message}
+        </ErrorText>
       )}
-      {watch("hasPreviousAbn.answer") && (
+      {watch("businessDetails.hasPreviousAbn.answer") && (
         <div>
           <label htmlFor="message">Previous ABN</label>
-          <SoleTraderTextInput name="hasPreviousAbn.prevAbn" />
+          <SoleTraderTextInput name="businessDetails.hasPreviousAbn.prevAbn" />
           <div className="my-2"></div>
           <p>
             If you can't remember your ABN, <a>click here</a>

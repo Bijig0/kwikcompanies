@@ -14,7 +14,7 @@ const useResetSearch = ({ stopShouldSearchBusinessName }: Args) => {
   const { value: shouldReset, setTrue: startShouldReset } = useBoolean(false);
   const resetSearch = () => {
     stopShouldSearchBusinessName();
-    setValue("businessName.businessName", "");
+    setValue("businessNameApplication.businessName.businessName", "");
     startShouldReset();
   };
   // This effect is needed because the search query must first be disabled

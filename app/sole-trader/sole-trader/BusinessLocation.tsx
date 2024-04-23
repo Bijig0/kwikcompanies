@@ -13,10 +13,10 @@ const BusinessLocation = () => {
   ) => {
     const value = e.target.value as "Yes" | "No";
     if (value === "Yes") {
-      setValue("businessLocation", "Home");
+      setValue("businessLocation.businessLocation", "Home");
       return;
     } else if (value === "No") {
-      setValue("businessLocation", "Other");
+      setValue("businessLocation.businessLocation", "Other");
     }
   };
 
@@ -25,10 +25,10 @@ const BusinessLocation = () => {
   ) => {
     const value = e.target.value as "Home" | "Other";
     if (value === "Home") {
-      setValue("addressForServiceDocuments", "Home");
+      setValue("businessLocation.addressForServiceDocuments", "Home");
       return;
     } else if (value === "Other") {
-      setValue("addressForServiceDocuments", "Other");
+      setValue("businessLocation.addressForServiceDocuments", "Other");
     }
   };
 
@@ -57,7 +57,7 @@ const BusinessLocation = () => {
           ))}
         </div>
       </div>
-      {watch("businessLocation") === "Other" && (
+      {watch("businessLocation.businessLocation") === "Other" && (
         <div>
           <label htmlFor="message">Other Address</label>
           <AddressAutocomplete />
@@ -82,7 +82,7 @@ const BusinessLocation = () => {
           ))}
         </div>
       </div>
-      {watch("addressForServiceDocuments") === "Other" && (
+      {watch("businessLocation.addressForServiceDocuments") === "Other" && (
         <div>
           <label htmlFor="message">Other Address</label>
           <AddressAutocomplete />

@@ -26,7 +26,9 @@ const BusinessNameRegistrationDetails = () => {
         {registrationPeriods.map((option) => (
           <label key={option} className="inline-flex items-center">
             <input
-              {...register("isRegisteringBusinessName.registrationPeriod")}
+              {...register(
+                "businessNameApplication.isRegisteringBusinessName.registrationPeriod"
+              )}
               type="radio"
               className="form-radio"
               value={option}
@@ -40,19 +42,19 @@ const BusinessNameRegistrationDetails = () => {
 
         <SoleTraderSelect
           options={countries}
-          name="isRegisteringBusinessName.birthLocation.country"
+          name="businessNameApplication.isRegisteringBusinessName.birthLocation.country"
         />
       </div>
       <div>
         <label htmlFor="message">State</label>
         <SoleTraderSelect
           options={australianStates}
-          name="isRegisteringBusinessName.birthLocation.state"
+          name="businessNameApplication.isRegisteringBusinessName.birthLocation.state"
         />
       </div>
       <div>
         <label htmlFor="message">City</label>
-        <SoleTraderTextInput name="isRegisteringBusinessName.birthLocation.city" />
+        <SoleTraderTextInput name="businessNameApplication.isRegisteringBusinessName.birthLocation.city" />
       </div>
     </div>
   );

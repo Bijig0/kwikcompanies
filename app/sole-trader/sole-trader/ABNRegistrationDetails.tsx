@@ -10,21 +10,14 @@ const ABNRegistrationDetails = () => {
     <FormPartLayout header="ABN Registration Details" step={5}>
       <div>
         <label>ABN Active Date</label>
-        <SoleTraderDatePicker name="abnActiveDate" />
+        <SoleTraderDatePicker name="abnRegistrationDetails.abnActiveDate" />
       </div>
       <div>
         <label htmlFor="message">Main Business Activity</label>
-        <SoleTraderTextInput name="mainBusinessActivity"></SoleTraderTextInput>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          className="form-control"
-          defaultValue=""
+        <SoleTraderTextInput
           placeholder="Agriculture"
-          required={false}
-          data-error="Please enter your Name"
-        />
+          name="abnRegistrationDetails.mainBusinessActivity"
+        ></SoleTraderTextInput>
       </div>
       <div>
         <label htmlFor="message">Business Category</label>

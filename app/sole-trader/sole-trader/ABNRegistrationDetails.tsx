@@ -1,5 +1,9 @@
+import TextInput from "@components/TextInput";
 import FormPartLayout from "../FormPartLayout";
-import { SoleTraderDatePicker } from "../SoleTraderFormComponents";
+import {
+  SoleTraderDatePicker,
+  SoleTraderTextInput,
+} from "../SoleTraderFormComponents";
 
 const ABNRegistrationDetails = () => {
   return (
@@ -10,13 +14,14 @@ const ABNRegistrationDetails = () => {
       </div>
       <div>
         <label htmlFor="message">Main Business Activity</label>
+        <SoleTraderTextInput name="mainBusinessActivity"></SoleTraderTextInput>
         <input
           type="text"
           id="name"
           name="name"
           className="form-control"
           defaultValue=""
-          placeholder="Somaia D. Silva"
+          placeholder="Agriculture"
           required={false}
           data-error="Please enter your Name"
         />
@@ -29,7 +34,7 @@ const ABNRegistrationDetails = () => {
           name="name"
           className="form-control"
           defaultValue=""
-          placeholder="Somaia D. Silva"
+          placeholder=""
           required={false}
           data-error="Please enter your Name"
         />

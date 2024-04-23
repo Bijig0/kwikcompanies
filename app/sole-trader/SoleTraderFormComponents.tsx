@@ -35,9 +35,17 @@ const SoleTraderTextInput = (
 };
 
 const SoleTraderDatePicker = (
-  props: ComponentProps<typeof DatePicker<ABNForms["soleTrader"]>>
+  props: Omit<
+    ComponentProps<typeof DatePicker<ABNForms["soleTrader"]>>,
+    "context"
+  >
 ) => {
-  return <DatePicker<ABNForms["soleTrader"]> {...props} />;
+  return (
+    <DatePicker<ABNForms["soleTrader"]>
+      context={SoleTraderFormContext}
+      {...props}
+    />
+  );
 };
 
 export { SoleTraderDatePicker, SoleTraderSelect, SoleTraderTextInput };

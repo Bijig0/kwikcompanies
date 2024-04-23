@@ -14,9 +14,7 @@ dayjs.extend(utc);
 
 export type UnionOfValues<T> = T[keyof T];
 
-type Props<T extends UnionOfValues<ABNForms>> = ComponentProps<
-  typeof _DatePicker
-> & {
+type Props<T extends UnionOfValues<ABNForms>> = {
   name: CreateFormRegisterable<T["formValues"]>;
   context: Context<T["context"]>;
 };

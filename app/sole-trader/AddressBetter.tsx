@@ -1,43 +1,39 @@
 import {
-    AddressAutofill,
-    config,
-    useConfirmAddress
+  AddressAutofill,
+  config,
+  useConfirmAddress,
 } from "@mapbox/search-js-react";
+import { AddressAutofillProps } from "@mapbox/search-js-react/dist/components/AddressAutofill";
 import { useCallback, useEffect, useState } from "react";
+import { SoleTraderTextInput } from "./SoleTraderFormComponents";
+
+const mapBoxAccessToken =
+  "pk.eyJ1IjoiYmlqaWcwIiwiYSI6ImNsdXpreWNnZTFkaGkycW53dDhseWh3cWgifQ.30N1A9KD3UR4762uEEH-yQ";
+
+type AutoCompleteResponse = Parameters<AddressAutofillProps["onRetrieve"]>[0];
 
 export default function AutofillCheckoutDemo() {
   const [showFormExpanded, setShowFormExpanded] = useState(false);
-  const [showMinimap, setShowMinimap] = useState(false);
-  const [feature, setFeature] = useState();
   const [showValidationText, setShowValidationText] = useState(false);
   const [token, setToken] = useState("");
 
   useEffect(() => {
-    const accessToken = "MAPBOX_ACCESS_TOKEN";
+    const accessToken = mapBoxAccessToken;
     setToken(accessToken);
     config.accessToken = accessToken;
   }, []);
 
   const { formRef, showConfirm } = useConfirmAddress({
     minimap: true,
-    skipConfirmModal: (feature) => 
-      ["exact", "high"].includes(feature.properties.match_code.confidence);
-    
+    skipConfirmModal: (feature) =>
+      ["exact", "high"].includes(feature.properties.match_code.confidence),
   });
 
-  const handleRetrieve = useCallback(
-    (res) => {
-      const feature = res.features[0];
-      setFeature(feature);
-      setShowMinimap(true);
-      setShowFormExpanded(true);
-    },
-    [setFeature, setShowMinimap]
-  );
-
-  function handleSaveMarkerLocation(coordinate) {
-    console.log(`Marker moved to ${JSON.stringify(coordinate)}.`);
-  }
+  const handleRetrieve = (res: AutoCompleteResponse) => {
+    console.log(res);
+    const feature = res.features[0];
+    setShowFormExpanded(true);
+  };
 
   const handleSubmit = useCallback(
     async (e) => {
@@ -60,7 +56,6 @@ export default function AutofillCheckoutDemo() {
     inputs.forEach((input) => (input.value = ""));
     setShowFormExpanded(false);
     setShowValidationText(false);
-    setFeature(null);
   }
 
   return (
@@ -69,23 +64,17 @@ export default function AutofillCheckoutDemo() {
         <div className="grid grid--gut24 mb60">
           <div className="w-full col col--auto-mm">
             {/* Input form */}
-            <label className="txt-s txt-bold color-gray mb3">Address</label>
             <AddressAutofill accessToken={token} onRetrieve={handleRetrieve}>
-              <input
-                className="input mb12"
-                placeholder="Start typing your address, e.g. 123 Main..."
-                autoComplete="address-line1"
-                id="mapbox-autofill"
-              />
+              <SoleTraderTextInput name="businessDetails.hasPreviousAbn.prevAbn" />
             </AddressAutofill>
             {!showFormExpanded && (
-              <div
+              <button
                 id="manual-entry"
                 className="border-b w180 mt6 link txt-ms color-gray color-black-on-hover"
                 onClick={() => setShowFormExpanded(true)}
               >
                 Enter an address manually
-              </div>
+              </button>
             )}
             <div
               className="secondary-inputs"

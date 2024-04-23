@@ -2,6 +2,7 @@ import React from "react";
 import AddressAutocomplete from "../AddressAutocomplete";
 import FormPartLayout from "../FormPartLayout";
 import { useSoleTraderFormContext } from "../SoleTraderFormContext";
+import AutofillCheckoutDemo from "../AddressBetter";
 
 const BusinessLocation = () => {
   const {
@@ -36,7 +37,7 @@ const BusinessLocation = () => {
     <FormPartLayout header="Business Location" step={4}>
       <div>
         <label htmlFor="message">Home Address</label>
-        <AddressAutocomplete />
+        <AutofillCheckoutDemo />
       </div>
       <div>
         <label className="font-semibold text-black text-md" htmlFor="message">

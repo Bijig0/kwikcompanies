@@ -20,9 +20,9 @@ export default function AddressAutocomplete() {
     //   <input
     //     type="text"
     //     placeholder="Enter your address"
-    //     className={`rounded-md ${formDisabled ? "bg-gray-100" : "bg-white"} ${
-    //       formDisabled ? "text-gray-400" : "text-gray-800"
-    //     } py-3 border-gray-300 w-full font-medium px-4 rounded-lg w-full text-base font-normal leading-normal border border-gray-300 appearance-none rounded transition-colors transition-shadow`}
+        // className={`rounded-md ${formDisabled ? "bg-gray-100" : "bg-white"} ${
+        //   formDisabled ? "text-gray-400" : "text-gray-800"
+        // } py-3 border-gray-300 w-full font-medium px-4 rounded-lg w-full text-base font-normal leading-normal border border-gray-300 appearance-none rounded transition-colors transition-shadow`}
     //     autoComplete="shipping street-address"
     //     value={value}
     //     onChange={handleChange}

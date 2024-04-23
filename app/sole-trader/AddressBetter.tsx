@@ -99,6 +99,7 @@ export default function AutofillCheckoutDemo() {
     <div className="flex flex-col w-full gap-3">
       {/* Input form */}
       <div>
+        {/* @ts-ignore */}
         <AddressAutofill accessToken={token} onRetrieve={handleRetrieve}>
           <SoleTraderTextInput
             placeholder="Address"

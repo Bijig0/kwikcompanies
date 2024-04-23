@@ -86,67 +86,63 @@ const _BusinessNameApplication = () => {
   const renderSearchResultProps = resetSearch;
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <FormPartLayout header="Business Name Application" step={6}>
-        <div>
-          <label className="font-semibold text-black text-md" htmlFor="name">
-            Will you trade under a business name?
-          </label>
-          <div className="flex flex-col">
-            {options.map((option) => (
-              <Controller
-                key={option}
-                name="businessNameApplication.businessName.answer"
-                control={control}
-                rules={{ required: "This field is required" }}
-                render={({ field: { onChange, value } }) => (
-                  <label className="inline-flex items-center">
-                    <input
-                      onChange={handleBusinessNameChange}
-                      name="businessName"
-                      type="radio"
-                      className="form-radio"
-                      value={option}
-                    />
-                    <span className="ml-2">{text[option]}</span>
-                  </label>
-                )}
-              />
-            ))}
-          </div>
-          {errors?.businessNameApplication?.businessName?.answer && (
-            <ErrorText>
-              {errors?.businessNameApplication?.businessName?.answer?.message}
-            </ErrorText>
-          )}
-        </div>
-        {watch("businessNameApplication.businessName.answer") && (
-          <div>
-            <div>
-              <label htmlFor="message">Search for your business name</label>
-              <SoleTraderTextInput
-                name="businessNameApplication.businessName.businessName"
-                placeholder="Acme Inc"
-              />
-              <div className="my-3"></div>
-              <Button
-                data-show={!isFetched}
-                className="hidden data-[show=true]:block"
-                onClick={handleSearchForBusinessName}
-              >
-                {!isLoading ? "Search" : <Spinner animation="border" />}
-              </Button>
-              {error && <p className="text-red-500">{error.message}</p>}
-            </div>
-            <div className="my-3" />
-            {businessNameAvailable &&
-              renderSearchResult[businessNameAvailable](
-                renderSearchResultProps
+    <FormPartLayout header="Business Name Application" step={6}>
+      <div>
+        <label className="font-semibold text-black text-md" htmlFor="name">
+          Will you trade under a business name?
+        </label>
+        <div className="flex flex-col">
+          {options.map((option) => (
+            <Controller
+              key={option}
+              name="businessNameApplication.businessName.answer"
+              control={control}
+              rules={{ required: "This field is required" }}
+              render={({ field: { onChange, value } }) => (
+                <label className="inline-flex items-center">
+                  <input
+                    onChange={handleBusinessNameChange}
+                    name="businessName"
+                    type="radio"
+                    className="form-radio"
+                    value={option}
+                  />
+                  <span className="ml-2">{text[option]}</span>
+                </label>
               )}
-          </div>
+            />
+          ))}
+        </div>
+        {errors?.businessNameApplication?.businessName?.answer && (
+          <ErrorText>
+            {errors?.businessNameApplication?.businessName?.answer?.message}
+          </ErrorText>
         )}
-      </FormPartLayout>
-    </QueryClientProvider>
+      </div>
+      {watch("businessNameApplication.businessName.answer") && (
+        <div>
+          <div>
+            <label htmlFor="message">Search for your business name</label>
+            <SoleTraderTextInput
+              name="businessNameApplication.businessName.businessName"
+              placeholder="Acme Inc"
+            />
+            <div className="my-3"></div>
+            <Button
+              data-show={!isFetched}
+              className="hidden data-[show=true]:block"
+              onClick={handleSearchForBusinessName}
+            >
+              {!isLoading ? "Search" : <Spinner animation="border" />}
+            </Button>
+            {error && <p className="text-red-500">{error.message}</p>}
+          </div>
+          <div className="my-3" />
+          {businessNameAvailable &&
+            renderSearchResult[businessNameAvailable](renderSearchResultProps)}
+        </div>
+      )}
+    </FormPartLayout>
   );
 };
 

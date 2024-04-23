@@ -3,6 +3,7 @@ import PageBanner from "@components/PageBanner";
 import AkpagerLayout from "@layouts/AkpagerLayout";
 import FormValues from "./soleTraderForm";
 
+import { QueryClientProvider } from "@tanstack/react-query";
 import { Button } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
 import Divider from "../../components/Divider";
@@ -11,12 +12,13 @@ import SoleTraderFormProvider, {
   useSoleTraderFormContext,
 } from "./SoleTraderFormContext";
 import ABNEntitlement from "./sole-trader/ABNEntitlement";
-import ABNRegistrationDetails from "./sole-trader/ABNRegistrationDetails";
+import ABNRegistrationDetails from "./sole-trader/ABNRegistrationDetails/ABNRegistrationDetails";
 import BusinessDetails from "./sole-trader/BusinessDetails";
 import BusinessLocation from "./sole-trader/BusinessLocation";
 import BusinessNameApplication from "./sole-trader/BusinessNameApplication/BusinessNameApplication";
 import GSTRegistration from "./sole-trader/GSTRegistration";
 import SoleTraderDetails from "./sole-trader/SoleTraderDetails";
+import { queryClient } from "./sole-trader/queryClient";
 
 const _Page = () => {
   const {
@@ -91,9 +93,11 @@ const _Page = () => {
 
 const Page = () => {
   return (
-    <SoleTraderFormProvider totalSteps={7}>
-      <_Page />
-    </SoleTraderFormProvider>
+    <QueryClientProvider client={queryClient}>
+      <SoleTraderFormProvider totalSteps={7}>
+        <_Page />
+      </SoleTraderFormProvider>
+    </QueryClientProvider>
   );
 };
 

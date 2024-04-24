@@ -3,7 +3,6 @@ import PageBanner from "@components/PageBanner";
 import emailjs from "@emailjs/browser";
 import AkpagerLayout from "@layouts/AkpagerLayout";
 
-import Divider from "@components/Divider";
 import ErrorText from "@components/ErrorText";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { getErrorRedirect } from "@utils/helpers";
@@ -14,17 +13,9 @@ import { Urls } from "app/types/urls";
 import { useRouter } from "next/navigation";
 import { Button } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
-import Declaration from "./Declaration";
 import SoleTraderFormProvider, {
   useSoleTraderFormContext,
 } from "./SoleTraderFormContext";
-import ABNEntitlement from "./sole-trader/ABNEntitlement";
-import ABNRegistrationDetails from "./sole-trader/ABNRegistrationDetails/ABNRegistrationDetails";
-import BusinessDetails from "./sole-trader/BusinessDetails";
-import BusinessLocation from "./sole-trader/BusinessLocation";
-import BusinessNameApplication from "./sole-trader/BusinessNameApplication/BusinessNameApplication";
-import GSTRegistration from "./sole-trader/GSTRegistration";
-import SoleTraderDetails from "./sole-trader/SoleTraderDetails";
 import { queryClient } from "./sole-trader/queryClient";
 import SoleTraderFormValues from "./soleTraderForm";
 import useGetSoleTraderProducts from "./useGetSoleTraderProducts";
@@ -54,7 +45,9 @@ const _Page = () => {
     console.log(data);
     sendEmail(data);
 
-    const user = { email: data.soleTraderDetails.email } satisfies User;
+    const user = { email: "bradysuryasie@gmail.com" } satisfies User;
+
+    // const user = { email: data.soleTraderDetails.email } satisfies User;
     const examplePrice = products[0].prices[0];
     handleStripeCheckout(user, examplePrice);
   };
@@ -79,7 +72,7 @@ const _Page = () => {
     const { errorRedirect, sessionId } = await checkoutWithStripe(
       price,
       user,
-      Urls["Checkout Success"]
+      Urls["Error"]
     );
 
     if (errorRedirect) {

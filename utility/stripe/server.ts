@@ -36,9 +36,6 @@ export async function checkoutWithStripe(
       allow_promotion_codes: true,
       billing_address_collection: "required",
       customer_email: user.email,
-      customer_update: {
-        address: "auto",
-      },
       line_items: [
         {
           price: price.id,
@@ -53,20 +50,16 @@ export async function checkoutWithStripe(
       "Trial end:",
       calculateTrialEndUnixTimestamp(price.trial_period_days)
     );
-    if (price.type === "recurring") {
-      params = {
-        ...params,
-        mode: "subscription",
-        subscription_data: {
-          trial_end: calculateTrialEndUnixTimestamp(price.trial_period_days),
-        },
-      };
-    } else if (price.type === "one_time") {
+    console.log(price.type);
+
+    if (price.type === "one_time") {
       params = {
         ...params,
         mode: "payment",
       };
     }
+
+    console.log(params);
 
     // Create a checkout session in Stripe
     let session;
@@ -74,6 +67,7 @@ export async function checkoutWithStripe(
       session = await stripe.checkout.sessions.create(params);
     } catch (err) {
       console.error(err);
+      console.log(err);
       throw new Error("Unable to create checkout session.");
     }
 
@@ -81,9 +75,11 @@ export async function checkoutWithStripe(
     if (session) {
       return { sessionId: session.id };
     } else {
+      console.log("Running2");
       throw new Error("Unable to create checkout session.");
     }
   } catch (error) {
+    console.log(error);
     if (error instanceof Error) {
       return {
         errorRedirect: getErrorRedirect(

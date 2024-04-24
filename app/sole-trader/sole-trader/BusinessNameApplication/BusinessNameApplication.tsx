@@ -100,6 +100,7 @@ const _BusinessNameApplication = () => {
             <Controller
               key={option}
               name="businessNameApplication.businessName.answer"
+              rules={{ required: "This field is required" }}
               control={control}
               render={({ field: { onChange, value } }) => (
                 <label className="inline-flex items-center">
@@ -109,7 +110,6 @@ const _BusinessNameApplication = () => {
                     type="radio"
                     className="form-radio"
                     value={option}
-                    required
                   />
                   <span className="ml-2">{text[option]}</span>
                 </label>

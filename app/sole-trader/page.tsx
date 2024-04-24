@@ -60,7 +60,7 @@ const _Page = () => {
                     Click Me
                   </button>
                   <BusinessDetails />
-                  {/* <Divider />
+                  <Divider />
                   <ABNEntitlement />
                   <Divider />
 
@@ -79,7 +79,7 @@ const _Page = () => {
                   <GSTRegistration />
                   <Divider />
 
-                  <Declaration /> */}
+                  <Declaration />
                   <div className="my-3" />
                   <Button type="submit" className="px-4 py-2 mx-auto font-bold">
                     Continue

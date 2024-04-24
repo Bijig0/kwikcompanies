@@ -1,6 +1,8 @@
-import PartnershipFormProvider, {
-  usePartnershipFormContext,
-} from "app/partnership/PartnerShipFormContext";
+import { usePartnershipFormContext } from "app/partnership/PartnerShipFormContext";
+import {
+  SoleTraderSelect,
+  SoleTraderTextInput,
+} from "app/sole-trader/SoleTraderFormComponents";
 import {
   australianStates,
   registrationPeriods,
@@ -24,7 +26,9 @@ const BusinessNameRegistrationDetails = () => {
         {registrationPeriods.map((option) => (
           <label key={option} className="inline-flex items-center">
             <input
-              {...register("isRegisteringBusinessName.registrationPeriod")}
+              {...register(
+                "businessNameApplication.isRegisteringBusinessName.registrationPeriod"
+              )}
               type="radio"
               className="form-radio"
               value={option}
@@ -36,21 +40,21 @@ const BusinessNameRegistrationDetails = () => {
       <div>
         <label htmlFor="message">Country of birth</label>
 
-        <PartnershipFormProvider.Select
+        <SoleTraderSelect
           options={countries}
-          name="isRegisteringBusinessName.birthLocation.country"
+          name="businessNameApplication.isRegisteringBusinessName.birthLocation.country"
         />
       </div>
       <div>
         <label htmlFor="message">State</label>
-        <PartnershipFormProvider.Select
+        <SoleTraderSelect
           options={australianStates}
-          name="isRegisteringBusinessName.birthLocation.state"
+          name="businessNameApplication.isRegisteringBusinessName.birthLocation.state"
         />
       </div>
       <div>
         <label htmlFor="message">City</label>
-        <PartnershipFormProvider.TextInput name="isRegisteringBusinessName.birthLocation.city" />
+        <SoleTraderTextInput name="businessNameApplication.isRegisteringBusinessName.birthLocation.city" />
       </div>
     </div>
   );

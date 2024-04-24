@@ -42,6 +42,7 @@ type TradingUnderBusinessName =
     }
   | {
       answer: false;
+      businessName?: never;
     };
 
 export const australianStates = [

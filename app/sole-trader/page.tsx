@@ -23,6 +23,7 @@ import { queryClient } from "./sole-trader/queryClient";
 
 const _Page = () => {
   const {
+    formDisabled,
     onError,
     formManager: {
       handleSubmit,
@@ -81,7 +82,13 @@ const _Page = () => {
 
                   <Declaration />
                   <div className="my-3" />
-                  <Button type="submit" className="px-4 py-2 mx-auto font-bold">
+                  <Button
+                    disabled={formDisabled}
+                    type="submit"
+                    className={`px-4 py-2 mx-auto font-bold ${
+                      formDisabled && "opacity-40"
+                    }`}
+                  >
                     Continue
                   </Button>
                   <div className="flex justify-center mt-4">

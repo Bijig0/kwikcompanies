@@ -222,7 +222,7 @@ const PartnershipDetails = () => {
               <div>
                 <label htmlFor="message">Tax File Number</label>
                 <PartnershipFormProvider.TextInput
-                  name={`partnerDetails.${index}.birthLocation.city`}
+                  name={`partnerDetails.${index}.taxFileNumber`}
                   rules={{ required: "This field is required" }}
                 />
                 {errors.partnerDetails?.[index]?.taxFileNumber && (

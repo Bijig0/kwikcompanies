@@ -1,6 +1,6 @@
-import ServiceDocumentAddress from "app/sole-trader/Addresses/ServiceDocumentAddress";
 import { Controller } from "react-hook-form";
 import BusinessAddress from "../Addresses/BusinessAddress";
+import ServiceDocumentAddress from "../Addresses/ServiceDocumentAddress";
 import FormPartLayout from "../FormPartLayout";
 import { usePartnershipFormContext } from "../PartnerShipFormContext";
 

@@ -6,6 +6,7 @@ import {
 } from "@mapbox/search-js-react";
 import { AddressAutofillProps } from "@mapbox/search-js-react/dist/components/AddressAutofill";
 import { useBoolean } from "@utils/useBoolean";
+import usePrevious from "@utils/usePrevious";
 import { useEffect, useRef, useState } from "react";
 import PartnershipFormProvider, {
   usePartnershipFormContext,
@@ -110,10 +111,14 @@ export default function HomeAddress(props: Props) {
 
   console.log(errors);
 
+  const prevGetValues = usePrevious(getValues());
+
   useEffect(() => {
     console.log(errors);
     const errorsPresent = Object.keys(errors).length !== 0;
     console.log(errorsPresent);
+
+    if (JSON.stringify(prevGetValues) === JSON.stringify(getValues())) return;
 
     if (errorsPresent) {
       expandForm();

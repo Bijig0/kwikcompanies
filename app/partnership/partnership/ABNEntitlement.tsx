@@ -20,11 +20,11 @@ const ABNEntitlement = () => {
     const value = e.target.value as ActivitiesLocation;
     if (value === "Overseas") {
       disableForm();
-      setValue("activitiesLocation", "Overseas");
+      setValue("abnEntitlement.activitiesLocation", "Overseas");
       return;
     } else if (value === "Australia") {
       enableForm();
-      setValue("activitiesLocation", "Australia");
+      setValue("abnEntitlement.activitiesLocation", "Australia");
       return;
     }
   };
@@ -38,7 +38,7 @@ const ABNEntitlement = () => {
         {["Australia", "Overseas"].map((option) => (
           <label key={option} className="inline-flex items-center">
             <input
-              {...register("activitiesLocation", {
+              {...register("abnEntitlement.activitiesLocation", {
                 required: "This field is required",
               })}
               type="radio"
@@ -50,17 +50,22 @@ const ABNEntitlement = () => {
           </label>
         ))}
       </div>
-      {errors.activitiesLocation && (
-        <ErrorText>{errors.activitiesLocation.message}</ErrorText>
+      {errors?.abnEntitlement?.activitiesLocation && (
+        <ErrorText>
+          {errors.abnEntitlement.activitiesLocation.message}
+        </ErrorText>
       )}
-      {watch("activitiesLocation") === "Overseas" && (
-        <ErrorText>Error Text Here, Overseas is not supported</ErrorText>
+      {watch("abnEntitlement.activitiesLocation") === "Overseas" && (
+        <ErrorText>
+          Overseas activites are not supported for ABN Registration with Kwik
+          Companies
+        </ErrorText>
       )}
       <label className="font-semibold text-black text-md" htmlFor="message">
         Why do you need an ABN?
       </label>
       <PartnershipFormProvider.Select
-        name="needAbnReason"
+        name="abnEntitlement.needAbnReason"
         options={needAbnReasons}
       />
     </FormPartLayout>

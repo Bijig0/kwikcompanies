@@ -1,8 +1,9 @@
-import { usePartnershipFormContext } from "app/partnership/PartnerShipFormContext";
+import { useSoleTraderFormContext } from "app/sole-trader/SoleTraderFormContext";
 import { Button } from "react-bootstrap";
 import { Controller } from "react-hook-form";
 import { CiCircleCheck } from "react-icons/ci";
 import BusinessNameRegistrationDetails from "./BusinessNameRegistrationDetails";
+import { usePartnershipFormContext } from "app/partnership/PartnerShipFormContext";
 
 type Props = {
   resetSearch: () => void;
@@ -18,12 +19,16 @@ const AvailableText = (props: Props) => {
   const handleClick = () => {
     console.log(getValues());
     setValue(
-      "isRegisteringBusinessName.answer",
-      !Boolean(watch("isRegisteringBusinessName.answer"))
+      "businessNameApplication.isRegisteringBusinessName.answer",
+      !Boolean(
+        watch("businessNameApplication.isRegisteringBusinessName.answer")
+      )
     );
   };
 
-  const showText = !Boolean(watch("isRegisteringBusinessName.answer"));
+  const showText = !Boolean(
+    watch("businessNameApplication.isRegisteringBusinessName.answer")
+  );
 
   return (
     <div>
@@ -43,12 +48,16 @@ const AvailableText = (props: Props) => {
       </p>
       <div className="flex items-center justify-start gap-3">
         <Controller
-          name="isRegisteringBusinessName.answer"
+          name="businessNameApplication.isRegisteringBusinessName.answer"
           control={control}
           render={() => (
             <Button
               className={
-                Boolean(watch("isRegisteringBusinessName.answer")) && "hidden"
+                Boolean(
+                  watch(
+                    "businessNameApplication.isRegisteringBusinessName.answer"
+                  )
+                ) && "hidden"
               }
               onClick={handleClick}
               disabled={formDisabled}
@@ -65,7 +74,7 @@ const AvailableText = (props: Props) => {
         </Button>
       </div>
       <div className="my-2" />
-      {watch("isRegisteringBusinessName.answer") && (
+      {watch("businessNameApplication.isRegisteringBusinessName.answer") && (
         <BusinessNameRegistrationDetails />
       )}
     </div>

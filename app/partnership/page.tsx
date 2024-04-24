@@ -7,6 +7,7 @@ import { Button } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
 import Declaration from "./Declaration";
 import Divider from "./Divider";
+import ErrorText from "./ErrorText";
 import SoleTraderFormProvider, {
   usePartnershipFormContext,
 } from "./PartnerShipFormContext";
@@ -19,12 +20,18 @@ import PartnershipDetails from "./partnership/PartnershipDetails";
 
 const _Page = () => {
   const {
-    formManager: { handleSubmit },
+    formDisabled,
+    formManager: {
+      handleSubmit,
+      formState: { errors },
+    },
   } = usePartnershipFormContext();
 
   const onSubmit = (data: FormValues) => {
     console.log(data);
   };
+
+  const errorsPresent = Object.keys(errors).length !== 0;
 
   return (
     <AkpagerLayout onePage>
@@ -62,9 +69,23 @@ const _Page = () => {
 
                   <Declaration />
                   <div className="my-3" />
-                  <Button type="submit" className="px-4 py-2 mx-auto font-bold">
+                  <Button
+                    disabled={formDisabled}
+                    type="submit"
+                    className={`px-4 py-2 mx-auto font-bold ${
+                      formDisabled && "opacity-40"
+                    }`}
+                  >
                     Continue
                   </Button>
+                  <div className="flex justify-center mt-4">
+                    {errorsPresent && (
+                      <ErrorText>
+                        Some fields are not completed correctly, please check
+                        your submission again
+                      </ErrorText>
+                    )}
+                  </div>
 
                   {/* We can use the "status" to decide whether we should display the dropdown or not */}
                   {/* {status === "OK" && <ul>{renderSuggestions()}</ul>} */}

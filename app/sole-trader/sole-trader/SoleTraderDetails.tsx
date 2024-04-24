@@ -21,13 +21,13 @@ const SoleTraderDetails = () => {
   } = useSoleTraderFormContext();
   return (
     <FormPartLayout header="Sole Trader Details" step={3}>
-      <div
+      {/* <div
         onClick={() =>
           console.log(watch("soleTraderDetails.name.otherNames.answer"))
         }
       >
         Click Me
-      </div>
+      </div> */}
       <div className="flex items-center gap-3 ">
         <div className="flex-1">
           <label htmlFor="message">Title</label>

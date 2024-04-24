@@ -1,6 +1,7 @@
 import yesNoToBool from "@utils/yesNoToBool";
 import { useCompanyFormContext } from "../CompanyFormContext";
 import FormPartLayout from "../FormPartLayout";
+import PartnershipFormProvider from "app/partnership/PartnerShipFormContext";
 
 const text = {
   Yes: `Yes, the company will pay royalties, dividends or interest \n to non-residents or report investment income paid to Australian residents.`,
@@ -23,7 +24,7 @@ const ABNRegistrationDetails = () => {
     <FormPartLayout header="ABN Registration Details" step={5}>
       <div>
         <label>ABN Active Date</label>
-        {/* <PartnershipFormProvider.DatePicker name="abnActiveDate" /> */}
+        <PartnershipFormProvider.DatePicker name="abnActiveDate" />
       </div>
       <div>
         <label htmlFor="message">Main Business Activity</label>

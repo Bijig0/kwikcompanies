@@ -53,12 +53,12 @@ const _Page = () => {
                   name="contactForm"
                   onSubmit={handleSubmit(onSubmit, onError)}
                 >
-                  <button
+                  {/* <button
                     type="button"
                     onClick={() => console.log(getValues())}
                   >
                     Click Me
-                  </button>
+                  </button> */}
                   <BusinessDetails />
                   <Divider />
                   <ABNEntitlement />

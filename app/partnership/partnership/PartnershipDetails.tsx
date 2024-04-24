@@ -2,6 +2,7 @@ import { titles } from "app/sole-trader/soleTraderForm";
 import countries from "app/types/countries";
 import { Button } from "react-bootstrap";
 import { Controller, useFieldArray } from "react-hook-form";
+import ErrorText from "../ErrorText";
 import PartnershipFormProvider, {
   usePartnershipFormContext,
 } from "../PartnerShipFormContext";
@@ -71,6 +72,7 @@ const PartnershipDetails = () => {
                   <PartnershipFormProvider.TextInput
                     placeholder="John"
                     name={`partnerDetails.${index}.name.firstName`}
+                    rules={{ required: "This field is required" }}
                   />
                   {/* {errors.partnerDetails[index]?.name?.firstName && (
                       <ErrorText>
@@ -83,12 +85,13 @@ const PartnershipDetails = () => {
                   <PartnershipFormProvider.TextInput
                     placeholder="Smith"
                     name={`partnerDetails.${index}.name.lastName`}
+                    rules={{ required: "This field is required" }}
                   />
-                  {/* {errors.partnerDetails[index]?.name?.lastName && (
-                      <ErrorText>
-                        {errors.partnerDetails[index].name.lastName.message}
-                      </ErrorText>
-                    )} */}
+                  {errors.partnerDetails?.[index]?.name?.lastName && (
+                    <ErrorText>
+                      {errors.partnerDetails[index].name.lastName.message}
+                    </ErrorText>
+                  )}
                 </div>
               </div>
               <div>
@@ -120,9 +123,10 @@ const PartnershipDetails = () => {
                       />
                     )}
                   />
-                  {/* {errors.partnerDetails[index]?.name?.otherNames?.otherName && (
-                      <ErrorText>This field is required</ErrorText>
-                    )} */}
+                  {errors.partnerDetails?.[index]?.name?.otherNames
+                    ?.otherName && (
+                    <ErrorText>This field is required</ErrorText>
+                  )}
                 </div>
               )}
               <div>
@@ -130,12 +134,14 @@ const PartnershipDetails = () => {
                 <PartnershipFormProvider.TextInput
                   placeholder="john_smith@gmail.com"
                   name={`partnerDetails.${index}.email`}
+                  type="email"
+                  rules={{ required: "This field is required" }}
                 />
-                {/* {errors.partnerDetails[index]?.email && (
-                    <ErrorText>
-                      {errors.partnerDetails[index].email.message}
-                    </ErrorText>
-                  )} */}
+                {errors.partnerDetails?.[index]?.email && (
+                  <ErrorText>
+                    {errors.partnerDetails[index].email.message}
+                  </ErrorText>
+                )}
               </div>
 
               <div>
@@ -143,17 +149,27 @@ const PartnershipDetails = () => {
                 <PartnershipFormProvider.TextInput
                   placeholder="+61 403 057 369"
                   name={`partnerDetails.${index}.phoneNumber`}
+                  type="tel"
+                  rules={{ required: "This field is required" }}
                 />
-                {/* {errors.partnerDetails[index]?.phoneNumber && (
-                    <ErrorText>
-                      {errors.partnerDetails[index].phoneNumber.message}
-                    </ErrorText>
-                  )} */}
+                {errors.partnerDetails?.[index]?.phoneNumber && (
+                  <ErrorText>
+                    {errors.partnerDetails[index].phoneNumber.message}
+                  </ErrorText>
+                )}
               </div>
 
               <div>
                 <label htmlFor="message">Date of Birth</label>
-                {/* <PartnershipFormProvider.DatePicker name="dateOfBirth" /> */}
+                <PartnershipFormProvider.DatePicker
+                  name={`partnerDetails.${index}.dateOfBirth`}
+                  rules={{ required: "This field is required" }}
+                />
+                {errors.partnerDetails?.[index]?.dateOfBirth && (
+                  <ErrorText>
+                    {errors.partnerDetails[index].dateOfBirth.message}
+                  </ErrorText>
+                )}
               </div>
 
               <div>
@@ -179,6 +195,7 @@ const PartnershipDetails = () => {
                     <label htmlFor="message">City</label>
                     <PartnershipFormProvider.TextInput
                       name={`partnerDetails.${index}.birthLocation.city`}
+                      rules={{ required: "This field is required" }}
                     />
                   </div>
                 </>
@@ -188,13 +205,20 @@ const PartnershipDetails = () => {
                 <label htmlFor="message">Tax File Number</label>
                 <PartnershipFormProvider.TextInput
                   name={`partnerDetails.${index}.birthLocation.city`}
+                  rules={{ required: "This field is required" }}
                 />
+                {errors.partnerDetails?.[index]?.taxFileNumber && (
+                  <ErrorText>
+                    {errors.partnerDetails[index].taxFileNumber.message}
+                  </ErrorText>
+                )}
               </div>
 
               <div>
                 <label htmlFor="message">Home Address</label>
                 <PartnershipFormProvider.TextInput
                   name={`partnerDetails.${index}.homeAddress`}
+                  rules={{ required: "This field is required" }}
                 />
               </div>
 
@@ -202,7 +226,8 @@ const PartnershipDetails = () => {
                 <input
                   type="checkbox"
                   {...register(
-                    `partnerDetails.${index}.declaredIsAustralianResidentForTaxPurposes`
+                    `partnerDetails.${index}.declaredIsAustralianResidentForTaxPurposes`,
+                    { required: "This field is required" }
                   )}
                   id={`partnerDetails.${index}.declaredIsAustralianResidentForTaxPurposes`}
                 />
@@ -212,6 +237,15 @@ const PartnershipDetails = () => {
                 >
                   I am an Australian resident for tax purposes.
                 </label>
+                {errors.partnerDetails?.[index]
+                  ?.declaredIsAustralianResidentForTaxPurposes && (
+                  <ErrorText>
+                    {
+                      errors.partnerDetails[index]
+                        .declaredIsAustralianResidentForTaxPurposes.message
+                    }
+                  </ErrorText>
+                )}
               </div>
 
               <div className="my-3" />

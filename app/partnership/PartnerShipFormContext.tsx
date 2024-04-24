@@ -1,4 +1,5 @@
 "use client";
+import DatePicker from "@components/DatePicker";
 import Select from "@components/Select";
 import TextInput from "@components/TextInput";
 import { useBoolean } from "@utils/useBoolean";
@@ -81,11 +82,25 @@ const PartnershipSelect = (
   );
 };
 
+const PartnershipDatePicker = (
+  props: Omit<
+    ComponentProps<typeof DatePicker<ABNForms["partnership"]>>,
+    "context"
+  >
+) => {
+  return (
+    <DatePicker<ABNForms["partnership"]>
+      context={PartnershipFormContext}
+      {...props}
+    />
+  );
+};
+
 // const Partnership
 
 PartnershipFormProvider.TextInput = PartnershipTextInput;
 PartnershipFormProvider.Select = PartnershipSelect;
-PartnershipFormProvider.DatePicker = PartnershipSelect;
+PartnershipFormProvider.DatePicker = PartnershipDatePicker;
 
 export const usePartnershipFormContext = () =>
   useContext(PartnershipFormContext);

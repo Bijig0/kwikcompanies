@@ -2,6 +2,7 @@ import { titles } from "app/sole-trader/soleTraderForm";
 import countries from "app/types/countries";
 import { Button } from "react-bootstrap";
 import { Controller, useFieldArray } from "react-hook-form";
+import HomeAddress from "../Addresses/HomeAddress";
 import ErrorText from "../ErrorText";
 import PartnershipFormProvider, {
   usePartnershipFormContext,
@@ -74,11 +75,11 @@ const PartnershipDetails = () => {
                     name={`partnerDetails.${index}.name.firstName`}
                     rules={{ required: "This field is required" }}
                   />
-                  {/* {errors.partnerDetails[index]?.name?.firstName && (
-                      <ErrorText>
-                        {errors.partnerDetails[index].name.firstName.message}
-                      </ErrorText>
-                    )} */}
+                  {errors.partnerDetails?.[index]?.name?.firstName && (
+                    <ErrorText>
+                      {errors.partnerDetails[index].name.firstName.message}
+                    </ErrorText>
+                  )}
                 </div>
                 <div className="flex-[3_3_0%] md:flex-[2_2_0%]">
                   <label htmlFor="message">Last Name</label>
@@ -185,18 +186,35 @@ const PartnershipDetails = () => {
                 "Australia" && (
                 <>
                   <div>
-                    <label htmlFor="message">State</label>
+                    <label htmlFor="message">State of birth</label>
                     <PartnershipFormProvider.Select
                       options={australianStates}
                       name={`partnerDetails.${index}.birthLocation.state`}
                     />
+                    {errors.partnerDetails?.[index]?.birthLocation?.state && (
+                      <ErrorText>
+                        {
+                          errors.partnerDetails[index].birthLocation?.state
+                            .message
+                        }
+                      </ErrorText>
+                    )}
                   </div>
+
                   <div>
-                    <label htmlFor="message">City</label>
+                    <label htmlFor="message">City of birth</label>
                     <PartnershipFormProvider.TextInput
                       name={`partnerDetails.${index}.birthLocation.city`}
                       rules={{ required: "This field is required" }}
                     />
+                    {errors.partnerDetails?.[index]?.birthLocation?.city && (
+                      <ErrorText>
+                        {
+                          errors.partnerDetails[index].birthLocation?.city
+                            .message
+                        }
+                      </ErrorText>
+                    )}
                   </div>
                 </>
               )}
@@ -216,10 +234,7 @@ const PartnershipDetails = () => {
 
               <div>
                 <label htmlFor="message">Home Address</label>
-                <PartnershipFormProvider.TextInput
-                  name={`partnerDetails.${index}.homeAddress`}
-                  rules={{ required: "This field is required" }}
-                />
+                <HomeAddress index={index} />
               </div>
 
               <div>

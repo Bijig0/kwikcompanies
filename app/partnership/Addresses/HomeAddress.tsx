@@ -7,15 +7,21 @@ import {
 import { AddressAutofillProps } from "@mapbox/search-js-react/dist/components/AddressAutofill";
 import { useBoolean } from "@utils/useBoolean";
 import { useEffect, useRef, useState } from "react";
-import { SoleTraderTextInput } from "../SoleTraderFormComponents";
-import { useSoleTraderFormContext } from "../SoleTraderFormContext";
+import PartnershipFormProvider, {
+  usePartnershipFormContext,
+} from "../PartnerShipFormContext";
 
 const mapBoxAccessToken =
   "pk.eyJ1IjoiYmlqaWcwIiwiYSI6ImNsdXpreWNnZTFkaGkycW53dDhseWh3cWgifQ.30N1A9KD3UR4762uEEH-yQ";
 
 type AutoCompleteResponse = Parameters<AddressAutofillProps["onRetrieve"]>[0];
 
-export default function HomeAddress() {
+type Props = {
+  index: number;
+};
+
+export default function HomeAddress(props: Props) {
+  const { index } = props;
   const {
     value: isFormExpanded,
     toggle: toggleFormExpansion,
@@ -32,11 +38,10 @@ export default function HomeAddress() {
       setValue,
       register,
       watch,
-      control,
       getValues,
       formState: { errors },
     },
-  } = useSoleTraderFormContext();
+  } = usePartnershipFormContext();
 
   useEffect(() => {
     const accessToken = mapBoxAccessToken;
@@ -49,16 +54,6 @@ export default function HomeAddress() {
       ["exact", "high"].includes(feature.properties.match_code.confidence),
   });
 
-  useEffect(() => {
-    console.log(errors);
-    const errorsPresent = Object.keys(errors).length !== 0;
-    console.log(errorsPresent);
-
-    if (errorsPresent) {
-      expandForm();
-    }
-  }, [errors, getValues()]);
-
   const autofillInputRef = useRef<HTMLInputElement | null>(null);
 
   const handleRetrieve = (res: AutoCompleteResponse) => {
@@ -66,27 +61,27 @@ export default function HomeAddress() {
     const feature = res.features[0];
     console.log(feature.properties.place_name);
     setValue(
-      "businessLocation.homeAddress.full_address",
+      `partnerDetails.${index}.homeAddress.full_address`,
       feature.properties.place_name
     );
     setValue(
-      "businessLocation.homeAddress.address_line_1",
+      `partnerDetails.${index}.homeAddress.address_line_1`,
       feature.properties.address_line1
     );
     setValue(
-      "businessLocation.homeAddress.address_line_2",
+      `partnerDetails.${index}.homeAddress.address_line_2`,
       feature.properties.address_line2
     );
     setValue(
-      "businessLocation.homeAddress.address_level_1",
+      `partnerDetails.${index}.homeAddress.address_level_1`,
       feature.properties.address_level1
     );
     setValue(
-      "businessLocation.homeAddress.address_level_2",
+      `partnerDetails.${index}.homeAddress.address_level_2`,
       feature.properties.address_level2
     );
     setValue(
-      "businessLocation.homeAddress.postcode",
+      `partnerDetails.${index}.homeAddress.postcode`,
       feature.properties.postcode
     );
     expandForm();
@@ -113,24 +108,39 @@ export default function HomeAddress() {
     setShowValidationText(false);
   }
 
+  console.log(errors);
+
+  useEffect(() => {
+    console.log(errors);
+    const errorsPresent = Object.keys(errors).length !== 0;
+    console.log(errorsPresent);
+
+    if (errorsPresent) {
+      expandForm();
+    }
+  }, [errors, getValues()]);
+
+  const requiredCondition = {
+    required: "This field is required",
+  };
+
   return (
     <div className="flex flex-col w-full gap-3">
       {/* Input form */}
       <div>
         {/* @ts-ignore */}
         <AddressAutofill accessToken={token} onRetrieve={handleRetrieve}>
-          <SoleTraderTextInput
-            placeholder="Home Address"
-            name="businessLocation.homeAddress.full_address"
-            rules={{ required: "This field is required" }}
+          <PartnershipFormProvider.TextInput
+            placeholder="Business Address"
+            name={`partnerDetails.${index}.homeAddress.full_address`}
+            rules={requiredCondition}
           />
         </AddressAutofill>
-        {errors.businessLocation?.homeAddress?.full_address && (
+        {errors.partnerDetails?.[index]?.homeAddress?.full_address && (
           <ErrorText>
-            {errors.businessLocation?.homeAddress?.full_address?.message}
+            {errors.partnerDetails?.[index]?.homeAddress?.full_address.message}
           </ErrorText>
         )}
-
         {!isFormExpanded && (
           <button
             id="manual-entry block"
@@ -149,27 +159,24 @@ export default function HomeAddress() {
           <label className="txt-s txt-bold color-gray mb3">
             Address Line 2
           </label>
-          <SoleTraderTextInput
+          <PartnershipFormProvider.TextInput
             placeholder="Apartment, suite, unit, building, floor, etc."
-            name="businessLocation.homeAddress.address_line_2"
+            name={`partnerDetails.${index}.homeAddress.address_line_2`}
           />
-          {errors.businessLocation?.homeAddress?.address_line_2 && (
-            <ErrorText>
-              {errors.businessLocation?.homeAddress?.address_line_2?.message}
-            </ErrorText>
-          )}
         </div>
         <div>
           <label className="txt-s txt-bold color-gray mb3">City</label>
-          <SoleTraderTextInput
+          <PartnershipFormProvider.TextInput
             placeholder="City"
-            name="businessLocation.homeAddress.address_level_2"
-            rules={{ required: "This field is required" }}
-            autoComplete="address-level2"
+            name={`partnerDetails.${index}.homeAddress.address_level_1`}
+            rules={requiredCondition}
           />
-          {errors.businessLocation?.homeAddress?.address_level_2 && (
+          {errors.partnerDetails?.[index]?.homeAddress?.address_level_1 && (
             <ErrorText>
-              {errors.businessLocation?.homeAddress?.address_level_2?.message}
+              {
+                errors.partnerDetails?.[index]?.homeAddress?.address_level_1
+                  .message
+              }
             </ErrorText>
           )}
         </div>
@@ -177,15 +184,17 @@ export default function HomeAddress() {
           <label className="txt-s txt-bold color-gray mb3">
             State / Region
           </label>
-          <SoleTraderTextInput
+          <PartnershipFormProvider.TextInput
             placeholder="State/Region"
-            name="businessLocation.homeAddress.address_level_1"
-            rules={{ required: "This field is required" }}
-            autoComplete="address-level1"
+            name={`partnerDetails.${index}.homeAddress.address_level_2`}
+            rules={requiredCondition}
           />
-          {errors.businessLocation?.homeAddress?.address_level_1 && (
+          {errors.partnerDetails?.[index]?.homeAddress?.address_level_2 && (
             <ErrorText>
-              {errors.businessLocation?.homeAddress?.address_level_1?.message}
+              {
+                errors.partnerDetails?.[index]?.homeAddress?.address_level_2
+                  .message
+              }
             </ErrorText>
           )}
         </div>
@@ -193,16 +202,14 @@ export default function HomeAddress() {
           <label className="txt-s txt-bold color-gray mb3">
             ZIP / Postcode
           </label>
-          <SoleTraderTextInput
+          <PartnershipFormProvider.TextInput
             placeholder="e.g. 3000"
-            name="businessLocation.homeAddress.postcode"
-            rules={{ required: "This field is required" }}
-            autoComplete="postal-code"
+            name={`partnerDetails.${index}.homeAddress.postcode`}
+            rules={requiredCondition}
           />
-
-          {errors.businessLocation?.homeAddress?.postcode && (
+          {errors.partnerDetails?.[index]?.homeAddress?.postcode && (
             <ErrorText>
-              {errors.businessLocation?.homeAddress?.postcode?.message}
+              {errors.partnerDetails?.[index]?.homeAddress?.postcode.message}
             </ErrorText>
           )}
         </div>

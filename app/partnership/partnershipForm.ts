@@ -108,7 +108,7 @@ type PartnerDetails = {
   dateOfBirth: Date;
   birthLocation: BirthLocation;
   taxFileNumber: string;
-  homeAddress: string;
+  homeAddress: Address;
   declaredIsAustralianResidentForTaxPurposes: boolean;
 };
 

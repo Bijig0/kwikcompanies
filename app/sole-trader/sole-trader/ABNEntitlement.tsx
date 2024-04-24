@@ -39,11 +39,11 @@ const ABNEntitlement = () => {
             <input
               {...register("abnEntitlement.activitiesLocation", {
                 required: "This field is required",
+                onChange: handleSelectActivitesLocation,
               })}
               type="radio"
               className="form-radio"
               value={option}
-              onChange={handleSelectActivitesLocation}
             />
             <span className="ml-2">{option}</span>
           </label>
@@ -55,7 +55,10 @@ const ABNEntitlement = () => {
         </ErrorText>
       )}
       {watch("abnEntitlement.activitiesLocation") === "Overseas" && (
-        <ErrorText>Overseas activites are not supported for ABN Registration with Kwik Companies</ErrorText>
+        <ErrorText>
+          Overseas activites are not supported for ABN Registration with Kwik
+          Companies
+        </ErrorText>
       )}
       <label className="font-semibold text-black text-md" htmlFor="message">
         Why do you need an ABN?

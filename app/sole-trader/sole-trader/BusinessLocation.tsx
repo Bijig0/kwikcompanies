@@ -33,7 +33,13 @@ const BusinessLocation = () => {
           <Controller
             name="businessLocation.businessAddress.isHomeAddress"
             control={control}
-            rules={{ required: "This field is required" }}
+            rules={{
+              validate: (x) => {
+                return [true, false].includes(x)
+                  ? true
+                  : "This field is required";
+              },
+            }}
             render={({ field: { onChange, onBlur, value, ref } }) => (
               <>
                 {["Yes", "No"].map((option) => (
@@ -74,7 +80,13 @@ const BusinessLocation = () => {
           <Controller
             name="businessLocation.addressForServiceDocuments.isHomeAddress"
             control={control}
-            rules={{ required: "This field is required" }}
+            rules={{
+              validate: (x) => {
+                return [true, false].includes(x)
+                  ? true
+                  : "This field is required";
+              },
+            }}
             render={({ field: { onChange, onBlur, value, ref } }) => (
               <>
                 {["Home", "Other"].map((option) => (

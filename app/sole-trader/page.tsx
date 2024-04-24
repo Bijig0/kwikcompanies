@@ -3,11 +3,11 @@ import PageBanner from "@components/PageBanner";
 import emailjs from "@emailjs/browser";
 import AkpagerLayout from "@layouts/AkpagerLayout";
 
+import Divider from "@components/Divider";
 import ErrorText from "@components/ErrorText";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Button } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
-import Divider from "../../components/Divider";
 import Declaration from "./Declaration";
 import SoleTraderFormProvider, {
   useSoleTraderFormContext,
@@ -54,6 +54,10 @@ const _Page = () => {
     return emailjs.send(serviceId, templateName, templateParams, publicKey);
   };
 
+  const handleClick = () => {
+    console.log(getValues());
+  };
+
   return (
     <AkpagerLayout onePage>
       {/* <Script src={GOOGLE_MAPS_URL} strategy="beforeInteractive" /> */}
@@ -64,6 +68,9 @@ const _Page = () => {
           <div className="flex justify-center row gap-100 align-items-center">
             <div className="col-lg-7">
               <div className="contact-form br-10 bgc-lighter rmt-60">
+                <button type="button" onClick={handleClick}>
+                  Click Me
+                </button>
                 <form
                   id="contactForm"
                   className="flex flex-col contactForm"

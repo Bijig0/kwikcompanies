@@ -32,7 +32,13 @@ const GSTRegistration = () => {
         <Controller
           name="gstRegistration.registerForGst"
           control={control}
-          rules={{ required: "This field is required" }}
+          rules={{
+            validate: (x) => {
+              return [true, false].includes(x)
+                ? true
+                : "This field is required";
+            },
+          }}
           render={({ field: { onChange, onBlur, value, ref } }) => (
             <>
               {["Yes", "No"].map((option) => (

@@ -48,7 +48,13 @@ const BusinessDetails = () => {
             <Controller
               key={option}
               name="businessDetails.hasPreviousAbn.answer"
-              rules={{ required: "This field is required" }}
+              rules={{
+                validate: (x) => {
+                  return [true, false].includes(x)
+                    ? true
+                    : "This field is required";
+                },
+              }}
               control={control}
               render={({ field: { onChange, value } }) => (
                 <label className="inline-flex items-center">
@@ -58,14 +64,9 @@ const BusinessDetails = () => {
                     className={`form-radio ${
                       formDisabled ? "bg-gray-100" : "bg-white"
                     }`}
-                    name="hasPreviousAbn.answer"
+                    name="businessDetails.hasPreviousAbn.answer"
                     value={option}
-                    onChange={() =>
-                      setValue(
-                        "businessDetails.hasPreviousAbn.answer",
-                        option === "Yes"
-                      )
-                    }
+                    onChange={() => onChange(option === "Yes")}
                   />
                   <span
                     className={`ml-2 ${formDisabled ? "text-gray-400" : ""}`}

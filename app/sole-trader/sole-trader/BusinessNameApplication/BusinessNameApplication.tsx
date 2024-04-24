@@ -103,7 +103,13 @@ const _BusinessNameApplication = () => {
             <Controller
               key={option}
               name="businessNameApplication.businessName.answer"
-              rules={{ required: "This field is required" }}
+              rules={{
+                validate: (x) => {
+                  return [true, false].includes(x)
+                    ? true
+                    : "This field is required";
+                },
+              }}
               control={control}
               render={({ field: { onChange, value } }) => (
                 <label className="inline-flex items-center">
@@ -137,7 +143,7 @@ const _BusinessNameApplication = () => {
               placeholder="Acme Inc"
               rules={
                 watch("businessNameApplication.businessName.answer") && {
-                  required: "This field is required",
+                  validate: (x) => x != null,
                 }
               }
             />

@@ -8,6 +8,7 @@ import {
   registrationPeriods,
 } from "app/sole-trader/soleTraderForm";
 import countries from "app/types/countries";
+import { Fragment, useEffect } from "react";
 
 const text = {
   "3 years": "3 years ($99 per year) save on 3 years registration",
@@ -18,6 +19,13 @@ const BusinessNameRegistrationDetails = () => {
   const {
     formManager: { register, watch, setValue, getValues },
   } = useSoleTraderFormContext();
+
+  useEffect(() => {
+    setValue(
+      "businessNameApplication.isRegisteringBusinessName.birthLocation.country",
+      "Australia"
+    );
+  }, []);
 
   return (
     <div>
@@ -45,17 +53,23 @@ const BusinessNameRegistrationDetails = () => {
           name="businessNameApplication.isRegisteringBusinessName.birthLocation.country"
         />
       </div>
-      <div>
-        <label htmlFor="message">State</label>
-        <SoleTraderSelect
-          options={australianStates}
-          name="businessNameApplication.isRegisteringBusinessName.birthLocation.state"
-        />
-      </div>
-      <div>
-        <label htmlFor="message">City</label>
-        <SoleTraderTextInput name="businessNameApplication.isRegisteringBusinessName.birthLocation.city" />
-      </div>
+      {watch(
+        "businessNameApplication.isRegisteringBusinessName.birthLocation.country"
+      ) === "Australia" && (
+        <Fragment>
+          <div>
+            <label htmlFor="message">State</label>
+            <SoleTraderSelect
+              options={australianStates}
+              name="businessNameApplication.isRegisteringBusinessName.birthLocation.state"
+            />
+          </div>
+          <div>
+            <label htmlFor="message">City</label>
+            <SoleTraderTextInput name="businessNameApplication.isRegisteringBusinessName.birthLocation.city" />
+          </div>
+        </Fragment>
+      )}
     </div>
   );
 };

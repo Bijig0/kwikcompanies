@@ -35,6 +35,7 @@ const Select = <T extends UnionOfValues<ABNForms>>(props: Props<T>) => {
         } ${
           formDisabled ? "text-gray-400" : "text-gray-800"
         } py-3 border-gray-300 w-full font-medium px-4 rounded-lg w-full text-base font-normal leading-normal border border-gray-300 appearance-none rounded transition-colors transition-shadow`}
+        defaultValue={options[0]}
       >
         {options.map((option) => (
           <option key={option} value={option}>

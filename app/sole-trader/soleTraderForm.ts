@@ -97,6 +97,8 @@ type IsRegisteringBusinessName =
     }
   | {
       answer: false;
+      registrationPeriod?: never;
+      birthLocation?: never;
     };
 
 type TBusinessDetails = {

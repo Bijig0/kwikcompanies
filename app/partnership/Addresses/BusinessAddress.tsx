@@ -7,8 +7,9 @@ import {
 import { AddressAutofillProps } from "@mapbox/search-js-react/dist/components/AddressAutofill";
 import { useBoolean } from "@utils/useBoolean";
 import { useEffect, useRef, useState } from "react";
-import { SoleTraderTextInput } from "../SoleTraderFormComponents";
-import { useSoleTraderFormContext } from "../SoleTraderFormContext";
+import PartnershipFormProvider, {
+  usePartnershipFormContext,
+} from "../PartnerShipFormContext";
 
 const mapBoxAccessToken =
   "pk.eyJ1IjoiYmlqaWcwIiwiYSI6ImNsdXpreWNnZTFkaGkycW53dDhseWh3cWgifQ.30N1A9KD3UR4762uEEH-yQ";
@@ -35,7 +36,7 @@ export default function BusinessAddress() {
       getValues,
       formState: { errors },
     },
-  } = useSoleTraderFormContext();
+  } = usePartnershipFormContext();
 
   useEffect(() => {
     const accessToken = mapBoxAccessToken;
@@ -55,27 +56,27 @@ export default function BusinessAddress() {
     const feature = res.features[0];
     console.log(feature.properties.place_name);
     setValue(
-      "businessLocation.businessAddress.address.full_address",
+      "businessLocation.businessAddress.full_address",
       feature.properties.place_name
     );
     setValue(
-      "businessLocation.businessAddress.address.address_line_1",
+      "businessLocation.businessAddress.address_line_1",
       feature.properties.address_line1
     );
     setValue(
-      "businessLocation.businessAddress.address.address_line_2",
+      "businessLocation.businessAddress.address_line_2",
       feature.properties.address_line2
     );
     setValue(
-      "businessLocation.businessAddress.address.address_level_1",
+      "businessLocation.businessAddress.address_level_1",
       feature.properties.address_level1
     );
     setValue(
-      "businessLocation.businessAddress.address.address_level_2",
+      "businessLocation.businessAddress.address_level_2",
       feature.properties.address_level2
     );
     setValue(
-      "businessLocation.businessAddress.address.postcode",
+      "businessLocation.businessAddress.postcode",
       feature.properties.postcode
     );
     expandForm();
@@ -114,9 +115,7 @@ export default function BusinessAddress() {
     }
   }, [errors, getValues()]);
 
-  const requiredCondition = watch(
-    "businessLocation.businessAddress.isHomeAddress"
-  ) === false && {
+  const requiredCondition = {
     required: "This field is required",
   };
 
@@ -126,18 +125,15 @@ export default function BusinessAddress() {
       <div>
         {/* @ts-ignore */}
         <AddressAutofill accessToken={token} onRetrieve={handleRetrieve}>
-          <SoleTraderTextInput
+          <PartnershipFormProvider.TextInput
             placeholder="Business Address"
-            name="businessLocation.businessAddress.address.full_address"
+            name="businessLocation.businessAddress.full_address"
             rules={requiredCondition}
           />
         </AddressAutofill>
-        {errors.businessLocation?.businessAddress?.address?.full_address && (
+        {errors.businessLocation?.businessAddress?.full_address && (
           <ErrorText>
-            {
-              errors.businessLocation?.businessAddress?.address?.full_address
-                ?.message
-            }
+            {errors.businessLocation?.businessAddress?.full_address?.message}
           </ErrorText>
         )}
         {!isFormExpanded && (
@@ -158,25 +154,24 @@ export default function BusinessAddress() {
           <label className="txt-s txt-bold color-gray mb3">
             Address Line 2
           </label>
-          <SoleTraderTextInput
+          <PartnershipFormProvider.TextInput
             placeholder="Apartment, suite, unit, building, floor, etc."
-            name="businessLocation.businessAddress.address.address_line_2"
+            name="businessLocation.businessAddress.address_line_2"
             rules={requiredCondition}
           />
         </div>
         <div>
           <label className="txt-s txt-bold color-gray mb3">City</label>
-          <SoleTraderTextInput
+          <PartnershipFormProvider.TextInput
             placeholder="City"
-            name="businessLocation.businessAddress.address.address_level_2"
+            name="businessLocation.businessAddress.address_level_2"
             rules={requiredCondition}
           />
-          {errors.businessLocation?.businessAddress?.address
-            ?.address_level_2 && (
+          {errors.businessLocation?.businessAddress?.address_level_2 && (
             <ErrorText>
               {
-                errors.businessLocation?.businessAddress?.address
-                  ?.address_level_2?.message
+                errors.businessLocation?.businessAddress?.address_level_2
+                  ?.message
               }
             </ErrorText>
           )}
@@ -185,17 +180,16 @@ export default function BusinessAddress() {
           <label className="txt-s txt-bold color-gray mb3">
             State / Region
           </label>
-          <SoleTraderTextInput
+          <PartnershipFormProvider.TextInput
             placeholder="State/Region"
-            name="businessLocation.businessAddress.address.address_level_1"
+            name="businessLocation.businessAddress.address_level_1"
             rules={requiredCondition}
           />
-          {errors.businessLocation?.businessAddress?.address
-            ?.address_level_1 && (
+          {errors.businessLocation?.businessAddress?.address_level_1 && (
             <ErrorText>
               {
-                errors.businessLocation?.businessAddress?.address
-                  ?.address_level_1?.message
+                errors.businessLocation?.businessAddress?.address_level_1
+                  ?.message
               }
             </ErrorText>
           )}
@@ -204,17 +198,14 @@ export default function BusinessAddress() {
           <label className="txt-s txt-bold color-gray mb3">
             ZIP / Postcode
           </label>
-          <SoleTraderTextInput
+          <PartnershipFormProvider.TextInput
             placeholder="e.g. 3000"
-            name="businessLocation.businessAddress.address.postcode"
+            name="businessLocation.businessAddress.postcode"
             rules={requiredCondition}
           />
-          {errors.businessLocation?.businessAddress?.address?.postcode && (
+          {errors.businessLocation?.businessAddress?.postcode && (
             <ErrorText>
-              {
-                errors.businessLocation?.businessAddress?.address?.postcode
-                  ?.message
-              }
+              {errors.businessLocation?.businessAddress?.postcode?.message}
             </ErrorText>
           )}
         </div>

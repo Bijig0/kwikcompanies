@@ -1,13 +1,7 @@
+import { businessHistories } from "app/sole-trader/soleTraderForm";
 import { Country } from "app/types/countries";
 import { useForm } from "react-hook-form";
 import { Title } from "./individual";
-
-export const businessHistories = [
-  "This is my first time doing business in Australia",
-  "I have been in Business in Australia before",
-] as const;
-
-type BusinessHistory = (typeof businessHistories)[number];
 
 export type HaveYouHadAnAbnInThePast =
   | {
@@ -30,15 +24,6 @@ export const needAbnReasons = [
 ];
 
 type NeedAbnReason = (typeof needAbnReasons)[number];
-
-type HasPreviousAbn =
-  | {
-      answer: false;
-    }
-  | {
-      answer: true;
-      prevAbn: string;
-    };
 
 type KnownByOtherName =
   | {
@@ -127,9 +112,28 @@ type PartnerDetails = {
   declaredIsAustralianResidentForTaxPurposes: boolean;
 };
 
+type Address = {
+  full_address: string;
+  address_line_1: string;
+  address_line_2: string;
+  address_level_1: string;
+  address_level_2: string;
+  postcode: string;
+};
+
+type ServiceDocumentAddress =
+  | {
+      isHomeAddress: true;
+      address?: never;
+    }
+  | {
+      isHomeAddress: false;
+      address: Address;
+    };
+
 type TBusinessLocation = {
-  businessAddress: string;
-  addressForServiceDocuments: string;
+  businessAddress: Address;
+  addressForServiceDocuments: ServiceDocumentAddress;
 };
 
 const businessHistoriesOfAllPartners = [

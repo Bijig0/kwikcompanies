@@ -2,6 +2,7 @@ import React from "react";
 import AddressAutocomplete from "../AddressAutocomplete";
 import FormPartLayout from "../FormPartLayout";
 import { usePartnershipFormContext } from "../PartnerShipFormContext";
+import BusinessAddress from "../Addresses/BusinessAddress";
 
 const BusinessLocation = () => {
   const {
@@ -36,7 +37,7 @@ const BusinessLocation = () => {
     <FormPartLayout header="Business Location" step={3}>
       <div>
         <label htmlFor="message">Business Address</label>
-        <AddressAutocomplete />
+        <BusinessAddress />
         <p>Can't find your address? Click Enter here</p>
       </div>
       <div>

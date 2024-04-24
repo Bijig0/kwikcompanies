@@ -11,7 +11,7 @@ import { getStripe } from "@utils/stripe/client";
 import { checkoutWithStripe } from "@utils/stripe/server";
 import { Tables } from "app/types/types_db";
 import { Urls } from "app/types/urls";
-import router from "next/router";
+import { useRouter } from "next/navigation";
 import { Button } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
 import Declaration from "./Declaration";
@@ -45,6 +45,8 @@ const _Page = () => {
       formState: { errors },
     },
   } = useSoleTraderFormContext();
+
+  const router = useRouter();
 
   const { data: products, isLoading, error } = useGetSoleTraderProducts();
 
@@ -127,7 +129,7 @@ const _Page = () => {
                   >
                     Click Me
                   </button> */}
-                  <BusinessDetails />
+                  {/* <BusinessDetails />
                   <Divider />
                   <ABNEntitlement />
                   <Divider />
@@ -147,7 +149,7 @@ const _Page = () => {
                   <GSTRegistration />
                   <Divider />
 
-                  <Declaration />
+                  <Declaration /> */}
                   <div className="my-3" />
                   <Button
                     disabled={formDisabled}

@@ -146,7 +146,7 @@ const SoleTraderDetails = () => {
           rules={{
             required: "This field is required",
             pattern: {
-              value: new RegExp("^d{9}$"),
+              value: /^\d{9}$/,
               message: "TFN must be exactly 9 digits",
             },
           }}

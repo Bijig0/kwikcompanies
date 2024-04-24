@@ -82,6 +82,8 @@ const _BusinessNameApplication = () => {
 
   const renderSearchResultProps = resetSearch;
 
+  const disabled = isFetched || isLoading;
+
   return (
     <FormPartLayout header="Business Name Application" step={6}>
       <div>
@@ -129,6 +131,7 @@ const _BusinessNameApplication = () => {
             <label htmlFor="message">Search for your business name</label>
             <SoleTraderTextInput
               name="businessNameApplication.businessName.businessName"
+              disabled={disabled}
               placeholder="Acme Inc"
               rules={
                 watch("businessNameApplication.businessName.answer") && {

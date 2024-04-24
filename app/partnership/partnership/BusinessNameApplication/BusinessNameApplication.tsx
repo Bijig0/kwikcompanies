@@ -2,6 +2,7 @@
 import ErrorText from "@components/ErrorText";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { useBoolean } from "@utils/useBoolean";
+import yesNoToBool from "@utils/yesNoToBool";
 import PartnershipFormProvider, {
   usePartnershipFormContext,
 } from "app/partnership/PartnerShipFormContext";
@@ -69,12 +70,8 @@ const _BusinessNameApplication = () => {
   const handleBusinessNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log("Running");
     const value = e.target.value as "Yes" | "No";
-    if (value === "Yes") {
-      setValue("businessNameApplication.businessName.answer", true);
-      return;
-    } else if (value === "No") {
-      setValue("businessNameApplication.businessName.answer", false);
-    }
+    const asBool = yesNoToBool(value);
+    setValue("businessNameApplication.businessName.answer", asBool);
   };
 
   const handleSearchForBusinessName = () => {
@@ -83,6 +80,10 @@ const _BusinessNameApplication = () => {
   };
 
   const renderSearchResultProps = resetSearch;
+
+  const disabled = isFetched || isLoading;
+
+  console.log({ disabled });
 
   return (
     <FormPartLayout header="Business Name Application" step={6}>
@@ -133,6 +134,7 @@ const _BusinessNameApplication = () => {
             <PartnershipFormProvider.TextInput
               name="businessNameApplication.businessName.businessName"
               placeholder="Acme Inc"
+              disabled={disabled}
               rules={
                 watch("businessNameApplication.businessName.answer") && {
                   required: "This field is required",

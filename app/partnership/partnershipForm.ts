@@ -74,6 +74,8 @@ type IsRegisteringBusinessName =
           }
         | {
             country: Exclude<Country, "Australia">;
+            state?: never;
+            city?: never;
           };
     }
   | {
@@ -125,7 +127,7 @@ type Address = {
 type ServiceDocumentAddress =
   | {
       isBusinessAddress: true;
-      address?: never;
+      address?: Address;
     }
   | {
       isBusinessAddress: false;

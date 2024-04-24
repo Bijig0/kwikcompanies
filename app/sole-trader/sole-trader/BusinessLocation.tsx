@@ -1,6 +1,4 @@
 import ErrorText from "@components/ErrorText";
-import yesNoToBool from "@utils/yesNoToBool";
-import React from "react";
 import { Controller } from "react-hook-form";
 import BusinessAddress from "../Addresses/BusinessAddress";
 import AutofillCheckoutDemo from "../Addresses/HomeAddress";
@@ -10,6 +8,7 @@ import { useSoleTraderFormContext } from "../SoleTraderFormContext";
 
 const BusinessLocation = () => {
   const {
+    formDisabled,
     formManager: {
       register,
       setValue,
@@ -18,25 +17,6 @@ const BusinessLocation = () => {
       formState: { errors },
     },
   } = useSoleTraderFormContext();
-
-  const handleBusinessLocationChange = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const value = e.target.value as "Yes" | "No";
-    const asBool = yesNoToBool(value);
-    setValue("businessLocation.businessAddress.isHomeAddress", asBool);
-  };
-
-  const handleServiceDocumentsLocationChange = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const value = e.target.value as "Home" | "Other";
-    const asBool = value === "Home";
-    setValue(
-      "businessLocation.addressForServiceDocuments.isHomeAddress",
-      asBool
-    );
-  };
 
   return (
     <FormPartLayout header="Business Location" step={4}>
@@ -65,6 +45,7 @@ const BusinessLocation = () => {
                       checked={value === (option === "Yes")}
                       ref={ref}
                       className="form-radio"
+                      disabled={formDisabled}
                     />
                     <span className="ml-2">{option}</span>
                   </label>
@@ -105,6 +86,7 @@ const BusinessLocation = () => {
                       checked={value === (option === "Home")}
                       ref={ref}
                       className="form-radio"
+                      disabled={formDisabled}
                     />
                     <span className="ml-2">{option}</span>
                   </label>

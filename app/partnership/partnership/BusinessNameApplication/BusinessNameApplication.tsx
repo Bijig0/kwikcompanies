@@ -2,8 +2,9 @@
 import ErrorText from "@components/ErrorText";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { useBoolean } from "@utils/useBoolean";
-import PartnershipFormProvider, { usePartnershipFormContext } from "app/partnership/PartnerShipFormContext";
-import { SoleTraderTextInput } from "app/sole-trader/SoleTraderFormComponents";
+import PartnershipFormProvider, {
+  usePartnershipFormContext,
+} from "app/partnership/PartnerShipFormContext";
 import React from "react";
 import { Button, Spinner } from "react-bootstrap";
 import { Controller } from "react-hook-form";
@@ -42,6 +43,7 @@ const _BusinessNameApplication = () => {
   } = useBoolean(false);
 
   const {
+    formDisabled,
     formManager: {
       setValue,
       watch,
@@ -110,6 +112,7 @@ const _BusinessNameApplication = () => {
                     type="radio"
                     className="form-radio"
                     value={option}
+                    disabled={formDisabled}
                   />
                   <span className="ml-2">{text[option]}</span>
                 </label>

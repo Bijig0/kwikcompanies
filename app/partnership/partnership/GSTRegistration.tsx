@@ -9,6 +9,7 @@ const text = {
 
 const GSTRegistration = () => {
   const {
+    formDisabled,
     formManager: {
       register,
       formState: { errors },
@@ -22,18 +23,19 @@ const GSTRegistration = () => {
         {["Yes", "No"].map((option) => (
           <label key={option} className="inline-flex items-center">
             <input
-              {...register("registerForGst", {
+              {...register("registerForGST.registerForGst", {
                 required: "This field is required",
               })}
               type="radio"
               className="form-radio"
+              disabled={formDisabled}
             />
             <span className="ml-2">{text[option]}</span>
           </label>
         ))}
       </div>
-      {errors.registerForGst && (
-        <ErrorText>{errors.registerForGst.message}</ErrorText>
+      {errors?.registerForGST?.registerForGst && (
+        <ErrorText>{errors.registerForGST.registerForGst.message}</ErrorText>
       )}
     </FormPartLayout>
   );

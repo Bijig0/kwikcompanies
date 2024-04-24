@@ -3,6 +3,7 @@ import PageBanner from "@components/PageBanner";
 import AkpagerLayout from "@layouts/AkpagerLayout";
 import FormValues from "./partnershipForm";
 
+import { QueryClientProvider } from "@tanstack/react-query";
 import { Button } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
 import Declaration from "./Declaration";
@@ -12,11 +13,12 @@ import SoleTraderFormProvider, {
   usePartnershipFormContext,
 } from "./PartnerShipFormContext";
 import ABNEntitlement from "./partnership/ABNEntitlement";
-import ABNRegistrationDetails from "./partnership/ABNRegistrationDetails";
+import ABNRegistrationDetails from "./partnership/ABNRegistrationDetails/ABNRegistrationDetails";
 import BusinessLocation from "./partnership/BusinessLocation";
 import BusinessNameApplication from "./partnership/BusinessNameApplication/BusinessNameApplication";
 import GSTRegistration from "./partnership/GSTRegistration";
 import PartnershipDetails from "./partnership/PartnershipDetails";
+import { queryClient } from "./partnership/queryClient";
 
 const _Page = () => {
   const {
@@ -39,7 +41,7 @@ const _Page = () => {
       <PageBanner pageName={"Partnership ABN Registration Form"} />
       {/* Contact Page Start */}
       <section className="py-16 contact-page rpy-100">
-        <div className="container ">
+        <div className="mx-auto px-4 lg:px-8 w-full sm:max-w-[540px] md:max-w-[720px] lg:max-w-[1750px]">
           <div className="flex justify-center row gap-100 align-items-center">
             <div className="col-lg-7">
               <div className="contact-form br-10 bgc-lighter rmt-60">
@@ -109,9 +111,11 @@ const _Page = () => {
 
 const Page = () => {
   return (
-    <SoleTraderFormProvider totalSteps={7}>
-      <_Page />
-    </SoleTraderFormProvider>
+    <QueryClientProvider client={queryClient}>
+      <SoleTraderFormProvider totalSteps={7}>
+        <_Page />
+      </SoleTraderFormProvider>
+    </QueryClientProvider>
   );
 };
 

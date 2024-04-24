@@ -2,6 +2,7 @@ import { usePartnershipFormContext } from "./PartnerShipFormContext";
 
 const Declaration = () => {
   const {
+    formDisabled,
     formManager: { register },
   } = usePartnershipFormContext();
   return (
@@ -10,6 +11,7 @@ const Declaration = () => {
         {...register("agreedToTermsAndServices")}
         id="agreedToTermsAndServices"
         type="checkbox"
+        disabled={formDisabled}
       />
       <label htmlFor="agreedToTermsAndServices" className="ml-2">
         I have read and accept the{" "}

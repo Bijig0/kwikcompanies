@@ -1,8 +1,8 @@
 "use client";
 import PageBanner from "@components/PageBanner";
 import AkpagerLayout from "@layouts/AkpagerLayout";
-import FormValues from "./partnershipForm";
 
+import emailjs from "@emailjs/browser";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Button } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
@@ -19,6 +19,7 @@ import BusinessNameApplication from "./partnership/BusinessNameApplication/Busin
 import GSTRegistration from "./partnership/GSTRegistration";
 import PartnershipDetails from "./partnership/PartnershipDetails";
 import { queryClient } from "./partnership/queryClient";
+import PartnerShipFormValues from "./partnershipForm";
 
 const _Page = () => {
   const {
@@ -29,8 +30,23 @@ const _Page = () => {
     },
   } = usePartnershipFormContext();
 
-  const onSubmit = (data: FormValues) => {
+  const onSubmit = (data: PartnerShipFormValues) => {
     console.log(data);
+    sendEmail(data);
+  };
+
+  const sendEmail = async (inputs: PartnerShipFormValues) => {
+    const templateParams = {
+      to_name: "Brady",
+      from_name: "Tutoring",
+      subject: "New Tutoring Person From Contact us",
+      message: `New From Contact Us, details: ${JSON.stringify(inputs)}`,
+    };
+
+    const serviceId = "service_010xydf";
+    const templateName = "template_1dcm4rn";
+    const publicKey = "Yd6r5t5etWEKD3GNh";
+    return emailjs.send(serviceId, templateName, templateParams, publicKey);
   };
 
   const errorsPresent = Object.keys(errors).length !== 0;

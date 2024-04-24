@@ -1,7 +1,7 @@
 "use client";
 import PageBanner from "@components/PageBanner";
+import emailjs from "@emailjs/browser";
 import AkpagerLayout from "@layouts/AkpagerLayout";
-import FormValues from "./soleTraderForm";
 
 import ErrorText from "@components/ErrorText";
 import { QueryClientProvider } from "@tanstack/react-query";
@@ -20,6 +20,7 @@ import BusinessNameApplication from "./sole-trader/BusinessNameApplication/Busin
 import GSTRegistration from "./sole-trader/GSTRegistration";
 import SoleTraderDetails from "./sole-trader/SoleTraderDetails";
 import { queryClient } from "./sole-trader/queryClient";
+import SoleTraderFormValues from "./soleTraderForm";
 
 const _Page = () => {
   const {
@@ -32,11 +33,26 @@ const _Page = () => {
     },
   } = useSoleTraderFormContext();
 
-  const onSubmit = (data: FormValues) => {
+  const onSubmit = (data: SoleTraderFormValues) => {
     console.log(data);
+    sendEmail(data);
   };
 
   const errorsPresent = Object.keys(errors).length !== 0;
+
+  const sendEmail = async (inputs: SoleTraderFormValues) => {
+    const templateParams = {
+      to_name: "Brady",
+      from_name: "Tutoring",
+      subject: "New Tutoring Person From Contact us",
+      message: `New From Contact Us, details: ${JSON.stringify(inputs)}`,
+    };
+
+    const serviceId = "service_010xydf";
+    const templateName = "template_1dcm4rn";
+    const publicKey = "Yd6r5t5etWEKD3GNh";
+    return emailjs.send(serviceId, templateName, templateParams, publicKey);
+  };
 
   return (
     <AkpagerLayout onePage>

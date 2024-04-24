@@ -10,6 +10,7 @@
     "supabase:generate-types": "npx supabase gen types typescript --project-id kqfecevjkcqwxvpzbodq --schema public > app/types/types_db.ts"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.3.3",
     "@hookform/resolvers": "^3.3.4",
     "@mapbox/search-js-react": "^1.0.0-beta.19",
     "@radix-ui/react-slot": "^1.0.2",

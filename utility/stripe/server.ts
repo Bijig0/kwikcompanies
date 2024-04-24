@@ -18,39 +18,24 @@ type CheckoutResponse = {
   sessionId?: string;
 };
 
+type User = {
+  email: string;
+};
+
 export async function checkoutWithStripe(
   price: Price,
+  user: User,
   redirectPath: string = "/account"
 ): Promise<CheckoutResponse> {
   try {
     // Get the user from Supabase auth
-    const supabase = createClient();
-    const {
-      error,
-      data: { user },
-    } = await supabase.auth.getUser();
-
-    if (error || !user) {
-      console.error(error);
-      throw new Error("Could not get user session.");
-    }
 
     // Retrieve or create the customer in Stripe
-    let customer: string;
-    try {
-      customer = await createOrRetrieveCustomer({
-        uuid: user?.id || "",
-        email: user?.email || "",
-      });
-    } catch (err) {
-      console.error(err);
-      throw new Error("Unable to access customer record.");
-    }
 
     let params: Stripe.Checkout.SessionCreateParams = {
       allow_promotion_codes: true,
       billing_address_collection: "required",
-      customer,
+      customer_email: user.email,
       customer_update: {
         address: "auto",
       },

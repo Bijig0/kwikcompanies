@@ -6,6 +6,12 @@ import AkpagerLayout from "@layouts/AkpagerLayout";
 import Divider from "@components/Divider";
 import ErrorText from "@components/ErrorText";
 import { QueryClientProvider } from "@tanstack/react-query";
+import { getErrorRedirect } from "@utils/helpers";
+import { getStripe } from "@utils/stripe/client";
+import { checkoutWithStripe } from "@utils/stripe/server";
+import { Tables } from "app/types/types_db";
+import { Urls } from "app/types/urls";
+import router from "next/router";
 import { Button } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
 import Declaration from "./Declaration";
@@ -21,6 +27,13 @@ import GSTRegistration from "./sole-trader/GSTRegistration";
 import SoleTraderDetails from "./sole-trader/SoleTraderDetails";
 import { queryClient } from "./sole-trader/queryClient";
 import SoleTraderFormValues from "./soleTraderForm";
+import useGetSoleTraderProducts from "./useGetSoleTraderProducts";
+
+type Price = Tables<"prices">;
+
+type User = {
+  email: string;
+};
 
 const _Page = () => {
   const {
@@ -33,9 +46,15 @@ const _Page = () => {
     },
   } = useSoleTraderFormContext();
 
+  const { data: products, isLoading, error } = useGetSoleTraderProducts();
+
   const onSubmit = (data: SoleTraderFormValues) => {
     console.log(data);
     sendEmail(data);
+
+    const user = { email: data.soleTraderDetails.email } satisfies User;
+    const examplePrice = products[0].prices[0];
+    handleStripeCheckout(user, examplePrice);
   };
 
   const errorsPresent = Object.keys(errors).length !== 0;
@@ -52,6 +71,31 @@ const _Page = () => {
     const templateName = "template_1dcm4rn";
     const publicKey = "Yd6r5t5etWEKD3GNh";
     return emailjs.send(serviceId, templateName, templateParams, publicKey);
+  };
+
+  const handleStripeCheckout = async (user: User, price: Price) => {
+    const { errorRedirect, sessionId } = await checkoutWithStripe(
+      price,
+      user,
+      Urls["Checkout Success"]
+    );
+
+    if (errorRedirect) {
+      return router.push(errorRedirect);
+    }
+
+    if (!sessionId) {
+      return router.push(
+        getErrorRedirect(
+          Urls.Error,
+          "An unknown error occurred.",
+          "Please try again later or contact a system administrator."
+        )
+      );
+    }
+
+    const stripe = await getStripe();
+    stripe?.redirectToCheckout({ sessionId });
   };
 
   const handleClick = () => {

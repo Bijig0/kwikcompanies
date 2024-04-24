@@ -223,7 +223,13 @@ const PartnershipDetails = () => {
                 <label htmlFor="message">Tax File Number</label>
                 <PartnershipFormProvider.TextInput
                   name={`partnerDetails.${index}.taxFileNumber`}
-                  rules={{ required: "This field is required" }}
+                  rules={{
+                    required: "This field is required",
+                    pattern: {
+                      value: new RegExp("^d{9}$"),
+                      message: "TFN must be exactly 9 digits",
+                    },
+                  }}
                 />
                 {errors.partnerDetails?.[index]?.taxFileNumber && (
                   <ErrorText>

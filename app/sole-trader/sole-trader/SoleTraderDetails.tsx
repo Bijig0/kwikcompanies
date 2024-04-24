@@ -142,7 +142,14 @@ const SoleTraderDetails = () => {
         <SoleTraderTextInput
           placeholder="123 456 789"
           name="soleTraderDetails.taxFileNumber"
-          rules={{ required: "This field is required" }}
+          type="number"
+          rules={{
+            required: "This field is required",
+            pattern: {
+              value: new RegExp("^d{9}$"),
+              message: "TFN must be exactly 9 digits",
+            },
+          }}
         />
         {errors?.soleTraderDetails?.taxFileNumber && (
           <ErrorText>

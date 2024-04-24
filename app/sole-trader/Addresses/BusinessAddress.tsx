@@ -6,15 +6,15 @@ import {
 import { AddressAutofillProps } from "@mapbox/search-js-react/dist/components/AddressAutofill";
 import { useBoolean } from "@utils/useBoolean";
 import { useEffect, useRef, useState } from "react";
-import { SoleTraderTextInput } from "./SoleTraderFormComponents";
-import { useSoleTraderFormContext } from "./SoleTraderFormContext";
+import { SoleTraderTextInput } from "../SoleTraderFormComponents";
+import { useSoleTraderFormContext } from "../SoleTraderFormContext";
 
 const mapBoxAccessToken =
   "pk.eyJ1IjoiYmlqaWcwIiwiYSI6ImNsdXpreWNnZTFkaGkycW53dDhseWh3cWgifQ.30N1A9KD3UR4762uEEH-yQ";
 
 type AutoCompleteResponse = Parameters<AddressAutofillProps["onRetrieve"]>[0];
 
-export default function AutofillCheckoutDemo() {
+export default function BusinessAddress() {
   const {
     value: isFormExpanded,
     toggle: toggleFormExpansion,
@@ -48,27 +48,27 @@ export default function AutofillCheckoutDemo() {
     const feature = res.features[0];
     console.log(feature.properties.place_name);
     setValue(
-      "businessLocation.businessLocation.full_address",
+      "businessLocation.businessAddress.address.full_address",
       feature.properties.place_name
     );
     setValue(
-      "businessLocation.businessLocation.address_line_1",
+      "businessLocation.businessAddress.address.address_line_1",
       feature.properties.address_line1
     );
     setValue(
-      "businessLocation.businessLocation.address_line_2",
+      "businessLocation.businessAddress.address.address_line_2",
       feature.properties.address_line2
     );
     setValue(
-      "businessLocation.businessLocation.address_level_1",
+      "businessLocation.businessAddress.address.address_level_1",
       feature.properties.address_level1
     );
     setValue(
-      "businessLocation.businessLocation.address_level_2",
+      "businessLocation.businessAddress.address.address_level_2",
       feature.properties.address_level2
     );
     setValue(
-      "businessLocation.businessLocation.postcode",
+      "businessLocation.businessAddress.address.postcode",
       feature.properties.postcode
     );
     expandForm();
@@ -102,9 +102,8 @@ export default function AutofillCheckoutDemo() {
         {/* @ts-ignore */}
         <AddressAutofill accessToken={token} onRetrieve={handleRetrieve}>
           <SoleTraderTextInput
-            placeholder="Address"
-            name="businessLocation.businessLocation.full_address"
-            required
+            placeholder="Business Address"
+            name="businessLocation.businessAddress.address.full_address"
           />
         </AddressAutofill>
         {!isFormExpanded && (
@@ -127,15 +126,15 @@ export default function AutofillCheckoutDemo() {
           </label>
           <SoleTraderTextInput
             placeholder="Apartment, suite, unit, building, floor, etc."
-            name="businessLocation.businessLocation.address_line_2"
+            name="businessLocation.businessAddress.address.address_line_2"
+            required={false}
           />
         </div>
         <div>
           <label className="txt-s txt-bold color-gray mb3">City</label>
           <SoleTraderTextInput
             placeholder="City"
-            name="businessLocation.businessLocation.address_level_2"
-            required
+            name="businessLocation.businessAddress.address.address_level_2"
           />
         </div>
         <div>
@@ -144,8 +143,7 @@ export default function AutofillCheckoutDemo() {
           </label>
           <SoleTraderTextInput
             placeholder="State/Region"
-            name="businessLocation.businessLocation.address_level_1"
-            required
+            name="businessLocation.businessAddress.address.address_level_1"
           />
         </div>
         <div>
@@ -154,8 +152,7 @@ export default function AutofillCheckoutDemo() {
           </label>
           <SoleTraderTextInput
             placeholder="e.g. 3000"
-            name="businessLocation.businessLocation.postcode"
-            required
+            name="businessLocation.businessAddress.address.postcode"
           />
         </div>
       </div>

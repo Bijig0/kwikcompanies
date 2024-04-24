@@ -41,6 +41,7 @@ const SoleTraderDetails = () => {
           <SoleTraderTextInput
             placeholder="John"
             name="soleTraderDetails.name.firstName"
+            rules={{ required: "This field is required" }}
           />
           {errors?.soleTraderDetails?.name?.firstName && (
             <ErrorText>
@@ -53,6 +54,7 @@ const SoleTraderDetails = () => {
           <SoleTraderTextInput
             placeholder="Smith"
             name="soleTraderDetails.name.lastName"
+            rules={{ required: "This field is required" }}
           />
           {errors?.soleTraderDetails?.name?.firstName && (
             <ErrorText>
@@ -77,10 +79,15 @@ const SoleTraderDetails = () => {
           <Controller
             name="soleTraderDetails.name.otherNames.otherName"
             control={control}
-            rules={{ required: "This field is required" }}
+            rules={
+              watch("soleTraderDetails.name.otherNames.answer") && {
+                required: "This field is required",
+              }
+            }
             render={() => (
               <SoleTraderTextInput
                 placeholder="Placeholder Name"
+                rules={{ required: "This field is required" }}
                 name="soleTraderDetails.name.otherNames.otherName"
               />
             )}
@@ -95,6 +102,8 @@ const SoleTraderDetails = () => {
         <SoleTraderTextInput
           placeholder="john_smith@gmail.com"
           name="soleTraderDetails.email"
+          type="email"
+          rules={{ required: "This field is required" }}
         />
         {errors?.soleTraderDetails?.email && (
           <ErrorText>{errors?.soleTraderDetails?.email?.message}</ErrorText>
@@ -105,6 +114,7 @@ const SoleTraderDetails = () => {
         <label htmlFor="message">Phone Number</label>
         <SoleTraderTextInput
           placeholder="+61 403 057 369"
+          rules={{ required: "This field is required" }}
           name="soleTraderDetails.phoneNumber"
         />
         {errors?.soleTraderDetails?.phoneNumber && (
@@ -116,7 +126,15 @@ const SoleTraderDetails = () => {
 
       <div>
         <label htmlFor="message">Date of Birth</label>
-        <SoleTraderDatePicker name="soleTraderDetails.dateOfBirth" />
+        <SoleTraderDatePicker
+          rules={{ required: "This field is required" }}
+          name="soleTraderDetails.dateOfBirth"
+        />
+        {errors?.soleTraderDetails?.dateOfBirth && (
+          <ErrorText>
+            {errors?.soleTraderDetails?.dateOfBirth?.message}
+          </ErrorText>
+        )}
       </div>
 
       <div>
@@ -124,6 +142,7 @@ const SoleTraderDetails = () => {
         <SoleTraderTextInput
           placeholder="123 456 789"
           name="soleTraderDetails.taxFileNumber"
+          rules={{ required: "This field is required" }}
         />
         {errors?.soleTraderDetails?.taxFileNumber && (
           <ErrorText>

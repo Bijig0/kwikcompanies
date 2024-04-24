@@ -1,8 +1,11 @@
 "use client";
 import { useBoolean } from "@utils/useBoolean";
 import { ReactNode, createContext, useContext } from "react";
-import { useForm } from "react-hook-form";
-import FormValues from "./soleTraderForm";
+import { SubmitErrorHandler, useForm } from "react-hook-form";
+import {
+  default as FormValues,
+  default as SoleTraderFormValues,
+} from "./soleTraderForm";
 
 export type TSoleTraderFormContext = {
   //   register: UseFormRegister<FormValues>;
@@ -11,6 +14,7 @@ export type TSoleTraderFormContext = {
   disableForm: () => void;
   formDisabled: boolean;
   totalSteps: number;
+  onError: SubmitErrorHandler<SoleTraderFormValues>;
 };
 
 export const SoleTraderFormContext = createContext<TSoleTraderFormContext>(
@@ -33,6 +37,12 @@ const SoleTraderFormProvider = (props: Props) => {
     toggle: toggleFormState,
   } = useBoolean(false);
 
+
+
+  const onError: SubmitErrorHandler<SoleTraderFormValues> = (errors) => {
+    // expandBusinessAddressForm()
+  };
+
   return (
     <SoleTraderFormContext.Provider
       value={{
@@ -41,6 +51,7 @@ const SoleTraderFormProvider = (props: Props) => {
         enableForm,
         formDisabled,
         totalSteps,
+        onError,
       }}
     >
       {props.children}

@@ -1,26 +1,24 @@
-import {
-  CreateFormRegisterable,
-  FormContexts,
-  FormValues,
-  ABNForms,
-} from "app/types/types";
+import { ABNForms, CreateFormRegisterable } from "app/types/types";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
-import { ComponentProps, Context } from "react";
+import { Context } from "react";
 import _DatePicker from "react-datepicker";
-import { Controller } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { useSoleTraderFormContext } from "../app/sole-trader/SoleTraderFormContext";
 dayjs.extend(utc);
 
 export type UnionOfValues<T> = T[keyof T];
 
+type Rules = Parameters<ReturnType<typeof useForm>["register"]>[1];
+
 type Props<T extends UnionOfValues<ABNForms>> = {
   name: CreateFormRegisterable<T["formValues"]>;
   context: Context<T["context"]>;
+  rules?: Rules;
 };
 
 const DatePicker = <T extends UnionOfValues<ABNForms>>(props: Props<T>) => {
-  const { name } = props;
+  const { name, rules } = props;
   const {
     formDisabled,
     formManager: { control, register },
@@ -30,6 +28,7 @@ const DatePicker = <T extends UnionOfValues<ABNForms>>(props: Props<T>) => {
       <Controller
         // @ts-ignore
         name={name}
+        rules={rules}
         control={control}
         render={({ field: { onChange, value } }) => (
           <_DatePicker

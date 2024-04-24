@@ -37,6 +37,7 @@ type Title = (typeof titles)[number];
 type HasPreviousAbn =
   | {
       answer: false;
+      prevAbn?: never;
     }
   | {
       answer: true;
@@ -59,6 +60,7 @@ type TradingUnderBusinessName =
     }
   | {
       answer: false;
+      businessName?: never;
     };
 
 export const australianStates = [
@@ -130,9 +132,30 @@ type Address = {
   postcode: string;
 };
 
+type BusinessAddress =
+  | {
+      isHomeAddress: true;
+      address?: never;
+    }
+  | {
+      isHomeAddress: false;
+      address: Address;
+    };
+
+type ServiceDocumentAddress =
+  | {
+      isHomeAddress: true;
+      address?: never;
+    }
+  | {
+      isHomeAddress: false;
+      address: Address;
+    };
+
 type TBusinessLocation = {
-  businessLocation: Address;
-  addressForServiceDocuments: string;
+  homeAddress: Address;
+  businessAddress: BusinessAddress;
+  addressForServiceDocuments: ServiceDocumentAddress;
 };
 
 type TABNRegistrationDetails = {

@@ -1,3 +1,4 @@
+import ErrorText from "@components/ErrorText";
 import { useBoolean } from "@utils/useBoolean";
 import { useSoleTraderFormContext } from "app/sole-trader/SoleTraderFormContext";
 import FormPartLayout from "../../FormPartLayout";
@@ -10,7 +11,11 @@ import useGetBusinessCategories from "./useGetBusinessCategories";
 
 const ABNRegistrationDetails = () => {
   const {
-    formManager: { watch, setError },
+    formManager: {
+      watch,
+      setError,
+      formState: { errors },
+    },
   } = useSoleTraderFormContext();
 
   const {
@@ -25,9 +30,9 @@ const ABNRegistrationDetails = () => {
     businessActivity: watch("abnRegistrationDetails.mainBusinessActivity"),
   });
 
-  console.log(data);
-  console.log(isError);
-  console.log(error);
+  // console.log(data);
+  // console.log(isError);
+  // console.log(error);
 
   const businessIndustries = data?.map(({ description }) => description);
 
@@ -35,6 +40,10 @@ const ABNRegistrationDetails = () => {
     if (isLoading) {
       return ["Searching Associated Businesss Categories..."];
     } else if (isError) {
+      setError("abnRegistrationDetails.businessCategory", {
+        type: "custom",
+        message: "Error fetching business categories",
+      });
       return ["Error fetching business categories"];
     } else if (data === undefined) {
       return [];
@@ -67,7 +76,15 @@ const ABNRegistrationDetails = () => {
     <FormPartLayout header="ABN Registration Details" step={5}>
       <div>
         <label>ABN Active Date</label>
-        <SoleTraderDatePicker name="abnRegistrationDetails.abnActiveDate" />
+        <SoleTraderDatePicker
+          rules={{ required: "This field is required" }}
+          name="abnRegistrationDetails.abnActiveDate"
+        />
+        {errors?.abnRegistrationDetails?.abnActiveDate && (
+          <ErrorText>
+            {errors?.abnRegistrationDetails.abnActiveDate?.message}
+          </ErrorText>
+        )}
       </div>
       <div>
         <label htmlFor="message">Main Business Activity</label>
@@ -77,7 +94,13 @@ const ABNRegistrationDetails = () => {
           onBlur={handleOnBlur}
           onFocus={stopFetchBusinessCategories}
           onKeyDown={handleOnKeyDown}
-        ></SoleTraderTextInput>
+          rules={{ required: "This field is required" }}
+        />
+        {errors?.abnRegistrationDetails?.mainBusinessActivity && (
+          <ErrorText>
+            {errors?.abnRegistrationDetails.mainBusinessActivity?.message}
+          </ErrorText>
+        )}
       </div>
       <div>
         <label htmlFor="message">Business Category</label>
@@ -85,6 +108,11 @@ const ABNRegistrationDetails = () => {
           options={businessIndustriesToShow}
           name="abnRegistrationDetails.businessCategory"
         />
+        {errors?.abnRegistrationDetails?.businessCategory && (
+          <ErrorText>
+            {errors?.abnRegistrationDetails?.businessCategory?.message}
+          </ErrorText>
+        )}
       </div>
     </FormPartLayout>
   );

@@ -1,3 +1,4 @@
+import yesNoToBool from "@utils/yesNoToBool";
 import ErrorText from "../../../components/ErrorText";
 import FormPartLayout from "../FormPartLayout";
 import { useSoleTraderFormContext } from "../SoleTraderFormContext";
@@ -12,8 +13,14 @@ const GSTRegistration = () => {
     formManager: {
       register,
       formState: { errors },
+      setValue,
     },
   } = useSoleTraderFormContext();
+  const handleSelectGst = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value as "Yes" | "No";
+    const asBool = yesNoToBool(value);
+    setValue("gstRegistration.registerForGst", asBool);
+  };
 
   return (
     <FormPartLayout header="GST Registration" step={7}>
@@ -22,11 +29,11 @@ const GSTRegistration = () => {
         {["Yes", "No"].map((option) => (
           <label key={option} className="inline-flex items-center">
             <input
-              {...register("gstRegistration.registerForGst", {
-                required: "This field is required",
-              })}
+              onChange={handleSelectGst}
               type="radio"
+              name="gstRegistration.registerForGst"
               className="form-radio"
+              required
             />
             <span className="ml-2">{text[option]}</span>
           </label>

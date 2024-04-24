@@ -51,8 +51,6 @@ const _BusinessNameApplication = () => {
     },
   } = useSoleTraderFormContext();
 
-  console.log({ shouldSearchBusinessName });
-
   const { data, error, isLoading, isFetched } = useSearchForBusinessName({
     shouldSearchBusinessName,
     businessName: watch("businessNameApplication.businessName.businessName"),
@@ -62,13 +60,12 @@ const _BusinessNameApplication = () => {
     stopShouldSearchBusinessName,
   });
 
-  console.log({ data });
-
   const businessNameAvailable: KNOWN_STATUS = data?.result.status;
 
-  const options = ["Yes", "No"];
+  const options = ["Yes", "No"] as const;
 
   const handleBusinessNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log("Running");
     const value = e.target.value as "Yes" | "No";
     if (value === "Yes") {
       setValue("businessNameApplication.businessName.answer", true);
@@ -88,6 +85,13 @@ const _BusinessNameApplication = () => {
   return (
     <FormPartLayout header="Business Name Application" step={6}>
       <div>
+        {/* <button
+          onClick={() =>
+            console.log(watch("businessNameApplication.businessName.answer"))
+          }
+        >
+          Click Me
+        </button> */}
         <label className="font-semibold text-black text-md" htmlFor="name">
           Will you trade under a business name?
         </label>
@@ -97,7 +101,6 @@ const _BusinessNameApplication = () => {
               key={option}
               name="businessNameApplication.businessName.answer"
               control={control}
-              rules={{ required: "This field is required" }}
               render={({ field: { onChange, value } }) => (
                 <label className="inline-flex items-center">
                   <input
@@ -106,6 +109,7 @@ const _BusinessNameApplication = () => {
                     type="radio"
                     className="form-radio"
                     value={option}
+                    required
                   />
                   <span className="ml-2">{text[option]}</span>
                 </label>
@@ -126,7 +130,17 @@ const _BusinessNameApplication = () => {
             <SoleTraderTextInput
               name="businessNameApplication.businessName.businessName"
               placeholder="Acme Inc"
+              rules={
+                watch("businessNameApplication.businessName.answer") && {
+                  required: "This field is required",
+                }
+              }
             />
+            {errors?.businessNameApplication?.businessName?.businessName && (
+              <ErrorText>
+                {errors?.abnRegistrationDetails?.businessCategory?.message}
+              </ErrorText>
+            )}
             <div className="my-3"></div>
             <Button
               data-show={!isFetched}

@@ -1,8 +1,10 @@
+import yesNoToBool from "@utils/yesNoToBool";
 import React from "react";
-import AddressAutocomplete from "../AddressAutocomplete";
+import AutofillCheckoutDemo from "../Addresses/HomeAddress";
+import BusinessAddress from "../Addresses/BusinessAddress";
+import ServiceDocumentAddress from "../Addresses/ServiceDocumentAddress";
 import FormPartLayout from "../FormPartLayout";
 import { useSoleTraderFormContext } from "../SoleTraderFormContext";
-import AutofillCheckoutDemo from "../AddressBetter";
 
 const BusinessLocation = () => {
   const {
@@ -13,24 +15,19 @@ const BusinessLocation = () => {
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const value = e.target.value as "Yes" | "No";
-    if (value === "Yes") {
-      setValue("businessLocation.businessLocation", "Home");
-      return;
-    } else if (value === "No") {
-      setValue("businessLocation.businessLocation", "Other");
-    }
+    const asBool = yesNoToBool(value);
+    setValue("businessLocation.businessAddress.isHomeAddress", asBool);
   };
 
   const handleServiceDocumentsLocationChange = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const value = e.target.value as "Home" | "Other";
-    if (value === "Home") {
-      setValue("businessLocation.addressForServiceDocuments", "Home");
-      return;
-    } else if (value === "Other") {
-      setValue("businessLocation.addressForServiceDocuments", "Other");
-    }
+    const asBool = value === "Home";
+    setValue(
+      "businessLocation.addressForServiceDocuments.isHomeAddress",
+      asBool
+    );
   };
 
   return (
@@ -58,10 +55,10 @@ const BusinessLocation = () => {
           ))}
         </div>
       </div>
-      {watch("businessLocation.businessLocation") === "Other" && (
+      {watch("businessLocation.businessAddress.isHomeAddress") === false && (
         <div>
           <label htmlFor="message">Other Address</label>
-          <AddressAutocomplete />
+          <BusinessAddress />
         </div>
       )}
       <div>
@@ -83,10 +80,11 @@ const BusinessLocation = () => {
           ))}
         </div>
       </div>
-      {watch("businessLocation.addressForServiceDocuments") === "Other" && (
+      {watch("businessLocation.addressForServiceDocuments.isHomeAddress") ===
+        false && (
         <div>
           <label htmlFor="message">Other Address</label>
-          <AddressAutocomplete />
+          <ServiceDocumentAddress />
         </div>
       )}
     </FormPartLayout>

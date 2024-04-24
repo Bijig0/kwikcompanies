@@ -3,6 +3,7 @@ import PageBanner from "@components/PageBanner";
 import AkpagerLayout from "@layouts/AkpagerLayout";
 import FormValues from "./soleTraderForm";
 
+import ErrorText from "@components/ErrorText";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Button } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
@@ -22,12 +23,19 @@ import { queryClient } from "./sole-trader/queryClient";
 
 const _Page = () => {
   const {
-    formManager: { handleSubmit },
+    onError,
+    formManager: {
+      handleSubmit,
+      getValues,
+      formState: { errors },
+    },
   } = useSoleTraderFormContext();
 
   const onSubmit = (data: FormValues) => {
     console.log(data);
   };
+
+  const errorsPresent = Object.keys(errors).length !== 0;
 
   return (
     <AkpagerLayout onePage>
@@ -43,10 +51,16 @@ const _Page = () => {
                   id="contactForm"
                   className="flex flex-col contactForm"
                   name="contactForm"
-                  onSubmit={handleSubmit(onSubmit)}
+                  onSubmit={handleSubmit(onSubmit, onError)}
                 >
+                  <button
+                    type="button"
+                    onClick={() => console.log(getValues())}
+                  >
+                    Click Me
+                  </button>
                   <BusinessDetails />
-                  <Divider />
+                  {/* <Divider />
                   <ABNEntitlement />
                   <Divider />
 
@@ -65,11 +79,18 @@ const _Page = () => {
                   <GSTRegistration />
                   <Divider />
 
-                  <Declaration />
+                  <Declaration /> */}
                   <div className="my-3" />
                   <Button type="submit" className="px-4 py-2 mx-auto font-bold">
                     Continue
                   </Button>
+
+                  {errorsPresent && (
+                    <ErrorText>
+                      Some fields are not completed correctly, please check your
+                      submission again
+                    </ErrorText>
+                  )}
 
                   {/* We can use the "status" to decide whether we should display the dropdown or not */}
                   {/* {status === "OK" && <ul>{renderSuggestions()}</ul>} */}

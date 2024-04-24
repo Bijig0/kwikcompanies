@@ -84,13 +84,14 @@ const _Page = () => {
                   <Button type="submit" className="px-4 py-2 mx-auto font-bold">
                     Continue
                   </Button>
-
-                  {errorsPresent && (
-                    <ErrorText>
-                      Some fields are not completed correctly, please check your
-                      submission again
-                    </ErrorText>
-                  )}
+                  <div className="flex justify-center mt-4">
+                    {errorsPresent && (
+                      <ErrorText>
+                        Some fields are not completed correctly, please check
+                        your submission again
+                      </ErrorText>
+                    )}
+                  </div>
 
                   {/* We can use the "status" to decide whether we should display the dropdown or not */}
                   {/* {status === "OK" && <ul>{renderSuggestions()}</ul>} */}

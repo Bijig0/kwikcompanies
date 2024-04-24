@@ -1,14 +1,22 @@
+import ErrorText from "@components/ErrorText";
 import yesNoToBool from "@utils/yesNoToBool";
 import React from "react";
-import AutofillCheckoutDemo from "../Addresses/HomeAddress";
+import { Controller } from "react-hook-form";
 import BusinessAddress from "../Addresses/BusinessAddress";
+import AutofillCheckoutDemo from "../Addresses/HomeAddress";
 import ServiceDocumentAddress from "../Addresses/ServiceDocumentAddress";
 import FormPartLayout from "../FormPartLayout";
 import { useSoleTraderFormContext } from "../SoleTraderFormContext";
 
 const BusinessLocation = () => {
   const {
-    formManager: { register, setValue, watch },
+    formManager: {
+      register,
+      setValue,
+      watch,
+      control,
+      formState: { errors },
+    },
   } = useSoleTraderFormContext();
 
   const handleBusinessLocationChange = (
@@ -40,20 +48,36 @@ const BusinessLocation = () => {
         <label className="font-semibold text-black text-md" htmlFor="message">
           Is your business located at your home address?
         </label>
+
         <div className="flex flex-col">
-          {["Yes", "No"].map((option) => (
-            <label key={option} className="inline-flex items-center">
-              <input
-                name="businessLocation"
-                onChange={handleBusinessLocationChange}
-                type="radio"
-                className="form-radio"
-                value={option}
-              />
-              <span className="ml-2">{option}</span>
-            </label>
-          ))}
+          <Controller
+            name="businessLocation.businessAddress.isHomeAddress"
+            control={control}
+            rules={{ required: "This field is required" }}
+            render={({ field: { onChange, onBlur, value, ref } }) => (
+              <>
+                {["Yes", "No"].map((option) => (
+                  <label key={option} className="inline-flex items-center">
+                    <input
+                      type="radio"
+                      onBlur={onBlur} // notify when input is touched
+                      onChange={() => onChange(option === "Yes")} // send boolean value to hook form
+                      checked={value === (option === "Yes")}
+                      ref={ref}
+                      className="form-radio"
+                    />
+                    <span className="ml-2">{option}</span>
+                  </label>
+                ))}
+              </>
+            )}
+          />
         </div>
+        {errors?.businessLocation?.businessAddress?.isHomeAddress && (
+          <ErrorText>
+            {errors?.businessLocation?.businessAddress?.isHomeAddress.message}
+          </ErrorText>
+        )}
       </div>
       {watch("businessLocation.businessAddress.isHomeAddress") === false && (
         <div>
@@ -66,19 +90,38 @@ const BusinessLocation = () => {
           What is your address for service of documents?
         </label>
         <div className="flex flex-col">
-          {["Home", "Other"].map((option) => (
-            <label key={option} className="inline-flex items-center">
-              <input
-                name="addressForServiceDocuments"
-                onChange={handleServiceDocumentsLocationChange}
-                type="radio"
-                className="form-radio"
-                value={option}
-              />
-              <span className="ml-2">{option}</span>
-            </label>
-          ))}
+          <Controller
+            name="businessLocation.addressForServiceDocuments.isHomeAddress"
+            control={control}
+            rules={{ required: "This field is required" }}
+            render={({ field: { onChange, onBlur, value, ref } }) => (
+              <>
+                {["Home", "Other"].map((option) => (
+                  <label key={option} className="inline-flex items-center">
+                    <input
+                      type="radio"
+                      onBlur={onBlur} // notify when input is touched
+                      onChange={() => onChange(option === "Home")} // send boolean value to hook form
+                      checked={value === (option === "Home")}
+                      ref={ref}
+                      className="form-radio"
+                    />
+                    <span className="ml-2">{option}</span>
+                  </label>
+                ))}
+              </>
+            )}
+          />
         </div>
+        {errors?.businessLocation?.addressForServiceDocuments
+          ?.isHomeAddress && (
+          <ErrorText>
+            {
+              errors?.businessLocation?.addressForServiceDocuments
+                ?.isHomeAddress.message
+            }
+          </ErrorText>
+        )}
       </div>
       {watch("businessLocation.addressForServiceDocuments.isHomeAddress") ===
         false && (

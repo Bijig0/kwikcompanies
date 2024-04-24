@@ -138,7 +138,10 @@ const _BusinessNameApplication = () => {
             />
             {errors?.businessNameApplication?.businessName?.businessName && (
               <ErrorText>
-                {errors?.abnRegistrationDetails?.businessCategory?.message}
+                {
+                  errors?.businessNameApplication?.businessName?.businessName
+                    .message
+                }
               </ErrorText>
             )}
             <div className="my-3"></div>

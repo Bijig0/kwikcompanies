@@ -41,6 +41,7 @@ const useGetBusinessCategories = (args: Args) => {
     queryFn: getBusinessCategory,
     enabled: enabled,
     retry: false,
+    
   });
 
   return result;

@@ -1,6 +1,7 @@
 import ErrorText from "@components/ErrorText";
 import { useBoolean } from "@utils/useBoolean";
 import { useSoleTraderFormContext } from "app/sole-trader/SoleTraderFormContext";
+import { useEffect } from "react";
 import FormPartLayout from "../../FormPartLayout";
 import {
   SoleTraderDatePicker,
@@ -13,6 +14,7 @@ const ABNRegistrationDetails = () => {
   const {
     formManager: {
       watch,
+      clearErrors,
       setError,
       formState: { errors },
     },
@@ -30,23 +32,25 @@ const ABNRegistrationDetails = () => {
     businessActivity: watch("abnRegistrationDetails.mainBusinessActivity"),
   });
 
-  // console.log(data);
-  // console.log(isError);
-  // console.log(error);
+  useEffect(() => {
+    if (!isError) {
+      clearErrors("abnRegistrationDetails.businessCategory");
+    }
+    if (isError) {
+      setError("abnRegistrationDetails.businessCategory", {
+        type: "custom",
+        message: "No business categories found",
+      });
+    }
+  }, [isError]);
 
   const businessIndustries = data?.map(({ description }) => description);
 
   const businessIndustriesToShow = (() => {
     if (isLoading) {
       return ["Searching Associated Businesss Categories..."];
-    } else if (isError) {
-      setError("abnRegistrationDetails.businessCategory", {
-        type: "custom",
-        message: "Error fetching business categories",
-      });
-      return ["Error fetching business categories"];
     } else if (data === undefined) {
-      return [];
+      return ["No business categories found"];
     }
     return businessIndustries;
   })();

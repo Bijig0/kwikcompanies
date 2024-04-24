@@ -3,6 +3,7 @@ import { useBoolean } from "@utils/useBoolean";
 import PartnershipFormProvider, {
   usePartnershipFormContext,
 } from "app/partnership/PartnerShipFormContext";
+import { useEffect } from "react";
 import FormPartLayout from "../../FormPartLayout";
 import useGetBusinessCategories from "./useGetBusinessCategories";
 
@@ -11,6 +12,7 @@ const ABNRegistrationDetails = () => {
     formManager: {
       watch,
       setError,
+      clearErrors,
       formState: { errors },
     },
   } = usePartnershipFormContext();
@@ -33,20 +35,28 @@ const ABNRegistrationDetails = () => {
 
   const businessIndustries = data?.map(({ description }) => description);
 
+  console.log(data);
+
   const businessIndustriesToShow = (() => {
     if (isLoading) {
       return ["Searching Associated Businesss Categories..."];
-    } else if (isError) {
-      setError("abnRegistrationDetails.businessCategory", {
-        type: "custom",
-        message: "Error fetching business categories",
-      });
-      return ["Error fetching business categories"];
     } else if (data === undefined) {
-      return [];
+      return ["No business categories found"];
     }
     return businessIndustries;
   })();
+
+  useEffect(() => {
+    if (!isError) {
+      clearErrors("abnRegistrationDetails.businessCategory");
+    }
+    if (isError) {
+      setError("abnRegistrationDetails.businessCategory", {
+        type: "custom",
+        message: "No business categories found",
+      });
+    }
+  }, [isError]);
 
   const handleOnKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key !== "Enter" && !shouldFetchBusinessCategories) {

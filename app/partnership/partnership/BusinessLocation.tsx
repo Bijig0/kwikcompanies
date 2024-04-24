@@ -1,68 +1,55 @@
-import React from "react";
-import AddressAutocomplete from "../AddressAutocomplete";
+import ServiceDocumentAddress from "app/sole-trader/Addresses/ServiceDocumentAddress";
+import { Controller } from "react-hook-form";
+import BusinessAddress from "../Addresses/BusinessAddress";
 import FormPartLayout from "../FormPartLayout";
 import { usePartnershipFormContext } from "../PartnerShipFormContext";
-import BusinessAddress from "../Addresses/BusinessAddress";
 
 const BusinessLocation = () => {
   const {
-    formManager: { register, setValue, watch },
+    formManager: { register, setValue, watch, control },
   } = usePartnershipFormContext();
-
-  const handleBusinessLocationChange = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const value = e.target.value as "Yes" | "No";
-    if (value === "Yes") {
-      setValue("businessLocation", "Home");
-      return;
-    } else if (value === "No") {
-      setValue("businessLocation", "Other");
-    }
-  };
-
-  const handleServiceDocumentsLocationChange = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const value = e.target.value as "Home" | "Other";
-    if (value === "Home") {
-      setValue("addressForServiceDocuments", "Home");
-      return;
-    } else if (value === "Other") {
-      setValue("addressForServiceDocuments", "Other");
-    }
-  };
 
   return (
     <FormPartLayout header="Business Location" step={3}>
       <div>
         <label htmlFor="message">Business Address</label>
         <BusinessAddress />
-        <p>Can't find your address? Click Enter here</p>
       </div>
       <div>
         <label className="font-semibold text-black text-md" htmlFor="message">
           What is your address for service of documents?
         </label>
         <div className="flex flex-col">
-          {["Business", "Other"].map((option) => (
-            <label key={option} className="inline-flex items-center">
-              <input
-                name="addressForServiceDocuments"
-                onChange={handleServiceDocumentsLocationChange}
-                type="radio"
-                className="form-radio"
-                value={option}
-              />
-              <span className="ml-2">{option}</span>
-            </label>
-          ))}
+          <Controller
+            name="businessLocation.addressForServiceDocuments.isBusinessAddress"
+            control={control}
+            rules={{ required: "This field is required" }}
+            render={({ field: { onChange, onBlur, value, ref } }) => (
+              <>
+                {["Business", "Other"].map((option) => (
+                  <label key={option} className="inline-flex items-center">
+                    <input
+                      type="radio"
+                      onBlur={onBlur} // notify when input is touched
+                      onChange={() => onChange(option === "Business")} // send boolean value to hook form
+                      checked={value === (option === "Business")}
+                      ref={ref}
+                      className="form-radio"
+                    />
+                    <span className="ml-2">{option}</span>
+                  </label>
+                ))}
+              </>
+            )}
+          />
         </div>
       </div>
-      {watch("addressForServiceDocuments") === "Other" && (
+      {watch(
+        "businessLocation.addressForServiceDocuments.isBusinessAddress"
+      ) === false && (
         <div>
           <label htmlFor="message">Other Address</label>
-          <AddressAutocomplete />
+          <ServiceDocumentAddress />
         </div>
       )}
     </FormPartLayout>

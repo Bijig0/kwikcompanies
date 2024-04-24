@@ -7,15 +7,16 @@ import {
 import { AddressAutofillProps } from "@mapbox/search-js-react/dist/components/AddressAutofill";
 import { useBoolean } from "@utils/useBoolean";
 import { useEffect, useRef, useState } from "react";
-import { SoleTraderTextInput } from "../SoleTraderFormComponents";
-import { useSoleTraderFormContext } from "../SoleTraderFormContext";
+import PartnershipFormProvider, {
+  usePartnershipFormContext,
+} from "../PartnerShipFormContext";
 
 const mapBoxAccessToken =
   "pk.eyJ1IjoiYmlqaWcwIiwiYSI6ImNsdXpreWNnZTFkaGkycW53dDhseWh3cWgifQ.30N1A9KD3UR4762uEEH-yQ";
 
 type AutoCompleteResponse = Parameters<AddressAutofillProps["onRetrieve"]>[0];
 
-export default function ServiceDocumentAddress() {
+export default function BusinessAddress() {
   const {
     value: isFormExpanded,
     toggle: toggleFormExpansion,
@@ -35,7 +36,7 @@ export default function ServiceDocumentAddress() {
       getValues,
       formState: { errors },
     },
-  } = useSoleTraderFormContext();
+  } = usePartnershipFormContext();
 
   useEffect(() => {
     const accessToken = mapBoxAccessToken;
@@ -75,7 +76,7 @@ export default function ServiceDocumentAddress() {
       feature.properties.address_level2
     );
     setValue(
-      "businessLocation.addressForServiceDocuments.address.postcode",
+      "businessLocation.businessAddress.postcode",
       feature.properties.postcode
     );
     expandForm();
@@ -102,6 +103,8 @@ export default function ServiceDocumentAddress() {
     setShowValidationText(false);
   }
 
+  console.log(errors);
+
   useEffect(() => {
     console.log(errors);
     const errorsPresent = Object.keys(errors).length !== 0;
@@ -112,9 +115,7 @@ export default function ServiceDocumentAddress() {
     }
   }, [errors, getValues()]);
 
-  const requiredCondition = watch(
-    "businessLocation.addressForServiceDocuments.isHomeAddress"
-  ) === false && {
+  const requiredCondition = {
     required: "This field is required",
   };
 
@@ -124,19 +125,15 @@ export default function ServiceDocumentAddress() {
       <div>
         {/* @ts-ignore */}
         <AddressAutofill accessToken={token} onRetrieve={handleRetrieve}>
-          <SoleTraderTextInput
-            placeholder="Service Document Address"
-            name="businessLocation.addressForServiceDocuments.address.full_address"
+          <PartnershipFormProvider.TextInput
+            placeholder="Business Address"
+            name="businessLocation.businessAddress.full_address"
             rules={requiredCondition}
           />
         </AddressAutofill>
-        {errors.businessLocation?.addressForServiceDocuments?.address
-          ?.full_address && (
+        {errors.businessLocation?.businessAddress?.full_address && (
           <ErrorText>
-            {
-              errors.businessLocation?.addressForServiceDocuments?.address
-                ?.full_address?.message
-            }
+            {errors.businessLocation?.businessAddress?.full_address?.message}
           </ErrorText>
         )}
         {!isFormExpanded && (
@@ -157,7 +154,7 @@ export default function ServiceDocumentAddress() {
           <label className="txt-s txt-bold color-gray mb3">
             Address Line 2
           </label>
-          <SoleTraderTextInput
+          <PartnershipFormProvider.TextInput
             placeholder="Apartment, suite, unit, building, floor, etc."
             name="businessLocation.addressForServiceDocuments.address.address_line_2"
             rules={requiredCondition}
@@ -165,7 +162,7 @@ export default function ServiceDocumentAddress() {
         </div>
         <div>
           <label className="txt-s txt-bold color-gray mb3">City</label>
-          <SoleTraderTextInput
+          <PartnershipFormProvider.TextInput
             placeholder="City"
             name="businessLocation.addressForServiceDocuments.address.address_level_2"
             rules={requiredCondition}
@@ -174,7 +171,7 @@ export default function ServiceDocumentAddress() {
             ?.address_level_2 && (
             <ErrorText>
               {
-                errors.businessLocation?.addressForServiceDocuments?.address
+                errors.businessLocation?.addressForServiceDocuments.address
                   ?.address_level_2?.message
               }
             </ErrorText>
@@ -184,7 +181,7 @@ export default function ServiceDocumentAddress() {
           <label className="txt-s txt-bold color-gray mb3">
             State / Region
           </label>
-          <SoleTraderTextInput
+          <PartnershipFormProvider.TextInput
             placeholder="State/Region"
             name="businessLocation.addressForServiceDocuments.address.address_level_1"
             rules={requiredCondition}
@@ -193,7 +190,7 @@ export default function ServiceDocumentAddress() {
             ?.address_level_1 && (
             <ErrorText>
               {
-                errors.businessLocation?.addressForServiceDocuments?.address
+                errors.businessLocation?.addressForServiceDocuments.address
                   ?.address_level_1?.message
               }
             </ErrorText>
@@ -203,7 +200,7 @@ export default function ServiceDocumentAddress() {
           <label className="txt-s txt-bold color-gray mb3">
             ZIP / Postcode
           </label>
-          <SoleTraderTextInput
+          <PartnershipFormProvider.TextInput
             placeholder="e.g. 3000"
             name="businessLocation.addressForServiceDocuments.address.postcode"
             rules={requiredCondition}
@@ -212,7 +209,7 @@ export default function ServiceDocumentAddress() {
             ?.postcode && (
             <ErrorText>
               {
-                errors.businessLocation?.addressForServiceDocuments?.address
+                errors.businessLocation?.addressForServiceDocuments.address
                   ?.postcode?.message
               }
             </ErrorText>

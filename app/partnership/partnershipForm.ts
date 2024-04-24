@@ -123,11 +123,11 @@ type Address = {
 
 type ServiceDocumentAddress =
   | {
-      isHomeAddress: true;
+      isBusinessAddress: true;
       address?: never;
     }
   | {
-      isHomeAddress: false;
+      isBusinessAddress: false;
       address: Address;
     };
 

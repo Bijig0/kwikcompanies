@@ -6,6 +6,7 @@ import {
   upsertPriceRecord,
   upsertProductRecord,
 } from "@utils/supabase/admin";
+import { Resend } from "resend";
 import Stripe from "stripe";
 
 const relevantEvents = new Set([
@@ -20,6 +21,8 @@ const relevantEvents = new Set([
   "customer.subscription.updated",
   "customer.subscription.deleted",
 ]);
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
   const body = await req.text();

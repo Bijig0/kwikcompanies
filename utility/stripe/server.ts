@@ -25,7 +25,9 @@ type User = {
 export async function checkoutWithStripe(
   price: Price,
   user: User,
-  redirectPath: string = "/account"
+  cancelPath: string,
+  errorPath: string,
+  successPath: string,
 ): Promise<CheckoutResponse> {
   try {
     // Get the user from Supabase auth
@@ -43,7 +45,7 @@ export async function checkoutWithStripe(
         },
       ],
       cancel_url: getURL(),
-      success_url: getURL(redirectPath),
+      success_url: getURL(successPath),
     };
 
     console.log(
@@ -83,7 +85,7 @@ export async function checkoutWithStripe(
     if (error instanceof Error) {
       return {
         errorRedirect: getErrorRedirect(
-          redirectPath,
+          errorPath,
           error.message,
           "Please try again later or contact a system administrator."
         ),

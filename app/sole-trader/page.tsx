@@ -72,7 +72,9 @@ const _Page = () => {
     const { errorRedirect, sessionId } = await checkoutWithStripe(
       price,
       user,
-      Urls["Error"]
+      Urls["Home"],
+      Urls.Error,
+      Urls["Checkout Success"],
     );
 
     if (errorRedirect) {

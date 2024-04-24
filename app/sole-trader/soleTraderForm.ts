@@ -47,6 +47,7 @@ type HasPreviousAbn =
 type KnownByOtherName =
   | {
       answer: false;
+      otherName?: never;
     }
   | {
       answer: true;

@@ -1,3 +1,4 @@
+import ErrorText from "@components/ErrorText";
 import {
   AddressAutofill,
   config,
@@ -27,7 +28,13 @@ export default function BusinessAddress() {
 
   const {
     formDisabled,
-    formManager: { setValue, register, watch },
+    formManager: {
+      setValue,
+      register,
+      watch,
+      getValues,
+      formState: { errors },
+    },
   } = useSoleTraderFormContext();
 
   useEffect(() => {
@@ -95,6 +102,24 @@ export default function BusinessAddress() {
     setShowValidationText(false);
   }
 
+  console.log(errors);
+
+  useEffect(() => {
+    console.log(errors);
+    const errorsPresent = Object.keys(errors).length !== 0;
+    console.log(errorsPresent);
+
+    if (errorsPresent) {
+      expandForm();
+    }
+  }, [errors, getValues()]);
+
+  const requiredCondition = watch(
+    "businessLocation.businessAddress.isHomeAddress"
+  ) === false && {
+    required: "This field is required",
+  };
+
   return (
     <div className="flex flex-col w-full gap-3">
       {/* Input form */}
@@ -104,8 +129,17 @@ export default function BusinessAddress() {
           <SoleTraderTextInput
             placeholder="Business Address"
             name="businessLocation.businessAddress.address.full_address"
+            rules={requiredCondition}
           />
         </AddressAutofill>
+        {errors.businessLocation?.businessAddress?.address?.full_address && (
+          <ErrorText>
+            {
+              errors.businessLocation?.businessAddress?.address?.full_address
+                ?.message
+            }
+          </ErrorText>
+        )}
         {!isFormExpanded && (
           <button
             id="manual-entry block"
@@ -127,7 +161,7 @@ export default function BusinessAddress() {
           <SoleTraderTextInput
             placeholder="Apartment, suite, unit, building, floor, etc."
             name="businessLocation.businessAddress.address.address_line_2"
-            required={false}
+            rules={requiredCondition}
           />
         </div>
         <div>
@@ -135,7 +169,17 @@ export default function BusinessAddress() {
           <SoleTraderTextInput
             placeholder="City"
             name="businessLocation.businessAddress.address.address_level_2"
+            rules={requiredCondition}
           />
+          {errors.businessLocation?.businessAddress?.address
+            ?.address_level_2 && (
+            <ErrorText>
+              {
+                errors.businessLocation?.businessAddress?.address
+                  ?.address_level_2?.message
+              }
+            </ErrorText>
+          )}
         </div>
         <div>
           <label className="txt-s txt-bold color-gray mb3">
@@ -144,7 +188,17 @@ export default function BusinessAddress() {
           <SoleTraderTextInput
             placeholder="State/Region"
             name="businessLocation.businessAddress.address.address_level_1"
+            rules={requiredCondition}
           />
+          {errors.businessLocation?.businessAddress?.address
+            ?.address_level_1 && (
+            <ErrorText>
+              {
+                errors.businessLocation?.businessAddress?.address
+                  ?.address_level_1?.message
+              }
+            </ErrorText>
+          )}
         </div>
         <div>
           <label className="txt-s txt-bold color-gray mb3">
@@ -153,7 +207,16 @@ export default function BusinessAddress() {
           <SoleTraderTextInput
             placeholder="e.g. 3000"
             name="businessLocation.businessAddress.address.postcode"
+            rules={requiredCondition}
           />
+          {errors.businessLocation?.businessAddress?.address?.postcode && (
+            <ErrorText>
+              {
+                errors.businessLocation?.businessAddress?.address?.postcode
+                  ?.message
+              }
+            </ErrorText>
+          )}
         </div>
       </div>
       {isFormExpanded && (

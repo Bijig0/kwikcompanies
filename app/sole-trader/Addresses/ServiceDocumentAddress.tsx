@@ -1,3 +1,4 @@
+import ErrorText from "@components/ErrorText";
 import {
   AddressAutofill,
   config,
@@ -27,7 +28,13 @@ export default function ServiceDocumentAddress() {
 
   const {
     formDisabled,
-    formManager: { setValue, register, watch },
+    formManager: {
+      setValue,
+      register,
+      watch,
+      getValues,
+      formState: { errors },
+    },
   } = useSoleTraderFormContext();
 
   useEffect(() => {
@@ -95,6 +102,22 @@ export default function ServiceDocumentAddress() {
     setShowValidationText(false);
   }
 
+  useEffect(() => {
+    console.log(errors);
+    const errorsPresent = Object.keys(errors).length !== 0;
+    console.log(errorsPresent);
+
+    if (errorsPresent) {
+      expandForm();
+    }
+  }, [errors, getValues()]);
+
+  const requiredCondition = watch(
+    "businessLocation.addressForServiceDocuments.isHomeAddress"
+  ) === false && {
+    required: "This field is required",
+  };
+
   return (
     <div className="flex flex-col w-full gap-3">
       {/* Input form */}
@@ -104,8 +127,18 @@ export default function ServiceDocumentAddress() {
           <SoleTraderTextInput
             placeholder="Service Document Address"
             name="businessLocation.addressForServiceDocuments.address.full_address"
+            rules={requiredCondition}
           />
         </AddressAutofill>
+        {errors.businessLocation?.addressForServiceDocuments?.address
+          ?.full_address && (
+          <ErrorText>
+            {
+              errors.businessLocation?.addressForServiceDocuments?.address
+                ?.full_address?.message
+            }
+          </ErrorText>
+        )}
         {!isFormExpanded && (
           <button
             id="manual-entry block"
@@ -127,6 +160,7 @@ export default function ServiceDocumentAddress() {
           <SoleTraderTextInput
             placeholder="Apartment, suite, unit, building, floor, etc."
             name="businessLocation.addressForServiceDocuments.address.address_line_2"
+            rules={requiredCondition}
           />
         </div>
         <div>
@@ -134,7 +168,17 @@ export default function ServiceDocumentAddress() {
           <SoleTraderTextInput
             placeholder="City"
             name="businessLocation.addressForServiceDocuments.address.address_level_2"
+            rules={requiredCondition}
           />
+          {errors.businessLocation?.addressForServiceDocuments?.address
+            ?.address_level_2 && (
+            <ErrorText>
+              {
+                errors.businessLocation?.addressForServiceDocuments?.address
+                  ?.address_level_2?.message
+              }
+            </ErrorText>
+          )}
         </div>
         <div>
           <label className="txt-s txt-bold color-gray mb3">
@@ -143,7 +187,17 @@ export default function ServiceDocumentAddress() {
           <SoleTraderTextInput
             placeholder="State/Region"
             name="businessLocation.addressForServiceDocuments.address.address_level_1"
+            rules={requiredCondition}
           />
+          {errors.businessLocation?.addressForServiceDocuments?.address
+            ?.address_level_1 && (
+            <ErrorText>
+              {
+                errors.businessLocation?.addressForServiceDocuments?.address
+                  ?.address_level_1?.message
+              }
+            </ErrorText>
+          )}
         </div>
         <div>
           <label className="txt-s txt-bold color-gray mb3">
@@ -152,7 +206,17 @@ export default function ServiceDocumentAddress() {
           <SoleTraderTextInput
             placeholder="e.g. 3000"
             name="businessLocation.addressForServiceDocuments.address.postcode"
+            rules={requiredCondition}
           />
+          {errors.businessLocation?.addressForServiceDocuments?.address
+            ?.postcode && (
+            <ErrorText>
+              {
+                errors.businessLocation?.addressForServiceDocuments?.address
+                  ?.postcode?.message
+              }
+            </ErrorText>
+          )}
         </div>
       </div>
       {isFormExpanded && (

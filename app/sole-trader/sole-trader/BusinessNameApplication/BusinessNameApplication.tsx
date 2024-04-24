@@ -42,6 +42,7 @@ const _BusinessNameApplication = () => {
   } = useBoolean(false);
 
   const {
+    formDisabled,
     formManager: {
       setValue,
       watch,
@@ -112,6 +113,7 @@ const _BusinessNameApplication = () => {
                     type="radio"
                     className="form-radio"
                     value={option}
+                    disabled={formDisabled}
                   />
                   <span className="ml-2">{text[option]}</span>
                 </label>

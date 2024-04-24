@@ -11,6 +11,7 @@ const text = {
 
 const GSTRegistration = () => {
   const {
+    formDisabled,
     formManager: {
       register,
       formState: { errors },
@@ -43,6 +44,7 @@ const GSTRegistration = () => {
                     checked={value === (option === "Yes")}
                     ref={ref}
                     className="form-radio"
+                    disabled={formDisabled}
                   />
                   <span className="ml-2">{text[option]}</span>
                 </label>

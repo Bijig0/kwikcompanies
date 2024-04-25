@@ -8,7 +8,6 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { getErrorRedirect } from "@utils/helpers";
 import { getStripe } from "@utils/stripe/client";
 import { checkoutWithStripe } from "@utils/stripe/server";
-import { Tables } from "app/types/types_db";
 import { Urls } from "app/types/urls";
 import { useRouter } from "next/navigation";
 import { Button } from "react-bootstrap";
@@ -16,11 +15,10 @@ import "react-datepicker/dist/react-datepicker.css";
 import SoleTraderFormProvider, {
   useSoleTraderFormContext,
 } from "./SoleTraderFormContext";
+import findPrices from "./findPrices";
 import { queryClient } from "./sole-trader/queryClient";
 import SoleTraderFormValues from "./soleTraderForm";
 import useGetSoleTraderProducts from "./useGetSoleTraderProducts";
-
-type Price = Tables<"prices">;
 
 type User = {
   email: string;
@@ -48,8 +46,9 @@ const _Page = () => {
     const user = { email: "bradysuryasie@gmail.com" } satisfies User;
 
     // const user = { email: data.soleTraderDetails.email } satisfies User;
-    const examplePrice = products[0].prices[0];
-    handleStripeCheckout(user, examplePrice);
+    const prices = findPrices(data, products);
+
+    handleStripeCheckout(user, prices);
   };
 
   const errorsPresent = Object.keys(errors).length !== 0;
@@ -74,7 +73,7 @@ const _Page = () => {
       user,
       Urls["Home"],
       Urls.Error,
-      Urls["Checkout Success"],
+      Urls["Checkout Success"]
     );
 
     if (errorRedirect) {

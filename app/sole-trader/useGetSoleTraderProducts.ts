@@ -7,9 +7,12 @@ import { z } from "zod";
 const productNames = [
   "Sole Trader ABN Registration",
   "Partnership ABN Registration",
+  "GST Registration",
+  "1 year Business Name Registration",
+  "3 Years Business Name Registration",
 ] as const;
 
-type ProductName = (typeof productNames)[number];
+export type ProductName = (typeof productNames)[number];
 
 const productNameSchema = z.enum(productNames);
 
@@ -21,9 +24,14 @@ const productsQuery = createClient()
   .order("metadata->index")
   .order("unit_amount", { referencedTable: "prices" });
 
-type ABNProductsQuery = (Omit<QueryData<typeof productsQuery>[0], "name"> & {
+export type ABNProductQuery = Omit<
+  QueryData<typeof productsQuery>[0],
+  "name"
+> & {
   name: ProductName;
-})[];
+};
+
+export type ABNProductsQuery = ABNProductQuery[];
 
 const useGetSoleTraderProducts = () => {
   const getSoleTraderProducts = async (): Promise<ABNProductsQuery> => {

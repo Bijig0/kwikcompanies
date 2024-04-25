@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import {
   ABNProductsQuery,
-  productsQuery,
   productNameSchema,
+  productsQuery,
 } from "@utils/stripe/types";
 
 import { createClient } from "@utils/supabase/client";
@@ -22,7 +22,15 @@ const useGetProducts = () => {
 
     assertProductNames();
 
-    const parsedProducts = products as ABNProductsQuery;
+    console.log(products);
+
+    const testProducts = products.filter(
+      ({ description }) => description === "Test"
+    );
+
+    console.log(testProducts);
+
+    const parsedProducts = testProducts as ABNProductsQuery;
 
     return parsedProducts;
   };

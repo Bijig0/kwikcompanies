@@ -5,8 +5,6 @@ import AkpagerLayout from "@layouts/AkpagerLayout";
 import Divider from "@components/Divider";
 import ErrorText from "@components/ErrorText";
 import { QueryClientProvider } from "@tanstack/react-query";
-import handleStripeCheckout from "@utils/handleStripeCheckout";
-import { useRouter } from "next/navigation";
 import { Button } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
 import Declaration from "./Declaration";
@@ -24,6 +22,7 @@ import SoleTraderDetails from "./sole-trader/SoleTraderDetails";
 import { queryClient } from "./sole-trader/queryClient";
 import SoleTraderFormValues from "./soleTraderForm";
 import useGetProducts from "./useGetProducts";
+import useHandleStripeCheckout from "@utils/useHandleStripeCheckout";
 
 export type StripeUser = {
   email: string;
@@ -40,7 +39,7 @@ const _Page = () => {
     },
   } = useSoleTraderFormContext();
 
-  const router = useRouter();
+  const handleStripeCheckout = useHandleStripeCheckout();
 
   const { data: products, isLoading, error } = useGetProducts();
 

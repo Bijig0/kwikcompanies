@@ -78,12 +78,14 @@ export async function POST(req: Request) {
               true
             );
           }
+          const formValues = checkoutSession.metadata;
+          const asString = JSON.stringify(formValues);
           const { data, error } = await resend.emails.send({
             from: "Acme <onboarding@resend.dev>",
             to: ["bradysuryasie@gmail.com"],
             subject: "Hello world",
             react: toAdminEmailTemplate({
-              content: checkoutSession.metadata.formValues,
+              content: asString,
             }),
           });
 

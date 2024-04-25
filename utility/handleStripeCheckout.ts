@@ -1,10 +1,10 @@
+import { StripeUser } from "app/sole-trader/page";
 import { Tables } from "app/types/types_db";
 import { Urls } from "app/types/urls";
-import router from "next/router";
+import router from "next/navigation";
 import { getErrorRedirect } from "./helpers";
 import { getStripe } from "./stripe/client";
 import { checkoutWithStripe } from "./stripe/server";
-import { StripeUser } from "app/sole-trader/page";
 
 type Price = Tables<"prices">;
 

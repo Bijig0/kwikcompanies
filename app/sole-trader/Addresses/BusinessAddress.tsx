@@ -161,7 +161,6 @@ export default function BusinessAddress() {
           <SoleTraderTextInput
             placeholder="Apartment, suite, unit, building, floor, etc."
             name="businessLocation.businessAddress.address.address_line_2"
-            rules={requiredCondition}
           />
         </div>
         <div>

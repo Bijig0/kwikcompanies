@@ -19,6 +19,9 @@ import findPrices from "./findPrices";
 import { queryClient } from "./sole-trader/queryClient";
 import SoleTraderFormValues from "./soleTraderForm";
 import useGetSoleTraderProducts from "./useGetSoleTraderProducts";
+import { Tables } from "app/types/types_db";
+
+type Price = Tables<"prices">;
 
 type User = {
   email: string;
@@ -67,9 +70,9 @@ const _Page = () => {
     return emailjs.send(serviceId, templateName, templateParams, publicKey);
   };
 
-  const handleStripeCheckout = async (user: User, price: Price) => {
+  const handleStripeCheckout = async (user: User, prices: Price[]) => {
     const { errorRedirect, sessionId } = await checkoutWithStripe(
-      price,
+      prices,
       user,
       Urls["Home"],
       Urls.Error,

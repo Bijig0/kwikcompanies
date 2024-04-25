@@ -1,10 +1,6 @@
 "use server";
 
-import {
-  calculateTrialEndUnixTimestamp,
-  getErrorRedirect,
-  getURL,
-} from "@utils/helpers";
+import { getErrorRedirect, getURL } from "@utils/helpers";
 import { stripe } from "@utils/stripe/config";
 import { createOrRetrieveCustomer } from "@utils/supabase/admin";
 import { createClient } from "@utils/supabase/server";
@@ -23,43 +19,28 @@ type User = {
 };
 
 export async function checkoutWithStripe(
-  price: Price,
+  prices: Price[],
   user: User,
   cancelPath: string,
   errorPath: string,
-  successPath: string,
+  successPath: string
 ): Promise<CheckoutResponse> {
   try {
     // Get the user from Supabase auth
 
     // Retrieve or create the customer in Stripe
 
+    const lineItems = prices.map(({ id }) => ({ price: id, quantity: 1 }));
+
     let params: Stripe.Checkout.SessionCreateParams = {
       allow_promotion_codes: true,
-      billing_address_collection: "required",
+      // billing_address_collection: "required",
       customer_email: user.email,
-      line_items: [
-        {
-          price: price.id,
-          quantity: 1,
-        },
-      ],
-      cancel_url: getURL(),
+      line_items: lineItems,
+      cancel_url: getURL(cancelPath),
       success_url: getURL(successPath),
+      mode: "payment",
     };
-
-    console.log(
-      "Trial end:",
-      calculateTrialEndUnixTimestamp(price.trial_period_days)
-    );
-    console.log(price.type);
-
-    if (price.type === "one_time") {
-      params = {
-        ...params,
-        mode: "payment",
-      };
-    }
 
     console.log(params);
 
@@ -93,7 +74,7 @@ export async function checkoutWithStripe(
     } else {
       return {
         errorRedirect: getErrorRedirect(
-          redirectPath,
+          errorPath,
           "An unknown error occurred.",
           "Please try again later or contact a system administrator."
         ),

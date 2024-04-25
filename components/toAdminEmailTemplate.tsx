@@ -6,3 +6,5 @@ const toAdminEmailTemplate = (props: Props) => {
   const { content } = props;
   return <div>{content}</div>;
 };
+
+export default toAdminEmailTemplate;

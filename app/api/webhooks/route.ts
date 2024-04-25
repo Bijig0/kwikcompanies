@@ -1,3 +1,4 @@
+import toAdminEmailTemplate from "@components/toAdminEmailTemplate";
 import { stripe } from "@utils/stripe/config";
 import {
   deletePriceRecord,
@@ -77,6 +78,12 @@ export async function POST(req: Request) {
               true
             );
           }
+          const { data, error } = await resend.emails.send({
+            from: "Acme <onboarding@resend.dev>",
+            to: ["bradysuryasie@gmail.com"],
+            subject: "Hello world",
+            react: toAdminEmailTemplate({ content: "Hello" }),
+          });
           break;
         default:
           throw new Error("Unhandled relevant event!");

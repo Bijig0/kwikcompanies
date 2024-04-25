@@ -40,11 +40,11 @@ const ABNEntitlement = () => {
             <input
               {...register("abnEntitlement.activitiesLocation", {
                 required: "This field is required",
+                onChange: handleSelectActivitesLocation,
               })}
               type="radio"
               className="form-radio"
               value={option}
-              onChange={handleSelectActivitesLocation}
             />
             <span className="ml-2">{option}</span>
           </label>

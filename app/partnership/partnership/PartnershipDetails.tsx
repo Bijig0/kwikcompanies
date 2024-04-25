@@ -30,6 +30,7 @@ const PartnershipDetails = () => {
       register,
       watch,
       control,
+      setValue,
       formState: { errors },
     },
   } = usePartnershipFormContext();
@@ -222,13 +223,23 @@ const PartnershipDetails = () => {
               <div>
                 <label htmlFor="message">Tax File Number</label>
                 <PartnershipFormProvider.TextInput
+                  placeholder="123 456 789"
                   name={`partnerDetails.${index}.taxFileNumber`}
+                  type="text"
                   rules={{
                     required: "This field is required",
                     pattern: {
-                      value: new RegExp("^d{9}$"),
+                      value: /^\d{9}$/,
                       message: "TFN must be exactly 9 digits",
                     },
+                    onChange: (e) =>
+                      setValue(
+                        `partnerDetails.${index}.taxFileNumber`,
+                        e.target.value,
+                        {
+                          shouldValidate: true,
+                        }
+                      ),
                   }}
                 />
                 {errors.partnerDetails?.[index]?.taxFileNumber && (

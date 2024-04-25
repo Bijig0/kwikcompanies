@@ -4,7 +4,9 @@ import { getErrorRedirect, getURL } from "@utils/helpers";
 import { stripe } from "@utils/stripe/config";
 import { createOrRetrieveCustomer } from "@utils/supabase/admin";
 import { createClient } from "@utils/supabase/server";
+import truncateKeys from "@utils/truncateKeys";
 import { Tables } from "app/types/types_db";
+import dot from "dot-object";
 import Stripe from "stripe";
 
 type Price = Tables<"prices">;
@@ -38,6 +40,10 @@ export async function checkoutWithStripe(
     formValues,
     paths: { cancelPath, errorPath, successPath },
   } = args;
+
+  const dotNotationFormValues = dot.dot(formValues);
+  const truncated = truncateKeys(dotNotationFormValues);
+
   try {
     // Get the user from Supabase auth
 
@@ -47,9 +53,7 @@ export async function checkoutWithStripe(
 
     let params: Stripe.Checkout.SessionCreateParams = {
       allow_promotion_codes: true,
-      metadata: {
-        formValues: JSON.stringify(formValues),
-      },
+      metadata: truncated,
       // billing_address_collection: "required",
       customer_email: user.email,
       line_items: lineItems,

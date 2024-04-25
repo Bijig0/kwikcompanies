@@ -2,6 +2,7 @@
 import PageBanner from "@components/PageBanner";
 import AkpagerLayout from "@layouts/AkpagerLayout";
 
+import Divider from "@components/Divider";
 import ErrorText from "@components/ErrorText";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { getErrorRedirect } from "@utils/helpers";
@@ -12,10 +13,18 @@ import { Urls } from "app/types/urls";
 import { useRouter } from "next/navigation";
 import { Button } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
+import Declaration from "./Declaration";
 import SoleTraderFormProvider, {
   useSoleTraderFormContext,
 } from "./SoleTraderFormContext";
 import findPrices from "./findPrices";
+import ABNEntitlement from "./sole-trader/ABNEntitlement";
+import ABNRegistrationDetails from "./sole-trader/ABNRegistrationDetails/ABNRegistrationDetails";
+import BusinessDetails from "./sole-trader/BusinessDetails";
+import BusinessLocation from "./sole-trader/BusinessLocation";
+import BusinessNameApplication from "./sole-trader/BusinessNameApplication/BusinessNameApplication";
+import GSTRegistration from "./sole-trader/GSTRegistration";
+import SoleTraderDetails from "./sole-trader/SoleTraderDetails";
 import { queryClient } from "./sole-trader/queryClient";
 import SoleTraderFormValues from "./soleTraderForm";
 import useGetSoleTraderProducts from "./useGetSoleTraderProducts";
@@ -43,7 +52,6 @@ const _Page = () => {
 
   const onSubmit = (data: SoleTraderFormValues) => {
     console.log(data);
-    sendEmail(data);
 
     const user = { email: "bradysuryasie@gmail.com" } satisfies User;
 
@@ -118,7 +126,7 @@ const _Page = () => {
                   >
                     Click Me
                   </button> */}
-                  {/* <BusinessDetails />
+                  <BusinessDetails />
                   <Divider />
                   <ABNEntitlement />
                   <Divider />
@@ -138,7 +146,7 @@ const _Page = () => {
                   <GSTRegistration />
                   <Divider />
 
-                  <Declaration /> */}
+                  <Declaration />
                   <div className="my-3" />
                   <Button
                     disabled={formDisabled}

@@ -5,6 +5,7 @@ export const Urls = {
   "Choose Structure": "/choose",
   "Checkout Success": "/success",
   Error: "/404",
+  Home: "/",
 } as const;
 
 export type Urls = (typeof Urls)[keyof typeof Urls];

@@ -1,6 +1,5 @@
 "use client";
 import PageBanner from "@components/PageBanner";
-import emailjs from "@emailjs/browser";
 import AkpagerLayout from "@layouts/AkpagerLayout";
 
 import ErrorText from "@components/ErrorText";
@@ -8,6 +7,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { getErrorRedirect } from "@utils/helpers";
 import { getStripe } from "@utils/stripe/client";
 import { checkoutWithStripe } from "@utils/stripe/server";
+import { Tables } from "app/types/types_db";
 import { Urls } from "app/types/urls";
 import { useRouter } from "next/navigation";
 import { Button } from "react-bootstrap";
@@ -19,7 +19,6 @@ import findPrices from "./findPrices";
 import { queryClient } from "./sole-trader/queryClient";
 import SoleTraderFormValues from "./soleTraderForm";
 import useGetSoleTraderProducts from "./useGetSoleTraderProducts";
-import { Tables } from "app/types/types_db";
 
 type Price = Tables<"prices">;
 
@@ -51,33 +50,26 @@ const _Page = () => {
     // const user = { email: data.soleTraderDetails.email } satisfies User;
     const prices = findPrices(data, products);
 
-    handleStripeCheckout(user, prices);
+    handleStripeCheckout(user, prices, data);
   };
 
   const errorsPresent = Object.keys(errors).length !== 0;
 
-  const sendEmail = async (inputs: SoleTraderFormValues) => {
-    const templateParams = {
-      to_name: "Brady",
-      from_name: "Tutoring",
-      subject: "New Tutoring Person From Contact us",
-      message: `New From Contact Us, details: ${JSON.stringify(inputs)}`,
-    };
-
-    const serviceId = "service_010xydf";
-    const templateName = "template_1dcm4rn";
-    const publicKey = "Yd6r5t5etWEKD3GNh";
-    return emailjs.send(serviceId, templateName, templateParams, publicKey);
-  };
-
-  const handleStripeCheckout = async (user: User, prices: Price[]) => {
-    const { errorRedirect, sessionId } = await checkoutWithStripe(
+  const handleStripeCheckout = async (
+    user: User,
+    prices: Price[],
+    formValues: Record<PropertyKey, any>
+  ) => {
+    const { errorRedirect, sessionId } = await checkoutWithStripe({
       prices,
       user,
-      Urls["Home"],
-      Urls.Error,
-      Urls["Checkout Success"]
-    );
+      formValues,
+      paths: {
+        successPath: Urls["Checkout Success"],
+        cancelPath: Urls.Home,
+        errorPath: Urls.Error,
+      },
+    });
 
     if (errorRedirect) {
       return router.push(errorRedirect);

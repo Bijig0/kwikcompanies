@@ -82,8 +82,15 @@ export async function POST(req: Request) {
             from: "Acme <onboarding@resend.dev>",
             to: ["bradysuryasie@gmail.com"],
             subject: "Hello world",
-            react: toAdminEmailTemplate({ content: "Hello" }),
+            react: toAdminEmailTemplate({
+              content: checkoutSession.metadata.formValues,
+            }),
           });
+
+          if (error) {
+            throw error;
+          }
+
           break;
         default:
           throw new Error("Unhandled relevant event!");

@@ -18,13 +18,26 @@ type User = {
   email: string;
 };
 
+type Args = {
+  prices: Price[];
+  user: User;
+  formValues: Record<PropertyKey, any>;
+  paths: {
+    cancelPath: string;
+    errorPath: string;
+    successPath: string;
+  };
+};
+
 export async function checkoutWithStripe(
-  prices: Price[],
-  user: User,
-  cancelPath: string,
-  errorPath: string,
-  successPath: string
+  args: Args
 ): Promise<CheckoutResponse> {
+  const {
+    prices,
+    user,
+    formValues,
+    paths: { cancelPath, errorPath, successPath },
+  } = args;
   try {
     // Get the user from Supabase auth
 
@@ -34,6 +47,9 @@ export async function checkoutWithStripe(
 
     let params: Stripe.Checkout.SessionCreateParams = {
       allow_promotion_codes: true,
+      metadata: {
+        formValues: JSON.stringify(formValues),
+      },
       // billing_address_collection: "required",
       customer_email: user.email,
       line_items: lineItems,

@@ -11,6 +11,7 @@ import { checkoutWithStripe } from "@utils/stripe/server";
 import { Tables } from "app/types/types_db";
 import { Urls } from "app/types/urls";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { Button } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
 import Declaration from "./Declaration";
@@ -36,6 +37,15 @@ type User = {
 };
 
 const _Page = () => {
+  useEffect(() => {
+    document.addEventListener("wheel", function (event) {
+      if (document.activeElement.type === "number") {
+        const inputElement = document.activeElement as HTMLInputElement;
+        inputElement.blur();
+      }
+    });
+  }, []);
+
   const {
     formDisabled,
     onError,

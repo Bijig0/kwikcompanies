@@ -142,13 +142,17 @@ const SoleTraderDetails = () => {
         <SoleTraderTextInput
           placeholder="123 456 789"
           name="soleTraderDetails.taxFileNumber"
-          type="number"
+          type="text"
           rules={{
             required: "This field is required",
             pattern: {
               value: /^\d{9}$/,
               message: "TFN must be exactly 9 digits",
             },
+            onChange: (e) =>
+              setValue("soleTraderDetails.taxFileNumber", e.target.value, {
+                shouldValidate: true,
+              }),
           }}
         />
         {errors?.soleTraderDetails?.taxFileNumber && (

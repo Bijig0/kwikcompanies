@@ -2,8 +2,9 @@
 import PageBanner from "@components/PageBanner";
 import AkpagerLayout from "@layouts/AkpagerLayout";
 
-import emailjs from "@emailjs/browser";
 import { QueryClientProvider } from "@tanstack/react-query";
+import handleStripeCheckout from "@utils/handleStripeCheckout";
+import useGetProducts from "app/sole-trader/useGetProducts";
 import { Button } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
 import Declaration from "./Declaration";
@@ -30,23 +31,14 @@ const _Page = () => {
     },
   } = usePartnershipFormContext();
 
+  const { data: products, isLoading, error } = useGetProducts();
+
   const onSubmit = (data: PartnerShipFormValues) => {
     console.log(data);
-    sendEmail(data);
-  };
 
-  const sendEmail = async (inputs: PartnerShipFormValues) => {
-    const templateParams = {
-      to_name: "Brady",
-      from_name: "Tutoring",
-      subject: "New Tutoring Person From Contact us",
-      message: `New From Contact Us, details: ${JSON.stringify(inputs)}`,
-    };
+    const prices = findPartnershipPrices(data, products);
 
-    const serviceId = "service_010xydf";
-    const templateName = "template_1dcm4rn";
-    const publicKey = "Yd6r5t5etWEKD3GNh";
-    return emailjs.send(serviceId, templateName, templateParams, publicKey);
+    handleStripeCheckout();
   };
 
   const errorsPresent = Object.keys(errors).length !== 0;

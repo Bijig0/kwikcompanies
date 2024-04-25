@@ -1,3 +1,4 @@
+import { Urls } from "app/types/urls";
 import Link from "next/link";
 
 const Footer = ({ footer }) => {
@@ -35,10 +36,7 @@ const DefaultFooter = () => {
           <div className="col-xl-3 col-lg-4 col-sm-6">
             <div className="footer-widget widget-about">
               <h6 className="footer-title">About Company</h6>
-              <p>
-                Doloremque laudantium tota aperiam eaque abillo inventore
-                architect beatae vitae dicta sunt explicabos
-              </p>
+              <p>ABN Registration for those who care about their time</p>
               <div className="social-style-one">
                 <a href="#">
                   <i className="fab fa-twitter" />
@@ -65,11 +63,13 @@ const DefaultFooter = () => {
                 </li>
                 <li>
                   <i className="fal fa-envelope" />{" "}
-                  <a href="mailto:support@gmail.com">support@gmail.com</a>
+                  <a href="mailto:support@gmail.com">
+                    support@kwikcompanies.com
+                  </a>
                 </li>
                 <li>
                   <i className="fal fa-phone" />{" "}
-                  <a href="callto:+0001234455">+000 (123) 44 55</a>
+                  <a href="callto:+0001234455">+61 403 057 369</a>
                 </li>
               </ul>
             </div>
@@ -78,57 +78,22 @@ const DefaultFooter = () => {
             <div className="row">
               <div className="col-sm-4 col-6">
                 <div className="footer-widget widget-links">
-                  <h6 className="footer-title">Resources</h6>
-                  <ul>
-                    <li>
-                      <Link href="shop">Product</Link>
-                    </li>
-                    <li>
-                      <Link href="services">Services</Link>
-                    </li>
-                    <li>
-                      <Link href="about">About Us</Link>
-                    </li>
-                    <li>
-                      <Link href="services">Benefits</Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className="col-sm-4 col-6">
-                <div className="footer-widget widget-links">
                   <h6 className="footer-title">Quick Link</h6>
                   <ul>
                     <li>
-                      <Link href="services">Features</Link>
+                      <Link href={Urls.Home}>Home</Link>
                     </li>
                     <li>
-                      <Link href="pricing">Pricing Plan</Link>
+                      <Link href={Urls.Home}>Features</Link>
                     </li>
                     <li>
-                      <Link href="about">Best Program</Link>
+                      <Link href={Urls.Home}>Testimonials</Link>
                     </li>
                     <li>
-                      <Link href="contact">Press Kit</Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className="col-sm-4 col-6">
-                <div className="footer-widget widget-links">
-                  <h6 className="footer-title">Company</h6>
-                  <ul>
-                    <li>
-                      <Link href="about">About</Link>
+                      <Link href={Urls.Home}>Pricing</Link>
                     </li>
                     <li>
-                      <Link href="team">Team Member</Link>
-                    </li>
-                    <li>
-                      <Link href="about">Reviews</Link>
-                    </li>
-                    <li>
-                      <Link href="blog">Latest News</Link>
+                      <Link href={Urls["Choose Structure"]}>Register Now</Link>
                     </li>
                   </ul>
                 </div>

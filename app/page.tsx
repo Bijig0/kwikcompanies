@@ -32,7 +32,7 @@ const Index = async () => {
                 <span className="mb-20 subtitle-one">
                   <i className="fas fa-rocket-launch" /> ATO Authorized Agency
                 </span>
-                <h1>Register an ABN in under 15 minutes for just $49</h1>
+                <h1>Register an ABN in under 15 minutes for just $39</h1>
                 <div className="hero-btns">
                   <Link href={Urls["Choose Structure"]} legacyBehavior>
                     <a className="theme-btn">
@@ -81,11 +81,11 @@ const Index = async () => {
                       name
                     </p>
                     <hr />
-                    <Link legacyBehavior href="/service-details">
+                    {/* <Link legacyBehavior href="/service-details">
                       <a className="read-more">
                         Read More <i className="far fa-arrow-right" />
                       </a>
-                    </Link>
+                    </Link> */}
                   </div>
                   <div className="bg">
                     <img
@@ -115,11 +115,11 @@ const Index = async () => {
                       ATO
                     </p>
                     <hr />
-                    <Link legacyBehavior href="/service-details">
+                    {/* <Link legacyBehavior href="/service-details">
                       <a className="read-more">
                         Read More <i className="far fa-arrow-right" />
                       </a>
-                    </Link>
+                    </Link> */}
                   </div>
                   <div className="bg">
                     <img
@@ -146,11 +146,11 @@ const Index = async () => {
                     </h4>
                     <p>Certified information security management systems</p>
                     <hr />
-                    <Link legacyBehavior href="/service-details">
+                    {/* <Link legacyBehavior href="/service-details">
                       <a className="read-more">
                         Read More <i className="far fa-arrow-right" />
                       </a>
-                    </Link>
+                    </Link> */}
                   </div>
                   <div className="bg">
                     <img

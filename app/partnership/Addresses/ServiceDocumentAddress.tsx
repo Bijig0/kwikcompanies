@@ -115,7 +115,9 @@ export default function BusinessAddress() {
     }
   }, [errors, getValues()]);
 
-  const requiredCondition = {
+  const requiredCondition = watch(
+    "businessLocation.addressForServiceDocuments.isBusinessAddress"
+  ) === false && {
     required: "This field is required",
   };
 
@@ -131,9 +133,13 @@ export default function BusinessAddress() {
             rules={requiredCondition}
           />
         </AddressAutofill>
-        {errors.businessLocation?.businessAddress?.full_address && (
+        {errors.businessLocation?.addressForServiceDocuments?.address
+          ?.full_address && (
           <ErrorText>
-            {errors.businessLocation?.businessAddress?.full_address?.message}
+            {
+              errors.businessLocation?.addressForServiceDocuments?.address
+                ?.full_address?.message
+            }
           </ErrorText>
         )}
         {!isFormExpanded && (

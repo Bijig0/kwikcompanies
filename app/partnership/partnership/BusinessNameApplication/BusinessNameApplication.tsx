@@ -95,37 +95,40 @@ const _BusinessNameApplication = () => {
         >
           Click Me
         </button> */}
+
         <label className="font-semibold text-black text-md" htmlFor="name">
           Will you trade under a business name?
         </label>
         <div className="flex flex-col">
-          {options.map((option) => (
-            <Controller
-              key={option}
-              name="businessNameApplication.businessName.answer"
-              rules={{
-                validate: (x) => {
-                  return [true, false].includes(x)
-                    ? true
-                    : "This field is required";
-                },
-              }}
-              control={control}
-              render={({ field: { onChange, value } }) => (
-                <label className="inline-flex items-center">
-                  <input
-                    onChange={handleBusinessNameChange}
-                    name="businessName"
-                    type="radio"
-                    className="form-radio"
-                    value={option}
-                    disabled={formDisabled}
-                  />
-                  <span className="ml-2">{text[option]}</span>
-                </label>
-              )}
-            />
-          ))}
+          <Controller
+            name="businessNameApplication.businessName.answer"
+            control={control}
+            rules={{
+              validate: (x) => {
+                return [true, false].includes(x)
+                  ? true
+                  : "This field is required";
+              },
+            }}
+            render={({ field: { onChange, onBlur, value, ref } }) => (
+              <>
+                {options.map((option) => (
+                  <label key={option} className="inline-flex items-center">
+                    <input
+                      type="radio"
+                      onBlur={onBlur} // notify when input is touched
+                      onChange={() => onChange(option === "Yes")} // send boolean value to hook form
+                      checked={value === (option === "Yes")}
+                      ref={ref}
+                      className="form-radio"
+                      disabled={formDisabled}
+                    />
+                    <span className="ml-2">{text[option]}</span>
+                  </label>
+                ))}
+              </>
+            )}
+          />
         </div>
         {errors?.businessNameApplication?.businessName?.answer && (
           <ErrorText>

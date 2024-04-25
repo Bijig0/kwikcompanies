@@ -31,6 +31,7 @@ const PartnershipDetails = () => {
       watch,
       control,
       setValue,
+      getValues,
       formState: { errors },
     },
   } = usePartnershipFormContext();

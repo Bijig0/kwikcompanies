@@ -3,7 +3,7 @@ import PageBanner from "@components/PageBanner";
 import AkpagerLayout from "@layouts/AkpagerLayout";
 
 import { QueryClientProvider } from "@tanstack/react-query";
-import handleStripeCheckout from "@utils/handleStripeCheckout";
+import useHandleStripeCheckout from "@utils/useHandleStripeCheckout";
 import { StripeUser } from "app/sole-trader/page";
 import useGetProducts from "app/sole-trader/useGetProducts";
 import { Button } from "react-bootstrap";
@@ -34,6 +34,8 @@ const _Page = () => {
   } = usePartnershipFormContext();
 
   const { data: products, isLoading, error } = useGetProducts();
+
+  const handleStripeCheckout = useHandleStripeCheckout();
 
   const onSubmit = (data: PartnerShipFormValues) => {
     console.log(data);

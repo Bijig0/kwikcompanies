@@ -10,6 +10,7 @@ import { useEffect, useRef, useState } from "react";
 import PartnershipFormProvider, {
   usePartnershipFormContext,
 } from "../PartnerShipFormContext";
+import usePrevious from "@utils/usePrevious";
 
 const mapBoxAccessToken =
   "pk.eyJ1IjoiYmlqaWcwIiwiYSI6ImNsdXpreWNnZTFkaGkycW53dDhseWh3cWgifQ.30N1A9KD3UR4762uEEH-yQ";
@@ -110,14 +111,14 @@ export default function HomeAddress(props: Props) {
 
   console.log(errors);
 
-  // const prevGetValues = usePrevious(getValues());
+  const prevGetValues = usePrevious(getValues());
 
   useEffect(() => {
     console.log(errors);
     const errorsPresent = Object.keys(errors).length !== 0;
     console.log(errorsPresent);
 
-    // if (JSON.stringify(prevGetValues) === JSON.stringify(getValues())) return;
+    if (JSON.stringify(prevGetValues) === JSON.stringify(getValues())) return;
 
     if (errorsPresent) {
       expandForm();

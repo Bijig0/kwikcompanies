@@ -43,6 +43,7 @@ export async function checkoutWithStripe(
 
   const dotNotationFormValues = dot.dot(formValues);
   const truncated = truncateKeys(dotNotationFormValues);
+  console.log(truncated);
 
   try {
     // Get the user from Supabase auth

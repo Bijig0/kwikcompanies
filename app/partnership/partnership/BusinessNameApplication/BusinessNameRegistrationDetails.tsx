@@ -1,3 +1,4 @@
+import ErrorText from "@components/ErrorText";
 import { usePartnershipFormContext } from "app/partnership/PartnerShipFormContext";
 import { registrationPeriods } from "app/sole-trader/soleTraderForm";
 
@@ -8,8 +9,18 @@ const text = {
 
 const BusinessNameRegistrationDetails = () => {
   const {
-    formManager: { register },
+    formManager: {
+      register,
+      watch,
+      formState: { errors },
+    },
   } = usePartnershipFormContext();
+
+  const rules = watch(
+    "businessNameApplication.isRegisteringBusinessName.answer"
+  ) && {
+    required: "This field is required",
+  };
 
   return (
     <div>
@@ -19,7 +30,8 @@ const BusinessNameRegistrationDetails = () => {
           <label key={option} className="inline-flex items-center">
             <input
               {...register(
-                "businessNameApplication.isRegisteringBusinessName.registrationPeriod"
+                "businessNameApplication.isRegisteringBusinessName.registrationPeriod",
+                rules
               )}
               type="radio"
               className="form-radio"
@@ -28,6 +40,15 @@ const BusinessNameRegistrationDetails = () => {
             <span className="ml-2">{text[option]}</span>
           </label>
         ))}
+        {errors?.businessNameApplication?.isRegisteringBusinessName
+          ?.registrationPeriod && (
+          <ErrorText>
+            {
+              errors?.businessNameApplication?.isRegisteringBusinessName
+                ?.registrationPeriod.message
+            }
+          </ErrorText>
+        )}
       </div>
     </div>
   );

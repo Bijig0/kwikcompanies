@@ -52,7 +52,7 @@ const findPartnershipPrices = (
   products: ABNProductsQuery
 ): Price[] => {
   const priceTypes = [
-    retrievePrice(products, "Pa"),
+    retrievePrice(products, "Partnership ABN Registration"),
     createPriceType(
       data,
       products,

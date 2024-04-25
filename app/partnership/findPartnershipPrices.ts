@@ -1,12 +1,12 @@
-import { CreateFormRegisterable } from "app/types/types";
-import { Tables } from "app/types/types_db";
-import SoleTraderFormValues from "./soleTraderForm";
+import retrievePrice from "@utils/retrievePrice";
 import {
   ABNProductQuery,
   ABNProductsQuery,
   ProductName,
-} from "./useGetSoleTraderProducts";
-import retrievePrice from "@utils/retrievePrice";
+} from "@utils/stripe/types";
+import { CreateFormRegisterable } from "app/types/types";
+import { Tables } from "app/types/types_db";
+import PartnerShipFormValues from "./partnershipForm";
 
 type Price = Tables<"prices">;
 type Product = Tables<"products">;
@@ -25,7 +25,7 @@ type TypeAtPath<
 
 // Example usage:
 type RegistrationPeriodType = TypeAtPath<
-  SoleTraderFormValues,
+  PartnerShipFormValues,
   "businessNameApplication.isRegisteringBusinessName.registrationPeriod"
 >;
 
@@ -34,12 +34,12 @@ function getValueByPath(obj, path) {
 }
 
 function createPriceType<
-  T extends CreateFormRegisterable<SoleTraderFormValues>
+  T extends CreateFormRegisterable<PartnerShipFormValues>
 >(
-  formValues: SoleTraderFormValues,
+  formValues: PartnerShipFormValues,
   products: ABNProductQuery[],
   field: T,
-  predicate: TypeAtPath<SoleTraderFormValues, T>,
+  predicate: TypeAtPath<PartnerShipFormValues, T>,
   productName: ProductName
 ): Price | undefined {
   return getValueByPath(formValues, field) === predicate
@@ -47,8 +47,8 @@ function createPriceType<
     : undefined;
 }
 
-const findSoleTraderPrices = (
-  data: SoleTraderFormValues,
+const findPartnershipPrices = (
+  data: PartnerShipFormValues,
   products: ABNProductsQuery
 ): Price[] => {
   const priceTypes = [
@@ -56,7 +56,7 @@ const findSoleTraderPrices = (
     createPriceType(
       data,
       products,
-      "gstRegistration.registerForGst",
+      "registerForGST.registerForGst",
       true,
       "GST Registration"
     ),
@@ -83,4 +83,4 @@ const findSoleTraderPrices = (
   return filteredByUndefined;
 };
 
-export default findSoleTraderPrices;
+export default findPartnershipPrices;

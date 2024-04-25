@@ -47,9 +47,8 @@ const _Page = () => {
   const onSubmit = (data: SoleTraderFormValues) => {
     console.log(data);
 
-    const user = { email: "bradysuryasie@gmail.com" } satisfies StripeUser;
+    const user = { email: data.soleTraderDetails.email } satisfies StripeUser;
 
-    // const user = { email: data.soleTraderDetails.email } satisfies User;
     const prices = findSoleTraderPrices(data, products);
 
     handleStripeCheckout(user, prices, data);

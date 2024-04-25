@@ -4,6 +4,7 @@ import AkpagerLayout from "@layouts/AkpagerLayout";
 
 import { QueryClientProvider } from "@tanstack/react-query";
 import handleStripeCheckout from "@utils/handleStripeCheckout";
+import { StripeUser } from "app/sole-trader/page";
 import useGetProducts from "app/sole-trader/useGetProducts";
 import { Button } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
@@ -13,6 +14,7 @@ import ErrorText from "./ErrorText";
 import SoleTraderFormProvider, {
   usePartnershipFormContext,
 } from "./PartnerShipFormContext";
+import findPartnershipPrices from "./findPartnershipPrices";
 import ABNEntitlement from "./partnership/ABNEntitlement";
 import ABNRegistrationDetails from "./partnership/ABNRegistrationDetails/ABNRegistrationDetails";
 import BusinessLocation from "./partnership/BusinessLocation";
@@ -36,9 +38,11 @@ const _Page = () => {
   const onSubmit = (data: PartnerShipFormValues) => {
     console.log(data);
 
+    const user = { email: data.partnerDetails[0].email } satisfies StripeUser;
+
     const prices = findPartnershipPrices(data, products);
 
-    handleStripeCheckout();
+    handleStripeCheckout(user, prices, data);
   };
 
   const errorsPresent = Object.keys(errors).length !== 0;

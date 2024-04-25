@@ -103,12 +103,12 @@ const Nav = ({
             <span className={`icon-bar ${dark ? "bg-dark" : ""}`} />
           </Accordion.Toggle>
         </div>
-        <div eventKey="navbar-collapse" className="clearfix navbar-collapse">
+        <div className="clearfix navbar-collapse">
           {onePage ? (
             <ul className="clearfix navigation onepage">
               {menus.map((menu) => (
                 <li key={menu.id}>
-                  <a href={`#${menu.href}`}>{menu.title}</a>
+                  <a href={menu.href}>{menu.title}</a>
                 </li>
               ))}
             </ul>
@@ -345,12 +345,7 @@ const NavSearch = () => {
         }}
         ref={domNode}
       >
-        <input
-          type="text"
-          placeholder="Search"
-          className="searchbox"
-          required=""
-        />
+        <input type="text" placeholder="Search" className="searchbox" />
         <button type="submit" className="searchbutton far fa-search" />
       </form>
     </Fragment>

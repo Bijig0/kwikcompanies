@@ -8,4 +8,4 @@ export const Urls = {
   Home: "/",
 } as const;
 
-export type Urls = (typeof Urls)[keyof typeof Urls];
+export type Url = (typeof Urls)[keyof typeof Urls];

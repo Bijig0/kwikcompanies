@@ -17,7 +17,7 @@ import Declaration from "./Declaration";
 import SoleTraderFormProvider, {
   useSoleTraderFormContext,
 } from "./SoleTraderFormContext";
-import findPrices from "./findPrices";
+import findSoleTraderPrices from "./findSoleTraderPrices";
 import ABNEntitlement from "./sole-trader/ABNEntitlement";
 import ABNRegistrationDetails from "./sole-trader/ABNRegistrationDetails/ABNRegistrationDetails";
 import BusinessDetails from "./sole-trader/BusinessDetails";
@@ -56,7 +56,7 @@ const _Page = () => {
     const user = { email: "bradysuryasie@gmail.com" } satisfies User;
 
     // const user = { email: data.soleTraderDetails.email } satisfies User;
-    const prices = findPrices(data, products);
+    const prices = findSoleTraderPrices(data, products);
 
     handleStripeCheckout(user, prices, data);
   };

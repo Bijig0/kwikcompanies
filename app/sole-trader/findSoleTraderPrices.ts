@@ -28,14 +28,6 @@ type RegistrationPeriodType = TypeAtPath<
   "businessNameApplication.isRegisteringBusinessName.registrationPeriod"
 >;
 
-type FormToPrice<T extends CreateFormRegisterable<SoleTraderFormValues>> = {
-  formField: {
-    field: T;
-    predicate: TypeAtPath<SoleTraderFormValues, T>;
-  };
-  productName: ProductName;
-};
-
 function getValueByPath(obj, path) {
   return path.split(".").reduce((current, key) => current && current[key], obj);
 }
@@ -57,7 +49,7 @@ function createPriceType<
     : undefined;
 }
 
-const findPrices = (
+const findSoleTraderPrices = (
   data: SoleTraderFormValues,
   products: ABNProductsQuery
 ): Price[] => {
@@ -93,4 +85,4 @@ const findPrices = (
   return filteredByUndefined;
 };
 
-export default findPrices;
+export default findSoleTraderPrices;

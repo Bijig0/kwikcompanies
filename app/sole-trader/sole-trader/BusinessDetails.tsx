@@ -7,7 +7,7 @@ import { SoleTraderSelect } from "../SoleTraderFormComponents";
 import { useSoleTraderFormContext } from "../SoleTraderFormContext";
 import { businessHistories } from "../soleTraderForm";
 
-function isNumeric(value) {
+function isNumeric(value: string): boolean {
   return /^\d+$/.test(value);
 }
 
@@ -96,10 +96,16 @@ const BusinessDetails = () => {
                   value: ABN_REGEX,
                   message: "ABN must be exactly 11 digits",
                 },
+                onChange: (e) =>
+                  setValue(
+                    "businessDetails.hasPreviousAbn.prevAbn",
+                    e.target.value,
+                    { shouldValidate: true }
+                  ),
               }
             )}
             disabled={formDisabled}
-            type="number"
+            type="text"
             className={`rounded-md ${
               formDisabled ? "bg-gray-100" : "bg-white"
             } ${

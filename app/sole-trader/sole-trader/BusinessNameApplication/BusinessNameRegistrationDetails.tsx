@@ -1,3 +1,4 @@
+import ErrorText from "@components/ErrorText";
 import {
   SoleTraderSelect,
   SoleTraderTextInput,
@@ -17,7 +18,13 @@ const text = {
 
 const BusinessNameRegistrationDetails = () => {
   const {
-    formManager: { register, watch, setValue, getValues },
+    formManager: {
+      register,
+      watch,
+      setValue,
+      getValues,
+      formState: { errors },
+    },
   } = useSoleTraderFormContext();
 
   useEffect(() => {
@@ -27,6 +34,12 @@ const BusinessNameRegistrationDetails = () => {
     );
   }, []);
 
+  const rules = watch(
+    "businessNameApplication.isRegisteringBusinessName.answer"
+  ) === true && {
+    required: "This field is required",
+  };
+
   return (
     <div>
       <div className="flex flex-col">
@@ -35,7 +48,8 @@ const BusinessNameRegistrationDetails = () => {
           <label key={option} className="inline-flex items-center">
             <input
               {...register(
-                "businessNameApplication.isRegisteringBusinessName.registrationPeriod"
+                "businessNameApplication.isRegisteringBusinessName.registrationPeriod",
+                rules
               )}
               type="radio"
               className="form-radio"
@@ -44,6 +58,15 @@ const BusinessNameRegistrationDetails = () => {
             <span className="ml-2">{text[option]}</span>
           </label>
         ))}
+        {errors?.businessNameApplication?.isRegisteringBusinessName
+          ?.registrationPeriod && (
+          <ErrorText>
+            {
+              errors?.businessNameApplication?.isRegisteringBusinessName
+                ?.registrationPeriod.message
+            }
+          </ErrorText>
+        )}
       </div>
       <div>
         <label htmlFor="message">Country of birth</label>
@@ -66,7 +89,19 @@ const BusinessNameRegistrationDetails = () => {
           </div>
           <div>
             <label htmlFor="message">City</label>
-            <SoleTraderTextInput name="businessNameApplication.isRegisteringBusinessName.birthLocation.city" />
+            <SoleTraderTextInput
+              name="businessNameApplication.isRegisteringBusinessName.birthLocation.city"
+              rules={rules}
+            />
+            {errors?.businessNameApplication?.isRegisteringBusinessName
+              ?.birthLocation.city && (
+              <ErrorText>
+                {
+                  errors?.businessNameApplication.isRegisteringBusinessName
+                    .birthLocation.city.message
+                }
+              </ErrorText>
+            )}
           </div>
         </Fragment>
       )}

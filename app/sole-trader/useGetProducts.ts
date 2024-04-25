@@ -24,13 +24,7 @@ const useGetProducts = () => {
 
     console.log(products);
 
-    const testProducts = products.filter(
-      ({ description }) => description === "Test"
-    );
-
-    console.log(testProducts);
-
-    const parsedProducts = testProducts as ABNProductsQuery;
+    const parsedProducts = products as ABNProductsQuery;
 
     return parsedProducts;
   };

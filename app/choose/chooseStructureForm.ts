@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 
-export const structures = ["Individual or Sole Trader", "Partnership"] as const;
+export const structures = ["Individual or Sole Trader"] as const;
 
 export type Structure = (typeof structures)[number];
 

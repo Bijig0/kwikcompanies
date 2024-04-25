@@ -12,7 +12,7 @@ import { ChooseStructureFormValues, Structure } from "./chooseStructureForm";
 
 const structureURL = {
   // Company: "/company",
-  Partnership: "/partnership",
+  // Partnership: "/partnership",
   "Individual or Sole Trader": "/sole-trader",
 } satisfies Record<Structure, string>;
 

@@ -1,5 +1,5 @@
 "use client";
-import { Tab } from "react-bootstrap";
+import { Button, Tab } from "react-bootstrap";
 import { Urls } from "./types/urls";
 const page = () => {
   return (
@@ -61,9 +61,9 @@ const page = () => {
                       <span className="prev">$</span>39
                     </div>
                     <div className="text">For families/partnerships</div>
-                    <a href={Urls["Choose Structure"]} className="theme-btn">
-                      Register Now! <i className="far fa-arrow-right" />
-                    </a>
+                    <Button disabled variant="disabled" className="theme-btn">
+                      Coming Soon! <i className="far fa-arrow-right" />
+                    </Button>
                     <h4 className="title">Partnership ABN Registration</h4>
                     <ul className="list">
                       <li>Australia's Quickest ABN Application Process</li>
@@ -91,9 +91,9 @@ const page = () => {
                       <span className="prev">$</span>59
                     </div>
                     <div className="text">Corporate industry</div>
-                    <a href={Urls["Choose Structure"]} className="theme-btn">
-                      Register Now! <i className="far fa-arrow-right" />
-                    </a>
+                    <Button disabled variant="disabled" className="theme-btn">
+                      Coming Soon! <i className="far fa-arrow-right" />
+                    </Button>
                     <h4 className="title">Company Registration</h4>
                     <ul className="list">
                       <li>Australia's Quickest ABN Application Process</li>

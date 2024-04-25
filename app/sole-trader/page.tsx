@@ -5,13 +5,8 @@ import AkpagerLayout from "@layouts/AkpagerLayout";
 import Divider from "@components/Divider";
 import ErrorText from "@components/ErrorText";
 import { QueryClientProvider } from "@tanstack/react-query";
-import { getErrorRedirect } from "@utils/helpers";
-import { getStripe } from "@utils/stripe/client";
-import { checkoutWithStripe } from "@utils/stripe/server";
-import { Tables } from "app/types/types_db";
-import { Urls } from "app/types/urls";
+import handleStripeCheckout from "@utils/handleStripeCheckout";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 import { Button } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
 import Declaration from "./Declaration";
@@ -28,24 +23,13 @@ import GSTRegistration from "./sole-trader/GSTRegistration";
 import SoleTraderDetails from "./sole-trader/SoleTraderDetails";
 import { queryClient } from "./sole-trader/queryClient";
 import SoleTraderFormValues from "./soleTraderForm";
-import useGetSoleTraderProducts from "./useGetSoleTraderProducts";
+import useGetProducts from "./useGetProducts";
 
-type Price = Tables<"prices">;
-
-type User = {
+export type StripeUser = {
   email: string;
 };
 
 const _Page = () => {
-  useEffect(() => {
-    document.addEventListener("wheel", function (event) {
-      if (document.activeElement.type === "number") {
-        const inputElement = document.activeElement as HTMLInputElement;
-        inputElement.blur();
-      }
-    });
-  }, []);
-
   const {
     formDisabled,
     onError,
@@ -58,12 +42,12 @@ const _Page = () => {
 
   const router = useRouter();
 
-  const { data: products, isLoading, error } = useGetSoleTraderProducts();
+  const { data: products, isLoading, error } = useGetProducts();
 
   const onSubmit = (data: SoleTraderFormValues) => {
     console.log(data);
 
-    const user = { email: "bradysuryasie@gmail.com" } satisfies User;
+    const user = { email: "bradysuryasie@gmail.com" } satisfies StripeUser;
 
     // const user = { email: data.soleTraderDetails.email } satisfies User;
     const prices = findSoleTraderPrices(data, products);
@@ -72,40 +56,6 @@ const _Page = () => {
   };
 
   const errorsPresent = Object.keys(errors).length !== 0;
-
-  const handleStripeCheckout = async (
-    user: User,
-    prices: Price[],
-    formValues: Record<PropertyKey, any>
-  ) => {
-    const { errorRedirect, sessionId } = await checkoutWithStripe({
-      prices,
-      user,
-      formValues,
-      paths: {
-        successPath: Urls["Checkout Success"],
-        cancelPath: Urls.Home,
-        errorPath: Urls.Error,
-      },
-    });
-
-    if (errorRedirect) {
-      return router.push(errorRedirect);
-    }
-
-    if (!sessionId) {
-      return router.push(
-        getErrorRedirect(
-          Urls.Error,
-          "An unknown error occurred.",
-          "Please try again later or contact a system administrator."
-        )
-      );
-    }
-
-    const stripe = await getStripe();
-    stripe?.redirectToCheckout({ sessionId });
-  };
 
   const handleClick = () => {
     console.log(getValues());

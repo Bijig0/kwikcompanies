@@ -5,6 +5,7 @@ import PartnerShipFormValues from "app/partnership/partnershipForm";
 import { TSoleTraderFormContext } from "app/sole-trader/SoleTraderFormContext";
 import SoleTraderFormValues from "app/sole-trader/soleTraderForm";
 import { useForm } from "react-hook-form";
+import { Tables } from "./types_db";
 
 export const titles = ["Mr", "Mrs", "Miss", "Ms", "Dr", "Other"] as const;
 
@@ -40,3 +41,5 @@ export type ABNForms = {
 export type CreateFormRegisterable<T extends FormValues> = Parameters<
   ReturnType<typeof useForm<T>>["register"]
 >[0];
+
+export type Price = Tables<"prices">;

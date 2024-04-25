@@ -1,11 +1,13 @@
-import { CreateFormRegisterable } from "app/types/types";
-import { Tables } from "app/types/types_db";
-import SoleTraderFormValues from "./soleTraderForm";
+import retrievePrice from "@utils/retrievePrice";
 import {
   ABNProductQuery,
   ABNProductsQuery,
   ProductName,
-} from "./useGetSoleTraderProducts";
+} from "@utils/stripe/types";
+import { CreateFormRegisterable } from "app/types/types";
+import { Tables } from "app/types/types_db";
+import SoleTraderFormValues from "./soleTraderForm";
+import { undefined } from "zod";
 
 type Price = Tables<"prices">;
 type Product = Tables<"products">;
@@ -31,9 +33,6 @@ type RegistrationPeriodType = TypeAtPath<
 function getValueByPath(obj, path) {
   return path.split(".").reduce((current, key) => current && current[key], obj);
 }
-
-const retrievePrice = (products: ABNProductsQuery, productName: ProductName) =>
-  products.find(({ name }) => productName === name).prices[0];
 
 function createPriceType<
   T extends CreateFormRegisterable<SoleTraderFormValues>

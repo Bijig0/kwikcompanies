@@ -4,15 +4,12 @@ import router from "next/router";
 import { getErrorRedirect } from "./helpers";
 import { getStripe } from "./stripe/client";
 import { checkoutWithStripe } from "./stripe/server";
+import { StripeUser } from "app/sole-trader/page";
 
 type Price = Tables<"prices">;
 
-type User = {
-  email: string;
-};
-
 const handleStripeCheckout = async (
-  user: User,
+  user: StripeUser,
   prices: Price[],
   formValues: Record<PropertyKey, any>
 ) => {

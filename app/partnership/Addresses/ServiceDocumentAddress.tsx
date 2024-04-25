@@ -157,7 +157,6 @@ export default function BusinessAddress() {
           <PartnershipFormProvider.TextInput
             placeholder="Apartment, suite, unit, building, floor, etc."
             name="businessLocation.addressForServiceDocuments.address.address_line_2"
-            rules={requiredCondition}
           />
         </div>
         <div>

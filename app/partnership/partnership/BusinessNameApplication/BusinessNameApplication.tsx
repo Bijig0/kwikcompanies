@@ -103,7 +103,13 @@ const _BusinessNameApplication = () => {
             <Controller
               key={option}
               name="businessNameApplication.businessName.answer"
-              rules={{ required: "This field is required" }}
+              rules={{
+                validate: (x) => {
+                  return [true, false].includes(x)
+                    ? true
+                    : "This field is required";
+                },
+              }}
               control={control}
               render={({ field: { onChange, value } }) => (
                 <label className="inline-flex items-center">

@@ -1,12 +1,20 @@
 import { Controller } from "react-hook-form";
 import BusinessAddress from "../Addresses/BusinessAddress";
 import ServiceDocumentAddress from "../Addresses/ServiceDocumentAddress";
+import ErrorText from "../ErrorText";
 import FormPartLayout from "../FormPartLayout";
 import { usePartnershipFormContext } from "../PartnerShipFormContext";
 
 const BusinessLocation = () => {
   const {
-    formManager: { register, setValue, watch, control },
+    formDisabled,
+    formManager: {
+      register,
+      setValue,
+      watch,
+      control,
+      formState: { errors },
+    },
   } = usePartnershipFormContext();
 
   return (
@@ -19,11 +27,18 @@ const BusinessLocation = () => {
         <label className="font-semibold text-black text-md" htmlFor="message">
           What is your address for service of documents?
         </label>
+
         <div className="flex flex-col">
           <Controller
             name="businessLocation.addressForServiceDocuments.isBusinessAddress"
             control={control}
-            rules={{ required: "This field is required" }}
+            rules={{
+              validate: (x) => {
+                return [true, false].includes(x)
+                  ? true
+                  : "This field is required";
+              },
+            }}
             render={({ field: { onChange, onBlur, value, ref } }) => (
               <>
                 {["Business", "Other"].map((option) => (
@@ -35,6 +50,7 @@ const BusinessLocation = () => {
                       checked={value === (option === "Business")}
                       ref={ref}
                       className="form-radio"
+                      disabled={formDisabled}
                     />
                     <span className="ml-2">{option}</span>
                   </label>
@@ -42,6 +58,15 @@ const BusinessLocation = () => {
               </>
             )}
           />
+          {errors?.businessLocation?.addressForServiceDocuments
+            ?.isBusinessAddress && (
+            <ErrorText>
+              {
+                errors?.businessLocation?.addressForServiceDocuments
+                  ?.isBusinessAddress.message
+              }
+            </ErrorText>
+          )}
         </div>
       </div>
       {watch(

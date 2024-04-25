@@ -166,12 +166,10 @@ const Index = async () => {
             <div className="col-xl-9">
               <blockquote className="text-white blockquote-one">
                 <div className="text">
-                  Business consulting involves the provision expert advice and
-                  guidance to organizations seeking to improve their
-                  performance, solve specific problems, or achieve specific
-                  objectives. The primary purpose of business consultants is to
-                  leverage their expertise and experience to help clients make
-                  informed decisions, develop strategies, and implement
+                  Proper registration is the core pillar for any and every
+                  business. Kwik Companies takes the hassle and stress out of
+                  the administrative processes so that you don't need to worry
+                  about the unimportant things!{" "}
                 </div>
                 <div className="author">
                   <img src="assets/images/blog/blockquote.png" alt="Author" />

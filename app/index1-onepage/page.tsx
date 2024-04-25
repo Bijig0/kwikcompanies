@@ -20,9 +20,9 @@ const Index = () => {
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-xl-7 col-lg-10 col-md-11">
-              <div className="hero-content text-center text-white">
+              <div className="text-center text-white hero-content">
                 <span
-                  className="subtitle-one mb-20"
+                  className="mb-20 subtitle-one"
                   data-aos="fade-up"
                   data-aos-duration={1500}
                   data-aos-offset={50}
@@ -182,19 +182,12 @@ const Index = () => {
           </div>
           <div className="row justify-content-center">
             <div className="col-xl-9">
-              <blockquote
-                className="blockquote-one text-white"
-                data-aos="fade-up"
-                data-aos-duration={1000}
-                data-aos-offset={50}
-              >
+              <blockquote className="text-white blockquote-one">
                 <div className="text">
-                  Business consulting involves the provision expert advice and
-                  guidance to organizations seeking to improve their
-                  performance, solve specific problems, or achieve specific
-                  objectives. The primary purpose of business consultants is to
-                  leverage their expertise and experience to help clients make
-                  informed decisions, develop strategies, and implement
+                  Proper registration is the core pillar for any and every
+                  business. Kwik Companies takes the hassle and stress out of
+                  the administrative processes so that you don't need to worry
+                  about the unimportant things!
                 </div>
                 <div className="author">
                   <img src="assets/images/blog/blockquote.png" alt="Author" />
@@ -214,7 +207,7 @@ const Index = () => {
           <div className="row gap-90 align-items-center">
             <div className="col-lg-6">
               <div
-                className="about-images my-40"
+                className="my-40 about-images"
                 data-aos="fade-left"
                 data-aos-duration={1500}
                 data-aos-offset={50}
@@ -227,7 +220,7 @@ const Index = () => {
             </div>
             <div className="col-lg-6">
               <div
-                className="about-content mt-40 rmt-15"
+                className="mt-40 about-content rmt-15"
                 data-aos="fade-right"
                 data-aos-duration={1500}
                 data-aos-offset={50}
@@ -289,7 +282,7 @@ const Index = () => {
           <div className="row justify-content-center">
             <div className="col-xl-7 col-lg-9 col-md-11">
               <div
-                className="section-title text-center mb-60"
+                className="text-center section-title mb-60"
                 data-aos="fade-up"
                 data-aos-duration={1500}
                 data-aos-offset={50}
@@ -573,13 +566,13 @@ const Index = () => {
           <div className="row align-items-center justify-content-between">
             <div className="col-xl-6 col-lg-8">
               <div
-                className="cta-content text-white rmb-35"
+                className="text-white cta-content rmb-35"
                 data-aos="fade-left"
                 data-aos-duration={1000}
                 data-aos-offset={50}
               >
-                <div className="section-title mb-40">
-                  <span className="subtitle d-block mb-10">
+                <div className="mb-40 section-title">
+                  <span className="mb-10 subtitle d-block">
                     Website Builder
                   </span>
                   <h2>Ready Work Together to Create Website?</h2>
@@ -618,7 +611,7 @@ const Index = () => {
           <div className="row justify-content-center">
             <div className="col-xl-6 col-lg-8 col-md-10">
               <div
-                className="section-title text-center mb-60"
+                className="text-center section-title mb-60"
                 data-aos="fade-up"
                 data-aos-duration={1500}
                 data-aos-offset={50}
@@ -916,7 +909,7 @@ const Index = () => {
           <div className="row gap-110 align-items-center">
             <div className="col-lg-6">
               <div
-                className="management-content text-white mt-40"
+                className="mt-40 text-white management-content"
                 data-aos="fade-left"
                 data-aos-duration={1500}
                 data-aos-offset={50}
@@ -930,7 +923,7 @@ const Index = () => {
                 </p>
                 <div className="row gap-50 pt-25">
                   <div className="col-md-6">
-                    <div className="iconic-box style-nine text-white">
+                    <div className="text-white iconic-box style-nine">
                       <div className="icon">
                         <i className="fal fa-laptop-code" />
                       </div>
@@ -947,7 +940,7 @@ const Index = () => {
                     </div>
                   </div>
                   <div className="col-md-6">
-                    <div className="iconic-box style-nine text-white">
+                    <div className="text-white iconic-box style-nine">
                       <div className="icon">
                         <i className="fal fa-cog" />
                       </div>
@@ -969,7 +962,7 @@ const Index = () => {
             </div>
             <div className="col-lg-6">
               <div
-                className="management-images my-40"
+                className="my-40 management-images"
                 data-aos="fade-right"
                 data-aos-duration={1500}
                 data-aos-offset={50}
@@ -999,7 +992,7 @@ const Index = () => {
           <div className="row justify-content-center">
             <div className="col-xl-7 col-lg-9 col-md-11">
               <div
-                className="section-title text-center mb-60"
+                className="text-center section-title mb-60"
                 data-aos="fade-up"
                 data-aos-duration={1500}
                 data-aos-offset={50}
@@ -1018,7 +1011,7 @@ const Index = () => {
           <div className="row justify-content-center">
             <div className="col-xl-7 col-lg-9 col-md-11">
               <div
-                className="section-title text-center mb-60"
+                className="text-center section-title mb-60"
                 data-aos="fade-up"
                 data-aos-duration={1500}
                 data-aos-offset={50}
@@ -1145,7 +1138,7 @@ const Index = () => {
       {/* Client Logos Area Start */}
       <section className="client-logo-area pb-90 rpb-65">
         <div
-          className="section-title text-center mb-60"
+          className="text-center section-title mb-60"
           data-aos="fade-up"
           data-aos-duration={1500}
           data-aos-offset={50}

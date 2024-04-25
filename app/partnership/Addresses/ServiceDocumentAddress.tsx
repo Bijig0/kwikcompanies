@@ -76,7 +76,7 @@ export default function BusinessAddress() {
       feature.properties.address_level2
     );
     setValue(
-      "businessLocation.businessAddress.postcode",
+      "businessLocation.addressForServiceDocuments.address.postcode",
       feature.properties.postcode
     );
     expandForm();
@@ -127,7 +127,7 @@ export default function BusinessAddress() {
         <AddressAutofill accessToken={token} onRetrieve={handleRetrieve}>
           <PartnershipFormProvider.TextInput
             placeholder="Business Address"
-            name="businessLocation.businessAddress.full_address"
+            name="businessLocation.addressForServiceDocuments.address.full_address"
             rules={requiredCondition}
           />
         </AddressAutofill>

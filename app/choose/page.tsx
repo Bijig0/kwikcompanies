@@ -11,7 +11,7 @@ import ChooseStructure from "./ChooseStructure";
 import { ChooseStructureFormValues, Structure } from "./chooseStructureForm";
 
 const structureURL = {
-  Company: "/company",
+  // Company: "/company",
   Partnership: "/partnership",
   "Individual or Sole Trader": "/sole-trader",
 } satisfies Record<Structure, string>;

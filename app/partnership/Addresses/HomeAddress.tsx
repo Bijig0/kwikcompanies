@@ -136,7 +136,7 @@ export default function HomeAddress(props: Props) {
         {/* @ts-ignore */}
         <AddressAutofill accessToken={token} onRetrieve={handleRetrieve}>
           <PartnershipFormProvider.TextInput
-            placeholder="Business Address"
+            placeholder="Home Address"
             name={`partnerDetails.${index}.homeAddress.full_address`}
             rules={requiredCondition}
           />

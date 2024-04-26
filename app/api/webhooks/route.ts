@@ -89,6 +89,8 @@ export async function POST(req: Request) {
             }),
           });
 
+          console.log(data, error);
+
           if (error) {
             throw error;
           }

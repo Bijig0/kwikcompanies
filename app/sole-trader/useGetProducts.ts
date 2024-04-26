@@ -23,8 +23,11 @@ const useGetProducts = () => {
     assertProductNames();
 
     console.log(products);
+    const testProducts = products.filter(
+      ({ description }) => description === "Test"
+    );
 
-    const parsedProducts = products as ABNProductsQuery;
+    const parsedProducts = testProducts as ABNProductsQuery;
 
     return parsedProducts;
   };

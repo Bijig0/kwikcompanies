@@ -1,10 +1,20 @@
 import ErrorText from "@components/ErrorText";
+import dynamic from "next/dynamic";
 import { Controller } from "react-hook-form";
-import BusinessAddress from "../Addresses/BusinessAddress";
-import AutofillCheckoutDemo from "../Addresses/HomeAddress";
-import ServiceDocumentAddress from "../Addresses/ServiceDocumentAddress";
 import FormPartLayout from "../FormPartLayout";
 import { useSoleTraderFormContext } from "../SoleTraderFormContext";
+
+// Dynamically import the components
+const BusinessAddress = dynamic(() => import("../Addresses/BusinessAddress"), {
+  ssr: false,
+});
+const AutofillCheckoutDemo = dynamic(() => import("../Addresses/HomeAddress"), {
+  ssr: false,
+});
+const ServiceDocumentAddress = dynamic(
+  () => import("../Addresses/ServiceDocumentAddress"),
+  { ssr: false }
+);
 
 const BusinessLocation = () => {
   const {

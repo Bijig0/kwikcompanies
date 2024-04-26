@@ -16,13 +16,13 @@ import findSoleTraderPrices from "./findSoleTraderPrices";
 import ABNEntitlement from "./sole-trader/ABNEntitlement";
 import ABNRegistrationDetails from "./sole-trader/ABNRegistrationDetails/ABNRegistrationDetails";
 import BusinessDetails from "./sole-trader/BusinessDetails";
+import BusinessLocation from "./sole-trader/BusinessLocation";
 import BusinessNameApplication from "./sole-trader/BusinessNameApplication/BusinessNameApplication";
 import GSTRegistration from "./sole-trader/GSTRegistration";
 import SoleTraderDetails from "./sole-trader/SoleTraderDetails";
 import { queryClient } from "./sole-trader/queryClient";
 import SoleTraderFormValues from "./soleTraderForm";
 import useGetProducts from "./useGetProducts";
-import BusinessLocation from "./sole-trader/BusinessLocation";
 
 export type StripeUser = {
   email: string;
@@ -69,9 +69,9 @@ const _Page = () => {
           <div className="flex justify-center row gap-100 align-items-center">
             <div className="col-lg-7">
               <div className="contact-form br-10 bgc-lighter rmt-60">
-                <button type="button" onClick={handleClick}>
+                {/* <button type="button" onClick={handleClick}>
                   Click Me
-                </button>
+                </button> */}
                 <form
                   id="contactForm"
                   className="flex flex-col contactForm"

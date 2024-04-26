@@ -1,6 +1,6 @@
-import FormPartLayout from "app/company/FormPartLayout";
 import { useFormContext } from "react-hook-form";
 import { structures } from "./chooseStructureForm";
+import FormPartLayout from "./FormPartLayout";
 
 const ChooseStructure = () => {
   const { register } = useFormContext();

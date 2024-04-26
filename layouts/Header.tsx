@@ -44,6 +44,7 @@ const DefaultHeader = ({ onePage }) => {
               <div className="logo">
                 <Link href="/">
                   <img
+                    width={200}
                     src="assets/images/logos/logo.png"
                     alt="Logo"
                     title="Logo"

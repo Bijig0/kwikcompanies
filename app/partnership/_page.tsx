@@ -124,6 +124,8 @@ const _Page = () => {
 };
 
 const Page = () => {
+  return;
+
   return (
     <QueryClientProvider client={queryClient}>
       <SoleTraderFormProvider totalSteps={7}>

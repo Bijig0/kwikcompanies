@@ -5,6 +5,7 @@ import AkpagerLayout from "@layouts/AkpagerLayout";
 import Divider from "@components/Divider";
 import ErrorText from "@components/ErrorText";
 import { QueryClientProvider } from "@tanstack/react-query";
+import useHandleStripeCheckout from "@utils/useHandleStripeCheckout";
 import { Button } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
 import Declaration from "./Declaration";
@@ -15,14 +16,13 @@ import findSoleTraderPrices from "./findSoleTraderPrices";
 import ABNEntitlement from "./sole-trader/ABNEntitlement";
 import ABNRegistrationDetails from "./sole-trader/ABNRegistrationDetails/ABNRegistrationDetails";
 import BusinessDetails from "./sole-trader/BusinessDetails";
-import BusinessLocation from "./sole-trader/BusinessLocation";
 import BusinessNameApplication from "./sole-trader/BusinessNameApplication/BusinessNameApplication";
 import GSTRegistration from "./sole-trader/GSTRegistration";
 import SoleTraderDetails from "./sole-trader/SoleTraderDetails";
 import { queryClient } from "./sole-trader/queryClient";
 import SoleTraderFormValues from "./soleTraderForm";
 import useGetProducts from "./useGetProducts";
-import useHandleStripeCheckout from "@utils/useHandleStripeCheckout";
+import BusinessLocation from "./sole-trader/BusinessLocation";
 
 export type StripeUser = {
   email: string;

@@ -79,6 +79,7 @@ const _Page = () => {
 };
 
 const Page = () => {
+  return;
   return (
     <SoleTraderFormProvider totalSteps={7}>
       <_Page />

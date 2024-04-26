@@ -1,9 +1,5 @@
 import ErrorText from "@components/ErrorText";
-import {
-  AddressAutofill,
-  config,
-  useConfirmAddress,
-} from "@mapbox/search-js-react";
+import { AddressAutofill, config } from "@mapbox/search-js-react";
 import { AddressAutofillProps } from "@mapbox/search-js-react/dist/components/AddressAutofill";
 import { useBoolean } from "@utils/useBoolean";
 import { useEffect, useRef, useState } from "react";
@@ -43,11 +39,6 @@ export default function BusinessAddress() {
     config.accessToken = accessToken;
   }, []);
 
-  const { showConfirm } = useConfirmAddress({
-    skipConfirmModal: (feature) =>
-      ["exact", "high"].includes(feature.properties.match_code.confidence),
-  });
-
   const autofillInputRef = useRef<HTMLInputElement | null>(null);
 
   const handleRetrieve = (res: AutoCompleteResponse) => {
@@ -81,26 +72,6 @@ export default function BusinessAddress() {
     expandForm();
     Promise.resolve(() => (autofillInputRef.current.value = ""));
   };
-
-  const retrieveSuggestedAddress = async (e) => {
-    e.preventDefault();
-    const result = await showConfirm();
-    if (result.type === "nochange") submitForm();
-  };
-
-  function submitForm() {
-    setShowValidationText(true);
-    setTimeout(() => {
-      resetForm();
-    }, 2500);
-  }
-
-  function resetForm() {
-    const inputs = document.querySelectorAll("input");
-    inputs.forEach((input) => (input.value = ""));
-    closeForm();
-    setShowValidationText(false);
-  }
 
   console.log(errors);
 

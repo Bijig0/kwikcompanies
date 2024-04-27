@@ -1,3 +1,4 @@
+import { isValidPhoneNumber } from "libphonenumber-js";
 import { Controller } from "react-hook-form";
 import ErrorText from "../../../components/ErrorText";
 import FormPartLayout from "../FormPartLayout";
@@ -114,7 +115,13 @@ const SoleTraderDetails = () => {
         <label htmlFor="message">Phone Number</label>
         <SoleTraderTextInput
           placeholder="+61 403 057 369"
-          rules={{ required: "This field is required" }}
+          rules={{
+            required: "This field is required",
+            validate: (val) =>
+              isValidPhoneNumber(val, "AU")
+                ? true
+                : "This field must be a valid AU phone number",
+          }}
           name="soleTraderDetails.phoneNumber"
         />
         {errors?.soleTraderDetails?.phoneNumber && (

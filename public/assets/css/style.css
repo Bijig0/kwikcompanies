@@ -136,7 +136,6 @@ textarea,
   width: 100%;
   height: auto;
   font-weight: 500;
-  padding: 20px 30px;
   border-radius: 15px;
   font-family: var(--heading-font);
   background: var(--lighter-color);

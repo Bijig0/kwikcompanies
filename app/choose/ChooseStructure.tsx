@@ -10,19 +10,17 @@ const ChooseStructure = () => {
       </label>
       <div className="flex flex-col">
         {structures.map((option) => (
-          <div key={option}>
+          <label key={option} className="inline-flex items-center">
             <input
               {...register("structure", {
                 required: "You must choose a structure",
               })}
               type="radio"
-              className="w-3.5 h-3.5"
+              className="w-3.5 h-3.5 p-0"
               value={option}
             />
-            <label htmlFor={option} className="inline-flex items-center">
-              <span className="ml-2">{option}</span>
-            </label>
-          </div>
+            <span className="ml-2">{option}</span>
+          </label>
         ))}
       </div>
       {/* <RadioButtonGroup

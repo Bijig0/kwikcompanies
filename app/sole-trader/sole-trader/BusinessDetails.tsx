@@ -114,9 +114,9 @@ const BusinessDetails = () => {
             data-error="Please enter your Name"
           />
           <div className="my-2"></div>
-          <p>
+          {/* <p>
             If you can't remember your ABN, <a>click here</a>
-          </p>
+          </p> */}
           {errors?.businessDetails?.hasPreviousAbn?.prevAbn && (
             <ErrorText>
               {errors.businessDetails.hasPreviousAbn.prevAbn?.message}

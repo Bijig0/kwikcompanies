@@ -61,9 +61,7 @@ const BusinessDetails = () => {
                   <input
                     disabled={formDisabled}
                     type="radio"
-                    className={`form-radio ${
-                      formDisabled ? "bg-gray-100" : "bg-white"
-                    }`}
+                    className={`${formDisabled ? "bg-gray-100" : "bg-white"}`}
                     name="businessDetails.hasPreviousAbn.answer"
                     value={option}
                     onChange={() => onChange(option === "Yes")}

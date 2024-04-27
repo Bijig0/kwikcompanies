@@ -1,7 +1,7 @@
 import { useFormContext } from "react-hook-form";
+import { RadioButtonGroup } from "react-hook-form-mui";
 import FormPartLayout from "./FormPartLayout";
 import { structures } from "./chooseStructureForm";
-
 const ChooseStructure = () => {
   const { register } = useFormContext();
   return (
@@ -24,6 +24,21 @@ const ChooseStructure = () => {
           </label>
         ))}
       </div>
+      <RadioButtonGroup
+        label="Basic"
+        name="basic"
+        
+        options={[
+          {
+            id: "1",
+            label: "Label 1",
+          },
+          {
+            id: "2",
+            label: "label 2",
+          },
+        ]}
+      />
     </FormPartLayout>
   );
 };

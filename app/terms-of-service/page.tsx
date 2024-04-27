@@ -12,16 +12,9 @@ export default function Success() {
             <p>These terms of use (Terms) cover your access to and use of:</p>
             <ul>
               <li>
-                this website{" "}
-                <a href="http://www.business-switch.com.au">
-                  www.business-switch.com.au
-                </a>{" "}
-                and all related individual websites linked from{" "}
-                <a href="http://www.business-switch.com.au">
-                  www.business-switch.com.au
-                </a>{" "}
-                (Website) that are provided by Business Switch Pty Ltd (ABN 83
-                134 235 304) trading as honcho.com.au (we, us, our or Honcho);
+                this website <a href="/">www.kwikcompanies.com</a> and all
+                related individual websites linked from{" "}
+                <a href="/">www.kwikcompanies.com</a>{" "}
               </li>
               <li>
                 the services provided through the Websites (Services), namely:

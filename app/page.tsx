@@ -73,7 +73,7 @@ const Index = async () => {
                   <div className="content">
                     <h4>
                       <Link legacyBehavior href="service-details">
-                        Registered ASIC Agent #29963
+                        Registered ASIC Agent #26186619
                       </Link>
                     </h4>
                     <p>
@@ -107,7 +107,7 @@ const Index = async () => {
                   <div className="content">
                     <h4>
                       <Link legacyBehavior href="service-details">
-                        Registered Tax Agent #03631006
+                        Registered Tax Agent #26186619
                       </Link>
                     </h4>
                     <p>
@@ -129,7 +129,7 @@ const Index = async () => {
                   </div>
                 </div>
               </div>
-              <div className="col-xl-4 col-md-6">
+              {/* <div className="col-xl-4 col-md-6">
                 <div className="iconic-box">
                   <div className="mb-4 icon">
                     <img
@@ -146,11 +146,6 @@ const Index = async () => {
                     </h4>
                     <p>Certified information security management systems</p>
                     <hr />
-                    {/* <Link legacyBehavior href="/service-details">
-                      <a className="read-more">
-                        Read More <i className="far fa-arrow-right" />
-                      </a>
-                    </Link> */}
                   </div>
                   <div className="bg">
                     <img
@@ -159,7 +154,7 @@ const Index = async () => {
                     />
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="row justify-content-center">

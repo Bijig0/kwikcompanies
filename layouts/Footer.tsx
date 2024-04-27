@@ -106,8 +106,8 @@ const DefaultFooter = () => {
             <div className="col-xl-4 col-lg-6">
               <div className="pt-10 text-center copyright-text text-lg-start">
                 <p>
-                  Copyright @2024, <Link href="/">Akpager </Link> All Rights
-                  Reserved
+                  Copyright @2024, <Link href="/">Kwik Companies </Link> All
+                  Rights Reserved
                 </p>
               </div>
             </div>
@@ -1404,8 +1404,8 @@ const Footer9 = () => {
             <div className="col-xl-4 col-lg-6">
               <div className="pt-10 text-center copyright-text mb-25 text-lg-end">
                 <p>
-                  Copyright @2024, <Link href="/">Akpager </Link> All Rights
-                  Reserved
+                  Copyright @2024, <Link href="/">Kwik Companies </Link> All
+                  Rights Reserved
                 </p>
               </div>
             </div>

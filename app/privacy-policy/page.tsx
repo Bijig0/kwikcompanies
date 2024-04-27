@@ -17,8 +17,8 @@ const Page = () => {
               className="privacy-policy__paragraph privacy-policy__paragraph--main"
             >
               {" "}
-              This document describes how Business Switch Pty Ltd ABN 83 134 235
-              304 (<strong _ngcontent-c5="">we</strong> or{" "}
+              This document describes how Kwik Companies (
+              <strong _ngcontent-c5="">we</strong> or{" "}
               <strong _ngcontent-c5="">us</strong> or{" "}
               <strong _ngcontent-c5="">our</strong>) complies with the
               requirements of the Privacy Act 1988 (Cth) (
@@ -579,7 +579,7 @@ const Page = () => {
               className="privacy-policy__paragraph privacy-policy__list--second"
             >
               {" "}
-              *As amended 05 April 2022.{" "}
+              *As amended 24 April 2024.{" "}
             </p>
           </div>
         </div>

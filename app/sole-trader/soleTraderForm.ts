@@ -184,6 +184,7 @@ type SoleTraderFormValues = {
   abnRegistrationDetails: TABNRegistrationDetails;
   businessNameApplication: TBusinessNameApplication;
   gstRegistration: TGSTRegistration;
+  agreeToAuthorizeAsATOAgent: boolean;
   agreedToTermsAndServices: boolean;
 };
 

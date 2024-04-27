@@ -1,6 +1,6 @@
 import { useFormContext } from "react-hook-form";
-import { structures } from "./chooseStructureForm";
 import FormPartLayout from "./FormPartLayout";
+import { structures } from "./chooseStructureForm";
 
 const ChooseStructure = () => {
   const { register } = useFormContext();
@@ -17,7 +17,7 @@ const ChooseStructure = () => {
                 required: "You must choose a structure",
               })}
               type="radio"
-              className="form-radio"
+              className="w-3.5 h-3.5"
               value={option}
             />
             <span className="ml-2">{option}</span>

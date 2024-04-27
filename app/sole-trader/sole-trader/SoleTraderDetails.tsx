@@ -28,8 +28,8 @@ const SoleTraderDetails = () => {
       >
         Click Me
       </div> */}
-      <div className="flex items-center gap-3 ">
-        <div className="flex-1">
+      <div className="flex flex-col items-start gap-3 md:items-center md:flex-row ">
+        <div className="flex-1 w-full">
           <label htmlFor="message">Title</label>
           <SoleTraderSelect
             name="soleTraderDetails.name.title"

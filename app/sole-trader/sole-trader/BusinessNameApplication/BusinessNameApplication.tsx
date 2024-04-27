@@ -136,6 +136,7 @@ const _BusinessNameApplication = () => {
               rules={
                 watch("businessNameApplication.businessName.answer") && {
                   validate: (x) => x != null,
+                  required: "This field is required",
                 }
               }
             />

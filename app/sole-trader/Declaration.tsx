@@ -28,8 +28,8 @@ const Declaration = () => {
             authorised ATO agent
           </a>
         </label>
-        {errors.agreedToTermsAndServices && (
-          <ErrorText>{errors.agreedToTermsAndServices.message}</ErrorText>
+        {errors.agreeToAuthorizeAsATOAgent && (
+          <ErrorText>{errors.agreeToAuthorizeAsATOAgent.message}</ErrorText>
         )}
       </div>
       <div>

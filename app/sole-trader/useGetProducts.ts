@@ -22,9 +22,13 @@ const useGetProducts = () => {
 
     assertProductNames();
 
+    const liveProducts = products.filter(
+      ({ description }) => description !== "Test"
+    );
+
     console.log(products);
 
-    const parsedProducts = products as ABNProductsQuery;
+    const parsedProducts = liveProducts as ABNProductsQuery;
 
     return parsedProducts;
   };

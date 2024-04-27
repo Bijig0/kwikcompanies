@@ -72,7 +72,7 @@ export async function checkoutWithStripe(
     } catch (err) {
       console.error(err);
       console.log(err);
-      throw new Error("Unable to create checkout session.");
+      throw err;
     }
 
     // Instead of returning a Response, just return the data or error.

@@ -6,8 +6,8 @@ import {
 } from "@utils/stripe/types";
 import { CreateFormRegisterable } from "app/types/types";
 import { Tables } from "app/types/types_db";
-import SoleTraderFormValues from "./soleTraderForm";
 import { undefined } from "zod";
+import SoleTraderFormValues from "./soleTraderForm";
 
 type Price = Tables<"prices">;
 type Product = Tables<"products">;
@@ -52,7 +52,7 @@ const findSoleTraderPrices = (
   data: SoleTraderFormValues,
   products: ABNProductsQuery
 ): Price[] => {
-  const priceTypes = [
+  const priceTypes: (Price | undefined)[] = [
     retrievePrice(products, "Sole Trader ABN Registration"),
     createPriceType(
       data,

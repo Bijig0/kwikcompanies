@@ -1,9 +1,8 @@
 import { useFormContext } from "react-hook-form";
-import { RadioButtonGroup } from "react-hook-form-mui";
 import FormPartLayout from "./FormPartLayout";
 import { structures } from "./chooseStructureForm";
 const ChooseStructure = () => {
-  const { register } = useFormContext();
+  const { register, control } = useFormContext();
   return (
     <FormPartLayout header="Choose a structure" step={1}>
       <label className="font-semibold text-black text-md" htmlFor="message">
@@ -11,7 +10,7 @@ const ChooseStructure = () => {
       </label>
       <div className="flex flex-col">
         {structures.map((option) => (
-          <label key={option} className="inline-flex items-center">
+          <div key={option}>
             <input
               {...register("structure", {
                 required: "You must choose a structure",
@@ -20,13 +19,16 @@ const ChooseStructure = () => {
               className="w-3.5 h-3.5"
               value={option}
             />
-            <span className="ml-2">{option}</span>
-          </label>
+            <label htmlFor={option} className="inline-flex items-center">
+              <span className="ml-2">{option}</span>
+            </label>
+          </div>
         ))}
       </div>
-      <RadioButtonGroup
+      {/* <RadioButtonGroup
         label="Basic"
         name="basic"
+        control={control}
         
         options={[
           {
@@ -38,7 +40,7 @@ const ChooseStructure = () => {
             label: "label 2",
           },
         ]}
-      />
+      /> */}
     </FormPartLayout>
   );
 };

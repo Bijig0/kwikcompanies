@@ -96,6 +96,8 @@ export async function POST(req: Request) {
           }
 
           break;
+        case "checkout.session.expired":
+          break;
         default:
           throw new Error("Unhandled relevant event!");
       }

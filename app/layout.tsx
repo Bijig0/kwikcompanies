@@ -7,9 +7,10 @@ import "@css/magnific-popup.min.css";
 import "@css/nice-select.min.css";
 import "@css/slick.min.css";
 import "@css/style.css";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/react";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        <GoogleAnalytics gaId="G-6G1Q6JS124" />
         <Analytics />
         <Preloader />
         {children}

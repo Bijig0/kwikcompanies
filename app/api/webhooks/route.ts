@@ -14,10 +14,12 @@ const relevantEvents = new Set([
   "product.created",
   "product.updated",
   "product.deleted",
+  "balance.available",
   "price.created",
   "price.updated",
   "price.deleted",
   "checkout.session.completed",
+  "checkout.session.expired",
   "customer.subscription.created",
   "customer.subscription.updated",
   "customer.subscription.deleted",
@@ -97,6 +99,8 @@ export async function POST(req: Request) {
 
           break;
         case "checkout.session.expired":
+          break;
+        case "balance.available":
           break;
         default:
           throw new Error("Unhandled relevant event!");
